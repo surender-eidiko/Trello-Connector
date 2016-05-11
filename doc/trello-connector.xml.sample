@@ -1,0 +1,6 @@
+<!-- BEGIN_INCLUDE(trello:greet) -->
+    <trello:greet config-ref="" friend="#[map-payload:friend]" />
+<!-- END_INCLUDE(trello:greet) -->
+<!-- BEGIN_INCLUDE(trello:add-entity) -->
+    <trello:add-entity config-ref="" key="id1"/>
+<!-- END_INCLUDE(trello:add-entity) -->
