@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNull;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.trello.TrelloConnector;
+import org.mule.modules.trello.automation.runner.FunctionalTestSuite;
 
 public class GetActionsByIdWithEntitiesTestCases extends TrelloAbstractTestcases{
 

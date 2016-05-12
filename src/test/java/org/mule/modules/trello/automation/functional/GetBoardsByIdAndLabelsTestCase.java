@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.trello.TrelloConnector;
+import org.mule.modules.trello.automation.runner.FunctionalTestSuite;
 import org.mule.modules.trello.bean.BoardsByIdAndLabelsGetResponse;
 
 public class GetBoardsByIdAndLabelsTestCase extends TrelloAbstractTestcases {
