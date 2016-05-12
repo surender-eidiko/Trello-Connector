@@ -1,6 +1,6 @@
 package org.mule.modules.trello.bean;
 
-public class BoardsByIdLabelPostRequest {
+public class LabelByIdPutRequest {
 	private String name;
 	private String color;
 	public String getName() {

@@ -1,14 +1,15 @@
 package org.mule.modules.trello.bean;
 
-public class ActionsByIdPutRequest  {
-	String text;
+public class CardsIdMembersPostRequest {
+	String value;
 
 	public String getValue() {
-		return text;
+		return value;
 	}
 
 	public void setValue(String value) {
-		this.text = value;
+		this.value = value;
 	}
 	
+
 }

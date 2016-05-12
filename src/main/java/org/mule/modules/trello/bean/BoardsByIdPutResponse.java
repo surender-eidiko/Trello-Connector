@@ -1,6 +1,5 @@
-package org.mule.modules.trello;
+package org.mule.modules.trello.bean;
 
-import org.mule.modules.trello.bean.StatusResponse;
 
 public class BoardsByIdPutResponse extends StatusResponse {
 	private String id;

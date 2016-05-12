@@ -1,8 +1,7 @@
 package org.mule.modules.trello.bean;
 
-public class BoardsByIdListPostRequest {
+public class CheckItemsPostRequest {
 	private String name;
-	private String pos;
 	public String getName() {
 		return name;
 	}
@@ -15,5 +14,12 @@ public class BoardsByIdListPostRequest {
 	public void setPos(String pos) {
 		this.pos = pos;
 	}
-	
+	public Boolean getChecked() {
+		return checked;
+	}
+	public void setChecked(Boolean checked) {
+		this.checked = checked;
+	}
+	private String pos;
+	private Boolean checked;
 }

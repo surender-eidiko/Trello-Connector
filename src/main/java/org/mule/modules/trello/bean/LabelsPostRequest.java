@@ -1,8 +1,9 @@
 package org.mule.modules.trello.bean;
 
-public class BoardsByIdLabelPostRequest {
+public class LabelsPostRequest {
 	private String name;
 	private String color;
+	private String idBoard;
 	public String getName() {
 		return name;
 	}
@@ -14,6 +15,12 @@ public class BoardsByIdLabelPostRequest {
 	}
 	public void setColor(String color) {
 		this.color = color;
+	}
+	public String getIdBoard() {
+		return idBoard;
+	}
+	public void setIdBoard(String idBoard) {
+		this.idBoard = idBoard;
 	}
 	
 }

@@ -11,15 +11,8 @@ import org.mule.api.annotations.lifecycle.Start;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.MetaDataKeyParam;
 import org.mule.api.annotations.param.Optional;
-import org.mule.modules.trello.bean.ActionsByIdAndListGetResponse;
-import org.mule.modules.trello.bean.ActionsByIdAndMemberCreaterGetResponse;
-import org.mule.modules.trello.bean.ActionsByIdAndMemberGetResponse;
-import org.mule.modules.trello.bean.ActionsByIdAndOrganizationGetResponse;
-import org.mule.modules.trello.bean.ActionsByIdGetResponse;
 import org.mule.modules.trello.bean.ActionsByIdPutRequest;
-import org.mule.modules.trello.bean.ActionsByIdPutResponse;
-import org.mule.modules.trello.bean.ActionsByIdWithDisplayGetResponse;
-import org.mule.modules.trello.bean.ActionsByIdWithEntitiesGetResponse;
+import org.mule.modules.trello.bean.ActionsTextByIdPutRequest;
 import org.mule.modules.trello.bean.BoardMembersByBoardIdGetResponse;
 import org.mule.modules.trello.bean.BoardMembersInvitedGetResponse;
 import org.mule.modules.trello.bean.BoardsByIdAndActionsGetResponse;
@@ -34,15 +27,20 @@ import org.mule.modules.trello.bean.BoardsByIdAndMembersByIdCardsGetResponse;
 import org.mule.modules.trello.bean.BoardsByIdGetResponse;
 import org.mule.modules.trello.bean.BoardsByIdLabelPostRequest;
 import org.mule.modules.trello.bean.BoardsByIdListPostRequest;
+import org.mule.modules.trello.bean.BoardsByIdPutRequest;
 import org.mule.modules.trello.bean.BoardsCalendekeyGeneratePostRequest;
 import org.mule.modules.trello.bean.BoardsChecklistPostRequest;
+import org.mule.modules.trello.bean.BoardsClosedByIdPutRequest;
+import org.mule.modules.trello.bean.BoardsDescriptionByIdPutRequest;
 import org.mule.modules.trello.bean.BoardsMembershipGetResponse;
+import org.mule.modules.trello.bean.BoardsOrganizationByIdPutRequest;
 import org.mule.modules.trello.bean.BoardsPostRequest;
 import org.mule.modules.trello.bean.BoardsPostResponse;
 import org.mule.modules.trello.bean.BoardsPoweUpsPostRequest;
 import org.mule.modules.trello.bean.BoardssByIdAndOrganizationGetResponse;
 import org.mule.modules.trello.bean.CardsAcionCommentsByIdPostRequest;
 import org.mule.modules.trello.bean.CardsActionsByIdGetResponse;
+import org.mule.modules.trello.bean.CardsAttachmentsByIdPostRequest;
 import org.mule.modules.trello.bean.CardsByIdGetResponse;
 import org.mule.modules.trello.bean.CardsByIdPutRequest;
 import org.mule.modules.trello.bean.CardsByIdWithFieldGetResponse;
@@ -52,17 +50,46 @@ import org.mule.modules.trello.bean.CardsCardsListPutRequest;
 import org.mule.modules.trello.bean.CardsCheckListNamePutRequest;
 import org.mule.modules.trello.bean.CardsCheckListPositionPutRequest;
 import org.mule.modules.trello.bean.CardsCheckListStatePutRequest;
+import org.mule.modules.trello.bean.CardsCheckListsByIdPostRequest;
 import org.mule.modules.trello.bean.CardsClosedPutRequest;
 import org.mule.modules.trello.bean.CardsCommentsByIdPutRequest;
 import org.mule.modules.trello.bean.CardsCurrentCheckListPutRequest;
 import org.mule.modules.trello.bean.CardsDescriptionPutRequest;
 import org.mule.modules.trello.bean.CardsDuePutRequest;
+import org.mule.modules.trello.bean.CardsIdLabelByIdPostRequest;
+import org.mule.modules.trello.bean.CardsIdMembersPostRequest;
+import org.mule.modules.trello.bean.CardsLabelsPostRequest;
 import org.mule.modules.trello.bean.CardsMemberPutRequest;
+import org.mule.modules.trello.bean.CardsMembersVotedPostRequest;
 import org.mule.modules.trello.bean.CardsNamePosRequest;
 import org.mule.modules.trello.bean.CardsNamePutRequest;
 import org.mule.modules.trello.bean.CardsPostRequest;
 import org.mule.modules.trello.bean.CardsStickerPutRequest;
+import org.mule.modules.trello.bean.CardsStickersPostRequest;
 import org.mule.modules.trello.bean.CardsSubscribedPutRequest;
+import org.mule.modules.trello.bean.CheckItems;
+import org.mule.modules.trello.bean.CheckItemsPostRequest;
+import org.mule.modules.trello.bean.CheckListsGetResponse;
+import org.mule.modules.trello.bean.CheckListsToCardByIdPostRequest;
+import org.mule.modules.trello.bean.CheckListsUpdatePostRequest;
+import org.mule.modules.trello.bean.ChecklistsByIdPutRequest;
+import org.mule.modules.trello.bean.ChecklistsNameByIdPutRequest;
+import org.mule.modules.trello.bean.ChecklistsPosByIdPutRequest;
+import org.mule.modules.trello.bean.ChecklistsPostRequest;
+import org.mule.modules.trello.bean.LabelByIdPutRequest;
+import org.mule.modules.trello.bean.LabelColorByIdPutRequest;
+import org.mule.modules.trello.bean.LabelNameByIdPutRequest;
+import org.mule.modules.trello.bean.LabelsPostRequest;
+import org.mule.modules.trello.bean.ListCardsGetResponse;
+import org.mule.modules.trello.bean.ListsActionsByIdGetResponse;
+import org.mule.modules.trello.bean.ListsBoardsByIdPutRequest;
+import org.mule.modules.trello.bean.ListsByIdGetResponse;
+import org.mule.modules.trello.bean.ListsByIdPutRequest;
+import org.mule.modules.trello.bean.ListsCardsPostRequest;
+import org.mule.modules.trello.bean.ListsClosedByIdPutRequest;
+import org.mule.modules.trello.bean.ListsFieldByIdGetResponse;
+import org.mule.modules.trello.bean.ListsMovedCardsPostRequest;
+import org.mule.modules.trello.bean.ListsPostRequest;
 import org.mule.modules.trello.bean.StatusResponse;
 import org.mule.modules.trello.config.ConnectorConfig;
 
@@ -97,7 +124,7 @@ public class TrelloConnector {
 	}
 
 	@Processor
-	public ActionsByIdGetResponse getActionsById(String actionId,@Optional Boolean display,
+	public String getActionsById(String actionId,@Optional Boolean display,
 			@Optional Boolean entities, @Optional String fields,
 			@Optional Boolean member, @Optional String member_fields,
 			@Optional Boolean memberCreator,
@@ -107,74 +134,74 @@ public class TrelloConnector {
 	}
 	
 	@Processor
-	public ActionsByIdGetResponse getActionsByIdAndField(String actionId,String field){
+	public String getActionsByIdAndField(String actionId,String field){
 		return getClient().getActionsByIdAndField(actionId,field);
 	}
 	
 	@Processor
-	public ActionsByIdGetResponse getActionsByIdAndBoard(String actionId,String fields){
+	public String getActionsByIdAndBoard(String actionId,String fields){
 		return getClient().getActionsByIdAndBoard(actionId,fields);
 	}
 	
 	@Processor
-	public ActionsByIdGetResponse getActionsByIdAndBoardWithField(String actionId,String field){
+	public String getActionsByIdAndBoardWithField(String actionId,String field){
 		return getClient().getActionsByIdAndBoardWithField(actionId,field);
 	}
 	
 	@Processor
-	public ActionsByIdGetResponse getActionsByIdAndCard(String actionId,@Optional String fields){
+	public String getActionsByIdAndCard(String actionId,@Optional String fields){
 		return getClient().getActionsByIdAndCard(actionId,fields);
 	}
 	@Processor
-	public ActionsByIdGetResponse getActionsByIdAndCardWithField(String actionId,String field){
+	public String getActionsByIdAndCardWithField(String actionId,String field){
 		return getClient().getActionsByIdAndCardWithField(actionId,field);
 	}
 	
 	@Processor
-	public ActionsByIdWithDisplayGetResponse getActionsByIdWithDispaly(String actionId){
+	public String getActionsByIdWithDispaly(String actionId){
 		return getClient().getActionsByIdWithDispaly(actionId);
 	}
 	@Processor
-	public ActionsByIdWithEntitiesGetResponse getActionsByIdWithEntities1(String actionId){
+	public String getActionsByIdWithEntities1(String actionId){
 		return getClient().getActionsByIdWithEntities(actionId);
 	}
 	@Processor
-	public ActionsByIdAndListGetResponse getActionsByIdAndList(String actionId,@Optional String fields){
+	public String getActionsByIdAndList(String actionId,@Optional String fields){
 		return getClient().getActionsByIdAndList(actionId,fields);
 	}
 	@Processor
-	public ActionsByIdAndListGetResponse getActionsByIdAndListWithField(String actionId,String field){
+	public String getActionsByIdAndListWithField(String actionId,String field){
 		return getClient().getActionsByIdAndListWithField(actionId,field);
 	}
 	
 	@Processor
-	public ActionsByIdAndMemberGetResponse getActionsByIdAndMember(String actionId,@Optional String fields){
+	public String getActionsByIdAndMember(String actionId,@Optional String fields){
 		return getClient().getActionsByIdAndMember(actionId,fields);
 	}
 	@Processor
-	public ActionsByIdAndMemberGetResponse getActionsByIdAndMemberWithField(String actionId,String field){
+	public String getActionsByIdAndMemberWithField(String actionId,String field){
 		return getClient().getActionsByIdAndMemberWithField(actionId,field);
 	}
 	@Processor
-	public ActionsByIdAndMemberCreaterGetResponse getActionsByIdAndMemberCreater(String actionId,@Optional String fields){
+	public String getActionsByIdAndMemberCreater(String actionId,@Optional String fields){
 		return getClient().getActionsByIdAndMemberCreater(actionId,fields);
 	}
 	@Processor
-	public ActionsByIdAndMemberCreaterGetResponse getActionsByIdAndMemberCreaterWithField(String actionId,String field){
+	public String getActionsByIdAndMemberCreaterWithField(String actionId,String field){
 		return getClient().getActionsByIdAndMemberCreaterWithField(actionId,field);
 	}
 	@Processor
-	public ActionsByIdAndOrganizationGetResponse getActionsByIdAndOrganization(String actionId,@Optional String fields){
+	public String getActionsByIdAndOrganization(String actionId,@Optional String fields){
 		return getClient().getActionsByIdAndOrganizationWithField(actionId,fields);
 	}
 	
 	@Processor
-	  public ActionsByIdPutResponse putReadActionsById(String actionId,@Optional String text,@Default("#[payload]") ActionsByIdPutRequest actionIdPutRequest) {
+	  public String putReadActionsById(String actionId,@Optional String text,ActionsByIdPutRequest actionIdPutRequest) {
 	    return getClient().putReadActionsById(actionId,text,actionIdPutRequest);
 	  }
 	
 	@Processor
-	  public ActionsByIdPutResponse putWriteActionsById(String actionId,String value,@Default("#[payload]") ActionsByIdPutRequest actionIdPutRequest) {
+	  public String putWriteActionsById(String actionId,String value, ActionsTextByIdPutRequest actionIdPutRequest) {
 	    return getClient().putWriteActionsById(actionId,value,actionIdPutRequest);
 	  }
 	
@@ -182,8 +209,6 @@ public class TrelloConnector {
 	  public StatusResponse deleteActionsById(String membershipId) {
 	    return getClient().deleteActionsById(membershipId);
 	  }
-	
-	
 	@Processor
 	public BoardsByIdGetResponse getBoardsById(String boardId,@Optional String actions,
 			@Optional Boolean actions_entities,	@Optional Boolean actions_display, @Optional String actions_format,
@@ -288,15 +313,25 @@ public class TrelloConnector {
 	public BoardssByIdAndOrganizationGetResponse getBoardsByIdAndOrganizationWithField(String boardId, String fields){
 		return getClient().getBoardsByIdAndOrganizationWithField(boardId,fields);
 	}
-	/*@Processor
-	public BoardsByIdPutResponse putBoardsById(String boardId, @Optional String name,@Optional String desc,@Optional Boolean closed,@Optional Boolean subscribed,@Optional String idOrganization,){
-		return getClient().getBoardsByIdAndOrganizationWithField(boardId,fields);
-	}
+	// Board PUT Methods
 	@Processor
-	public BoardsByIdPutResponse putBoardsByIdAndClosed(String boardId, String value,@Default("#[payload]") ){
-		return getClient().putBoardsByIdAndClosed(boardId,value);
-	}*/
+	  public String putBoardsById(String boardId,BoardsByIdPutRequest boardsByIdPutReq) {
+	    return getClient().putBoardsById(boardId,boardsByIdPutReq);
+	  }
+	@Processor
+	  public String putBoardsClosedById(String boardId,BoardsClosedByIdPutRequest boardsClosedByIdPutReq) {
+	    return getClient().putBoardsClosedById(boardId,boardsClosedByIdPutReq);
+	  }
+	@Processor
+	  public String updateBoardsDescriptionById(String boardId,BoardsDescriptionByIdPutRequest boardsClosedByIdPutReq) {
+	    return getClient().updateBoardsDescriptionById(boardId,boardsClosedByIdPutReq);
+	  }
+	@Processor
+	  public String updateBoardsOrganizationById(String boardId,BoardsOrganizationByIdPutRequest boardsOrganizationByIdPutReq) {
+	    return getClient().updateBoardsOrganizationById(boardId,boardsOrganizationByIdPutReq);
+	  }
 	
+//Boards POST Methods
 	@Processor
 	  public BoardsPostResponse postBoards(BoardsPostRequest boardssPostRequest) {
 		
@@ -307,20 +342,20 @@ public class TrelloConnector {
 	    return getClient().postBoardsCalenderkeyGenerate(boardId,boardsCalenderkeyGenPostRequest);
 	  }
 	@Processor
-	  public StatusResponse postBoardsChecklists(String boardId,String name,BoardsChecklistPostRequest boardsChecklistPostRequest) {
-	    return getClient().postBoardsChecklists(boardId,name,boardsChecklistPostRequest);
+	  public StatusResponse postBoardsChecklists(String boardId,BoardsChecklistPostRequest boardsChecklistPostRequest) {
+	    return getClient().postBoardsChecklists(boardId,boardsChecklistPostRequest);
 	  }
 	@Processor
 	  public StatusResponse postBoardsEmailkeyGeneration(String boardId,BoardsCalendekeyGeneratePostRequest boardsEmailkeyGenPostRequest) {
 	    return getClient().postBoardsEmailkeyGeneration(boardId,boardsEmailkeyGenPostRequest);
 	  }
 	@Processor
-	  public StatusResponse postBoardsByAndLabel(String boardId,String name,String color,BoardsByIdLabelPostRequest boardsIdLabelPostRequest) {
-	    return getClient().postBoardsByAndLabel(boardId,name,color,boardsIdLabelPostRequest);
+	  public StatusResponse postBoardsByIdAndLabel(String boardId,BoardsByIdLabelPostRequest boardsIdLabelPostRequest) {
+	    return getClient().postBoardsByIdAndLabel(boardId,boardsIdLabelPostRequest);
 	  }
 	@Processor
-	  public StatusResponse postBoardsByAndList(String boardId,String name,@Optional String pos,BoardsByIdListPostRequest boardsIdListPostRequest) {
-	    return getClient().postBoardsByAndList(boardId,name,pos,boardsIdListPostRequest);
+	  public StatusResponse postBoardsByAndList(String boardId,BoardsByIdListPostRequest boardsIdListPostRequest) {
+	    return getClient().postBoardsByAndList(boardId,boardsIdListPostRequest);
 	  }
 	@Processor
 	  public StatusResponse postBoardsMarkAsViewd(String boardId,BoardsCalendekeyGeneratePostRequest boardsMarkAsVieedPostReq ) {
@@ -460,7 +495,7 @@ public class TrelloConnector {
 	    return getClient().updateCardNameById(cardIdOrShortlink,updateCardsNamePutReq);
 	  }
 	@Processor
-	  public String updateCardNameById(String cardIdOrShortlink,CardsNamePosRequest updateCardsNamePutReq) {
+	  public String updateCardPosById(String cardIdOrShortlink,CardsNamePosRequest updateCardsNamePutReq) {
 	    return getClient().updateCardPosById(cardIdOrShortlink,updateCardsNamePutReq);
 	  }
 	@Processor
@@ -476,10 +511,257 @@ public class TrelloConnector {
 	    return getClient().postCards(cardsPosrReq);
 	  }
 	@Processor
-	  public String postCardsAcionComments(CardsAcionCommentsByIdPostRequest cardsActionCommentsPostReq) {
-	    return getClient().postCardsAcionComments(cardsActionCommentsPostReq);
+	  public String postCardsAcionComments(String cardIdOrShortlink,CardsAcionCommentsByIdPostRequest cardsActionCommentsPostReq) {
+	    return getClient().postCardsAcionComments(cardIdOrShortlink,cardsActionCommentsPostReq);
 	  }
+	@Processor
+	  public String postCardsAttachmentsById(String cardIdOrShortlink,CardsAttachmentsByIdPostRequest postCardsAttachmentsById) {
+	    return getClient().postCardsAttachmentsById(cardIdOrShortlink,postCardsAttachmentsById);
+	  }
+	@Processor
+	  public String postCardsCheckListsById(String cardIdOrShortlink,String idCheckList,CardsCheckListsByIdPostRequest postCardChecklistsByIdPostReq) {
+	    return getClient().postCardsCheckListsById(cardIdOrShortlink,idCheckList,postCardChecklistsByIdPostReq);
+	  }
+	@Processor
+	  public String convertChecklistToCardsById(String cardIdOrShortlink,String idChecklist,String idCheckItem ,CheckListsToCardByIdPostRequest postCardChecklistsToCardByIdPostReq) {
+	    return getClient().convertChecklistToCardsById(cardIdOrShortlink,idChecklist,idCheckItem,postCardChecklistsToCardByIdPostReq);
+	  }
+	@Processor
+	  public String postCardsChecklistById(String cardIdOrShortlink,CheckListsUpdatePostRequest checkListUpdatePostReq) {
+	    return getClient().postCardsChecklistById(cardIdOrShortlink,checkListUpdatePostReq);
+	  }
+	@Processor
+	  public String postCardsIdLabelById(String cardIdOrShortlink,CardsIdLabelByIdPostRequest postCardsIdListPostReq) {
+	    return getClient().postCardsIdLabelById(cardIdOrShortlink,postCardsIdListPostReq);
+	  }
+	@Processor
+	  public String postCardsIdMembersById(String cardIdOrShortlink,CardsIdMembersPostRequest postCardsIdMemberPostReq) {
+	    return getClient().postCardsIdMembersById(cardIdOrShortlink,postCardsIdMemberPostReq);
+	  }
+	@Processor
+	  public String postCardsLabelsById(String cardIdOrShortlink,CardsLabelsPostRequest postCardsIdMemberPostReq) {
+	    return getClient().postCardsLabelsById(cardIdOrShortlink,postCardsIdMemberPostReq);
+	  }
+	@Processor
+	  public String postCardsMembersVotedById(String cardIdOrShortlink,CardsMembersVotedPostRequest postCardsMembedrsVotedPostReq) {
+	    return getClient().postCardsMembersVotedById(cardIdOrShortlink,postCardsMembedrsVotedPostReq);
+	  }
+	@Processor
+	  public String postCardStickersById(String cardIdOrShortlink,CardsStickersPostRequest postCardsStickersPostReq) {
+	    return getClient().postCardStickersById(cardIdOrShortlink,postCardsStickersPostReq);
+	  }
+	//Cards DELETE methods
 	
+	@Processor
+	  public StatusResponse deleteCardsById(String cardIdOrShortLink) {
+	    return getClient().deleteCardsById(cardIdOrShortLink);
+	  }
+	@Processor
+	  public StatusResponse deleteCardsActionCommentsById(String cardIdOrShortLink,String idAction) {
+	    return getClient().deleteCardsActionCommentsById(cardIdOrShortLink,idAction);
+	  }
+	@Processor
+	  public StatusResponse deleteCardsIdAttachmentById(String cardIdOrShortLink,String idAttachment) {
+	    return getClient().deleteCardsIdAttachmentById(cardIdOrShortLink,idAttachment);
+	  }
+	@Processor
+	  public StatusResponse deleteCardsCheckItemsById(String cardIdOrShortLink,String idChecklist,String idCheckItem) {
+	    return getClient().deleteCardsCheckItemsById(cardIdOrShortLink,idChecklist,idCheckItem);
+	  }
+	@Processor
+	  public StatusResponse deleteCardsCheckListsById(String cardIdOrShortLink,String idChecklist) {
+	    return getClient().deleteCardsChecklistsById(cardIdOrShortLink,idChecklist);
+	  }
+	@Processor
+	  public StatusResponse deleteCardsIdLabelById(String cardIdOrShortLink,String idLabel) {
+	    return getClient().deleteCardsIdLabelById(cardIdOrShortLink,idLabel);
+	  }
+	@Processor
+	  public StatusResponse deleteCardsByIdMember(String cardIdOrShortLink,String idMember) {
+	    return getClient().deleteCardsByIdMember(cardIdOrShortLink,idMember);
+	  }
+	@Processor
+	  public StatusResponse deleteCardsByIdMembersVoted(String cardIdOrShortLink,String idMember) {
+	    return getClient().deleteCardsByIdMembersVoted(cardIdOrShortLink,idMember);
+	  }
+	@Processor
+	  public StatusResponse deleteCardsStickersById(String cardIdOrShortLink,String idMember) {
+	    return getClient().deleteCardsByIdMembersVoted(cardIdOrShortLink,idMember);
+	  }
+	//Checklist Get methods
+	@Processor
+	  public CheckListsGetResponse getChecklistsById(String checklistId,@Optional String cards,@Optional String card_fields, @Optional String checkItems,@Optional String checkItem_fields,@Optional String fields) {
+	    return getClient().getChecklistsById(checklistId,cards,card_fields,checkItems,checkItem_fields,fields);
+	  }
+	@Processor
+	  public String getChecklistsFieldById(String checklistId,String field) {
+	    return getClient().getChecklistsFieldById(checklistId,field);
+	  }
+	@Processor
+	  public String getChecklistsBoardsById(String checklistId,@Optional String fields) {
+	    return getClient().getChecklistsBoardsById(checklistId,fields);
+	  }
+	@Processor
+	  public String getChecklistsBoardFieldById(String checklistId,String field) {
+	    return getClient().getChecklistsBoardFieldById(checklistId,field);
+	  }
+	@Processor
+	  public String getChecklistsCardsById(String checklistId,@Optional String actions,@Optional String attachments,@Optional String attachment_fields,@Optional Boolean stickers,@Optional Boolean members,@Optional String member_fields,@Optional Boolean checkItemStates,@Optional String checklists,@Optional Integer limit,@Optional String since,@Optional String before,@Optional String filter,@Optional  String fields) {
+	    return getClient().getChecklistsCardsById(checklistId,actions,attachments,attachment_fields,stickers,members,member_fields,checkItemStates,checklists,limit,since,before,filter,fields);
+	  }
+	@Processor
+	  public String getChecklistsCardsFieldById(String checklistId,String filter) {
+	    return getClient().getChecklistsCardsFieldById(checklistId,filter);
+	  }
+	@Processor
+	  public CheckItems getCheckItemsById(String checklistId,@Optional String filter,@Optional String fields) {
+	    return getClient().getCheckItemsById(checklistId,filter,fields);
+	  }
+	@Processor
+	  public CheckItems getCheckItemsByCheckedIdById(String checklistId,String idCheckItems,@Optional String fields) {
+	    return getClient().getCheckItemsByCheckedIdById(checklistId,idCheckItems,fields);
+	  }
+	@Processor
+	  public CheckItems getChecklistsByCheckedIdById(String checklistId,String idCheckItems,@Optional String fields) {
+	    return getClient().getCheckItemsByCheckedIdById(checklistId,idCheckItems,fields);
+	  }
+	//checklists PUT methods
+	@Processor
+	  public String putChecklistsById(String idChecklist,ChecklistsByIdPutRequest checklistsPutReq) {
+	    return getClient().putChecklistsById(idChecklist,checklistsPutReq);
+	  }
+	@Processor
+	  public String putChecklistsNameById(String idChecklist,ChecklistsNameByIdPutRequest checklistsNamePutReq) {
+	    return getClient().putChecklistsNameById(idChecklist,checklistsNamePutReq);
+	  }
+	@Processor
+	  public String putChecklistsPosById(String idChecklist,ChecklistsPosByIdPutRequest checklistsPosPutReq) {
+	    return getClient().putChecklistsPosById(idChecklist,checklistsPosPutReq);
+	  }
+	//Post checklists methods
+	@Processor
+	  public String postChecklists(ChecklistsPostRequest checklistsPostReq) {
+	    return getClient().postChecklistsById(checklistsPostReq);
+	  }
+	@Processor
+	  public String postCheckItemsById(String idChecklist,CheckItemsPostRequest checkItemsPostReq) {
+	    return getClient().postCheckItemsById(idChecklist,checkItemsPostReq);
+	  }
+	//DELETE checklist methods
+	@Processor
+	  public StatusResponse deleteChecklistsById(String idChecklist) {
+	    return getClient().deleteChecklistsById(idChecklist);
+	  }
+	@Processor
+	  public StatusResponse deleteChecklistsCheckItemsById(String idChecklist,String idCheckItem) {
+	    return getClient().deleteChecklistsCheckItemsById(idChecklist,idCheckItem);
+	  }
+	//GET Methods for label
+	@Processor
+	  public String getLabelsById(String idLabel,@Optional String fields) {
+	    return getClient().getLabelsById(idLabel,fields);
+	  }
+	@Processor
+	  public String getLabelsBoardsById(String idLabel,@Optional String fields) {
+	    return getClient().getLabelsBoardsById(idLabel,fields);
+	  }
+	@Processor
+	  public String getLabelsBoardsFieldById(String idLabel,@Optional String field) {
+	    return getClient().getLabelsBoardsFieldById(idLabel,field);
+	  }
+	//label PUT methods
+	@Processor
+	  public String updateLabelById(String idLabel,LabelByIdPutRequest labelByIdPutReq) {
+	    return getClient().updateLabelById(idLabel,labelByIdPutReq);
+	  }
+	@Processor
+	  public String updateLabelColorById(String idLabel,LabelColorByIdPutRequest labelcolorByIdPutReq) {
+	    return getClient().updateLabelColorById(idLabel,labelcolorByIdPutReq);
+	  }
+	@Processor
+	  public String updateLabelNameById(String idLabel,LabelNameByIdPutRequest labelNameByIdPutReq) {
+	    return getClient().updateLabelNameById(idLabel,labelNameByIdPutReq);
+	  }
+	//POST methods for labels
+	@Processor
+	  public String postLabels(LabelsPostRequest labelsPostReq) {
+	    return getClient().postLabels(labelsPostReq);
+	  }
+	//DELETE Label Methods
+	
+	@Processor
+	  public StatusResponse deleteLabelById(String labelId) {
+	    return getClient().deleteLabelById(labelId);
+	  }
+	//List GET Method Requests
+	
+	@Processor
+	public ListsByIdGetResponse getListById(String listId,@Optional String cards,@Optional String card_fields,@Optional String board ,@Optional String board_fields,@Optional String fields){
+		return getClient().getListById(listId,cards,card_fields,board,board_fields,fields);
+	}
+	@Processor
+	public ListsFieldByIdGetResponse getListFieldById(String listId,String field){
+		return getClient().getListFieldById(listId,field);
+	}
+	@Processor
+	public ListsActionsByIdGetResponse getListActionById(String listId,@Optional Boolean entities,@Optional Boolean display,@Optional String filter,@Optional String fields,@Optional Integer limit,@Optional String format,@Optional String since,@Optional String before,@Optional Integer page,@Optional String idModels,@Optional Boolean member,@Optional String member_fields,@Optional Boolean memberCreator,@Optional String memberCreator_fields){
+		return getClient().getListActionById(listId,entities,display,filter,fields,limit,format,since,before,page,idModels,member,member_fields,memberCreator,memberCreator_fields);
+	}
+	@Processor
+	public String getListBoardsById(String listId,@Optional String fields){
+		return getClient().getListBoardsById(listId,fields);
+	}
+	@Processor
+	public String getListBoardsFieldById(String listId, String field){
+		return getClient().getListBoardsFieldById(listId,field);
+	}
+	@Processor
+	  public ListCardsGetResponse  getListsCardsById(String listId,@Optional String actions,@Optional String attachments,@Optional String attachment_fields,@Optional Boolean stickers,@Optional Boolean members,@Optional String member_fields,@Optional Boolean checkItemStates,@Optional String checklists,@Optional Integer limit,@Optional String since,@Optional String before,@Optional String filter,@Optional  String fields) {
+	    return getClient().getListsCardsById(listId,actions,attachments,attachment_fields,stickers,members,member_fields,checkItemStates,checklists,limit,since,before,filter,fields);
+	  }
+	@Processor
+	public String getListCardsFilterById(String listId, String filter){
+		return getClient().getListCardsFilterById(listId,filter);
+	}
+	//PUT methods for Lists
+	@Processor
+	  public String updateListsById(String listId,ListsByIdPutRequest listsPutReq) {
+	    return getClient().updateListsById(listId,listsPutReq);
+	  }
+	@Processor
+	  public String updateListsCloseddById(String listId,ListsClosedByIdPutRequest listsClosedPutReq) {
+	    return getClient().updateListsCloseddById(listId,listsClosedPutReq);
+	  }
+	@Processor
+	  public String updateListsBoardsById(String listId,ListsBoardsByIdPutRequest listsBoardsPutReq) {
+	    return getClient().updateListsBoardsById(listId,listsBoardsPutReq);
+	  }
+	@Processor
+	  public String updateListsNameById(String listId,ChecklistsNameByIdPutRequest listNamesPutReq) {
+	    return getClient().updateListsNameById(listId,listNamesPutReq);
+	  }
+	@Processor
+	  public String updateListsPositionById(String listId,ChecklistsPosByIdPutRequest listPosPutReq) {
+	    return getClient().updateListsPositionById(listId,listPosPutReq);
+	  }
+	@Processor
+	  public String updateListsSubscribedById(String listId,CardsSubscribedPutRequest listSubscribedPutReq) {
+	    return getClient().updateListsSubscribedById(listId,listSubscribedPutReq);
+	  }
+	//POST lists methods
+	@Processor
+	  public String postLists(ListsPostRequest listssPostReq) {
+	    return getClient().postLists(listssPostReq);
+	  }
+	@Processor
+	  public String postListsCardsById(String idList,ListsCardsPostRequest listsCardsPostReq) {
+	    return getClient().postListsCardsById(idList,listsCardsPostReq);
+	  }
+	@Processor
+	  public String postListsMovedCardsById(String idList,ListsMovedCardsPostRequest listsMovedCardsPostReq) {
+	    return getClient().postListsMovedCardsById(idList,listsMovedCardsPostReq);
+	  }
+	//notifications GET methods
 	
 	
 	

@@ -1,13 +1,13 @@
 package org.mule.modules.trello.bean;
 
-public class BoardsByIdListPostRequest {
-	private String name;
+public class ListsBoardsByIdPutRequest {
+	private String value;
 	private String pos;
-	public String getName() {
-		return name;
+	public String getValue() {
+		return value;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setValue(String value) {
+		this.value = value;
 	}
 	public String getPos() {
 		return pos;

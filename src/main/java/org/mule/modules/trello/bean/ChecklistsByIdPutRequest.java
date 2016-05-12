@@ -1,19 +1,19 @@
 package org.mule.modules.trello.bean;
 
-public class BoardsByIdLabelPostRequest {
+public class ChecklistsByIdPutRequest {
 	private String name;
-	private String color;
+	private String pos;
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getColor() {
-		return color;
+	public String getPos() {
+		return pos;
 	}
-	public void setColor(String color) {
-		this.color = color;
+	public void setPos(String pos) {
+		this.pos = pos;
 	}
 	
 }
