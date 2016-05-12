@@ -1,44 +1,46 @@
 package org.mule.modules.trello.bean;
 
-import javax.annotation.Generated;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
-@Generated("org.jsonschema2pojo")
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class BoardsByIdAndListsGetResponse extends StatusResponse {
-	private String cards,card_fields,filter,fields;
+	 private String id;
 
-	public String getCards() {
-		return cards;
-	}
+	    private String name;
 
-	public void setCards(String cards) {
-		this.cards = cards;
-	}
+	    private Cards[] cards;
 
-	public String getCard_fields() {
-		return card_fields;
-	}
+	    public String getId ()
+	    {
+	        return id;
+	    }
 
-	public void setCard_fields(String card_fields) {
-		this.card_fields = card_fields;
-	}
+	    public void setId (String id)
+	    {
+	        this.id = id;
+	    }
 
-	public String getFilter() {
-		return filter;
-	}
+	    public String getName ()
+	    {
+	        return name;
+	    }
 
-	public void setFilter(String filter) {
-		this.filter = filter;
-	}
+	    public void setName (String name)
+	    {
+	        this.name = name;
+	    }
 
-	public String getFields() {
-		return fields;
-	}
+	    public Cards[] getCards ()
+	    {
+	        return cards;
+	    }
 
-	public void setFields(String fields) {
-		this.fields = fields;
-	}
-	
+	    public void setCards (Cards[] cards)
+	    {
+	        this.cards = cards;
+	    }
+
+	    @Override
+	    public String toString()
+	    {
+	        return "ClassPojo [id = "+id+", name = "+name+", cards = "+cards+"]";
+	    }
 }

@@ -1,6 +1,6 @@
 package org.mule.modules.trello.bean;
 
-public class List {
+public class Lists {
 	private String id;
 
     private String name;

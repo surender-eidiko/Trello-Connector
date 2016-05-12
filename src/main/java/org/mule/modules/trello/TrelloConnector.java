@@ -13,17 +13,10 @@ import org.mule.api.annotations.param.MetaDataKeyParam;
 import org.mule.api.annotations.param.Optional;
 import org.mule.modules.trello.bean.ActionsByIdPutRequest;
 import org.mule.modules.trello.bean.ActionsTextByIdPutRequest;
-import org.mule.modules.trello.bean.BoardMembersByBoardIdGetResponse;
-import org.mule.modules.trello.bean.BoardMembersInvitedGetResponse;
 import org.mule.modules.trello.bean.BoardsByIdAndActionsGetResponse;
-import org.mule.modules.trello.bean.BoardsByIdAndBoardStarsGetResponse;
 import org.mule.modules.trello.bean.BoardsByIdAndCardsGetResponse;
 import org.mule.modules.trello.bean.BoardsByIdAndCheckListsGetResponse;
-import org.mule.modules.trello.bean.BoardsByIdAndDeltasGetResponse;
-import org.mule.modules.trello.bean.BoardsByIdAndFieldGetResponse;
-import org.mule.modules.trello.bean.BoardsByIdAndLabelsGetResponse;
 import org.mule.modules.trello.bean.BoardsByIdAndListsGetResponse;
-import org.mule.modules.trello.bean.BoardsByIdAndMembersByIdCardsGetResponse;
 import org.mule.modules.trello.bean.BoardsByIdGetResponse;
 import org.mule.modules.trello.bean.BoardsByIdLabelPostRequest;
 import org.mule.modules.trello.bean.BoardsByIdListPostRequest;
@@ -32,18 +25,14 @@ import org.mule.modules.trello.bean.BoardsCalendekeyGeneratePostRequest;
 import org.mule.modules.trello.bean.BoardsChecklistPostRequest;
 import org.mule.modules.trello.bean.BoardsClosedByIdPutRequest;
 import org.mule.modules.trello.bean.BoardsDescriptionByIdPutRequest;
-import org.mule.modules.trello.bean.BoardsMembershipGetResponse;
 import org.mule.modules.trello.bean.BoardsOrganizationByIdPutRequest;
 import org.mule.modules.trello.bean.BoardsPostRequest;
 import org.mule.modules.trello.bean.BoardsPostResponse;
 import org.mule.modules.trello.bean.BoardsPoweUpsPostRequest;
-import org.mule.modules.trello.bean.BoardssByIdAndOrganizationGetResponse;
 import org.mule.modules.trello.bean.CardsAcionCommentsByIdPostRequest;
-import org.mule.modules.trello.bean.CardsActionsByIdGetResponse;
 import org.mule.modules.trello.bean.CardsAttachmentsByIdPostRequest;
 import org.mule.modules.trello.bean.CardsByIdGetResponse;
 import org.mule.modules.trello.bean.CardsByIdPutRequest;
-import org.mule.modules.trello.bean.CardsByIdWithFieldGetResponse;
 import org.mule.modules.trello.bean.CardsCardsBoardIdPutRequest;
 import org.mule.modules.trello.bean.CardsCardsIdAttachmentPutRequest;
 import org.mule.modules.trello.bean.CardsCardsListPutRequest;
@@ -90,7 +79,22 @@ import org.mule.modules.trello.bean.ListsClosedByIdPutRequest;
 import org.mule.modules.trello.bean.ListsFieldByIdGetResponse;
 import org.mule.modules.trello.bean.ListsMovedCardsPostRequest;
 import org.mule.modules.trello.bean.ListsPostRequest;
+import org.mule.modules.trello.bean.NotificationsByIdPutRequest;
+import org.mule.modules.trello.bean.NotificationsPostRequest;
+import org.mule.modules.trello.bean.NotificationsUnreadByIdPutRequest;
+import org.mule.modules.trello.bean.OrganizationGetResponse;
+import org.mule.modules.trello.bean.SessionByIdPutRequest;
+import org.mule.modules.trello.bean.SessionStatusByIdPutRequest;
+import org.mule.modules.trello.bean.SessionsPostRequest;
 import org.mule.modules.trello.bean.StatusResponse;
+import org.mule.modules.trello.bean.TokensGetResponse;
+import org.mule.modules.trello.bean.TokensPutRequest;
+import org.mule.modules.trello.bean.TypesGetResponse;
+import org.mule.modules.trello.bean.WebhooksActivePutRequest;
+import org.mule.modules.trello.bean.WebhooksByIdPutRequest;
+import org.mule.modules.trello.bean.WebhooksCallBackURLPutRequest;
+import org.mule.modules.trello.bean.WebhooksDescPutRequest;
+import org.mule.modules.trello.bean.WebhooksPutRequest;
 import org.mule.modules.trello.config.ConnectorConfig;
 
 /**
@@ -162,7 +166,7 @@ public class TrelloConnector {
 		return getClient().getActionsByIdWithDispaly(actionId);
 	}
 	@Processor
-	public String getActionsByIdWithEntities1(String actionId){
+	public String getActionsByIdWithEntities(String actionId){
 		return getClient().getActionsByIdWithEntities(actionId);
 	}
 	@Processor
@@ -209,6 +213,7 @@ public class TrelloConnector {
 	  public StatusResponse deleteActionsById(String membershipId) {
 	    return getClient().deleteActionsById(membershipId);
 	  }
+	//Boards GET Methods
 	@Processor
 	public BoardsByIdGetResponse getBoardsById(String boardId,@Optional String actions,
 			@Optional Boolean actions_entities,	@Optional Boolean actions_display, @Optional String actions_format,
@@ -219,7 +224,7 @@ public class TrelloConnector {
 				card_stickers,boardStars,labels,label_fields,labels_limit,lists,list_fields,memberships,memberships_member,memberships_member_fields,members,member_fields,membersInvited,membersInvited_fields,checklists,checklist_fields,organization,organization_fields,organization_memberships,myPrefs,tags,fields);
 	}
 	@Processor
-	public BoardsByIdAndFieldGetResponse getBoardsByIdAndField(String boardId,String field){
+	public String getBoardsByIdAndField(String boardId,String field){
 		return getClient().getBoardsByIdAndField(boardId,field);
 	}
 	@Processor
@@ -230,7 +235,7 @@ public class TrelloConnector {
 				before,page,idModels,member,member_fields,memberCreator,memberCreator_fields);
 	}
 	@Processor
-	public BoardsByIdAndBoardStarsGetResponse getBoardsByIdAndBoardStars(String boardId,@Optional String filter){
+	public String getBoardsByIdAndBoardStars(String boardId,@Optional String filter){
 		return getClient().getBoardsByIdAndBoardStars(boardId,filter);
 	}
 	@Processor
@@ -238,11 +243,11 @@ public class TrelloConnector {
 		return getClient().getBoardsByIdAndCards(boardId,actions,attachments,attachment_fields,stickers,members,member_fields,checklists,since,before,filter,fields);
 	}
 	@Processor
-	public BoardsByIdAndCardsGetResponse getBoardsByIdAndCardsWithFilter(String boardId,String filter){
+	public String getBoardsByIdAndCardsWithFilter(String boardId,String filter){
 		return getClient().getBoardsByIdAndCardsWithFilter(boardId,filter);
 	}
 	@Processor
-	public BoardsByIdAndActionsGetResponse getBoardsByIdAndCardsWithIdCards(String boardId,String idCard,@Optional String attachments,@Optional String attachment_fields,@Optional String actions,@Optional Boolean actions_entities,@Optional Boolean actions_display,@Optional Integer actions_limit,@Optional String action_fields,@Optional String action_memberCreator_fields,@Optional Boolean members,@Optional String member_fields,@Optional Boolean checkItemStates,@Optional String checkItemState_fields,@Optional Boolean labels,@Optional String checklists,@Optional String checklist_fields,@Optional String fields){
+	public String getBoardsByIdAndCardsWithIdCards(String boardId,String idCard,@Optional String attachments,@Optional String attachment_fields,@Optional String actions,@Optional Boolean actions_entities,@Optional Boolean actions_display,@Optional Integer actions_limit,@Optional String action_fields,@Optional String action_memberCreator_fields,@Optional Boolean members,@Optional String member_fields,@Optional Boolean checkItemStates,@Optional String checkItemState_fields,@Optional Boolean labels,@Optional String checklists,@Optional String checklist_fields,@Optional String fields){
 		return getClient().getBoardsByIdAndCardsWithIdCards(boardId,idCard,attachments,attachment_fields,actions,actions_entities,actions_display,actions_limit,action_fields,action_memberCreator_fields,members,member_fields,checkItemStates,checkItemState_fields,labels,checklists,checklist_fields,fields);
 	}
 	@Processor
@@ -250,15 +255,15 @@ public class TrelloConnector {
 		return getClient().getBoardsByIdAndCheckLists(boardId,cards,card_fields,check_Items,checkItem_fields,filter,fields);
 	}
 	@Processor
-	public BoardsByIdAndDeltasGetResponse getBoardsByIdAndDeltas(String boardId,String tags,String ixLastUpdate){
+	public String getBoardsByIdAndDeltas(String boardId,String tags,String ixLastUpdate){
 		return getClient().getBoardsByIdAndDeltas(boardId,tags,ixLastUpdate);
 	}
 	@Processor
-	public BoardsByIdAndLabelsGetResponse getBoardsByIdAndLabels(String boardId,@Optional String fields,@Optional String limit){
+	public String getBoardsByIdAndLabels(String boardId,@Optional String fields,@Optional String limit){
 		return getClient().getBoardsByIdAndLimit(boardId,fields,limit);
 	}
 	@Processor
-	public BoardsByIdAndLabelsGetResponse getBoardsByIdAndLabelsWithId(String boardId,String labelId,@Optional String fields){
+	public String getBoardsByIdAndLabelsWithId(String boardId,String labelId,@Optional String fields){
 		return getClient().getBoardsByIdAndLabelsWithId(boardId,labelId,fields);
 	}
 	@Processor
@@ -266,51 +271,51 @@ public class TrelloConnector {
 		return getClient().getBoardsByIdAndLists(boardId,cards,card_fields,filter,fields);
 	}
 	@Processor
-	public BoardsByIdAndListsGetResponse getBoardsByIdAndListsWithFilter(String boardId,String filter){
+	public String getBoardsByIdAndListsWithFilter(String boardId,String filter){
 		return getClient().getBoardsByIdAndListsWithFilter(boardId,filter);
 	}
 	@Processor
-	public BoardMembersByBoardIdGetResponse getBoardMembersByBoardId(String boardId,@Optional String filter,@Optional String fields,@Optional Boolean activity){
+	public String getBoardMembersByBoardId(String boardId,@Optional String filter,@Optional String fields,@Optional Boolean activity){
 		return getClient().getBoardMembersByBoardId(boardId,filter,fields,activity);
 	}
 	@Processor
-	public BoardMembersByBoardIdGetResponse getBoardMembersByBoardIdWithFilter(String boardId,String filter){
+	public String getBoardMembersByBoardIdWithFilter(String boardId,String filter){
 		return getClient().getBoardMembersByBoardIdWithFilter(boardId,filter);
 	}
 	@Processor
-	public BoardsByIdAndMembersByIdCardsGetResponse getBoardsByIdAndMembersByIdWithCards(String boardId,String memberId,@Optional String actions,@Optional String attachments,@Optional String attachment_fields,@Optional Boolean member,@Optional String member_fields,@Optional Boolean checkItemStates,@Optional String checkLists,@Optional Boolean boards,
+	public String getBoardsByIdAndMembersByIdWithCards(String boardId,String memberId,@Optional String actions,@Optional String attachments,@Optional String attachment_fields,@Optional Boolean member,@Optional String member_fields,@Optional Boolean checkItemStates,@Optional String checkLists,@Optional Boolean boards,
 			@Optional String board_fields,@Optional Boolean list,@Optional String list_fields,@Optional
 			 String filter,@Optional String fields){
 		return getClient().getBoardsByIdAndMembersByIdWithCards(boardId,memberId,actions, attachments, attachment_fields, member,member_fields,checkItemStates,checkLists,boards,
 				 board_fields, list, list_fields, filter, fields);
 	}
 	@Processor
-	public BoardMembersInvitedGetResponse getBoardMembersInvited(String boardId,@Optional String fields){
+	public String getBoardMembersInvited(String boardId,@Optional String fields){
 		return getClient().getBoardMembersInvited(boardId,fields);
 	}
 	@Processor
-	public BoardMembersInvitedGetResponse getBoardMembersInvitedWithField(String boardId,String field){
+	public String getBoardMembersInvitedWithField(String boardId,String field){
 		return getClient().getBoardMembersInvitedWithField(boardId,field);
 	}
 	@Processor
-	public BoardsMembershipGetResponse getBoardMemberShips(String boardId,@Optional String filter,@Optional Boolean member,@Optional String member_fields){
+	public String getBoardMemberShips(String boardId,@Optional String filter,@Optional Boolean member,@Optional String member_fields){
 		return getClient().getBoardMemberShips(boardId,filter,member,member_fields);
 	}
 	@Processor
-	public BoardsMembershipGetResponse getBoardMemberShipsById(String boardId,String membershipId,
+	public String getBoardMemberShipsById(String boardId,String membershipId,
 			@Optional Boolean member,@Optional String member_fields){
 		return getClient().getBoardMemberShipsById(boardId,membershipId,member,member_fields);
 	}
 	@Processor
-	public StatusResponse getBoardsWithMyPref(String boardId){
+	public String getBoardsWithMyPref(String boardId){
 		return getClient().getBoardsWithMyPref(boardId);
 	}
 	@Processor
-	public BoardssByIdAndOrganizationGetResponse getBoardsByIdAndOrganization(String boardId,@Optional String fields){
+	public String getBoardsByIdAndOrganization(String boardId,@Optional String fields){
 		return getClient().getBoardsByIdAndOrganization(boardId,fields);
 	}
 	@Processor
-	public BoardssByIdAndOrganizationGetResponse getBoardsByIdAndOrganizationWithField(String boardId, String fields){
+	public String getBoardsByIdAndOrganizationWithField(String boardId, String fields){
 		return getClient().getBoardsByIdAndOrganizationWithField(boardId,fields);
 	}
 	// Board PUT Methods
@@ -338,35 +343,35 @@ public class TrelloConnector {
 	    return getClient().postBoards(boardssPostRequest);
 	  }
 	@Processor
-	  public StatusResponse postBoardsCalenderkeyGenerate(String boardId,BoardsCalendekeyGeneratePostRequest boardsCalenderkeyGenPostRequest) {
+	  public String postBoardsCalenderkeyGenerate(String boardId,BoardsCalendekeyGeneratePostRequest boardsCalenderkeyGenPostRequest) {
 	    return getClient().postBoardsCalenderkeyGenerate(boardId,boardsCalenderkeyGenPostRequest);
 	  }
 	@Processor
-	  public StatusResponse postBoardsChecklists(String boardId,BoardsChecklistPostRequest boardsChecklistPostRequest) {
+	  public String postBoardsChecklists(String boardId,BoardsChecklistPostRequest boardsChecklistPostRequest) {
 	    return getClient().postBoardsChecklists(boardId,boardsChecklistPostRequest);
 	  }
 	@Processor
-	  public StatusResponse postBoardsEmailkeyGeneration(String boardId,BoardsCalendekeyGeneratePostRequest boardsEmailkeyGenPostRequest) {
+	  public String postBoardsEmailkeyGeneration(String boardId,BoardsCalendekeyGeneratePostRequest boardsEmailkeyGenPostRequest) {
 	    return getClient().postBoardsEmailkeyGeneration(boardId,boardsEmailkeyGenPostRequest);
 	  }
 	@Processor
-	  public StatusResponse postBoardsByIdAndLabel(String boardId,BoardsByIdLabelPostRequest boardsIdLabelPostRequest) {
+	  public String postBoardsByIdAndLabel(String boardId,BoardsByIdLabelPostRequest boardsIdLabelPostRequest) {
 	    return getClient().postBoardsByIdAndLabel(boardId,boardsIdLabelPostRequest);
 	  }
 	@Processor
-	  public StatusResponse postBoardsByAndList(String boardId,BoardsByIdListPostRequest boardsIdListPostRequest) {
+	  public String postBoardsByAndList(String boardId,BoardsByIdListPostRequest boardsIdListPostRequest) {
 	    return getClient().postBoardsByAndList(boardId,boardsIdListPostRequest);
 	  }
 	@Processor
-	  public StatusResponse postBoardsMarkAsViewd(String boardId,BoardsCalendekeyGeneratePostRequest boardsMarkAsVieedPostReq ) {
+	  public String postBoardsMarkAsViewd(String boardId,BoardsCalendekeyGeneratePostRequest boardsMarkAsVieedPostReq ) {
 	    return getClient().postBoardsMarkAsViewd(boardId,boardsMarkAsVieedPostReq);
 	  }
 	@Processor
-	  public StatusResponse postBoardsPowerUps(String boardId,String value,BoardsPoweUpsPostRequest boardsByIdAndPoerUps) {
+	  public String postBoardsPowerUps(String boardId,String value,BoardsPoweUpsPostRequest boardsByIdAndPoerUps) {
 	    return getClient().postBoardsPowerUps(boardId,value,boardsByIdAndPoerUps);
 	  }
 	@Processor
-	  public StatusResponse deleteMemberUnderBoardById(String boardId,String memberId) {
+	  public String deleteMemberUnderBoardById(String boardId,String memberId) {
 	    return getClient().deleteMemberUnderBoardById(boardId,memberId);
 	  }
 	@Processor
@@ -381,60 +386,60 @@ public class TrelloConnector {
 				  checkItemStates,checkItemState_fields,checklists,checklist_fields,  board,board_fields,  list,list_fields,  stickers,sticker_fields,fields);
 	}
 	@Processor
-	public CardsByIdWithFieldGetResponse getCardsByIdWithField(String cardIdOrShortlink,String field){
+	public String getCardsByIdWithField(String cardIdOrShortlink,String field){
 		return getClient().getCardsByIdWithField(cardIdOrShortlink,field);
 	}
 	@Processor
-	public CardsActionsByIdGetResponse getCardActionsById(String cardIdOrShortlink,@Optional Boolean entities,@Optional Boolean display,@Optional String filter,@Optional String fields,
+	public String getCardActionsById(String cardIdOrShortlink,@Optional Boolean entities,@Optional Boolean display,@Optional String filter,@Optional String fields,
 			@Optional Integer limit,@Optional String format,@Optional String since,@Optional String before,@Optional String idModels,@Optional Boolean member,@Optional String member_fields,@Optional Boolean memberCreator,@Optional String memberCreator_fields){
 		return getClient().getCardActionsById(cardIdOrShortlink, entities, display, filter,fields,limit,format,since,before,idModels,member,member_fields,memberCreator,memberCreator_fields);
 	}
 	@Processor
-	public StatusResponse getCardsAttachments(String cardIdOrShortlink,@Optional String fields){
+	public String getCardsAttachments(String cardIdOrShortlink,@Optional String fields){
 		return getClient().getCardsAttachments(cardIdOrShortlink,fields);
 	}
 	@Processor
-	public StatusResponse getCardsAttachmentsById(String cardIdOrShortlink,String idAttachment,@Optional String fields){
+	public String getCardsAttachmentsById(String cardIdOrShortlink,String idAttachment,@Optional String fields){
 		return getClient().getCardsAttachmentsById(cardIdOrShortlink,idAttachment,fields);
 	}
 	@Processor
-	public StatusResponse getBoardsUnderCarsById(String cardIdOrShortlink,@Optional String fields){
+	public String getBoardsUnderCarsById(String cardIdOrShortlink,@Optional String fields){
 		return getClient().getBoardsUnderCarsById(cardIdOrShortlink,fields);
 	}
 	@Processor
-	public StatusResponse getBoardsUnderCarsByIdWithField(String cardIdOrShortlink,String fields){
+	public String getBoardsUnderCarsByIdWithField(String cardIdOrShortlink,String fields){
 		return getClient().getBoardsUnderCarsByIdWithField(cardIdOrShortlink,fields);
 	}
 	@Processor
-	public StatusResponse getCardsByIdWithCheckItemStates(String cardIdOrShortlink,@Optional String fields){
+	public String getCardsByIdWithCheckItemStates(String cardIdOrShortlink,@Optional String fields){
 		return getClient().getCardsByIdWithCheckItemStates(cardIdOrShortlink,fields);
 	}
 	@Processor
-	public StatusResponse getCardsByIdWithCheckLists(String cardIdOrShortlink,@Optional String cards,@Optional String card_fields,@Optional String checkItems,@Optional String checkItem_fields,@Optional String filter,@Optional String fields){
+	public String getCardsByIdWithCheckLists(String cardIdOrShortlink,@Optional String cards,@Optional String card_fields,@Optional String checkItems,@Optional String checkItem_fields,@Optional String filter,@Optional String fields){
 		return getClient().getCardsByIdWithCheckLists(cardIdOrShortlink,cards,card_fields,checkItems,checkItem_fields,filter,fields);
 	}
 	@Processor
-	public StatusResponse getCardsByIdWithList(String cardIdOrShortlink,@Optional String fields){
+	public String getCardsByIdWithList(String cardIdOrShortlink,@Optional String fields){
 		return getClient().getCardsByIdWithList(cardIdOrShortlink,fields);
 	}
 	@Processor
-	public StatusResponse getCardsByIdWithListField(String cardIdOrShortlink,@Optional String field){
+	public String getCardsByIdWithListField(String cardIdOrShortlink,@Optional String field){
 		return getClient().getCardsByIdWithListField(cardIdOrShortlink,field);
 	}
 	@Processor
-	public StatusResponse getCardsMembersById(String cardIdOrShortlink,@Optional String fields){
+	public String getCardsMembersById(String cardIdOrShortlink,@Optional String fields){
 		return getClient().getCardsMembersById(cardIdOrShortlink,fields);
 	}
 	@Processor
-	public StatusResponse getCardsMembersVotedById(String cardIdOrShortlink,@Optional String fields){
+	public String getCardsMembersVotedById(String cardIdOrShortlink,@Optional String fields){
 		return getClient().getCardsMembersVotedById(cardIdOrShortlink,fields);
 	}
 	@Processor
-	public StatusResponse getCardsStickers(String cardIdOrShortlink,@Optional String fields){
+	public String getCardsStickers(String cardIdOrShortlink,@Optional String fields){
 		return getClient().getCardsStickers(cardIdOrShortlink,fields);
 	}
 	@Processor
-	public StatusResponse getCardsStickersById(String cardIdOrShortlink,String idSticker,@Optional String fields){
+	public String getCardsStickersById(String cardIdOrShortlink,String idSticker,@Optional String fields){
 		return getClient().getCardsStickersById(cardIdOrShortlink,idSticker,fields);
 	}
 	//PUT Methots for Cards
@@ -762,9 +767,215 @@ public class TrelloConnector {
 	    return getClient().postListsMovedCardsById(idList,listsMovedCardsPostReq);
 	  }
 	//notifications GET methods
-	
-	
-	
+	@Processor
+	  public String getNotificationsById(String notificationId,@Optional Boolean display,@Optional Boolean entities,@Optional String fields,@Optional String memberCreator,@Optional String memberCreator_fields,@Optional Boolean board,@Optional String board_fields,@Optional Boolean list,@Optional Boolean card,@Optional String card_fields,@Optional Boolean organization,@Optional String  organization_fields,@Optional Boolean member,@Optional String member_fields) {
+	    return getClient().getNotificationsById( notificationId,  display,  entities,  fields,  memberCreator,  memberCreator_fields,  board,  board_fields,  list,  card,  card_fields,  organization,   organization_fields,  member,  member_fields);
+	  }
+	@Processor
+	  public String getNotificationsWithFieldById(String notificationId,String field) {
+	    return getClient().getNotificationsWithById( notificationId,field);
+	  }
+	@Processor
+	  public String getNotificationsBoardsById(String notificationId,@Optional String fields) {
+	    return getClient().getNotificationsBoardsById( notificationId,fields);
+	  }@Processor
+	  public String getNotificationsBoardsFieldById(String notificationId,String field) {
+		    return getClient().getNotificationsBoardsFieldById( notificationId,field);
+		  }
+	  @Processor
+	  public String getNotificationsCardsById(String notificationId,@Optional String fields) {
+	    return getClient().getNotificationsCardsById( notificationId,fields);
+	  }
+	  @Processor
+	  public String getNotificationsCardsFieldById(String notificationId,String field) {
+		    return getClient().getNotificationsCardsFieldById( notificationId,field);
+		  }
+	  @Processor
+	  public String getNotificationsDisplayById(String notificationId) {
+		    return getClient().getNotificationsDisplayById( notificationId);
+		  }
+	  @Processor
+	  public String getNotificationsEntitiesById(String notificationId) {
+		    return getClient().getNotificationsEntitiesById( notificationId);
+		  }
+	  @Processor
+	  public String getNotificationsListById(String notificationId,@Optional String fields) {
+		    return getClient().getNotificationsListById(notificationId,fields);
+		  }
+	  @Processor
+	  public String getNotificationsListFieldById(String notificationId,String field) {
+		    return getClient().getNotificationsListFieldById(notificationId,field);
+		  }
+	  @Processor
+	  public String getMemberNotificationsById(String notificationId,@Default("all") @Optional String fields) {
+		    return getClient().getMemberNotificationsById(notificationId,fields);
+		  }
+	  @Processor
+	  public String getMemberNotificationsFieldById(String notificationId,String field) {
+		    return getClient().getMemberNotificationsFieldById(notificationId,field);
+		  }
+	  @Processor
+	  public String getMemberCreatorNotificationsById(String notificationId,@Default("all") @Optional String fields) {
+		    return getClient().getMemberCreatorNotificationsById(notificationId,fields);
+		  }
+	  @Processor
+	  public String getMemberCreaterNotificationsFieldById(String notificationId,String field) {
+		    return getClient().getMemberCreaterNotificationsFieldById(notificationId,field);
+		  }
+	  @Processor
+	  public String getOrganizationsNotificationsById(String notificationId,@Default("all") @Optional String fields) {
+		    return getClient().getOrganizationsNotificationsById(notificationId,fields);
+		  }
+	  @Processor
+	  public String getOrganizationsFieldNotificationsById(String notificationId,String field) {
+		    return getClient().getOrganizationsFieldNotificationsById(notificationId,field);
+		  }
+	  //PUT Notifications methods
+	  @Processor
+	  public String updateNotificationsById(String notificationId,NotificationsByIdPutRequest notificationsPutReq) {
+	    return getClient().updateNotificationsById(notificationId,notificationsPutReq);
+	  }
+	  @Processor
+	  public String updateUnreadNotificationsById(String notificationId,NotificationsUnreadByIdPutRequest notificationsUnreadPutReq) {
+	    return getClient().updateUnreadNotificationsById(notificationId,notificationsUnreadPutReq);
+	  }
+	  //POST notification method
+	  @Processor
+	  public String postAllNotifications(NotificationsPostRequest notificationsPostReq) {
+	    return getClient().postAllNotifications(notificationsPostReq);
+	  }
+	  //Get Method requests for Search
+	  @Processor
+	  public String getSearchQuery(String query,@Optional String idBoards,@Optional String idOrganizations,@Optional String idCards,@Default("all") @Optional String modelTypes,@Optional String board_fields,@Optional String card_fields,@Optional Integer boards_limit,@Optional Integer cards_limit,@Optional Integer cards_page,@Default("false") @Optional Boolean card_board,@Default("false") @Optional String  card_list,@Default("false") @Optional Boolean card_members,@Default("false")@Optional Boolean card_stickers, @Default("false")@Optional String card_attachments,@Optional String organization_fields,@Default("10")@Optional Integer organizations_limit,@Optional String member_fields,@Default("10")@Optional Integer members_limit,@Default("false")@Optional Boolean partial) {
+	    return getClient().getSearchQuery(query,idBoards,  idOrganizations,  idCards,  modelTypes,  board_fields,  card_fields,   boards_limit,  cards_limit,  cards_page,  card_board,   card_list,  card_members,  card_stickers,card_attachments,organization_fields,organizations_limit,member_fields,members_limit,partial);
+	  }
+	  @Processor
+	  public String getSearchMembers(String query,@Optional String limit,@Optional String idBoard,@Optional String idOrganization,@Default("false") @Optional Boolean onlyOrgMembers) {
+		    return getClient().getSearchMembers(query,limit,  idBoard,  idOrganization,  onlyOrgMembers);
+	  }
+	//Session Get method
+	  @Processor
+	  public String getSessionsSocket() {
+		    return getClient().getSessionsSocket();
+	  }
+	  //PUT Sessions methods
+	  @Processor
+	  public String updateSessionById(String sessionId,SessionByIdPutRequest sessionByIdPutReq) {
+	    return getClient().updateSessionById(sessionId,sessionByIdPutReq);
+	  }
+	  @Processor
+	  public String updateSessionStatusById(String sessionId,SessionStatusByIdPutRequest sessionStatusByIdPutReq) {
+	    return getClient().updateSessionStatusById(sessionId,sessionStatusByIdPutReq);
+	  }
+	  //post session methods
+	  @Processor
+	  public String postSessions(SessionsPostRequest sessionsPOstReq) {
+	    return getClient().postSessions(sessionsPOstReq);
+	  }
+	 //Token GET methods
+	  @Processor
+	  public TokensGetResponse getTokensByToken(String token,@Optional String fields,@Optional Boolean webhooks) {
+		    return getClient().getTokensByToken(token,fields,webhooks);
+	  }
+	  @Processor
+	  public String getTokensFieldByToken(String token,String field) {
+		    return getClient().getTokensFieldByToken(token,field);
+	  }
+	  @Processor
+	  public String getMemberTokenByToken(String token,@Optional String fields) {
+		    return getClient().getMemberTokenByToken(token,fields);
+	  }
+	  @Processor
+	  public String getMemberFieldTokenByToken(String token,String field) {
+		    return getClient().getMemberFieldTokenByToken(token,field);
+	  }
+	  @Processor
+	  public String getTokensWebhooks(String token) {
+		    return getClient().getTokensWebhooks(token);
+	  }
+	  @Processor
+	  public String getTokensWebhooksByWebhookId(String token,String idWebhook) {
+		    return getClient().getTokensWebhooksByWebhookId(token,idWebhook);
+	  }
+	  //PUT Token methods
+	  @Processor
+	  public String updateTokenWebhookByToken(String token,TokensPutRequest tokensPutReq) {
+	    return getClient().updateTokenWebhookByToken(token,tokensPutReq);
+	  }
+	  //POST Token Method
+	  @Processor
+	  public String postTokenWebhookByToken(String token,TokensPutRequest tokensPutReq) {
+	    return getClient().postTokenWebhookByToken(token,tokensPutReq);
+	  }
+	  //DELETE
+	  @Processor
+	  public StatusResponse deleteTokenByToken(String token) {
+	    return getClient().deleteTokenByToken(token);
+	  }
+	  @Processor
+	  public StatusResponse deleteTokenWebhookByToken(String token,String idWebhook) {
+	    return getClient().deleteTokenWebhookByToken(token,idWebhook);
+	  }
+	  //Get Types
+	  @Processor
+	  public TypesGetResponse getTypeById(String typeId) {
+	    return getClient().TypesGetResponse(typeId);
+	  }
+	  //WebHooks GET Methods
+	  @Processor
+	  public String getWebhooksById(String idWebhook) {
+	    return getClient().getWebhooksById(idWebhook);
+	  }
+	  @Processor
+	  public String getWebhooksFieldById(String idWebhook,String field) {
+	    return getClient().getWebhooksFieldById(idWebhook,field);
+	  }
+	  //PUT Webhooks
+	  @Processor
+	  public String updateWebhookById(String idWebhook,WebhooksByIdPutRequest webhooksByIdPutReq) {
+	    return getClient().updateWebhookById(idWebhook,webhooksByIdPutReq);
+	  }
+	  @Processor
+	  public String updateWebhook(WebhooksPutRequest webhookPutReq) {
+	    return getClient().updateWebhook(webhookPutReq);
+	  }
+	  @Processor
+	  public String updateActiveWebhook(String idWebhook,WebhooksActivePutRequest webhooksActivePutReq) {
+	    return getClient().updateActiveWebhook(idWebhook,webhooksActivePutReq);
+	  }
+	  @Processor
+	  public String updateCallbackURLWebhook(String idWebhook,WebhooksCallBackURLPutRequest webhooksCallbackActivePutReq) {
+	    return getClient().updateCallbackURLWebhook(idWebhook,webhooksCallbackActivePutReq);
+	  }
+	  @Processor
+	  public String updateWebhookDescription(String idWebhook,WebhooksDescPutRequest webhooksDescPutReq) {
+	    return getClient().updateWebhookDescription(idWebhook,webhooksDescPutReq);
+	  }
+	  @Processor
+	  public String updateWebhooksIdModel(String idWebhook,WebhooksDescPutRequest webhooksDescPutReq) {
+	    return getClient().updateWebhooksIdModel(idWebhook,webhooksDescPutReq);
+	  }
+	  //POST Webhooks
+	  @Processor
+	  public String postWebhook(WebhooksPutRequest webhooksPostReq) {
+	    return getClient().postWebhook(webhooksPostReq);
+	  }
+	  //DELETE webhooks
+	  @Processor
+	  public StatusResponse deleteWebhookById(String idWebhook) {
+	    return  getClient().deleteWebhookById(idWebhook);
+	  }
+	  //Organization GET Methods
+	  @Processor
+	  public OrganizationGetResponse getOrganizationById(String OrganizationId,@Optional String actions,@Optional Boolean actions_entities,@Optional Boolean actions_display,@Optional Integer actions_limit,@Optional String action_fields,@Optional String memberships,@Optional Boolean memberships_member,@Optional String memberships_member_fields,@Optional String members,@Optional String member_fields,@Optional Boolean  member_activity, @Optional String membersInvited,@Optional String membersInvited_fields, @Optional String boards,@Optional String board_fields,@Optional String board_actions,@Optional Boolean board_actions_entities,@Optional Boolean board_actions_display,@Optional String board_actions_format,@Optional String board_actions_since,@Optional Integer board_actions_limit,@Optional String board_action_fields,@Optional String board_lists,@Optional String paid_account,@Optional String fields) {
+	    return getClient().getOrganizationById(OrganizationId,actions,  actions_entities,  actions_display,  actions_limit,action_fields,memberships,memberships_member,memberships_member_fields,members,member_fields,member_activity,membersInvited,membersInvited_fields,boards,board_fields,board_actions,board_actions_entities,board_actions_display,board_actions_format,board_actions_since,board_actions_limit,board_action_fields,board_lists,paid_account,fields);
+	  }
+	  
+	  
+	  
+	  
+	  
+	  
 
 	public ConnectorConfig getConfig() {
 		return config;

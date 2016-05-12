@@ -3,7 +3,7 @@ package org.mule.modules.trello.bean;
 public class Data {
 	private Old old;
 
-    private List list;
+    private Lists list;
 
     private Board board;
 
@@ -17,12 +17,12 @@ public class Data {
         this.old = old;
     }
 
-    public List getList ()
+    public Lists getList ()
     {
         return list;
     }
 
-    public void setList (List list)
+    public void setList (Lists list)
     {
         this.list = list;
     }

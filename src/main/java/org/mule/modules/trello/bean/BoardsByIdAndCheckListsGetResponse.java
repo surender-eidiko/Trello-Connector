@@ -1,60 +1,81 @@
 package org.mule.modules.trello.bean;
-import javax.annotation.Generated;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
-@Generated("org.jsonschema2pojo")
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class BoardsByIdAndCheckListsGetResponse extends StatusResponse {
-	private String cards,card_fields,checkItems,checkItem_fields,filter,fields;
+	 private String id;
 
-	public String getCards() {
-		return cards;
-	}
+	    private String idCard;
 
-	public void setCards(String cards) {
-		this.cards = cards;
-	}
+	    private CheckItems[] checkItems;
 
-	public String getCard_fields() {
-		return card_fields;
-	}
+	    private String name;
 
-	public void setCard_fields(String card_fields) {
-		this.card_fields = card_fields;
-	}
+	    private String pos;
 
-	public String getCheckItems() {
-		return checkItems;
-	}
+	    private String idBoard;
 
-	public void setCheckItems(String checkItems) {
-		this.checkItems = checkItems;
-	}
+	    public String getId ()
+	    {
+	        return id;
+	    }
 
-	public String getCheckItem_fields() {
-		return checkItem_fields;
-	}
+	    public void setId (String id)
+	    {
+	        this.id = id;
+	    }
 
-	public void setCheckItem_fields(String checkItem_fields) {
-		this.checkItem_fields = checkItem_fields;
-	}
+	    public String getIdCard ()
+	    {
+	        return idCard;
+	    }
 
-	public String getFilter() {
-		return filter;
-	}
+	    public void setIdCard (String idCard)
+	    {
+	        this.idCard = idCard;
+	    }
 
-	public void setFilter(String filter) {
-		this.filter = filter;
-	}
+	    public CheckItems[] getCheckItems ()
+	    {
+	        return checkItems;
+	    }
 
-	public String getFields() {
-		return fields;
-	}
+	    public void setCheckItems (CheckItems[] checkItems)
+	    {
+	        this.checkItems = checkItems;
+	    }
 
-	public void setFields(String fields) {
-		this.fields = fields;
-	}
-	
+	    public String getName ()
+	    {
+	        return name;
+	    }
 
+	    public void setName (String name)
+	    {
+	        this.name = name;
+	    }
+
+	    public String getPos ()
+	    {
+	        return pos;
+	    }
+
+	    public void setPos (String pos)
+	    {
+	        this.pos = pos;
+	    }
+
+	    public String getIdBoard ()
+	    {
+	        return idBoard;
+	    }
+
+	    public void setIdBoard (String idBoard)
+	    {
+	        this.idBoard = idBoard;
+	    }
+
+	    @Override
+	    public String toString()
+	    {
+	        return "ClassPojo [id = "+id+", idCard = "+idCard+", checkItems = "+checkItems+", name = "+name+", pos = "+pos+", idBoard = "+idBoard+"]";
+	    }
 }
