@@ -8,96 +8,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 
 import org.codehaus.jackson.map.ObjectMapper;
+import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
-import org.mule.modules.trello.bean.ActionsByIdPutRequest;
-import org.mule.modules.trello.bean.ActionsTextByIdPutRequest;
-import org.mule.modules.trello.bean.BoardsByIdAndActionsGetResponse;
-import org.mule.modules.trello.bean.BoardsByIdAndCardsGetResponse;
-import org.mule.modules.trello.bean.BoardsByIdAndCheckListsGetResponse;
-import org.mule.modules.trello.bean.BoardsByIdAndListsGetResponse;
-import org.mule.modules.trello.bean.BoardsByIdGetResponse;
-import org.mule.modules.trello.bean.BoardsByIdLabelPostRequest;
-import org.mule.modules.trello.bean.BoardsByIdListPostRequest;
-import org.mule.modules.trello.bean.BoardsByIdPutRequest;
-import org.mule.modules.trello.bean.BoardsCalendekeyGeneratePostRequest;
-import org.mule.modules.trello.bean.BoardsChecklistPostRequest;
-import org.mule.modules.trello.bean.BoardsClosedByIdPutRequest;
-import org.mule.modules.trello.bean.BoardsDescriptionByIdPutRequest;
-import org.mule.modules.trello.bean.BoardsOrganizationByIdPutRequest;
-import org.mule.modules.trello.bean.BoardsPostRequest;
-import org.mule.modules.trello.bean.BoardsPostResponse;
-import org.mule.modules.trello.bean.BoardsPoweUpsPostRequest;
-import org.mule.modules.trello.bean.CardsAcionCommentsByIdPostRequest;
-import org.mule.modules.trello.bean.CardsAttachmentsByIdPostRequest;
-import org.mule.modules.trello.bean.CardsByIdGetResponse;
-import org.mule.modules.trello.bean.CardsByIdPutRequest;
-import org.mule.modules.trello.bean.CardsByIdPutResponse;
-import org.mule.modules.trello.bean.CardsCardsBoardIdPutRequest;
-import org.mule.modules.trello.bean.CardsCardsIdAttachmentPutRequest;
-import org.mule.modules.trello.bean.CardsCardsListPutRequest;
-import org.mule.modules.trello.bean.CardsCheckListNamePutRequest;
-import org.mule.modules.trello.bean.CardsCheckListNamePutResponse;
-import org.mule.modules.trello.bean.CardsCheckListPositionPutRequest;
-import org.mule.modules.trello.bean.CardsCheckListPositionPutResponse;
-import org.mule.modules.trello.bean.CardsCheckListStatePutRequest;
-import org.mule.modules.trello.bean.CardsCheckListStatePutResponse;
-import org.mule.modules.trello.bean.CardsCheckListsByIdPostRequest;
-import org.mule.modules.trello.bean.CardsClosedPutRequest;
-import org.mule.modules.trello.bean.CardsCommentsByIdPutRequest;
-import org.mule.modules.trello.bean.CardsCommentsByIdPutResponse;
-import org.mule.modules.trello.bean.CardsCurrentCheckListPutRequest;
-import org.mule.modules.trello.bean.CardsDescriptionPutRequest;
-import org.mule.modules.trello.bean.CardsDuePutRequest;
-import org.mule.modules.trello.bean.CardsIdLabelByIdPostRequest;
-import org.mule.modules.trello.bean.CardsIdMembersPostRequest;
-import org.mule.modules.trello.bean.CardsLabelsPostRequest;
-import org.mule.modules.trello.bean.CardsMemberPutRequest;
-import org.mule.modules.trello.bean.CardsMembersVotedPostRequest;
-import org.mule.modules.trello.bean.CardsNamePosRequest;
-import org.mule.modules.trello.bean.CardsNamePutRequest;
-import org.mule.modules.trello.bean.CardsPostRequest;
-import org.mule.modules.trello.bean.CardsStickerPutRequest;
-import org.mule.modules.trello.bean.CardsStickersPostRequest;
-import org.mule.modules.trello.bean.CardsSubscribedPutRequest;
-import org.mule.modules.trello.bean.CheckItems;
-import org.mule.modules.trello.bean.CheckItemsPostRequest;
-import org.mule.modules.trello.bean.CheckListsGetResponse;
-import org.mule.modules.trello.bean.CheckListsToCardByIdPostRequest;
-import org.mule.modules.trello.bean.CheckListsUpdatePostRequest;
-import org.mule.modules.trello.bean.ChecklistsByIdPutRequest;
-import org.mule.modules.trello.bean.ChecklistsNameByIdPutRequest;
-import org.mule.modules.trello.bean.ChecklistsPosByIdPutRequest;
-import org.mule.modules.trello.bean.ChecklistsPostRequest;
-import org.mule.modules.trello.bean.LabelByIdPutRequest;
-import org.mule.modules.trello.bean.LabelColorByIdPutRequest;
-import org.mule.modules.trello.bean.LabelNameByIdPutRequest;
-import org.mule.modules.trello.bean.LabelsPostRequest;
-import org.mule.modules.trello.bean.ListCardsGetResponse;
-import org.mule.modules.trello.bean.ListsActionsByIdGetResponse;
-import org.mule.modules.trello.bean.ListsBoardsByIdPutRequest;
-import org.mule.modules.trello.bean.ListsByIdGetResponse;
-import org.mule.modules.trello.bean.ListsByIdPutRequest;
-import org.mule.modules.trello.bean.ListsCardsPostRequest;
-import org.mule.modules.trello.bean.ListsClosedByIdPutRequest;
-import org.mule.modules.trello.bean.ListsFieldByIdGetResponse;
-import org.mule.modules.trello.bean.ListsMovedCardsPostRequest;
-import org.mule.modules.trello.bean.ListsPostRequest;
-import org.mule.modules.trello.bean.NotificationsByIdPutRequest;
-import org.mule.modules.trello.bean.NotificationsPostRequest;
-import org.mule.modules.trello.bean.NotificationsUnreadByIdPutRequest;
-import org.mule.modules.trello.bean.OrganizationGetResponse;
-import org.mule.modules.trello.bean.SessionByIdPutRequest;
-import org.mule.modules.trello.bean.SessionStatusByIdPutRequest;
-import org.mule.modules.trello.bean.SessionsPostRequest;
-import org.mule.modules.trello.bean.StatusResponse;
-import org.mule.modules.trello.bean.TokensGetResponse;
-import org.mule.modules.trello.bean.TokensPutRequest;
-import org.mule.modules.trello.bean.TypesGetResponse;
-import org.mule.modules.trello.bean.WebhooksActivePutRequest;
-import org.mule.modules.trello.bean.WebhooksByIdPutRequest;
-import org.mule.modules.trello.bean.WebhooksCallBackURLPutRequest;
-import org.mule.modules.trello.bean.WebhooksDescPutRequest;
-import org.mule.modules.trello.bean.WebhooksPutRequest;
+import org.mule.modules.trello.bean.*;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
@@ -944,16 +857,8 @@ public class TrelloClient {
 		return (String) getData(webResource,
 				String.class);
 	}
-/*	public BoardsByIdPutResponse putBoardsByIdAndClosed(String boardId,
-			String value) {
-		WebResource webResource = getApiResource().path("boards").path(boardId).path("closed");
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		webResource = webResource.queryParams(queryParams);
-		if(value!=null){
-			queryParams.add("value", value);
-		}
-		
-	}*/
+//Boards PUT method requests
+	
 	public String putBoardsById(String boardId,BoardsByIdPutRequest boardsByIdPutReq) {
 		WebResource webResource = getApiResource().path("boards").path(boardId);
 			    return (String) putData(boardsByIdPutReq,webResource, String.class);
@@ -970,12 +875,132 @@ public class TrelloClient {
 	}
 	public String updateBoardsOrganizationById(String boardId,
 			BoardsOrganizationByIdPutRequest boardsOrganizationByIdPutReq) {
-		WebResource webResource = getApiResource().path("boards").path(boardId).path("idOrganizationlink");
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("idOrganization");
 	    return (String) putData(boardsOrganizationByIdPutReq,webResource, String.class);
 	}
-	
+	public String updateBoardsLabelNameByBlue(String boardId,BoardsLabelNameByColorPutRequest boardsLabelNameByColorPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("labelNames").path("blue");
+	    return (String) putData(boardsLabelNameByColorPutReq,webResource, String.class);
+	}
+	public String updateBoardsLabelNameByGreen(String boardId,BoardsLabelNameByColorPutRequest boardsLabelNameByColorPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("labelNames").path("green");
+	    return (String) putData(boardsLabelNameByColorPutReq,webResource, String.class);
+	}
+	public String updateBoardsLabelNameByOrange(String boardId,BoardsLabelNameByColorPutRequest boardsLabelNameByColorPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("labelNames").path("orange");
+	    return (String) putData(boardsLabelNameByColorPutReq,webResource, String.class);
+	}
+	public String updateBoardsLabelNameByPurple(String boardId,BoardsLabelNameByColorPutRequest boardsLabelNameByColorPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("labelNames").path("purple");
+	    return (String) putData(boardsLabelNameByColorPutReq,webResource, String.class);
+	}
+	public String updateBoardsLabelNameByRed(String boardId,BoardsLabelNameByColorPutRequest boardsLabelNameByColorPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("labelNames").path("red");
+	    return (String) putData(boardsLabelNameByColorPutReq,webResource, String.class);
+	}
+	public String updateBoardsLabelNameByYellow(String boardId,BoardsLabelNameByColorPutRequest boardsLabelNameByColorPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("labelNames").path("yellow");
+	    return (String) putData(boardsLabelNameByColorPutReq,webResource, String.class);
+	}
+	public String updateBoardMembersById(String boardId,BoardsMembersPutRequest boardMembersPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("members");
+	    return (String) putData(boardMembersPutReq,webResource, String.class);
+	}
+	public String updateBoardMemberByMemberId(String boardId, String idMember,
+			BoardsMembersByMemberIdPutRequest boardMembersByMemberIdPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("members").path(idMember);
+	    return (String) putData(boardMembersByMemberIdPutReq,webResource, String.class);
+	}
+	public String updateBoardsMembershipByMembershipId(String boardId,String idMembership,BoardsMembershipsPutRequest boardMembershipsPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("memberships").path(idMembership);
+	    return (String) putData(boardMembershipsPutReq,webResource, String.class);
+	}
+	public String updateBoardsEmailPosPref(String boardId,
+			BoardsEmailPosPrefPutRequest boardEmailPosPrefPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("myPrefs").path("emailPosition");
+	    return (String) putData(boardEmailPosPrefPutReq,webResource, String.class);
+	}
+	public String updateBoardsEmailListIdPref(String boardId,
+			BoardsEmailListPrefPutRequest boardEmailListIdPrefPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("myPrefs").path("idEmailList");
+	    return (String) putData(boardEmailListIdPrefPutReq,webResource, String.class);
+	}
+	public String showBoardsListGuide(String boardId,
+			BoardsListGuidePutRequest boardsListGuidePrefPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("myPrefs").path("showListGuide");
+	    return (String) putData(boardsListGuidePrefPutReq,webResource, String.class);
+	}
+	public String showBoardsSidebar(String boardId,BoardsListGuidePutRequest boardsSidebarPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("myPrefs").path("showSidebar");
+	    return (String) putData(boardsSidebarPutReq,webResource, String.class);
+	}
+	public String showBoardsSidebarActivity(String boardId,BoardsListGuidePutRequest boardsSidebarActivityPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("myPrefs").path("showSidebarActivity");
+	    return (String) putData(boardsSidebarActivityPutReq,webResource, String.class);
+	}
+	public String showBoardsSidebarBoardActivity(String boardId,BoardsListGuidePutRequest boardsSidebarActivityPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("myPrefs").path("showSidebarBoardActions");
+	    return (String) putData(boardsSidebarActivityPutReq,webResource, String.class);
+	}
+	public String showBoardsSidebarMembers(String boardId,BoardsListGuidePutRequest boardsSidebarActivityPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("myPrefs").path("showSidebarMembers");
+	    return (String) putData(boardsSidebarActivityPutReq,webResource, String.class);
+	}
+	public String updateBoardNameById(String boardId,
+			BoardsNamePutRequest boardsNamePutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("name");
+	    return (String) putData(boardsNamePutReq,webResource, String.class);
+	}
+	public String updateBoardsBackgroundById(String boardId,
+			BoardsBackgroundPrefPutRequest boardsBackgroundPrefPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("prefs").path("background");
+	    return (String) putData(boardsBackgroundPrefPutReq,webResource, String.class);
+	}
+	public String boardsCalenderFeedEnabled(String boardId,BoardsCalenderFeedEnabledPutRequest boardsCalenderFeedsEnabledPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("prefs").path("calendarFeedEnabled");
+	    return (String) putData(boardsCalenderFeedsEnabledPutReq,webResource, String.class);
+	}
 
-	
+	public String updateBoardsCardAging(String boardId,
+			BoardsCardsPutRequest boardsCardsPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("prefs").path("cardAging");
+	    return (String) putData(boardsCardsPutReq,webResource, String.class);
+	}	
+	public String updateBoardsCardCover(String boardId,
+			BoardsCardCoversPutRequest boardsCardCoversPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("prefs").path("cardCovers");
+	    return (String) putData(boardsCardCoversPutReq,webResource, String.class);
+	}
+
+	public String updateBoardsComments(String boardId,BoardsCommentsPutRequest boardsCommentsPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("prefs").path("comments");
+	    return (String) putData(boardsCommentsPutReq,webResource, String.class);
+	}
+	public String updateBoardsInvitations(String boardId,
+			BoardsInvitationPutRequest boardsInvitationsPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("prefs").path("invitations");
+	    return (String) putData(boardsInvitationsPutReq,webResource, String.class);
+	}
+	public String updateBoardsPermissionLevel(String boardId,BoardsPermissionLevelPutRequest boardsInvitationsPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("prefs").path("permissionLevel");
+	    return (String) putData(boardsInvitationsPutReq,webResource, String.class);
+	}
+	public String updateSelfJoinBoards(String boardId,
+			BoardsCardCoversPutRequest boardsSelfJoinPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("prefs").path("selfJoin");
+	    return (String) putData(boardsSelfJoinPutReq,webResource, String.class);
+	}
+	public String boardsVoting(String boardId,
+			BoardsVotingPutRequest boardsVotingPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("prefs").path("voting");
+	    return (String) putData(boardsVotingPutReq,webResource, String.class);
+	}
+	public String updateSubscribedBoardsById(String boardId,
+			BoardsSubscriberPutRequest boardsSubscriberPutReq) {
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("subscribed");
+	    return (String) putData(boardsSubscriberPutReq,webResource, String.class);
+	}
+
 	//Boards POST methods
 	public BoardsPostResponse postBoards(BoardsPostRequest boardssPostRequest) {
 		 WebResource webResource = getApiResource().path("boards");
@@ -1441,6 +1466,10 @@ public class TrelloClient {
 			CardsStickersPostRequest postCardsStickersPostReq) {
 		WebResource webResource = getApiResource().path("cards").path(cardIdOrShortlink).path("stickers");
 	    return (String) postData(postCardsStickersPostReq, webResource, String.class);
+	}
+	public String getMarkAssociatedNotificationId(String cardIdOrShortlink) {
+		WebResource webResource = getApiResource().path("cards").path(cardIdOrShortlink).path("markAssociatedNotificationsRead");
+	    return (String) getData(webResource, String.class);
 	}
 	public StatusResponse deleteCardsById(String cardIdOrShortLink) {
 		 WebResource webResource = getApiResource().path("cards").path(cardIdOrShortLink);
@@ -2259,7 +2288,7 @@ public class TrelloClient {
 			String board_actions_format, String board_actions_since,
 			Integer board_actions_limit, String board_action_fields,
 			String board_lists, String paid_account, String fields) {
-		WebResource webResource = getApiResource().path("organizations").path("organizationId");
+		WebResource webResource = getApiResource().path("organizations").path(organizationId);
 	    MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 	    if (actions != null) {
 	      queryParams.add("actions", actions);
@@ -2340,6 +2369,818 @@ public class TrelloClient {
 	    webResource = webResource.queryParams(queryParams);
 	    return (OrganizationGetResponse) getData(webResource,OrganizationGetResponse.class);
 	}
+	public String getOrganizationByIdAndField(String organizationId,
+			String field) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationId).path(field);
+		 return (String) getData(webResource,String.class);
+	}
+	public OrganizationActionGetResponse getOrganizationActionsById(String organizationId,
+			Boolean entities, Boolean display, String filter, String fields,
+			Integer limit, String format, String since, String before,
+			String page, String idModels, Boolean member, String member_fields,
+			Boolean memberCreator, String memberCreator_fields) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationId).path("actions");
+	    MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+	    if (entities != null) {
+	      queryParams.add("actions_entities", String.valueOf(entities));
+	    }
+	    if (display != null) {
+		      queryParams.add("display", String.valueOf(display));
+		    }
+	    if (filter != null) {
+		      queryParams.add("filter",filter);
+		    }
+	    if (fields != null) {
+		      queryParams.add("fields",fields);
+		    }
+	    if (limit != null) {
+		      queryParams.add("limit",String.valueOf(limit));
+		    }
+	    if (format != null) {
+		      queryParams.add("format",format);
+		    }
+	    if (since != null) {
+		      queryParams.add("since",since);
+		    }
+	    if (before != null) {
+		      queryParams.add("before",before);
+		    }
+	    if (page != null) {
+		      queryParams.add("page",page);
+		    }
+	    if (idModels != null) {
+		      queryParams.add("idModels",idModels);
+		    }
+	    if (member != null) {
+		      queryParams.add("member",String.valueOf(member));
+		    }
+	    if (member_fields != null) {
+		      queryParams.add("member_fields",member_fields);
+		    }
+	    if (memberCreator != null) {
+		      queryParams.add("memberCreator",String.valueOf(memberCreator));
+		    }
+	    if (memberCreator_fields != null) {
+		      queryParams.add("memberCreator_fields",memberCreator_fields);
+		    }
+	    if (page != null) {
+		      queryParams.add("page",page);
+		    }
+	    
+	    if (page != null) {
+		      queryParams.add("page",page);
+		    }
+	    if (page != null) {
+		      queryParams.add("page",page);
+		    }
+	    webResource = webResource.queryParams(queryParams);
+	    return (OrganizationActionGetResponse) getData(webResource,OrganizationActionGetResponse.class);
+	}
+	public OrganizationBoardsGetResponse getOrganizationBoardsById(
+			String organizationId, String filter, String fields,
+			String actions, Boolean actions_entities, Integer actions_limit,
+			String actions_format, String actions_since, String action_fields,
+			String memberships, Boolean organization,
+			String organization_fields, String lists) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationId).path("boards");
+	    MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+	    if (filter != null) {
+	      queryParams.add("filter", filter);
+	    }
+	    if (fields != null) {
+		      queryParams.add("fields",fields);
+		    }
+	    if (actions != null) {
+		      queryParams.add("actions",actions);
+		    }
+	    if (actions_entities != null) {
+		      queryParams.add("actions_entities",String.valueOf(actions_entities));
+		    }
+	    if (actions_limit != null) {
+		      queryParams.add("actions_limit",String.valueOf(actions_limit));
+		    }
+	    if (actions_format != null) {
+		      queryParams.add("actions_format",actions_format);
+		    }
+	    if (actions_since != null) {
+		      queryParams.add("actions_since",actions_since);
+		    }
+	    if (action_fields != null) {
+		      queryParams.add("action_fields",action_fields);
+		    }
+	    if (memberships != null) {
+		      queryParams.add("memberships",memberships);
+		    }
+	    if (organization != null) {
+		      queryParams.add("organization",String.valueOf(organization));
+		    }
+	    if (organization_fields != null) {
+		      queryParams.add("organization_fields",organization_fields);
+		    }
+	    
+	    if (lists != null) {
+		      queryParams.add("lists",lists);
+		    }
+	    webResource = webResource.queryParams(queryParams);
+	    return (OrganizationBoardsGetResponse) getData(webResource,OrganizationBoardsGetResponse.class);
+	}
+	public String getOrganizationBoardsByIdWithFilter(String organizationId,
+			String filter) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationId).path("boards").path(filter);
+		 return (String) getData(webResource,String.class);
+	}
+	public String getOrganizationDeltasById(String organizationId, String tags,
+			String ixLastUpdate) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationId).path("deltas");
+		 return (String) getData(webResource,String.class);
+	}
+	public OrganizationMemberResponse getOrganizationMembersById(
+			String organizationId, String filters, String fields,
+			Boolean activity) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationId).path("members");
+	    MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+	    if (filters != null)  queryParams.add("filters",filters);
+	    if (fields != null)  queryParams.add("fields",fields);
+	    if (activity != null)  queryParams.add("activity",String.valueOf(activity));
+	    webResource = webResource.queryParams(queryParams);
+		return (OrganizationMemberResponse) getData(webResource,OrganizationMemberResponse.class);
+	}
+	public OrganizationMemberResponse getOrganizationMembersByIdWithFilter(
+			String organizationId, String filter) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationId).path("members").path(filter);
+		return (OrganizationMemberResponse) getData(webResource,OrganizationMemberResponse.class);
+	}
+	public String getOrganizationMembersCardsById(String organizationId,
+			String idMember, String actions, String attachments,
+			String attachment_fields, Boolean members, String member_fields,
+			Boolean checkItemStates, String checklists, Boolean board,
+			String board_fields, String list, String fields, String filter) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationId).path("members").path(idMember).path("cards");
+	    MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+	    if (actions != null)  queryParams.add("actions",actions);
+	    if (attachments != null)  queryParams.add("attachments",attachments);
+	    if (attachment_fields != null)  queryParams.add("attachment_fields",attachment_fields);
+	    if (members != null)  queryParams.add("members",String.valueOf(members));
+	    if (member_fields != null)  queryParams.add("member_fields",member_fields);
+	    if (checkItemStates != null)  queryParams.add("checkItemStates",String.valueOf(checkItemStates));
+	    if (checklists != null)  queryParams.add("checklists",checklists);
+	    if (board != null)  queryParams.add("board",String.valueOf(board));
+	    if (board_fields != null)  queryParams.add("board_fields",board_fields);
+	    if (list != null)  queryParams.add("list",list);
+	    if (fields != null)  queryParams.add("fields",fields);
+	    if (filter != null)  queryParams.add("filter",filter);
+	    webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource,String.class);
+	}
+	public String getOrganizationMembersInvitedById(String organizationId,
+			String fields) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationId).path("membersInvited");
+	    MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+	    if (fields != null)  queryParams.add("fields",fields);
+	    webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource,String.class);
+	}
+	public String getOrganizationMembersInvitedByIdWithField(
+			String organizationId, String field) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationId).path("membersInvited").path(field);
+		return (String) getData(webResource,String.class);
+	}
+	public String getOrganizationMembershipsById(String organizationId,
+			String filter, Boolean member, String member_fields) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationId).path("memberships");
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		if (filter != null)  queryParams.add("filter",filter);
+		if (member != null)  queryParams.add("member",String.valueOf(member));
+		if (member_fields != null)  queryParams.add("member_fields",member_fields);
+	    webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource,String.class);
+	}
+	public String getOrganizationMembershipsByMembershipId(
+			String organizationId, String idMembership, Boolean member,
+			String member_fields) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationId).path("memberships").path(idMembership);
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		if (member != null)  queryParams.add("member",String.valueOf(member));
+		if (member_fields != null)  queryParams.add("member_fields",member_fields);
+	    webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource,String.class);
+	}
+//organizations PUT method
+	public String updateOrganizationsById(String organizationId,
+			OrganizationPutRequest organizationPutReq) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public String updateOrganizationsDescByIdOrName(
+			String organizationIdOrName,OrganizationDescPutRequest updateOrgDecPutReq) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationIdOrName).path("desc");
+		return (String) putData(updateOrgDecPutReq, webResource, String.class);
+	}
+	public String updateOrganizationsDisplayNameIdOrName(
+			String organizationIdOrName,
+			OrganizationDisplayNamePutRequest updateOrgDecPutReq) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationIdOrName).path("displayName");
+		return (String) putData(updateOrgDecPutReq, webResource, String.class);
+	}
+	public String updateOrganizationsMembersByIdOrName(
+			String organizationIdOrName,OrganizationMembersPutRequest updateOrgMembersPutReq) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationIdOrName).path("members");
+		return (String) putData(updateOrgMembersPutReq, webResource, String.class);
+	}
+	public String updateOrganizationsMembersByMemberid(String organizationIdOrName,String idMember,OrganizationMemberIdPutRequest updateOrgMembersByIdPutReq) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationIdOrName).path("members").path("idMember");
+		return (String) putData(updateOrgMembersByIdPutReq, webResource, String.class);
+	}
+	public String deactivateOrganizationMemberById(String organizationIdOrName,String idMember,OrganizationMemberDeactivatedPutRequest deactivatedOrgMembersByIdPutReq) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationIdOrName).path("members").path("idMember").path("deactivated");
+		return (String) putData(deactivatedOrgMembersByIdPutReq, webResource, String.class);
+	}
+	public String putOrganizationMembershipById(String organizationIdOrName,
+			String idMember, OrganizationMembershipPutRequest memberShipsputReq) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationIdOrName).path("members").path("idMember");
+		return (String) putData(memberShipsputReq, webResource, String.class);
+	}
+	public String updateOrganizationsNameByIdOrName(
+			String organizationIdOrName,OrganizationDisplayNamePutRequest updateOrgNamePutReq) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationIdOrName).path("name");
+		return (String) putData(updateOrgNamePutReq, webResource, String.class);
+	}
+	public String updateOrganizationAssociatedDomain(
+			String organizationIdOrName,
+			OrganizationAssociatedDomainPutRequest orgAssociatedDomainPutReq) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationIdOrName).path("prefs").path("associatedDomain");
+		return (String) putData(orgAssociatedDomainPutReq, webResource, String.class);
+	}
+	public String updateOrgOrganizationBoardVisibilityRestrict(
+			String organizationIdOrName,
+			OrganizationBoardVisibilityRestrictPutRequest orgVisibilityRestrictPutReq) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationIdOrName).path("prefs").path("boardVisibilityRestrict").path("org");
+		return (String) putData(orgVisibilityRestrictPutReq, webResource, String.class);
+	}
+	public String updatePrivateOrganizationBoardVisibilityRestrict(
+			String organizationIdOrName,
+			OrganizationBoardVisibilityRestrictPutRequest orgVisibilityRestrictPutReq) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationIdOrName).path("prefs").path("boardVisibilityRestrict").path("private");
+		return (String) putData(orgVisibilityRestrictPutReq, webResource, String.class);
+	}
+	public String updatePublicOrganizationBoardVisibilityRestrict(
+			String organizationIdOrName,
+			OrganizationBoardVisibilityRestrictPutRequest orgVisibilityRestrictPutReq) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationIdOrName).path("prefs").path("boardVisibilityRestrict").path("public");
+		return (String) putData(orgVisibilityRestrictPutReq, webResource, String.class);
+	}
+	public String updateOrgExternalMembersDisabled(
+			String organizationIdOrName,
+			OrganizationExternalMembersDisabledPutRequest orgExternalMemDisabledPutReq) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationIdOrName).path("prefs").path("externalMembersDisabled");
+		return (String) putData(orgExternalMemDisabledPutReq, webResource, String.class);
+	}
+	public String updateOrgGoogleAppVersion(String organizationIdOrName,OrganizationGoogleAppVersionPutRequest orgExternalMemDisabledPutReq) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationIdOrName).path("prefs").path("externalMembersDisabled");
+		return (String) putData(orgExternalMemDisabledPutReq, webResource, String.class);
+	}
+	public String updateOrgInviteRestrict(String organizationIdOrName,
+			OrganizationInviteRestrictPutRequest orgInviteRestrictPutReq) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationIdOrName).path("prefs").path("orgInviteRestrict");
+		return (String) putData(orgInviteRestrictPutReq, webResource, String.class);
+	}
+	public String updateOrgPermissionLevel(String organizationIdOrName,OrganizationPermissionLevelPutRequest orgPermissionLevelRestrictPutReq) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationIdOrName).path("prefs").path("permissionLevel");
+		return (String) putData(orgPermissionLevelRestrictPutReq, webResource, String.class);
+	}
+	public String updateOrgWebsite(String organizationIdOrName,OrganizationPermissionLevelPutRequest orgPermissionLevelRestrictPutReq) {
+		WebResource webResource = getApiResource().path("organizations").path(organizationIdOrName).path("prefs").path("website");
+		return (String) putData(orgPermissionLevelRestrictPutReq, webResource, String.class);
+	}
+	
+	//organization post methods
+	public String postOrganizations(OrganizationPostRequest organizationPostReq) {
+		WebResource webResource = getApiResource().path("organizations");
+		return (String) postData(organizationPostReq, webResource, String.class);
+	}
+	public String postOrganizationsLogoByIdOrName(String orgIdOrName,OrganizationLogoPostRequest organizationLogoPostReq) {
+		WebResource webResource = getApiResource().path("organizations").path(orgIdOrName).path("logo");
+		return (String) postData(organizationLogoPostReq, webResource, String.class);
+	}
+	//delete organizations
+	
+	public StatusResponse deleteOrganizationsByIdOrName(String orgIdOrName) {
+		WebResource webResource = getApiResource().path("organizations").path(orgIdOrName);
+		return (StatusResponse) deleteData(webResource);
+	}
+	public StatusResponse deleteOrganizationsLogoByIdOrName(String orgIdOrName) {
+		WebResource webResource = getApiResource().path("organizations").path(orgIdOrName).path("logo");
+		return (StatusResponse) deleteData(webResource);
+	}
+	public StatusResponse deleteMemberFromOrganizationByIdOrName(
+			String orgIdOrName, String idMember) {
+		WebResource webResource = getApiResource().path("organizations").path(orgIdOrName).path("members").path(idMember);
+		return (StatusResponse) deleteData(webResource);
+	}
+	public StatusResponse deleteMemberFromAllOrganizationsByIdOrName(
+			String orgIdOrName, String idMember) {
+		WebResource webResource = getApiResource().path("organizations").path(orgIdOrName).path("members").path(idMember).path("all");
+		return (StatusResponse) deleteData(webResource);
+	}
+	public StatusResponse deleteOrganizationsAssociatedDomainByIdOrName(String orgIdOrName) {
+		WebResource webResource = getApiResource().path("organizations").path(orgIdOrName).path("prefs").path("associatedDomain");
+		return (StatusResponse) deleteData(webResource);
+	}
+	public StatusResponse deleteOrganizationsOrgInviteReqByIdOrName(String orgIdOrName) {
+		WebResource webResource = getApiResource().path("organizations").path(orgIdOrName).path("prefs").path("orgInviteRestrict");
+		return (StatusResponse) deleteData(webResource);
+	}
+	//members API
+	public MemberIdGetResponse getMemberByIdOrUsername(String id, String actions,Boolean actions_entities,Boolean actions_display, String actions_limit, String action_fields, String action_since, 
+			String action_before, String cards, String card_fields, Boolean card_members, String card_member_fields,String card_attachments, String card_attachment_fields,
+			Boolean card_stickers, String boards, String board_fields, String board_actions, Boolean board_actions_entities, Boolean board_actions_display,
+			String board_actions_format, String board_actions_since, String board_actions_limit, String board_action_fields, String  board_lists, String board_memberships,
+			Boolean board_organization, String board_organization_fields, String boardsInvited, String boardsInvited_fields, Boolean boardStars, Boolean savedSearches,
+			String organizations, String organization_fields, Boolean organization_paid_account,
+			String organizationsInvited, String organizationsInvited_fields, String notifications, Boolean notifications_entities, Boolean notifications_display,			
+			String notifications_limit, String notification_fields, Boolean notification_memberCreator, String notification_memberCreator_fields, String notification_before, 
+			String notification_since,  String tokens, Boolean paid_account, String boardBackgrounds, String customBoardBackgrounds, String customStickers, String customEmoji,
+			String fields ){
+		WebResource webResource = getApiResource().path("members").path(id);
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		if(actions != null) 			queryParams.add("actions",actions);
+		if(actions_entities != null)	queryParams.add("actions_entities", String.valueOf(actions_entities));
+		if(actions_display != null)		queryParams.add("actions_display", String.valueOf(actions_display));
+		if(action_fields != null)		queryParams.add("action_fields",action_fields);
+		if(actions_limit != null)		queryParams.add("actions_limit", actions_limit);	
+		if(action_since != null)		queryParams.add("action_since", action_since);
+		if(action_before != null)		queryParams.add("action_before",action_before);		
+		if(cards != null)				queryParams.add("cards", cards);
+		if(card_fields != null)			queryParams.add("card_fields", card_fields);		
+		if(card_members != null)		queryParams.add("card_members",String.valueOf(card_members));
+		if(card_member_fields != null)	queryParams.add("card_member_fields", card_member_fields);		
+		if(card_attachments != null)	queryParams.add("card_attachments", card_attachments);
+		if(card_attachment_fields != null) 			queryParams.add("card_attachment_fields",card_attachment_fields);		
+		if(card_stickers != null)					queryParams.add("card_stickers", String.valueOf(card_stickers));
+		if(boards != null)							queryParams.add("boards", boards);		
+		if(board_fields != null)					queryParams.add("board_fields",board_fields);
+		if(board_actions != null)					queryParams.add("board_actions", board_actions);		
+		if(board_actions_entities != null)			queryParams.add("board_actions_entities", String.valueOf(board_actions_entities));
+		if(board_actions_display != null)			queryParams.add("board_actions_display",String.valueOf(board_actions_display));
+		if(board_actions_format != null)			queryParams.add("board_actions_format", board_actions_format);
+		if(board_actions_since != null)				queryParams.add("board_actions_since", board_actions_since);
+		if(board_actions_limit != null)				queryParams.add("board_actions_limit",board_actions_limit);
+		if(board_action_fields != null)				queryParams.add("board_action_fields", board_action_fields);
+		if(board_lists != null)					queryParams.add("board_lists", board_lists);
+		if(board_memberships != null)			queryParams.add("board_memberships", board_memberships);	
+		if(board_organization != null)			queryParams.add("board_organization",String.valueOf(board_organization));
+		if(board_organization_fields != null)			queryParams.add("board_organization_fields", board_organization_fields);
+		if(boardsInvited != null)				queryParams.add("boardsInvited", boardsInvited);
+		if(boardsInvited_fields != null)				queryParams.add("boardsInvited_fields",boardsInvited_fields);
+		if(boardStars != null)				queryParams.add("boardStars", String.valueOf(boardStars));
+		if(savedSearches != null)					queryParams.add("savedSearches", String.valueOf(savedSearches));
+		if(organizations != null) 			queryParams.add("organizations",organizations);
+		if(organization_fields != null)	queryParams.add("organization_fields", organization_fields);
+		if(organization_paid_account != null)		queryParams.add("organization_paid_account", String.valueOf(organization_paid_account));
+		if(organizationsInvited != null)		queryParams.add("organizationsInvited",organizationsInvited);
+		if(organizationsInvited_fields != null) 			queryParams.add("organizationsInvited_fields",organizationsInvited_fields);
+		if(notifications != null)	queryParams.add("notifications", notifications);
+		if(notifications_entities != null)		queryParams.add("notifications_entities", String.valueOf(notifications_entities));	
+		if(notifications_display != null)		queryParams.add("notifications_display", String.valueOf(notifications_display));	
+		if(notifications_limit != null) 			queryParams.add("notifications_limit",notifications_limit);	
+		if(notification_fields != null)	queryParams.add("notification_fields", notification_fields);	
+		if(notification_memberCreator != null)		queryParams.add("notification_memberCreator", String.valueOf(notification_memberCreator));
+		if(notification_memberCreator_fields != null)		queryParams.add("notification_memberCreator_fields",notification_memberCreator_fields);
+		if(notifications_limit != null) 			queryParams.add("notifications_limit",notifications_limit);
+		if(notification_fields != null)	queryParams.add("notification_fields", notification_fields);
+		if(notification_memberCreator != null)		queryParams.add("notification_memberCreator", String.valueOf(notification_memberCreator));
+		if(notification_memberCreator_fields != null)		queryParams.add("notification_memberCreator_fields",notification_memberCreator_fields);
+		if(notification_before != null) 			queryParams.add("notification_before",notification_before);
+		if(notification_since != null)	queryParams.add("notification_since", notification_since);
+		if(tokens != null)		queryParams.add("tokens", tokens);
+		if(paid_account != null)		queryParams.add("paid_account",String.valueOf(paid_account));
+		if(boardBackgrounds != null) 			queryParams.add("boardBackgrounds",boardBackgrounds);
+		if(customBoardBackgrounds != null)	queryParams.add("customBoardBackgrounds", customBoardBackgrounds);
+		if(customStickers != null)		queryParams.add("customStickers", customStickers);
+		if(customEmoji != null)		queryParams.add("customEmoji",customEmoji);
+		if(fields != null)		queryParams.add("fields",fields);
+
+
+		webResource = webResource.queryParams(queryParams);
+		return (MemberIdGetResponse) getData(webResource, MemberIdGetResponse.class);
+		
+	}
+	
+	public String getMembersByIdOrUsernameAndField(String id, String field){
+		WebResource webResource = getApiResource().path("members").path(id).path(field);
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		queryParams.add("field",field);
+		
+		webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public MemberActionsByIdOrUsernameGetResponse getMemberActionsByIdOrUsername(String id, Boolean entities,  Boolean display, String filter, String fields, String limit,
+			String format,  String since,  String before, String page,  String idModels, Boolean member,  String member_fields, Boolean memberCreator,
+			String memberCreator_fields){
+		WebResource webResource = getApiResource().path("members").path(id).path("actions");
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		
+		if(entities != null) queryParams.add("entities",String.valueOf(entities));
+		if(display != null) queryParams.add("display",String.valueOf(display));
+		if(filter != null) queryParams.add("filter",filter);
+		if(fields != null) queryParams.add("fields",fields);
+		if(limit != null) queryParams.add("limit",limit);
+		if(format != null) queryParams.add("format",format);
+		if(since != null) queryParams.add("since",since);
+		if(before != null) queryParams.add("before",before);
+		if(page != null) queryParams.add("page",page);
+		if(idModels != null) queryParams.add("idModels",idModels);
+		if(member != null) queryParams.add("member",String.valueOf(member));
+		if(member_fields != null) queryParams.add("member_fields",member_fields);
+		if(memberCreator != null) queryParams.add("memberCreator",String.valueOf(memberCreator));
+		if(memberCreator_fields != null) queryParams.add("memberCreator_fields",memberCreator_fields);
+		
+		webResource = webResource.queryParams(queryParams);
+		return (MemberActionsByIdOrUsernameGetResponse) getData(webResource, MemberActionsByIdOrUsernameGetResponse.class);
+	}
+	
+	public String getBoardBackGrounds(String id, String filter){
+		WebResource webResource = getApiResource().path("members").path(id).path("boardBackgrounds");
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		if(filter != null)
+			queryParams.add("filter",filter);
+		
+		webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource, String.class);
+	}
+	
+	
+	public String getBoardBackGroundsById(String id, String idBoardBackground, String filter){
+		WebResource webResource = getApiResource().path("members").path(id).path("boardBackgrounds").path(idBoardBackground);
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		queryParams.add("idBoardBackground", idBoardBackground);
+		if(filter != null)
+			queryParams.add("filter",filter);
+		webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getBoardStars(String id){
+		WebResource webResource = getApiResource().path("members").path(id).path("boardStars");
+		
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getBoardStarsById(String id, String idBoardStar){
+		WebResource webResource = getApiResource().path("members").path(id).path("boardStars").path(idBoardStar);
+		
+		return (String) getData(webResource, String.class);
+	}
+	
+	public MembersBoardsGetResponse getBoards(String id, String filter, String fields,  String actions, Boolean actions_entities, String actions_limit, 
+			String actions_format,  String actions_since, String action_fields,  String memberships, Boolean organization,  String organization_fields,  String lists){
+		WebResource webResource = getApiResource().path("members").path(id).path("boards");
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		
+		if(filter != null)	queryParams.add("filter", filter);
+		if(fields != null)	queryParams.add("fields", fields);
+		if(actions != null)	queryParams.add("actions", actions);
+		if(actions_entities != null)	queryParams.add("actions_entities", String.valueOf(actions_entities));
+		if(actions_limit != null)	queryParams.add("actions_limit", actions_limit);
+		if(actions_format != null)	queryParams.add("actions_format", actions_format);
+		if(actions_since != null)	queryParams.add("actions_since", actions_since);
+		if(action_fields != null)	queryParams.add("action_fields", action_fields);
+		if(memberships != null)	queryParams.add("memberships", memberships);
+		if(organization != null)	queryParams.add("organization", String.valueOf(organization));
+		if(organization_fields != null)	queryParams.add("organization_fields", organization_fields);
+		if(lists != null)	queryParams.add("lists", lists);
+		webResource = webResource.queryParams(queryParams);		
+		return (MembersBoardsGetResponse) getData(webResource, MembersBoardsGetResponse.class);
+	}
+	
+	public String getBoardsByFilter(String id, String filter){
+		WebResource webResource = getApiResource().path("members").path(id).path("boards").path(filter);
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		queryParams.add("idBoardBackground", filter);
+		
+		webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getBoardsInvited(String id, String fields){
+		WebResource webResource = getApiResource().path("members").path(id).path("boardsInvited");
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		if(fields != null)
+			queryParams.add("filter",fields);
+		webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getBoardsInvitedByField(String id, String field){
+		WebResource webResource = getApiResource().path("members").path(id).path("boardsInvited").path(field);
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		
+			queryParams.add("filter",field);
+		webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getCards(String id,  String actions,Boolean attachments, String attachment_fields, Boolean stickers, Boolean members,  String member_fields, 
+			Boolean checkItemStates, String checklists,  String limit,  String since,  String before, String filter, String fields){
+		WebResource webResource = getApiResource().path("members").path(id).path("cards");
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		if(actions != null)			queryParams.add("actions",actions);
+		if(attachments != null)			queryParams.add("attachments", String.valueOf(attachments));
+		if(attachment_fields != null)			queryParams.add("attachment_fields",attachment_fields);
+		if(stickers != null)			queryParams.add("stickers",String.valueOf(stickers));
+		if(members != null)			queryParams.add("members",String.valueOf(members));
+		if(member_fields != null)			queryParams.add("member_fields",member_fields);
+		if(checkItemStates != null)			queryParams.add("checkItemStates",String.valueOf(checkItemStates));
+		if(checklists != null)			queryParams.add("checklists",checklists);
+		if(limit != null)			queryParams.add("limit",limit);
+		if(since != null)			queryParams.add("since",since);
+		if(before != null)			queryParams.add("before",before);
+		if(filter != null)			queryParams.add("filter",filter);
+		if(fields != null)			queryParams.add("fields",fields);
+		webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getCardsByFilter(String id, String filter){
+		WebResource webResource = getApiResource().path("members").path(id).path("cards").path(filter);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getCustomBoardBackgrounds(String id, String filter){
+		WebResource webResource = getApiResource().path("members").path(id).path("customBoardBackgrounds");
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		if(filter  != null)			queryParams.add("filter",filter );
+		webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getCustomBoardBackgroundsById(String memberId, String boardBackgroundId, String fields){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("customBoardBackgrounds").path(boardBackgroundId);
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		if(fields  != null)			queryParams.add("fields",fields);
+		webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getCustomEmoji(String memberId, @Default("all") String filter){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("customEmoji");
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getCustomEmojiById(String memberId, String idCustomEmoji, @Default("all") String fields){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("customEmoji").path(idCustomEmoji);
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		if(fields  != null)			queryParams.add("fields",fields);
+		webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getCustomStickers(String memberId, @Default("all") String filter){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("customStickers");
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		if(filter  != null)			queryParams.add("filter",filter);
+		webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getCustomStickersById(String memberId, String idCustomSticker, @Default("all") String fields){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("customEmoji").path(idCustomSticker);
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		if(fields  != null)			queryParams.add("fields",fields);
+		webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getDeltas(String memberId, String tags, String ixLastUpdate){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("deltas");
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		queryParams.add("tags",tags);
+		queryParams.add("ixLastUpdate",ixLastUpdate);
+		webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getNotifications(String memberId, Boolean entities, Boolean display,String filter, String read_filter, String fields, String limit, String page, 
+			String before,  String since, Boolean memberCreator,  String memberCreator_fields){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("notifications");
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		if(entities  != null)			queryParams.add("entities",String.valueOf(entities));
+		if(display  != null)			queryParams.add("display",String.valueOf(display));
+		if(read_filter  != null)			queryParams.add("read_filter",read_filter);
+		if(fields  != null)			queryParams.add("fields",fields);
+		if(limit  != null)			queryParams.add("limit",limit);
+		if(page  != null)			queryParams.add("page",page);
+		if(before  != null)			queryParams.add("before",before);
+		if(since  != null)			queryParams.add("since",since);
+		if(memberCreator  != null)			queryParams.add("memberCreator",String.valueOf(memberCreator));
+		if(memberCreator_fields  != null)			queryParams.add("memberCreator_fields",memberCreator_fields);
+		webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getNotificationsByFilter(String memberId, String filter){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("notifications").path(filter);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public OrganizationsGetResponse getOrganizations(String memberId, String filter, String fields, Boolean paid_account){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("organizations");
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		if(filter  != null)			queryParams.add("filter",filter);
+		if(fields  != null)			queryParams.add("fields",fields);
+		if(paid_account  != null)			queryParams.add("paid_account",String.valueOf(paid_account));
+		webResource = webResource.queryParams(queryParams);
+		return (OrganizationsGetResponse) getData(webResource, OrganizationsGetResponse.class);
+	}
+	
+	public String getOrganizationsByFilter(String memberId, String filter){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("organizations").path(filter);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getOrganizationsInvited(String memberId, String fields){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("organizationsInvited");
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		if(fields != null) 		queryParams.add("fields",fields);
+		webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getOrganizationsByField(String memberId, String field){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("organizationsInvited").path(field);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getSavedSearches(String memberId){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("savedSearches");
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getSavedSearchesBySavedSearchId(String memberId, String savedSearchId){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("savedSearches").path(savedSearchId);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String getTokens(String memberId, String filter, Boolean webhooks){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("tokens");
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		if(filter != null) 		queryParams.add("filter", filter);
+		if(webhooks != null) 		queryParams.add("webhooks", String.valueOf(webhooks));
+		webResource = webResource.queryParams(queryParams);
+		return (String) getData(webResource, String.class);
+	}
+	
+	public String updateMember(String memberId, UpdateMemberPutRequest request){
+		WebResource webResource = getApiResource().path("members").path(memberId);
+	    return (String) putData(request, webResource,String.class);
+	}
+	
+	public String updateAvatarSource(String memberId, UpdateAvatarSourcePutRequest request){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("avatarSource");
+	    return (String) putData(request, webResource,String.class);
+	}
+	
+	public String updateBio(String memberId, String value){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("bio");
+	    return (String) putData(value, webResource,String.class);
+	}
+	
+	public String updateBoardBackgroundsById(String memberId, String idBoardBackground, UpdateBoardBackgroundByIdPutRequest request){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("boardBackgrounds").path(idBoardBackground);
+	    return (String) putData(request, webResource,String.class);
+	}
+	
+	public String updateBoardStarsById(String memberId, String idBoardStar, UpdateBoardStarsByIdPutRequest request ){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("boardStars").path(idBoardStar);
+	    return (String) putData(request, webResource,String.class);
+	}
+	
+	public String updateBoardStarByBoardId(String memberId, String idBoardStar, UpdateBoardStarByBoardIdPutRequest request){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("boardStars").path(idBoardStar).path("idBoard");
+	    return (String) putData(request, webResource,String.class);
+	}
+	
+	public String updateBoardStarByBoardPos(String memberId, String idBoardStar, UpdateBoardStarByBoardPosPutRequest request){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("boardStars").path(idBoardStar).path("pos");
+	    return (String) putData(request, webResource,String.class);
+	}
+	
+	public String updateCustomBoardBackgroundById(String memberId, String idBoardBackground, UpdateCustomBoardBackgroundById request){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("customBoardBackgrounds").path(idBoardBackground);
+	    return (String) putData(request, webResource,String.class);
+	}
+	
+	public String updateMemberFullname(String memberId, String value){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("fullName");
+	    return (String) putData(value, webResource,String.class);
+	}
+	public String updateMemberInitials(String memberId, String value){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("initials");
+	    return (String) putData(value, webResource,String.class);
+	}
+	
+	public String updateMemberPrefColorBlind(String memberId, Boolean value){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("prefs").path("colorBlind");
+	    return (String) putData(value, webResource,String.class);
+	}
+	
+	public String updateMemberPrefLocale(String memberId, String value){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("prefs").path("locale");
+	    return (String) putData(value, webResource,String.class);
+	}
+	
+	public String updateMemberPrefMinutesBetweenSummaries(String memberId, String value){
+		
+		WebResource webResource = getApiResource().path("members").path(memberId).path("prefs").path("minutesBetweenSummaries");
+	    return (String) putData(value, webResource,String.class);
+	}
+	
+	public String updateMemberSavedSearchesById(String memberId, String idSavedSearch, UpdateMemberSavedSearchesByIdPutRequest request){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("savedSearches").path(idSavedSearch);
+	    return (String) putData(request, webResource,String.class);
+	}
+	
+	public String updateSavedSearchName(String memberId, String idSavedSearch, UpdateSavedSearchNamePutRequest request){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("savedSearches").path(idSavedSearch).path("name");
+	    return (String) putData(request, webResource,String.class);
+	}
+	
+	public String updateSavedSearchPos(String memberId, String idSavedSearch, UpdateSavedSearchPosPutRequest request){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("savedSearches").path(idSavedSearch).path("pos");
+	    return (String) putData(request, webResource,String.class);
+	}
+	
+	public String updateSavedSearchQuery(String memberId, String idSavedSearch, UpdateSavedSearchQueryPutRequest request){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("savedSearches").path(idSavedSearch).path("query");
+	    return (String) putData(request, webResource,String.class);
+	}
+	
+	public String updateMemberUsername(String memberId, String value){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("username");
+	    return (String) putData(value, webResource,String.class);
+	}
+	
+	public String createMemberAvatar(String memberId, CreateMemberAvatarPostRequest request){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("avatar");
+		return (String) postData(request, webResource, String.class);
+	}
+	
+	public String createMemberBoardBackgrounds(String memberId, CreateMemberBoardBackgroundsPostRequest request){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("boardBackgrounds");
+		return (String) postData(request, webResource, String.class);
+	}
+	
+	public String createMemberBoardStars(String memberId, CreateMemberBoardStarsPostRequest request){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("boardStars");
+		return (String) postData(request, webResource, String.class);
+	}
+	
+	public String createCustomBoardBackgrounds(String memberId, CreateCustomBoardBackgroundsPostRequest request){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("customBoardBackgrounds");
+		return (String) postData(request, webResource, String.class);
+	}
+	
+	public String createCustomEmoji(String memberId, CreateCustomEmojiPostRequest request){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("customEmoji");
+		return (String) postData(request, webResource, String.class);
+	}
+	
+	public String createCustomStickers(String memberId, CreateCustomStickerPostRequest request){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("customStickers");
+		return (String) postData(request, webResource, String.class);
+	}
+	
+	public String createOneTimeMessagesDismissed(String memberId, CreateOneTimeMessagesDismissedPostRequest request){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("oneTimeMessagesDismissed");
+		return (String) postData(request, webResource, String.class);
+	}
+	
+	public String createSavedSearches(String memberId, CreateSavedSearchesPostRequest request){
+		WebResource webResource = getApiResource().path("members").path(memberId).path("savedSearches");
+		return (String) postData(request, webResource, String.class);
+	}
+	public StatusResponse deleteMembersBoardBackgroundsById(String memberId, String idBoardBackground) {
+		WebResource webResource = getApiResource().path("members").path(memberId).path("boardBackgrounds").path(idBoardBackground);
+		return (StatusResponse) deleteData(webResource);
+	}
+	public StatusResponse deleteMembersBoardStarsById(String memberId, String idBoardStar) {
+		WebResource webResource = getApiResource().path("members").path(memberId).path("boardStars").path(idBoardStar);
+		return (StatusResponse) deleteData(webResource);
+	}
+	public StatusResponse deleteMembersCustomBoardBackgroundsById(String memberId, String idBoardBackground) {
+		WebResource webResource = getApiResource().path("members").path(memberId).path("customBoardBackgrounds").path(idBoardBackground);
+		return (StatusResponse) deleteData(webResource);
+	}
+	public StatusResponse deleteMembersCustomStickersById(String memberId, String idCustomSticker) {
+		WebResource webResource = getApiResource().path("members").path(memberId).path("customStickers").path(idCustomSticker);
+		return (StatusResponse) deleteData(webResource);
+	}
+	public StatusResponse deleteMembersSavedSearchesById(String memberId, String idSavedSearch) {
+		WebResource webResource = getApiResource().path("members").path(memberId).path("savedSearches").path(idSavedSearch);
+		return (StatusResponse) deleteData(webResource);
+	}
+	
 	
 	
 	
@@ -2433,6 +3274,63 @@ public class TrelloClient {
 	private WebResource getApiResource() {
 		return apiResource;
 	}
+
+
+
+
+	
+	
+
+
+	
+
+
+
+
+
+	
+	
+
+	
+
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+	
+
+	
+	
+
+
+	
+
+
+
+
+
 
 
 

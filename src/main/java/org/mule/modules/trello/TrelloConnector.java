@@ -11,90 +11,7 @@ import org.mule.api.annotations.lifecycle.Start;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.MetaDataKeyParam;
 import org.mule.api.annotations.param.Optional;
-import org.mule.modules.trello.bean.ActionsByIdPutRequest;
-import org.mule.modules.trello.bean.ActionsTextByIdPutRequest;
-import org.mule.modules.trello.bean.BoardsByIdAndActionsGetResponse;
-import org.mule.modules.trello.bean.BoardsByIdAndCardsGetResponse;
-import org.mule.modules.trello.bean.BoardsByIdAndCheckListsGetResponse;
-import org.mule.modules.trello.bean.BoardsByIdAndListsGetResponse;
-import org.mule.modules.trello.bean.BoardsByIdGetResponse;
-import org.mule.modules.trello.bean.BoardsByIdLabelPostRequest;
-import org.mule.modules.trello.bean.BoardsByIdListPostRequest;
-import org.mule.modules.trello.bean.BoardsByIdPutRequest;
-import org.mule.modules.trello.bean.BoardsCalendekeyGeneratePostRequest;
-import org.mule.modules.trello.bean.BoardsChecklistPostRequest;
-import org.mule.modules.trello.bean.BoardsClosedByIdPutRequest;
-import org.mule.modules.trello.bean.BoardsDescriptionByIdPutRequest;
-import org.mule.modules.trello.bean.BoardsOrganizationByIdPutRequest;
-import org.mule.modules.trello.bean.BoardsPostRequest;
-import org.mule.modules.trello.bean.BoardsPostResponse;
-import org.mule.modules.trello.bean.BoardsPoweUpsPostRequest;
-import org.mule.modules.trello.bean.CardsAcionCommentsByIdPostRequest;
-import org.mule.modules.trello.bean.CardsAttachmentsByIdPostRequest;
-import org.mule.modules.trello.bean.CardsByIdGetResponse;
-import org.mule.modules.trello.bean.CardsByIdPutRequest;
-import org.mule.modules.trello.bean.CardsCardsBoardIdPutRequest;
-import org.mule.modules.trello.bean.CardsCardsIdAttachmentPutRequest;
-import org.mule.modules.trello.bean.CardsCardsListPutRequest;
-import org.mule.modules.trello.bean.CardsCheckListNamePutRequest;
-import org.mule.modules.trello.bean.CardsCheckListPositionPutRequest;
-import org.mule.modules.trello.bean.CardsCheckListStatePutRequest;
-import org.mule.modules.trello.bean.CardsCheckListsByIdPostRequest;
-import org.mule.modules.trello.bean.CardsClosedPutRequest;
-import org.mule.modules.trello.bean.CardsCommentsByIdPutRequest;
-import org.mule.modules.trello.bean.CardsCurrentCheckListPutRequest;
-import org.mule.modules.trello.bean.CardsDescriptionPutRequest;
-import org.mule.modules.trello.bean.CardsDuePutRequest;
-import org.mule.modules.trello.bean.CardsIdLabelByIdPostRequest;
-import org.mule.modules.trello.bean.CardsIdMembersPostRequest;
-import org.mule.modules.trello.bean.CardsLabelsPostRequest;
-import org.mule.modules.trello.bean.CardsMemberPutRequest;
-import org.mule.modules.trello.bean.CardsMembersVotedPostRequest;
-import org.mule.modules.trello.bean.CardsNamePosRequest;
-import org.mule.modules.trello.bean.CardsNamePutRequest;
-import org.mule.modules.trello.bean.CardsPostRequest;
-import org.mule.modules.trello.bean.CardsStickerPutRequest;
-import org.mule.modules.trello.bean.CardsStickersPostRequest;
-import org.mule.modules.trello.bean.CardsSubscribedPutRequest;
-import org.mule.modules.trello.bean.CheckItems;
-import org.mule.modules.trello.bean.CheckItemsPostRequest;
-import org.mule.modules.trello.bean.CheckListsGetResponse;
-import org.mule.modules.trello.bean.CheckListsToCardByIdPostRequest;
-import org.mule.modules.trello.bean.CheckListsUpdatePostRequest;
-import org.mule.modules.trello.bean.ChecklistsByIdPutRequest;
-import org.mule.modules.trello.bean.ChecklistsNameByIdPutRequest;
-import org.mule.modules.trello.bean.ChecklistsPosByIdPutRequest;
-import org.mule.modules.trello.bean.ChecklistsPostRequest;
-import org.mule.modules.trello.bean.LabelByIdPutRequest;
-import org.mule.modules.trello.bean.LabelColorByIdPutRequest;
-import org.mule.modules.trello.bean.LabelNameByIdPutRequest;
-import org.mule.modules.trello.bean.LabelsPostRequest;
-import org.mule.modules.trello.bean.ListCardsGetResponse;
-import org.mule.modules.trello.bean.ListsActionsByIdGetResponse;
-import org.mule.modules.trello.bean.ListsBoardsByIdPutRequest;
-import org.mule.modules.trello.bean.ListsByIdGetResponse;
-import org.mule.modules.trello.bean.ListsByIdPutRequest;
-import org.mule.modules.trello.bean.ListsCardsPostRequest;
-import org.mule.modules.trello.bean.ListsClosedByIdPutRequest;
-import org.mule.modules.trello.bean.ListsFieldByIdGetResponse;
-import org.mule.modules.trello.bean.ListsMovedCardsPostRequest;
-import org.mule.modules.trello.bean.ListsPostRequest;
-import org.mule.modules.trello.bean.NotificationsByIdPutRequest;
-import org.mule.modules.trello.bean.NotificationsPostRequest;
-import org.mule.modules.trello.bean.NotificationsUnreadByIdPutRequest;
-import org.mule.modules.trello.bean.OrganizationGetResponse;
-import org.mule.modules.trello.bean.SessionByIdPutRequest;
-import org.mule.modules.trello.bean.SessionStatusByIdPutRequest;
-import org.mule.modules.trello.bean.SessionsPostRequest;
-import org.mule.modules.trello.bean.StatusResponse;
-import org.mule.modules.trello.bean.TokensGetResponse;
-import org.mule.modules.trello.bean.TokensPutRequest;
-import org.mule.modules.trello.bean.TypesGetResponse;
-import org.mule.modules.trello.bean.WebhooksActivePutRequest;
-import org.mule.modules.trello.bean.WebhooksByIdPutRequest;
-import org.mule.modules.trello.bean.WebhooksCallBackURLPutRequest;
-import org.mule.modules.trello.bean.WebhooksDescPutRequest;
-import org.mule.modules.trello.bean.WebhooksPutRequest;
+import org.mule.modules.trello.bean.*;
 import org.mule.modules.trello.config.ConnectorConfig;
 
 /**
@@ -335,7 +252,114 @@ public class TrelloConnector {
 	  public String updateBoardsOrganizationById(String boardId,BoardsOrganizationByIdPutRequest boardsOrganizationByIdPutReq) {
 	    return getClient().updateBoardsOrganizationById(boardId,boardsOrganizationByIdPutReq);
 	  }
-	
+	@Processor
+	  public String updateBoardsLabelNameByBlue(String boardId,BoardsLabelNameByColorPutRequest boardsLabelNameByColorPutReq) {
+	    return getClient().updateBoardsLabelNameByBlue(boardId,boardsLabelNameByColorPutReq);
+	  }
+	@Processor
+	  public String updateBoardsLabelNameByGreen(String boardId,BoardsLabelNameByColorPutRequest boardsLabelNameByColorPutReq) {
+	    return getClient().updateBoardsLabelNameByGreen(boardId,boardsLabelNameByColorPutReq);
+	  }
+	@Processor
+	  public String updateBoardsLabelNameByOrange(String boardId,BoardsLabelNameByColorPutRequest boardsLabelNameByColorPutReq) {
+	    return getClient().updateBoardsLabelNameByOrange(boardId,boardsLabelNameByColorPutReq);
+	  }
+	@Processor
+	  public String updateBoardsLabelNameByPurple(String boardId,BoardsLabelNameByColorPutRequest boardsLabelNameByColorPutReq) {
+	    return getClient().updateBoardsLabelNameByPurple(boardId,boardsLabelNameByColorPutReq);
+	  }
+	@Processor
+	  public String updateBoardsLabelNameByRed(String boardId,BoardsLabelNameByColorPutRequest boardsLabelNameByColorPutReq) {
+	    return getClient().updateBoardsLabelNameByRed(boardId,boardsLabelNameByColorPutReq);
+	  }
+	@Processor
+	  public String updateBoardsLabelNameByYellow(String boardId,BoardsLabelNameByColorPutRequest boardsLabelNameByColorPutReq) {
+	    return getClient().updateBoardsLabelNameByYellow(boardId,boardsLabelNameByColorPutReq);
+	  }
+	@Processor
+	  public String updateBoardMembersById(String boardId,BoardsMembersPutRequest boardMembersPutReq) {
+	    return getClient().updateBoardMembersById(boardId,boardMembersPutReq);
+	  }
+	@Processor
+	  public String updateBoardMemberByMemberId(String boardId,String idMember,BoardsMembersByMemberIdPutRequest boardMembersByMemberIdPutReq) {
+	    return getClient().updateBoardMemberByMemberId(boardId,idMember,boardMembersByMemberIdPutReq);
+	  }
+	@Processor
+	  public String updateBoardsMembershipByMembershipId(String boardId,String idMembership,BoardsMembershipsPutRequest boardMembershipsPutReq) {
+	    return getClient().updateBoardsMembershipByMembershipId(boardId,idMembership,boardMembershipsPutReq);
+	  }
+	@Processor
+	  public String updateBoardsEmailPosPref(String boardId,BoardsEmailPosPrefPutRequest boardEmailPosPrefPutReq) {
+	    return getClient().updateBoardsEmailPosPref(boardId,boardEmailPosPrefPutReq);
+	  }
+	@Processor
+	  public String updateBoardsEmailListIdPref(String boardId,BoardsEmailListPrefPutRequest boardEmailListIdPrefPutReq) {
+	    return getClient().updateBoardsEmailListIdPref(boardId,boardEmailListIdPrefPutReq);
+	  }	
+	@Processor
+	  public String showBoardsListGuide(String boardId,BoardsListGuidePutRequest boardsListGuidePrefPutReq) {
+	    return getClient().showBoardsListGuide(boardId,boardsListGuidePrefPutReq);
+	  }	
+	@Processor
+	  public String showBoardsSidebar(String boardId,BoardsListGuidePutRequest boardsListGuidePrefPutReq) {
+	    return getClient().showBoardsSidebar(boardId,boardsListGuidePrefPutReq);
+	  }	
+	@Processor
+	  public String showBoardsSidebarActivity(String boardId,BoardsListGuidePutRequest boardsListGuidePrefPutReq) {
+	    return getClient().showBoardsSidebarActivity(boardId,boardsListGuidePrefPutReq);
+	  }	
+	@Processor
+	  public String showBoardsSidebarBoardActivity(String boardId,BoardsListGuidePutRequest boardsListGuidePrefPutReq) {
+	    return getClient().showBoardsListGuide(boardId,boardsListGuidePrefPutReq);
+	  }	
+	@Processor
+	  public String showBoardsSidebarMembers(String boardId,BoardsListGuidePutRequest boardsListGuidePrefPutReq) {
+	    return getClient().showBoardsSidebarMembers(boardId,boardsListGuidePrefPutReq);
+	  }	
+	@Processor
+	  public String updateBoardNameById(String boardId,BoardsNamePutRequest boardsNamePutReq) {
+	    return getClient().updateBoardNameById(boardId,boardsNamePutReq);
+	  }	
+	@Processor
+	  public String updateBoardsBackgroundById(String boardId,BoardsBackgroundPrefPutRequest boardsBackgroundPrefPutReq) {
+	    return getClient().updateBoardsBackgroundById(boardId,boardsBackgroundPrefPutReq);
+	  }	
+	@Processor
+	  public String boardsCalenderFeedEnabled(String boardId,BoardsCalenderFeedEnabledPutRequest boardsCalenderFeedsEnabledPutReq) {
+	    return getClient().boardsCalenderFeedEnabled(boardId,boardsCalenderFeedsEnabledPutReq);
+	  }	
+	@Processor
+	  public String updateBoardsCardAging(String boardId,BoardsCardsPutRequest boardsCardsPutReq) {
+	    return getClient().updateBoardsCardAging(boardId,boardsCardsPutReq);
+	  }	
+	@Processor
+	  public String updateBoardsCardCovers(String boardId,BoardsCardCoversPutRequest boardsCardCoversPutReq) {
+	    return getClient().updateBoardsCardCover(boardId,boardsCardCoversPutReq);
+	  }	
+	@Processor
+	  public String updateBoardsComments(String boardId,BoardsCommentsPutRequest boardsCommentsPutReq) {
+	    return getClient().updateBoardsComments(boardId,boardsCommentsPutReq);
+	  }	
+	@Processor
+	  public String updateBoardsInvitations(String boardId,BoardsInvitationPutRequest boardsInvitationsPutReq) {
+	    return getClient().updateBoardsInvitations(boardId,boardsInvitationsPutReq);
+	  }	
+	@Processor
+	  public String updateBoardsPermissionLevel(String boardId,BoardsPermissionLevelPutRequest boardsInvitationsPutReq) {
+	    return getClient().updateBoardsPermissionLevel(boardId,boardsInvitationsPutReq);
+	  }	
+	@Processor
+	  public String updateSelfJoinBoards(String boardId,BoardsCardCoversPutRequest boardsSelfJoinPutReq) {
+	    return getClient().updateSelfJoinBoards(boardId,boardsSelfJoinPutReq);
+	  }	
+	@Processor
+	  public String boardsVoting(String boardId,BoardsVotingPutRequest boardsVotingPutReq) {
+	    return getClient().boardsVoting(boardId,boardsVotingPutReq);
+	  }	
+	@Processor
+	  public String updateSubscribedBoardsById(String boardId,BoardsSubscriberPutRequest boardsSubscriberPutReq) {
+	    return getClient().updateSubscribedBoardsById(boardId,boardsSubscriberPutReq);
+	  }	
 //Boards POST Methods
 	@Processor
 	  public BoardsPostResponse postBoards(BoardsPostRequest boardssPostRequest) {
@@ -555,6 +579,12 @@ public class TrelloConnector {
 	  public String postCardStickersById(String cardIdOrShortlink,CardsStickersPostRequest postCardsStickersPostReq) {
 	    return getClient().postCardStickersById(cardIdOrShortlink,postCardsStickersPostReq);
 	  }
+	@Processor
+	  public String postMarkAssociatedNotificationId(String cardIdOrShortlink) {
+	    return getClient().getMarkAssociatedNotificationId(cardIdOrShortlink);
+	  }
+	
+	
 	//Cards DELETE methods
 	
 	@Processor
@@ -970,7 +1000,438 @@ public class TrelloConnector {
 	  public OrganizationGetResponse getOrganizationById(String OrganizationId,@Optional String actions,@Optional Boolean actions_entities,@Optional Boolean actions_display,@Optional Integer actions_limit,@Optional String action_fields,@Optional String memberships,@Optional Boolean memberships_member,@Optional String memberships_member_fields,@Optional String members,@Optional String member_fields,@Optional Boolean  member_activity, @Optional String membersInvited,@Optional String membersInvited_fields, @Optional String boards,@Optional String board_fields,@Optional String board_actions,@Optional Boolean board_actions_entities,@Optional Boolean board_actions_display,@Optional String board_actions_format,@Optional String board_actions_since,@Optional Integer board_actions_limit,@Optional String board_action_fields,@Optional String board_lists,@Optional String paid_account,@Optional String fields) {
 	    return getClient().getOrganizationById(OrganizationId,actions,  actions_entities,  actions_display,  actions_limit,action_fields,memberships,memberships_member,memberships_member_fields,members,member_fields,member_activity,membersInvited,membersInvited_fields,boards,board_fields,board_actions,board_actions_entities,board_actions_display,board_actions_format,board_actions_since,board_actions_limit,board_action_fields,board_lists,paid_account,fields);
 	  }
+	  @Processor
+	  public String getOrganizationByIdAndField(String OrganizationId,String field) {
+	    return getClient().getOrganizationByIdAndField(OrganizationId,field);
+	  }
+	  @Processor
+	  public OrganizationActionGetResponse getOrganizationActionsById(String OrganizationId,@Optional Boolean entities,@Optional Boolean display,@Optional String filter ,@Optional String fields,@Optional Integer limit,@Optional String format,@Optional String since,@Optional String before,@Optional String page,@Optional String idModels ,@Optional Boolean member,@Optional String member_fields,@Optional Boolean memberCreator,@Optional String memberCreator_fields) {
+	    return getClient().getOrganizationActionsById(OrganizationId,  entities,  display,  filter ,  fields,  limit,  format,  since,  before,  page,  idModels ,  member,  member_fields,  memberCreator,  memberCreator_fields);
+	  }
+	  @Processor
+	  public OrganizationBoardsGetResponse getOrganizationBoardsById(String OrganizationId,@Optional String filter,@Optional String fields,@Optional String actions ,@Optional Boolean actions_entities,@Optional Integer actions_limit,@Optional String actions_format,@Optional String actions_since,@Optional String action_fields,@Optional String memberships,@Optional Boolean organization ,@Optional String organization_fields,@Optional String lists) {
+	    return getClient().getOrganizationBoardsById(OrganizationId,  filter,  fields,  actions ,  actions_entities,  actions_limit,  actions_format,  actions_since,  action_fields,  memberships,  organization ,  organization_fields,  lists);
+	  }
+	  @Processor
+	  public String getOrganizationBoardsByIdWithFilter(String OrganizationId,String filter) {
+	    return getClient().getOrganizationBoardsByIdWithFilter(OrganizationId,filter);
+	  }
+	  @Processor
+	  public String getOrganizationDeltasById(String OrganizationId,String tags,@Optional String ixLastUpdate) {
+	    return getClient().getOrganizationDeltasById(OrganizationId,tags,ixLastUpdate);
+	  }
+	  @Processor
+	  public OrganizationMemberResponse getOrganizationMembersById(String OrganizationId,@Optional String filters,@Optional String fields,@Optional Boolean activity) {
+	    return getClient().getOrganizationMembersById(OrganizationId,filters,fields,activity);
+	  }
+	  @Processor
+	  public OrganizationMemberResponse getOrganizationMembersByIdWithFilter(String OrganizationId,String filter) {
+	    return getClient().getOrganizationMembersByIdWithFilter(OrganizationId,filter);
+	  }
+	  @Processor
+	  public String getOrganizationMembersCardsById(String OrganizationId,String idMember,@Optional String actions,@Optional String attachments ,@Optional String attachment_fields,@Optional Boolean members,@Optional String member_fields,@Optional Boolean checkItemStates,@Optional String checklists,@Optional Boolean board,@Optional String board_fields ,@Optional String list,@Optional String list_fields,@Optional String filter,@Optional String fields) {
+	    return getClient().getOrganizationMembersCardsById(OrganizationId,  idMember,  actions,  attachments,  attachment_fields,  members,  member_fields,  checkItemStates,  checklists,  board ,  board_fields,list,fields,filter);
+	  }
+	  @Processor
+	  public String getOrganizationMembersInvitedById(String OrganizationId,@Optional String fields) {
+	    return getClient().getOrganizationMembersInvitedById(OrganizationId,fields);
+	  }
+	  @Processor
+	  public String getOrganizationMembersInvitedByIdWithField(String OrganizationId,String field) {
+	    return getClient().getOrganizationMembersInvitedByIdWithField(OrganizationId,field);
+	  }
+	  @Processor
+	  public String getOrganizationMembershipsById(String OrganizationId,@Optional String filter,@Optional Boolean member,@Optional String member_fields ) {
+	    return getClient().getOrganizationMembershipsById(OrganizationId,filter,member,member_fields);
+	  }
+	  @Processor
+	  public String getOrganizationMembershipsByMembershipId(String OrganizationId,String idMembership,@Optional Boolean member,@Optional String member_fields ) {
+	    return getClient().getOrganizationMembershipsByMembershipId(OrganizationId,idMembership,member,member_fields);
+	  }
+	  //organization put methods
+	  @Processor
+	  public String updateOrganizationsByIdOrName(String OrganizationId,OrganizationPutRequest organizationPutReq) {
+	    return getClient().updateOrganizationsById(OrganizationId,organizationPutReq);
+	  }
+	  @Processor
+	  public String updateOrganizationsDescByIdOrName(String OrganizationIdOrName,OrganizationDescPutRequest updateOrgDecPutReq) {
+	    return getClient().updateOrganizationsDescByIdOrName(OrganizationIdOrName,updateOrgDecPutReq);
+	  }
+	  @Processor
+	  public String updateOrganizationsDisplayNameIdOrName(String OrganizationIdOrName,OrganizationDisplayNamePutRequest updateOrgDisplayName) {
+	    return getClient().updateOrganizationsDisplayNameIdOrName(OrganizationIdOrName,updateOrgDisplayName);
+	  }
+	  @Processor
+	  public String updateOrganizationsMembersByIdOrName(String OrganizationIdOrName,OrganizationMembersPutRequest updateOrgMembersPutReq) {
+	    return getClient().updateOrganizationsMembersByIdOrName(OrganizationIdOrName,updateOrgMembersPutReq);
+	  }
+	  @Processor
+	  public String updateOrganizationsMembersByMemberid(String OrganizationIdOrName,String idMember,OrganizationMemberIdPutRequest updateOrgMembersByIdPutReq) {
+	    return getClient().updateOrganizationsMembersByMemberid(OrganizationIdOrName,idMember,updateOrgMembersByIdPutReq);
+	  }
+	  @Processor
+	  public String deactivateOrganizationMemberById(String OrganizationIdOrName,String idMember,OrganizationMemberDeactivatedPutRequest deactivatedOrgMembersByIdPutReq) {
+	    return getClient().deactivateOrganizationMemberById(OrganizationIdOrName,idMember,deactivatedOrgMembersByIdPutReq);
+	  }
+	  @Processor
+	  public String putOrganizationMembershipById(String OrganizationIdOrName,String idMember,OrganizationMembershipPutRequest memberShipsputReq) {
+	    return getClient().putOrganizationMembershipById(OrganizationIdOrName,idMember,memberShipsputReq);
+	  }
+	  @Processor
+	  public String updateOrganizationsNameByIdOrName(String OrganizationIdOrName,OrganizationDisplayNamePutRequest updateOrgNamePutReq) {
+	    return getClient().updateOrganizationsNameByIdOrName(OrganizationIdOrName,updateOrgNamePutReq);
+	  }
+	  @Processor
+	  public String updateOrganizationAssociatedDomain(String OrganizationIdOrName,OrganizationAssociatedDomainPutRequest orgAssociatedDomainPutReq) {
+	    return getClient().updateOrganizationAssociatedDomain(OrganizationIdOrName,orgAssociatedDomainPutReq);
+	  }
+	  @Processor
+	  public String updateOrgOrganizationBoardVisibilityRestrict(String OrganizationIdOrName,OrganizationBoardVisibilityRestrictPutRequest orgVisibilityRestrictPutReq) {
+	    return getClient().updateOrgOrganizationBoardVisibilityRestrict(OrganizationIdOrName,orgVisibilityRestrictPutReq);
+	  }
+	  @Processor
+	  public String updatePrivateOrganizationBoardVisibilityRestrict(String OrganizationIdOrName,OrganizationBoardVisibilityRestrictPutRequest orgVisibilityRestrictPutReq) {
+	    return getClient().updatePrivateOrganizationBoardVisibilityRestrict(OrganizationIdOrName,orgVisibilityRestrictPutReq);
+	  }
+	  @Processor
+	  public String updatePublicOrganizationBoardVisibilityRestrict(String OrganizationIdOrName,OrganizationBoardVisibilityRestrictPutRequest orgVisibilityRestrictPutReq) {
+	    return getClient().updatePublicOrganizationBoardVisibilityRestrict(OrganizationIdOrName,orgVisibilityRestrictPutReq);
+	  }
+	  @Processor
+	  public String updateOrgExternalMembersDisabled(String OrganizationIdOrName,OrganizationExternalMembersDisabledPutRequest orgExternalMemDisabledPutReq) {
+	    return getClient().updateOrgExternalMembersDisabled(OrganizationIdOrName,orgExternalMemDisabledPutReq);
+	  }
+	  @Processor
+	  public String updateOrgGoogleAppVersion(String OrganizationIdOrName,OrganizationGoogleAppVersionPutRequest orgExternalMemDisabledPutReq) {
+	    return getClient().updateOrgGoogleAppVersion(OrganizationIdOrName,orgExternalMemDisabledPutReq);
+	  }
+	  @Processor
+	  public String updateOrgInviteRestrict(String OrganizationIdOrName,OrganizationInviteRestrictPutRequest orgInviteRestrictPutReq) {
+	    return getClient().updateOrgInviteRestrict(OrganizationIdOrName,orgInviteRestrictPutReq);
+	  }
+	  @Processor
+	  public String updateOrgPermissionLevel(String OrganizationIdOrName,OrganizationPermissionLevelPutRequest orgPermissionLevelRestrictPutReq) {
+	    return getClient().updateOrgPermissionLevel(OrganizationIdOrName,orgPermissionLevelRestrictPutReq);
+	  }
+	  @Processor
+	  public String updateOrgWebsite(String OrganizationIdOrName,OrganizationPermissionLevelPutRequest orgPermissionLevelRestrictPutReq) {
+	    return getClient().updateOrgWebsite(OrganizationIdOrName,orgPermissionLevelRestrictPutReq);
+	  }
 	  
+	  //Orgabnization POST methods
+	  @Processor
+	  public String postOrganizations(OrganizationPostRequest organizationPostReq) {
+	    return getClient().postOrganizations(organizationPostReq);
+	  }
+	  @Processor
+	  public String postOrganizationsLogoByIdOrName(String orgIdOrName,OrganizationLogoPostRequest organizationLogoPostReq) {
+	    return getClient().postOrganizationsLogoByIdOrName(orgIdOrName,organizationLogoPostReq);
+	  }
+	  
+	  //Organization DELETE methods
+	  
+	  @Processor
+	  public StatusResponse deleteOrganizationsByIdOrName(String orgIdOrName) {
+	    return getClient().deleteOrganizationsByIdOrName(orgIdOrName);
+	  }
+	  @Processor
+	  public StatusResponse deleteOrganizationsLogoByIdOrName(String orgIdOrName) {
+	    return getClient().deleteOrganizationsLogoByIdOrName(orgIdOrName);
+	  }
+	  @Processor
+	  public StatusResponse deleteMemberFromOrganizationByIdOrName(String orgIdOrName,String idMember) {
+	    return getClient().deleteMemberFromOrganizationByIdOrName(orgIdOrName,idMember);
+	  }
+	  @Processor
+	  public StatusResponse deleteMemberFromAllOrganizationsByIdOrName(String orgIdOrName,String idMember) {
+	    return getClient().deleteMemberFromAllOrganizationsByIdOrName(orgIdOrName,idMember);
+	  }
+	  @Processor
+	  public StatusResponse deleteOrganizationsAssociatedDomainByIdOrName(String orgIdOrName) {
+	    return getClient().deleteOrganizationsAssociatedDomainByIdOrName(orgIdOrName);
+	  }
+	  @Processor
+	  public StatusResponse deleteOrganizationsOrgInviteReqByIdOrName(String orgIdOrName) {
+	    return getClient().deleteOrganizationsOrgInviteReqByIdOrName(orgIdOrName);
+	  }
+	  //Members API 
+	  @Processor
+		public MemberIdGetResponse getMemberByIdOrUsername(String id, @Optional String actions, @Optional @Default("false") Boolean actions_entities,
+				@Optional @Default("false") Boolean actions_display, @Optional @Default("50") String actions_limit, @Optional @Default("all") String action_fields, @Optional String action_since, @Optional String action_before, @Optional @Default("none") String cards, @Optional @Default("all") String card_fields, @Optional @Default("false") Boolean card_members, @Optional String card_member_fields, @Optional @Default("false") String card_attachments, @Optional String card_attachment_fields, @Optional @Default("false") Boolean card_stickers, @Optional String boards, @Optional String board_fields, @Optional String board_actions, @Optional @Default("false") Boolean board_actions_entities, @Default("false") Boolean board_actions_display, @Default("list") String board_actions_format, @Optional String board_actions_since, @Default("50") String board_actions_limit, @Default("all") String board_action_fields, @Default("none") String  board_lists, @Default("none") String board_memberships, @Default("false") Boolean board_organization, @Optional String board_organization_fields, @Optional String boardsInvited, @Optional String boardsInvited_fields, @Default("false") Boolean boardStars, @Default("false") Boolean savedSearches, @Default("none") String organizations, @Default("all") String organization_fields, @Default("false") Boolean organization_paid_account, @Default("none") String organizationsInvited, @Default("all") String organizationsInvited_fields, @Optional String notifications, @Default("false") Boolean notifications_entities, @Default("false") Boolean notifications_display, @Default("50") String notifications_limit, @Default("all") String notification_fields, @Default("true") Boolean notification_memberCreator, @Optional String notification_memberCreator_fields, @Optional String notification_before, @Optional String notification_since, @Default("none") String tokens, @Default("false") Boolean paid_account, @Default("none") String boardBackgrounds, @Default("none") String customBoardBackgrounds, @Default("none") String customStickers, @Default("none") String customEmoji, @Default("all") String fields){
+			return getClient().getMemberByIdOrUsername(id,actions,    actions_entities,
+					   actions_display,    actions_limit,    action_fields,   action_since,
+					   action_before,    cards,    card_fields,    card_members,   card_member_fields,
+					   card_attachments,   card_attachment_fields,    card_stickers,   boards,   
+					   board_fields,   board_actions,    board_actions_entities,   board_actions_display,   
+					   board_actions_format,   board_actions_since,   board_actions_limit,   board_action_fields,    
+					   board_lists,   board_memberships,   board_organization,   board_organization_fields,   boardsInvited,   
+					   boardsInvited_fields,   boardStars,   savedSearches,   organizations,   organization_fields,   
+					   organization_paid_account,   organizationsInvited,   organizationsInvited_fields,   notifications,   
+					   notifications_entities,   notifications_display,  notifications_limit,   notification_fields,   
+					   notification_memberCreator,   notification_memberCreator_fields,   notification_before,   
+					   notification_since,   tokens,   paid_account,   boardBackgrounds,   
+					   customBoardBackgrounds,   customStickers,   customEmoji,  fields);
+		}
+		@Processor
+		public String getMembersByIdOrUsernameAndField(String id, String field){
+			return getClient().getMembersByIdOrUsernameAndField(id, field);
+		}
+		
+		@Processor
+		public MemberActionsByIdOrUsernameGetResponse getMemberActionsByIdOrUsername(String id, @Default("false") Boolean entities,  @Default("false") Boolean display, @Default("all") String filter, @Default("all") String fields, @Default("50") String limit, @Default("list") String format, @Optional String since, @Optional String before, @Default("0") String page, @Optional String idModels, @Default("true") Boolean member, @Optional String member_fields, @Default("true") Boolean memberCreator, @Optional String memberCreator_fields){
+			
+			return getClient().getMemberActionsByIdOrUsername(id, entities,  display, filter, fields, limit, format, since, before, page, idModels, member, member_fields, memberCreator, memberCreator_fields);
+		}
+		
+		@Processor
+		public String getBoardBackGrounds(String id, @Default("all") String filter){
+			return getClient().getBoardBackGrounds(id, filter);
+		}
+		
+		@Processor
+		public String getBoardBackGroundsById(String id, String idBoardBackground, @Default("all") String filter){
+			return getClient().getBoardBackGroundsById(id, idBoardBackground, filter);
+		}	
+		
+		@Processor
+		public String getBoardStars(String id){
+			return getClient().getBoardStars(id);
+		}
+		
+		@Processor
+		public String getBoardStarsById(String id, String idBoardStar){
+			return getClient().getBoardStarsById(id, idBoardStar);
+		}
+		
+		@Processor
+		public MembersBoardsGetResponse getBoards(String id, @Default("all") String filter, @Default("all") String fields, @Optional String actions, @Default("false") Boolean actions_entities, @Default("50") String actions_limit, @Default("list") String actions_format, @Optional String actions_since, @Default("all") String action_fields, @Default("none") String memberships, @Default("false") Boolean organization, @Optional String organization_fields, @Default("none") String lists){
+			return getClient().getBoards(id, filter, fields, actions, actions_entities, actions_limit, actions_format, actions_since, action_fields, memberships, organization, organization_fields, lists);
+		}
+		
+		@Processor
+		public String getBoardsByFilter(String id, String filter){
+			return getClient().getBoardsByFilter(id, filter);
+		}
+		
+		@Processor
+		public String getBoardsInvited(String id, String fields){
+			return getClient().getBoardsInvited(id, fields);
+		}
+		
+		@Processor
+		public String getBoardsInvitedByField(String id, String field){
+			return getClient().getBoardsInvitedByField(id, field);
+		}
+		
+		@Processor
+		public String getCards(String id, @Optional String actions,@Default("false") Boolean attachments, @Default("all") String attachment_fields, @Default("false") Boolean stickers, @Default("false") Boolean members, @Optional String member_fields, @Default("false") Boolean checkItemStates, @Default("none") String checklists, @Optional String limit, @Optional String since, @Optional String before, @Default("visible") String filter, @Default("all") String fields){
+			return getClient().getCards(id, actions, attachments, attachment_fields, stickers, members, member_fields, checkItemStates, checklists, limit, since, before, filter, fields);
+		}
+		
+		@Processor
+		public String getCardsByFilter(String id, String filter){
+			return getClient().getCardsByFilter(id, filter);
+		}
+		
+		@Processor
+		public String getCustomBoardBackgrounds(String id, @Default("all") String filter){
+			return getClient().getCustomBoardBackgrounds(id, filter);
+		}
+		@Processor
+		public String getCustomBoardBackgroundsById(String memberId, String boardBackgroundId, @Default("all") String fields){
+			return getClient().getCustomBoardBackgroundsById(memberId, boardBackgroundId, fields);
+		}
+		@Processor
+		public String getCustomEmoji(String memberId, @Default("all") String filter){
+			return getClient().getCustomEmoji(memberId, filter);
+		}
+		@Processor
+		public String getCustomEmojiById(String memberId, String idCustomEmoji, @Default("all") String fields){
+			return getClient().getCustomEmojiById(memberId, idCustomEmoji, fields);
+		}
+		@Processor
+		public String getCustomStickers(String memberId, @Default("all") String filter){
+			return getClient().getCustomStickers(memberId, filter);
+		}
+		@Processor
+		public String getCustomStickersById(String memberId, String idCustomSticker, @Default("all") String fields){
+			return getClient().getCustomStickersById(memberId, idCustomSticker, fields);
+		}
+		@Processor
+		public String getDeltas(String memberId, String tags, String ixLastUpdate){
+			return getClient().getDeltas(memberId, tags, ixLastUpdate);
+		}
+		@Processor
+		public String getNotifications(String memberId, @Default("false") Boolean entities, @Default("false") Boolean display,@Default("all") String filter, @Default("all") String read_filter, @Default("all") String fields, @Default("50") String limit, @Default("0") String page, @Optional String before, @Optional String since, @Default("true") Boolean memberCreator, @Optional String memberCreator_fields){
+			return getClient().getNotifications(memberId, entities, display, filter, read_filter, fields, limit, page, before, since, memberCreator, memberCreator_fields);
+		}
+		@Processor
+		public String getNotificationsByFilter(String memberId, String filter){
+			return getClient().getNotificationsByFilter(memberId, filter);
+		}
+		@Processor
+		public OrganizationsGetResponse getOrganizations(String memberId, @Default("all") String filter, @Default("all") String fields, @Default("false") Boolean paid_account){
+			return getClient().getOrganizations(memberId, filter, fields, paid_account);
+		}
+		@Processor
+		public String getOrganizationsByFilter(String memberId, String filter){
+			return getClient().getOrganizationsByFilter(memberId, filter);
+		}
+		
+		@Processor
+		public String getOrganizationsInvited(String memberId, @Default("all") String fields){
+			return getClient().getOrganizationsInvited(memberId, fields);
+		}
+		
+		@Processor
+		public String getOrganizationsByField(String memberId, String field){
+			return getClient().getOrganizationsByField(memberId, field);
+		}
+		@Processor
+		public String getSavedSearches(String memberId){
+			return getClient().getSavedSearches(memberId);
+		}
+		@Processor
+		public String getSavedSearchesBySavedSearchId(String memberId, String savedSearchId){
+			return getClient().getSavedSearchesBySavedSearchId(memberId, savedSearchId);
+		}
+		@Processor
+		public String getTokens(String memberId,@Default("all") String filter, @Default("false") Boolean webhooks){
+			return getClient().getTokens(memberId,filter,webhooks);
+		}
+		
+		@Processor
+		public String updateMember(String memberId, UpdateMemberPutRequest request){
+			return getClient().updateMember(memberId,request);
+		}
+		@Processor
+		public String updateAvatarSource(String memberId, UpdateAvatarSourcePutRequest request){
+			return getClient().updateAvatarSource(memberId, request);
+		}
+		@Processor
+		public String updateBio(String memberId, String value){
+			return getClient().updateBio(memberId, value);
+		}
+		@Processor
+		public String updateBoardBackgroundsById(String memberId, String idBoardBackground, UpdateBoardBackgroundByIdPutRequest request){
+			return getClient().updateBoardBackgroundsById(memberId, idBoardBackground, request);
+		}
+		@Processor
+		public String updateBoardStarsById(String memberId, String idBoardStar, UpdateBoardStarsByIdPutRequest request ){
+			return getClient().updateBoardStarsById(memberId, idBoardStar, request);
+		}
+		@Processor
+		public String updateBoardStarByBoardId(String memberId, String idBoardStar, UpdateBoardStarByBoardIdPutRequest request){
+			return getClient().updateBoardStarByBoardId(memberId, idBoardStar, request);
+		}
+		@Processor
+		public String updateBoardStarByBoardPos(String memberId, String idBoardStar, UpdateBoardStarByBoardPosPutRequest request){
+			return getClient().updateBoardStarByBoardPos(memberId, idBoardStar, request);
+		}
+		@Processor
+		public String updateCustomBoardBackgroundById(String memberId, String idBoardBackground, UpdateCustomBoardBackgroundById request){
+			return getClient().updateCustomBoardBackgroundById(memberId, idBoardBackground, request);
+		}
+		@Processor
+		public String updateMemberFullname(String memberId, String value){
+			return getClient().updateMemberFullname(memberId, value);
+		}
+		@Processor
+		public String updateMemberInitials(String memberId, String value){
+			return getClient().updateMemberInitials(memberId, value);
+		}
+		@Processor
+		public String updateMemberPrefColorBlind(String memberId, Boolean value){
+			return getClient().updateMemberPrefColorBlind(memberId, value);
+		}
+		@Processor
+		public String updateMemberPrefLocale(String memberId, String value){
+			return getClient().updateMemberPrefLocale(memberId, value);
+		}
+		@Processor
+		public String updateMemberPrefMinutesBetweenSummaries(String memberId, String value){
+			return getClient().updateMemberPrefMinutesBetweenSummaries(memberId, value);
+		}
+		@Processor
+		public String updateMemberSavedSearchesById(String memberId, String idSavedSearch, UpdateMemberSavedSearchesByIdPutRequest request){
+			return getClient().updateMemberSavedSearchesById(memberId, idSavedSearch, request);
+		}
+		@Processor
+		public String updateSavedSearchName(String memberId, String idSavedSearch, UpdateSavedSearchNamePutRequest request){
+			return getClient().updateSavedSearchName(memberId, idSavedSearch, request);
+		}
+		@Processor
+		public String updateSavedSearchPos(String memberId, String idSavedSearch, UpdateSavedSearchPosPutRequest request){
+			return getClient().updateSavedSearchPos(memberId, idSavedSearch, request);
+		}
+		@Processor
+		public String updateSavedSearchQuery(String memberId, String idSavedSearch, UpdateSavedSearchQueryPutRequest request){
+			return getClient().updateSavedSearchQuery(memberId, idSavedSearch, request);
+		}
+		@Processor
+		public String updateMemberUsername(String memberId, String value){
+			return getClient().updateMemberUsername(memberId, value);
+		}
+		
+		@Processor
+		public String createMemberAvatar(String memberId, CreateMemberAvatarPostRequest request){
+			return getClient().createMemberAvatar(memberId, request);
+		}
+		
+		@Processor
+		public String createMemberBoardBackgrounds(String memberId, CreateMemberBoardBackgroundsPostRequest request){
+			return getClient().createMemberBoardBackgrounds(memberId, request);
+		}
+		
+		@Processor
+		public String createMemberBoardStars(String memberId, CreateMemberBoardStarsPostRequest request){
+			return getClient().createMemberBoardStars(memberId, request);
+		}
+		
+		@Processor
+		public String createCustomBoardBackgrounds(String memberId, CreateCustomBoardBackgroundsPostRequest request){
+			return getClient().createCustomBoardBackgrounds(memberId, request);
+		}
+		
+		@Processor
+		public String createCustomEmoji(String memberId, CreateCustomEmojiPostRequest request){
+			return getClient().createCustomEmoji(memberId, request);
+		}
+		
+		@Processor
+		public String createCustomStickers(String memberId, CreateCustomStickerPostRequest request){
+			return getClient().createCustomStickers(memberId, request);
+		}
+		
+		@Processor
+		public String createOneTimeMessagesDismissed(String memberId, CreateOneTimeMessagesDismissedPostRequest request){
+			return getClient().createOneTimeMessagesDismissed(memberId, request);
+		}
+		@Processor
+		public String createSavedSearches(String memberId, CreateSavedSearchesPostRequest request){
+			return getClient().createSavedSearches(memberId, request);
+		}
+		
+		@Processor
+		public StatusResponse deleteMembersBoardBackgroundsById(String memberId, String idBoardBackground) {
+			return getClient().deleteMembersBoardBackgroundsById(memberId, idBoardBackground);
+		}
+		@Processor
+		public StatusResponse deleteMembersBoardStarsById(String memberId, String idBoardStar) {
+			return getClient().deleteMembersBoardStarsById(memberId, idBoardStar);
+		}
+		@Processor
+		public StatusResponse deleteMembersCustomBoardBackgroundsById(String memberId, String idBoardBackground) {
+			return getClient().deleteMembersCustomBoardBackgroundsById(memberId, idBoardBackground);
+		}
+		@Processor
+		public StatusResponse deleteMembersCustomStickersById(String memberId, String idCustomSticker) {
+			return getClient().deleteMembersCustomStickersById(memberId, idCustomSticker);
+		}
+		@Processor
+		public StatusResponse deleteMembersSavedSearchesById(String memberId, String idSavedSearch) {
+			return getClient().deleteMembersSavedSearchesById(memberId, idSavedSearch);
+		}
 	  
 	  
 	  
