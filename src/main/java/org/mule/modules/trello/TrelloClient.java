@@ -2568,8 +2568,8 @@ public class TrelloClient {
 //organizations PUT method
 	public String updateOrganizationsById(String organizationId,
 			OrganizationPutRequest organizationPutReq) {
-		// TODO Auto-generated method stub
-		return null;
+		WebResource webResource = getApiResource().path("organizations").path(organizationId);
+		return (String) putData(organizationPutReq, webResource, String.class);
 	}
 	public String updateOrganizationsDescByIdOrName(
 			String organizationIdOrName,OrganizationDescPutRequest updateOrgDecPutReq) {
