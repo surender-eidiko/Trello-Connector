@@ -1,12 +1,11 @@
 package org.mule.modules.trello.automation.functional;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.trello.TrelloConnector;
 import org.mule.modules.trello.automation.runner.FunctionalTestSuite;
-import org.mule.modules.trello.bean.BoardMembersByBoardIdGetResponse;
 
 public class GetBoardMembersByBoardIdWithFilterTestCase extends TrelloAbstractTestcases {
 
@@ -19,9 +18,8 @@ public class GetBoardMembersByBoardIdWithFilterTestCase extends TrelloAbstractTe
 	public void testGetBoardMembersByBoardIdWithFilter() {
 		String boardId=getBoardId();
 		String filter=getFilter();
-		BoardMembersByBoardIdGetResponse boardMembersByBoardIdGetResponse=getConnector().getBoardMembersByBoardIdWithFilter(boardId, filter);
+		String boardMembersByBoardIdGetResponse=getConnector().getBoardMembersByBoardIdWithFilter(boardId, filter);
 		assertNotNull(boardMembersByBoardIdGetResponse);
-		assertEquals("200", boardMembersByBoardIdGetResponse.getStatusCode());
 	}
 
 }

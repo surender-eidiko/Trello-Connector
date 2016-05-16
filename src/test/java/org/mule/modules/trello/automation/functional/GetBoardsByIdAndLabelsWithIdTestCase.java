@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.trello.TrelloConnector;
 import org.mule.modules.trello.automation.runner.FunctionalTestSuite;
-import org.mule.modules.trello.bean.BoardsByIdAndLabelsGetResponse;
 
 public class GetBoardsByIdAndLabelsWithIdTestCase extends TrelloAbstractTestcases {
 
@@ -19,9 +18,8 @@ public class GetBoardsByIdAndLabelsWithIdTestCase extends TrelloAbstractTestcase
 	public void testGetBoardsByIdAndLabelsWithId() {
 		String boardId=getBoardId();
 		String labelId=getLabelId();
-		BoardsByIdAndLabelsGetResponse boardsByIdAndLabelsGetResponse=getConnector().getBoardsByIdAndLabelsWithId(boardId, labelId, null);
+		String boardsByIdAndLabelsGetResponse=getConnector().getBoardsByIdAndLabelsWithId(boardId, labelId, null);
 		assertNotNull(boardsByIdAndLabelsGetResponse);
-		assertEquals("200", boardsByIdAndLabelsGetResponse.getStatusCode());
 	}
 
 }

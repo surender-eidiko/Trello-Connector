@@ -22,7 +22,7 @@ public class OrganizationsGetResponse extends StatusResponse {
 
     private String id;
 
-    private OrganizationPrefs prefs;
+    private OrganizationPref prefs;
 
     private String name;
 
@@ -136,12 +136,12 @@ public class OrganizationsGetResponse extends StatusResponse {
         this.id = id;
     }
 
-    public OrganizationPrefs getPrefs ()
+    public OrganizationPref getPrefs ()
     {
         return prefs;
     }
 
-    public void setPrefs (OrganizationPrefs prefs)
+    public void setPrefs (OrganizationPref prefs)
     {
         this.prefs = prefs;
     }

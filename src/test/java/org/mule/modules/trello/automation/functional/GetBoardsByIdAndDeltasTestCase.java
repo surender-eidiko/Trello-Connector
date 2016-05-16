@@ -1,12 +1,11 @@
 package org.mule.modules.trello.automation.functional;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.trello.TrelloConnector;
 import org.mule.modules.trello.automation.runner.FunctionalTestSuite;
-import org.mule.modules.trello.bean.BoardsByIdAndDeltasGetResponse;
 
 public class GetBoardsByIdAndDeltasTestCase extends TrelloAbstractTestcases {
 
@@ -20,9 +19,8 @@ public class GetBoardsByIdAndDeltasTestCase extends TrelloAbstractTestcases {
 		String boardId=getBoardId();
 		String tags=getTags();
 		String ixLastUpdate=getIxLastUpdate();
-		BoardsByIdAndDeltasGetResponse boardsByIdAndDeltasGetResponse=getConnector().getBoardsByIdAndDeltas(boardId, tags, ixLastUpdate);
+		String boardsByIdAndDeltasGetResponse=getConnector().getBoardsByIdAndDeltas(boardId, tags, ixLastUpdate);
 		assertNotNull(boardsByIdAndDeltasGetResponse);
-		assertEquals("200", boardsByIdAndDeltasGetResponse.getStatusCode());
 	}
 
 }

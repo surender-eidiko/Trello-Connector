@@ -1,12 +1,11 @@
 package org.mule.modules.trello.automation.functional;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.trello.TrelloConnector;
 import org.mule.modules.trello.automation.runner.FunctionalTestSuite;
-import org.mule.modules.trello.bean.BoardsByIdAndBoardStarsGetResponse;
 
 public class GetBoardsByIdAndBoardStarsTestCase extends TrelloAbstractTestcases{
 
@@ -19,10 +18,8 @@ public class GetBoardsByIdAndBoardStarsTestCase extends TrelloAbstractTestcases{
 	public void testGetBoardsByIdAndBoardStars() {
 		
 		String boardId=getBoardId();
-		BoardsByIdAndBoardStarsGetResponse boardsByIdAndBoardStarsGetResponse=getConnector().getBoardsByIdAndBoardStars(boardId, null);
+		String boardsByIdAndBoardStarsGetResponse=getConnector().getBoardsByIdAndBoardStars(boardId, null);
 		assertNotNull(boardsByIdAndBoardStarsGetResponse);
-		assertEquals("200", boardsByIdAndBoardStarsGetResponse.getStatusCode());
-
 	}
 
 }
