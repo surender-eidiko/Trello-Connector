@@ -1,211 +1,407 @@
+
 package org.mule.modules.trello.bean;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Prefs.
+ */
 public class Prefs {
-	 private String invitations;
+	 
+ 	/** The invitations. */
+ 	private String invitations;
 
-	    private String backgroundColor;
+	    /** The background color. */
+    	private String backgroundColor;
 
-	    private String canInvite;
+	    /** The can invite. */
+    	private String canInvite;
 
-	    private String calendarFeedEnabled;
+	    /** The calendar feed enabled. */
+    	private String calendarFeedEnabled;
 
-	    private String backgroundImage;
+	    /** The background image. */
+    	private String backgroundImage;
 
-	    private String cardCovers;
+	    /** The card covers. */
+    	private String cardCovers;
 
-	    private String canBePublic;
+	    /** The can be public. */
+    	private String canBePublic;
 
-	    private String canBeOrg;
+	    /** The can be org. */
+    	private String canBeOrg;
 
-	    private String permissionLevel;
+	    /** The permission level. */
+    	private String permissionLevel;
 
-	    private String selfJoin;
+	    /** The self join. */
+    	private String selfJoin;
 
-	    private String backgroundBrightness;
+	    /** The background brightness. */
+    	private String backgroundBrightness;
 
-	    private String background;
+	    /** The background. */
+    	private String background;
 
-	    private String backgroundImageScaled;
+	    /** The background image scaled. */
+    	private String backgroundImageScaled;
 
-	    private String voting;
+	    /** The voting. */
+    	private String voting;
 
-	    private String canBePrivate;
+	    /** The can be private. */
+    	private String canBePrivate;
 
-	    private String comments;
+	    /** The comments. */
+    	private String comments;
 
-	    private String backgroundTile;
+	    /** The background tile. */
+    	private String backgroundTile;
 
-	    public String getInvitations ()
+	    /**
+    	 * Gets the invitations.
+    	 *
+    	 * @return the invitations
+    	 */
+    	public String getInvitations ()
 	    {
 	        return invitations;
 	    }
 
-	    public void setInvitations (String invitations)
+	    /**
+    	 * Sets the invitations.
+    	 *
+    	 * @param invitations the new invitations
+    	 */
+    	public void setInvitations (String invitations)
 	    {
 	        this.invitations = invitations;
 	    }
 
-	    public String getBackgroundColor ()
+	    /**
+    	 * Gets the background color.
+    	 *
+    	 * @return the background color
+    	 */
+    	public String getBackgroundColor ()
 	    {
 	        return backgroundColor;
 	    }
 
-	    public void setBackgroundColor (String backgroundColor)
+	    /**
+    	 * Sets the background color.
+    	 *
+    	 * @param backgroundColor the new background color
+    	 */
+    	public void setBackgroundColor (String backgroundColor)
 	    {
 	        this.backgroundColor = backgroundColor;
 	    }
 
-	    public String getCanInvite ()
+	    /**
+    	 * Gets the can invite.
+    	 *
+    	 * @return the can invite
+    	 */
+    	public String getCanInvite ()
 	    {
 	        return canInvite;
 	    }
 
-	    public void setCanInvite (String canInvite)
+	    /**
+    	 * Sets the can invite.
+    	 *
+    	 * @param canInvite the new can invite
+    	 */
+    	public void setCanInvite (String canInvite)
 	    {
 	        this.canInvite = canInvite;
 	    }
 
-	    public String getCalendarFeedEnabled ()
+	    /**
+    	 * Gets the calendar feed enabled.
+    	 *
+    	 * @return the calendar feed enabled
+    	 */
+    	public String getCalendarFeedEnabled ()
 	    {
 	        return calendarFeedEnabled;
 	    }
 
-	    public void setCalendarFeedEnabled (String calendarFeedEnabled)
+	    /**
+    	 * Sets the calendar feed enabled.
+    	 *
+    	 * @param calendarFeedEnabled the new calendar feed enabled
+    	 */
+    	public void setCalendarFeedEnabled (String calendarFeedEnabled)
 	    {
 	        this.calendarFeedEnabled = calendarFeedEnabled;
 	    }
 
-	    public String getBackgroundImage ()
+	    /**
+    	 * Gets the background image.
+    	 *
+    	 * @return the background image
+    	 */
+    	public String getBackgroundImage ()
 	    {
 	        return backgroundImage;
 	    }
 
-	    public void setBackgroundImage (String backgroundImage)
+	    /**
+    	 * Sets the background image.
+    	 *
+    	 * @param backgroundImage the new background image
+    	 */
+    	public void setBackgroundImage (String backgroundImage)
 	    {
 	        this.backgroundImage = backgroundImage;
 	    }
 
-	    public String getCardCovers ()
+	    /**
+    	 * Gets the card covers.
+    	 *
+    	 * @return the card covers
+    	 */
+    	public String getCardCovers ()
 	    {
 	        return cardCovers;
 	    }
 
-	    public void setCardCovers (String cardCovers)
+	    /**
+    	 * Sets the card covers.
+    	 *
+    	 * @param cardCovers the new card covers
+    	 */
+    	public void setCardCovers (String cardCovers)
 	    {
 	        this.cardCovers = cardCovers;
 	    }
 
-	    public String getCanBePublic ()
+	    /**
+    	 * Gets the can be public.
+    	 *
+    	 * @return the can be public
+    	 */
+    	public String getCanBePublic ()
 	    {
 	        return canBePublic;
 	    }
 
-	    public void setCanBePublic (String canBePublic)
+	    /**
+    	 * Sets the can be public.
+    	 *
+    	 * @param canBePublic the new can be public
+    	 */
+    	public void setCanBePublic (String canBePublic)
 	    {
 	        this.canBePublic = canBePublic;
 	    }
 
-	    public String getCanBeOrg ()
+	    /**
+    	 * Gets the can be org.
+    	 *
+    	 * @return the can be org
+    	 */
+    	public String getCanBeOrg ()
 	    {
 	        return canBeOrg;
 	    }
 
-	    public void setCanBeOrg (String canBeOrg)
+	    /**
+    	 * Sets the can be org.
+    	 *
+    	 * @param canBeOrg the new can be org
+    	 */
+    	public void setCanBeOrg (String canBeOrg)
 	    {
 	        this.canBeOrg = canBeOrg;
 	    }
 
-	    public String getPermissionLevel ()
+	    /**
+    	 * Gets the permission level.
+    	 *
+    	 * @return the permission level
+    	 */
+    	public String getPermissionLevel ()
 	    {
 	        return permissionLevel;
 	    }
 
-	    public void setPermissionLevel (String permissionLevel)
+	    /**
+    	 * Sets the permission level.
+    	 *
+    	 * @param permissionLevel the new permission level
+    	 */
+    	public void setPermissionLevel (String permissionLevel)
 	    {
 	        this.permissionLevel = permissionLevel;
 	    }
 
-	    public String getSelfJoin ()
+	    /**
+    	 * Gets the self join.
+    	 *
+    	 * @return the self join
+    	 */
+    	public String getSelfJoin ()
 	    {
 	        return selfJoin;
 	    }
 
-	    public void setSelfJoin (String selfJoin)
+	    /**
+    	 * Sets the self join.
+    	 *
+    	 * @param selfJoin the new self join
+    	 */
+    	public void setSelfJoin (String selfJoin)
 	    {
 	        this.selfJoin = selfJoin;
 	    }
 
-	    public String getBackgroundBrightness ()
+	    /**
+    	 * Gets the background brightness.
+    	 *
+    	 * @return the background brightness
+    	 */
+    	public String getBackgroundBrightness ()
 	    {
 	        return backgroundBrightness;
 	    }
 
-	    public void setBackgroundBrightness (String backgroundBrightness)
+	    /**
+    	 * Sets the background brightness.
+    	 *
+    	 * @param backgroundBrightness the new background brightness
+    	 */
+    	public void setBackgroundBrightness (String backgroundBrightness)
 	    {
 	        this.backgroundBrightness = backgroundBrightness;
 	    }
 
-	    public String getBackground ()
+	    /**
+    	 * Gets the background.
+    	 *
+    	 * @return the background
+    	 */
+    	public String getBackground ()
 	    {
 	        return background;
 	    }
 
-	    public void setBackground (String background)
+	    /**
+    	 * Sets the background.
+    	 *
+    	 * @param background the new background
+    	 */
+    	public void setBackground (String background)
 	    {
 	        this.background = background;
 	    }
 
-	    public String getBackgroundImageScaled ()
+	    /**
+    	 * Gets the background image scaled.
+    	 *
+    	 * @return the background image scaled
+    	 */
+    	public String getBackgroundImageScaled ()
 	    {
 	        return backgroundImageScaled;
 	    }
 
-	    public void setBackgroundImageScaled (String backgroundImageScaled)
+	    /**
+    	 * Sets the background image scaled.
+    	 *
+    	 * @param backgroundImageScaled the new background image scaled
+    	 */
+    	public void setBackgroundImageScaled (String backgroundImageScaled)
 	    {
 	        this.backgroundImageScaled = backgroundImageScaled;
 	    }
 
-	    public String getVoting ()
+	    /**
+    	 * Gets the voting.
+    	 *
+    	 * @return the voting
+    	 */
+    	public String getVoting ()
 	    {
 	        return voting;
 	    }
 
-	    public void setVoting (String voting)
+	    /**
+    	 * Sets the voting.
+    	 *
+    	 * @param voting the new voting
+    	 */
+    	public void setVoting (String voting)
 	    {
 	        this.voting = voting;
 	    }
 
-	    public String getCanBePrivate ()
+	    /**
+    	 * Gets the can be private.
+    	 *
+    	 * @return the can be private
+    	 */
+    	public String getCanBePrivate ()
 	    {
 	        return canBePrivate;
 	    }
 
-	    public void setCanBePrivate (String canBePrivate)
+	    /**
+    	 * Sets the can be private.
+    	 *
+    	 * @param canBePrivate the new can be private
+    	 */
+    	public void setCanBePrivate (String canBePrivate)
 	    {
 	        this.canBePrivate = canBePrivate;
 	    }
 
-	    public String getComments ()
+	    /**
+    	 * Gets the comments.
+    	 *
+    	 * @return the comments
+    	 */
+    	public String getComments ()
 	    {
 	        return comments;
 	    }
 
-	    public void setComments (String comments)
+	    /**
+    	 * Sets the comments.
+    	 *
+    	 * @param comments the new comments
+    	 */
+    	public void setComments (String comments)
 	    {
 	        this.comments = comments;
 	    }
 
-	    public String getBackgroundTile ()
+	    /**
+    	 * Gets the background tile.
+    	 *
+    	 * @return the background tile
+    	 */
+    	public String getBackgroundTile ()
 	    {
 	        return backgroundTile;
 	    }
 
-	    public void setBackgroundTile (String backgroundTile)
+	    /**
+    	 * Sets the background tile.
+    	 *
+    	 * @param backgroundTile the new background tile
+    	 */
+    	public void setBackgroundTile (String backgroundTile)
 	    {
 	        this.backgroundTile = backgroundTile;
 	    }
 
-	    @Override
+	    /* (non-Javadoc)
+    	 * @see java.lang.Object#toString()
+    	 */
+    	@Override
 	    public String toString()
 	    {
 	        return "ClassPojo [invitations = "+invitations+", backgroundColor = "+backgroundColor+", canInvite = "+canInvite+", calendarFeedEnabled = "+calendarFeedEnabled+", backgroundImage = "+backgroundImage+", cardCovers = "+cardCovers+", canBePublic = "+canBePublic+", canBeOrg = "+canBeOrg+", permissionLevel = "+permissionLevel+", selfJoin = "+selfJoin+", backgroundBrightness = "+backgroundBrightness+", background = "+background+", backgroundImageScaled = "+backgroundImageScaled+", voting = "+voting+", canBePrivate = "+canBePrivate+", comments = "+comments+", backgroundTile = "+backgroundTile+"]";

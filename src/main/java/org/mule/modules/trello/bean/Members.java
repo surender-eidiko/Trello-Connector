@@ -1,43 +1,84 @@
 package org.mule.modules.trello.bean;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Members.
+ */
 public class Members {
-	 private String id;
+	 
+ 	/** The id. */
+ 	private String id;
 
-	    private String username;
+	    /** The username. */
+    	private String username;
 
-	    private String fullName;
+	    /** The full name. */
+    	private String fullName;
 
-	    public String getId ()
+	    /**
+    	 * Gets the id.
+    	 *
+    	 * @return the id
+    	 */
+    	public String getId ()
 	    {
 	        return id;
 	    }
 
-	    public void setId (String id)
+	    /**
+    	 * Sets the id.
+    	 *
+    	 * @param id the new id
+    	 */
+    	public void setId (String id)
 	    {
 	        this.id = id;
 	    }
 
-	    public String getUsername ()
+	    /**
+    	 * Gets the username.
+    	 *
+    	 * @return the username
+    	 */
+    	public String getUsername ()
 	    {
 	        return username;
 	    }
 
-	    public void setUsername (String username)
+	    /**
+    	 * Sets the username.
+    	 *
+    	 * @param username the new username
+    	 */
+    	public void setUsername (String username)
 	    {
 	        this.username = username;
 	    }
 
-	    public String getFullName ()
+	    /**
+    	 * Gets the full name.
+    	 *
+    	 * @return the full name
+    	 */
+    	public String getFullName ()
 	    {
 	        return fullName;
 	    }
 
-	    public void setFullName (String fullName)
+	    /**
+    	 * Sets the full name.
+    	 *
+    	 * @param fullName the new full name
+    	 */
+    	public void setFullName (String fullName)
 	    {
 	        this.fullName = fullName;
 	    }
 
-	    @Override
+	    /* (non-Javadoc)
+    	 * @see java.lang.Object#toString()
+    	 */
+    	@Override
 	    public String toString()
 	    {
 	        return "ClassPojo [id = "+id+", username = "+username+", fullName = "+fullName+"]";

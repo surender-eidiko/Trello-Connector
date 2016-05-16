@@ -1,79 +1,154 @@
+
 package org.mule.modules.trello.bean;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class BoardsByIdAndCheckListsGetResponse.
+ */
 public class BoardsByIdAndCheckListsGetResponse extends StatusResponse {
-	 private String id;
+	 
+ 	/** The id. */
+ 	private String id;
 
-	    private String idCard;
+	    /** The id card. */
+    	private String idCard;
 
-	    private CheckItems[] checkItems;
+	    /** The check items. */
+    	private CheckItems[] checkItems;
 
-	    private String name;
+	    /** The name. */
+    	private String name;
 
-	    private String pos;
+	    /** The pos. */
+    	private String pos;
 
-	    private String idBoard;
+	    /** The id board. */
+    	private String idBoard;
 
-	    public String getId ()
+	    /**
+    	 * Gets the id.
+    	 *
+    	 * @return the id
+    	 */
+    	public String getId ()
 	    {
 	        return id;
 	    }
 
-	    public void setId (String id)
+	    /**
+    	 * Sets the id.
+    	 *
+    	 * @param id the new id
+    	 */
+    	public void setId (String id)
 	    {
 	        this.id = id;
 	    }
 
-	    public String getIdCard ()
+	    /**
+    	 * Gets the id card.
+    	 *
+    	 * @return the id card
+    	 */
+    	public String getIdCard ()
 	    {
 	        return idCard;
 	    }
 
-	    public void setIdCard (String idCard)
+	    /**
+    	 * Sets the id card.
+    	 *
+    	 * @param idCard the new id card
+    	 */
+    	public void setIdCard (String idCard)
 	    {
 	        this.idCard = idCard;
 	    }
 
-	    public CheckItems[] getCheckItems ()
+	    /**
+    	 * Gets the check items.
+    	 *
+    	 * @return the check items
+    	 */
+    	public CheckItems[] getCheckItems ()
 	    {
 	        return checkItems;
 	    }
 
-	    public void setCheckItems (CheckItems[] checkItems)
+	    /**
+    	 * Sets the check items.
+    	 *
+    	 * @param checkItems the new check items
+    	 */
+    	public void setCheckItems (CheckItems[] checkItems)
 	    {
 	        this.checkItems = checkItems;
 	    }
 
-	    public String getName ()
+	    /**
+    	 * Gets the name.
+    	 *
+    	 * @return the name
+    	 */
+    	public String getName ()
 	    {
 	        return name;
 	    }
 
-	    public void setName (String name)
+	    /**
+    	 * Sets the name.
+    	 *
+    	 * @param name the new name
+    	 */
+    	public void setName (String name)
 	    {
 	        this.name = name;
 	    }
 
-	    public String getPos ()
+	    /**
+    	 * Gets the pos.
+    	 *
+    	 * @return the pos
+    	 */
+    	public String getPos ()
 	    {
 	        return pos;
 	    }
 
-	    public void setPos (String pos)
+	    /**
+    	 * Sets the pos.
+    	 *
+    	 * @param pos the new pos
+    	 */
+    	public void setPos (String pos)
 	    {
 	        this.pos = pos;
 	    }
 
-	    public String getIdBoard ()
+	    /**
+    	 * Gets the id board.
+    	 *
+    	 * @return the id board
+    	 */
+    	public String getIdBoard ()
 	    {
 	        return idBoard;
 	    }
 
-	    public void setIdBoard (String idBoard)
+	    /**
+    	 * Sets the id board.
+    	 *
+    	 * @param idBoard the new id board
+    	 */
+    	public void setIdBoard (String idBoard)
 	    {
 	        this.idBoard = idBoard;
 	    }
 
-	    @Override
+	    /* (non-Javadoc)
+    	 * @see java.lang.Object#toString()
+    	 */
+    	@Override
 	    public String toString()
 	    {
 	        return "ClassPojo [id = "+id+", idCard = "+idCard+", checkItems = "+checkItems+", name = "+name+", pos = "+pos+", idBoard = "+idBoard+"]";

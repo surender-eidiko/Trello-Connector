@@ -1,55 +1,108 @@
+
 package org.mule.modules.trello.bean;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class BoardsByIdGetResponse.
+ */
 public class BoardsByIdGetResponse extends StatusResponse {
-	 private String id;
+	 
+ 	/** The id. */
+ 	private String id;
 
-	    private String desc;
+	    /** The desc. */
+    	private String desc;
 
-	    private String name;
+	    /** The name. */
+    	private String name;
 
-	    private Lists[] lists;
+	    /** The lists. */
+    	private Lists[] lists;
 
-	    public String getId ()
+	    /**
+    	 * Gets the id.
+    	 *
+    	 * @return the id
+    	 */
+    	public String getId ()
 	    {
 	        return id;
 	    }
 
-	    public void setId (String id)
+	    /**
+    	 * Sets the id.
+    	 *
+    	 * @param id the new id
+    	 */
+    	public void setId (String id)
 	    {
 	        this.id = id;
 	    }
 
-	    public String getDesc ()
+	    /**
+    	 * Gets the desc.
+    	 *
+    	 * @return the desc
+    	 */
+    	public String getDesc ()
 	    {
 	        return desc;
 	    }
 
-	    public void setDesc (String desc)
+	    /**
+    	 * Sets the desc.
+    	 *
+    	 * @param desc the new desc
+    	 */
+    	public void setDesc (String desc)
 	    {
 	        this.desc = desc;
 	    }
 
-	    public String getName ()
+	    /**
+    	 * Gets the name.
+    	 *
+    	 * @return the name
+    	 */
+    	public String getName ()
 	    {
 	        return name;
 	    }
 
-	    public void setName (String name)
+	    /**
+    	 * Sets the name.
+    	 *
+    	 * @param name the new name
+    	 */
+    	public void setName (String name)
 	    {
 	        this.name = name;
 	    }
 
-	    public Lists[] getLists ()
+	    /**
+    	 * Gets the lists.
+    	 *
+    	 * @return the lists
+    	 */
+    	public Lists[] getLists ()
 	    {
 	        return lists;
 	    }
 
-	    public void setLists (Lists[] lists)
+	    /**
+    	 * Sets the lists.
+    	 *
+    	 * @param lists the new lists
+    	 */
+    	public void setLists (Lists[] lists)
 	    {
 	        this.lists = lists;
 	    }
 
-	    @Override
+	    /* (non-Javadoc)
+    	 * @see java.lang.Object#toString()
+    	 */
+    	@Override
 	    public String toString()
 	    {
 	        return "ClassPojo [id = "+id+", desc = "+desc+", name = "+name+", lists = "+lists+"]";

@@ -1,247 +1,475 @@
 package org.mule.modules.trello.bean;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class OrganizationBoardsGetResponse.
+ */
 public class OrganizationBoardsGetResponse extends StatusResponse {
-	 private String dateLastActivity;
+	 
+ 	/** The date last activity. */
+ 	private String dateLastActivity;
 
-	    private String[] invitations;
+	    /** The invitations. */
+    	private String[] invitations;
 
-	    private String desc;
+	    /** The desc. */
+    	private String desc;
 
-	    private String shortLink;
+	    /** The short link. */
+    	private String shortLink;
 
-	    private String descData;
+	    /** The desc data. */
+    	private String descData;
 
-	    private String dateLastView;
+	    /** The date last view. */
+    	private String dateLastView;
 
-	    private String subscribed;
+	    /** The subscribed. */
+    	private String subscribed;
 
-	    private String url;
+	    /** The url. */
+    	private String url;
 
-	    private String id;
+	    /** The id. */
+    	private String id;
 
-	    private LabelNames labelNames;
+	    /** The label names. */
+    	private LabelNames labelNames;
 
-	    private Prefs prefs;
+	    /** The prefs. */
+    	private Prefs prefs;
 
-	    private String idOrganization;
+	    /** The id organization. */
+    	private String idOrganization;
 
-	    private String starred;
+	    /** The starred. */
+    	private String starred;
 
-	    private String pinned;
+	    /** The pinned. */
+    	private String pinned;
 
-	    private String[] powerUps;
+	    /** The power ups. */
+    	private String[] powerUps;
 
-	    private String name;
+	    /** The name. */
+    	private String name;
 
-	    private Memberships[] memberships;
+	    /** The memberships. */
+    	private Memberships[] memberships;
 
-	    private String shortUrl;
+	    /** The short url. */
+    	private String shortUrl;
 
-	    private String closed;
+	    /** The closed. */
+    	private String closed;
 
-	    private String invited;
+	    /** The invited. */
+    	private String invited;
 
-	    public String getDateLastActivity ()
+	    /**
+    	 * Gets the date last activity.
+    	 *
+    	 * @return the date last activity
+    	 */
+    	public String getDateLastActivity ()
 	    {
 	        return dateLastActivity;
 	    }
 
-	    public void setDateLastActivity (String dateLastActivity)
+	    /**
+    	 * Sets the date last activity.
+    	 *
+    	 * @param dateLastActivity the new date last activity
+    	 */
+    	public void setDateLastActivity (String dateLastActivity)
 	    {
 	        this.dateLastActivity = dateLastActivity;
 	    }
 
-	    public String[] getInvitations ()
+	    /**
+    	 * Gets the invitations.
+    	 *
+    	 * @return the invitations
+    	 */
+    	public String[] getInvitations ()
 	    {
 	        return invitations;
 	    }
 
-	    public void setInvitations (String[] invitations)
+	    /**
+    	 * Sets the invitations.
+    	 *
+    	 * @param invitations the new invitations
+    	 */
+    	public void setInvitations (String[] invitations)
 	    {
 	        this.invitations = invitations;
 	    }
 
-	    public String getDesc ()
+	    /**
+    	 * Gets the desc.
+    	 *
+    	 * @return the desc
+    	 */
+    	public String getDesc ()
 	    {
 	        return desc;
 	    }
 
-	    public void setDesc (String desc)
+	    /**
+    	 * Sets the desc.
+    	 *
+    	 * @param desc the new desc
+    	 */
+    	public void setDesc (String desc)
 	    {
 	        this.desc = desc;
 	    }
 
-	    public String getShortLink ()
+	    /**
+    	 * Gets the short link.
+    	 *
+    	 * @return the short link
+    	 */
+    	public String getShortLink ()
 	    {
 	        return shortLink;
 	    }
 
-	    public void setShortLink (String shortLink)
+	    /**
+    	 * Sets the short link.
+    	 *
+    	 * @param shortLink the new short link
+    	 */
+    	public void setShortLink (String shortLink)
 	    {
 	        this.shortLink = shortLink;
 	    }
 
-	    public String getDescData ()
+	    /**
+    	 * Gets the desc data.
+    	 *
+    	 * @return the desc data
+    	 */
+    	public String getDescData ()
 	    {
 	        return descData;
 	    }
 
-	    public void setDescData (String descData)
+	    /**
+    	 * Sets the desc data.
+    	 *
+    	 * @param descData the new desc data
+    	 */
+    	public void setDescData (String descData)
 	    {
 	        this.descData = descData;
 	    }
 
-	    public String getDateLastView ()
+	    /**
+    	 * Gets the date last view.
+    	 *
+    	 * @return the date last view
+    	 */
+    	public String getDateLastView ()
 	    {
 	        return dateLastView;
 	    }
 
-	    public void setDateLastView (String dateLastView)
+	    /**
+    	 * Sets the date last view.
+    	 *
+    	 * @param dateLastView the new date last view
+    	 */
+    	public void setDateLastView (String dateLastView)
 	    {
 	        this.dateLastView = dateLastView;
 	    }
 
-	    public String getSubscribed ()
+	    /**
+    	 * Gets the subscribed.
+    	 *
+    	 * @return the subscribed
+    	 */
+    	public String getSubscribed ()
 	    {
 	        return subscribed;
 	    }
 
-	    public void setSubscribed (String subscribed)
+	    /**
+    	 * Sets the subscribed.
+    	 *
+    	 * @param subscribed the new subscribed
+    	 */
+    	public void setSubscribed (String subscribed)
 	    {
 	        this.subscribed = subscribed;
 	    }
 
-	    public String getUrl ()
+	    /**
+    	 * Gets the url.
+    	 *
+    	 * @return the url
+    	 */
+    	public String getUrl ()
 	    {
 	        return url;
 	    }
 
-	    public void setUrl (String url)
+	    /**
+    	 * Sets the url.
+    	 *
+    	 * @param url the new url
+    	 */
+    	public void setUrl (String url)
 	    {
 	        this.url = url;
 	    }
 
-	    public String getId ()
+	    /**
+    	 * Gets the id.
+    	 *
+    	 * @return the id
+    	 */
+    	public String getId ()
 	    {
 	        return id;
 	    }
 
-	    public void setId (String id)
+	    /**
+    	 * Sets the id.
+    	 *
+    	 * @param id the new id
+    	 */
+    	public void setId (String id)
 	    {
 	        this.id = id;
 	    }
 
-	    public LabelNames getLabelNames ()
+	    /**
+    	 * Gets the label names.
+    	 *
+    	 * @return the label names
+    	 */
+    	public LabelNames getLabelNames ()
 	    {
 	        return labelNames;
 	    }
 
-	    public void setLabelNames (LabelNames labelNames)
+	    /**
+    	 * Sets the label names.
+    	 *
+    	 * @param labelNames the new label names
+    	 */
+    	public void setLabelNames (LabelNames labelNames)
 	    {
 	        this.labelNames = labelNames;
 	    }
 
-	    public Prefs getPrefs ()
+	    /**
+    	 * Gets the prefs.
+    	 *
+    	 * @return the prefs
+    	 */
+    	public Prefs getPrefs ()
 	    {
 	        return prefs;
 	    }
 
-	    public void setPrefs (Prefs prefs)
+	    /**
+    	 * Sets the prefs.
+    	 *
+    	 * @param prefs the new prefs
+    	 */
+    	public void setPrefs (Prefs prefs)
 	    {
 	        this.prefs = prefs;
 	    }
 
-	    public String getIdOrganization ()
+	    /**
+    	 * Gets the id organization.
+    	 *
+    	 * @return the id organization
+    	 */
+    	public String getIdOrganization ()
 	    {
 	        return idOrganization;
 	    }
 
-	    public void setIdOrganization (String idOrganization)
+	    /**
+    	 * Sets the id organization.
+    	 *
+    	 * @param idOrganization the new id organization
+    	 */
+    	public void setIdOrganization (String idOrganization)
 	    {
 	        this.idOrganization = idOrganization;
 	    }
 
-	    public String getStarred ()
+	    /**
+    	 * Gets the starred.
+    	 *
+    	 * @return the starred
+    	 */
+    	public String getStarred ()
 	    {
 	        return starred;
 	    }
 
-	    public void setStarred (String starred)
+	    /**
+    	 * Sets the starred.
+    	 *
+    	 * @param starred the new starred
+    	 */
+    	public void setStarred (String starred)
 	    {
 	        this.starred = starred;
 	    }
 
-	    public String getPinned ()
+	    /**
+    	 * Gets the pinned.
+    	 *
+    	 * @return the pinned
+    	 */
+    	public String getPinned ()
 	    {
 	        return pinned;
 	    }
 
-	    public void setPinned (String pinned)
+	    /**
+    	 * Sets the pinned.
+    	 *
+    	 * @param pinned the new pinned
+    	 */
+    	public void setPinned (String pinned)
 	    {
 	        this.pinned = pinned;
 	    }
 
-	    public String[] getPowerUps ()
+	    /**
+    	 * Gets the power ups.
+    	 *
+    	 * @return the power ups
+    	 */
+    	public String[] getPowerUps ()
 	    {
 	        return powerUps;
 	    }
 
-	    public void setPowerUps (String[] powerUps)
+	    /**
+    	 * Sets the power ups.
+    	 *
+    	 * @param powerUps the new power ups
+    	 */
+    	public void setPowerUps (String[] powerUps)
 	    {
 	        this.powerUps = powerUps;
 	    }
 
-	    public String getName ()
+	    /**
+    	 * Gets the name.
+    	 *
+    	 * @return the name
+    	 */
+    	public String getName ()
 	    {
 	        return name;
 	    }
 
-	    public void setName (String name)
+	    /**
+    	 * Sets the name.
+    	 *
+    	 * @param name the new name
+    	 */
+    	public void setName (String name)
 	    {
 	        this.name = name;
 	    }
 
-	    public Memberships[] getMemberships ()
+	    /**
+    	 * Gets the memberships.
+    	 *
+    	 * @return the memberships
+    	 */
+    	public Memberships[] getMemberships ()
 	    {
 	        return memberships;
 	    }
 
-	    public void setMemberships (Memberships[] memberships)
+	    /**
+    	 * Sets the memberships.
+    	 *
+    	 * @param memberships the new memberships
+    	 */
+    	public void setMemberships (Memberships[] memberships)
 	    {
 	        this.memberships = memberships;
 	    }
 
-	    public String getShortUrl ()
+	    /**
+    	 * Gets the short url.
+    	 *
+    	 * @return the short url
+    	 */
+    	public String getShortUrl ()
 	    {
 	        return shortUrl;
 	    }
 
-	    public void setShortUrl (String shortUrl)
+	    /**
+    	 * Sets the short url.
+    	 *
+    	 * @param shortUrl the new short url
+    	 */
+    	public void setShortUrl (String shortUrl)
 	    {
 	        this.shortUrl = shortUrl;
 	    }
 
-	    public String getClosed ()
+	    /**
+    	 * Gets the closed.
+    	 *
+    	 * @return the closed
+    	 */
+    	public String getClosed ()
 	    {
 	        return closed;
 	    }
 
-	    public void setClosed (String closed)
+	    /**
+    	 * Sets the closed.
+    	 *
+    	 * @param closed the new closed
+    	 */
+    	public void setClosed (String closed)
 	    {
 	        this.closed = closed;
 	    }
 
-	    public String getInvited ()
+	    /**
+    	 * Gets the invited.
+    	 *
+    	 * @return the invited
+    	 */
+    	public String getInvited ()
 	    {
 	        return invited;
 	    }
 
-	    public void setInvited (String invited)
+	    /**
+    	 * Sets the invited.
+    	 *
+    	 * @param invited the new invited
+    	 */
+    	public void setInvited (String invited)
 	    {
 	        this.invited = invited;
 	    }
 
-	    @Override
+	    /* (non-Javadoc)
+    	 * @see java.lang.Object#toString()
+    	 */
+    	@Override
 	    public String toString()
 	    {
 	        return "ClassPojo [dateLastActivity = "+dateLastActivity+", invitations = "+invitations+", desc = "+desc+", shortLink = "+shortLink+", descData = "+descData+", dateLastView = "+dateLastView+", subscribed = "+subscribed+", url = "+url+", id = "+id+", labelNames = "+labelNames+", prefs = "+prefs+", idOrganization = "+idOrganization+", starred = "+starred+", pinned = "+pinned+", powerUps = "+powerUps+", name = "+name+", memberships = "+memberships+", shortUrl = "+shortUrl+", closed = "+closed+", invited = "+invited+"]";

@@ -1,55 +1,108 @@
+
 package org.mule.modules.trello.bean;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Permissions.
+ */
 public class Permissions {
-	 private String modelType;
+	 
+ 	/** The model type. */
+ 	private String modelType;
 
-	    private String idModel;
+	    /** The id model. */
+    	private String idModel;
 
-	    private String write;
+	    /** The write. */
+    	private String write;
 
-	    private String read;
+	    /** The read. */
+    	private String read;
 
-	    public String getModelType ()
+	    /**
+    	 * Gets the model type.
+    	 *
+    	 * @return the model type
+    	 */
+    	public String getModelType ()
 	    {
 	        return modelType;
 	    }
 
-	    public void setModelType (String modelType)
+	    /**
+    	 * Sets the model type.
+    	 *
+    	 * @param modelType the new model type
+    	 */
+    	public void setModelType (String modelType)
 	    {
 	        this.modelType = modelType;
 	    }
 
-	    public String getIdModel ()
+	    /**
+    	 * Gets the id model.
+    	 *
+    	 * @return the id model
+    	 */
+    	public String getIdModel ()
 	    {
 	        return idModel;
 	    }
 
-	    public void setIdModel (String idModel)
+	    /**
+    	 * Sets the id model.
+    	 *
+    	 * @param idModel the new id model
+    	 */
+    	public void setIdModel (String idModel)
 	    {
 	        this.idModel = idModel;
 	    }
 
-	    public String getWrite ()
+	    /**
+    	 * Gets the write.
+    	 *
+    	 * @return the write
+    	 */
+    	public String getWrite ()
 	    {
 	        return write;
 	    }
 
-	    public void setWrite (String write)
+	    /**
+    	 * Sets the write.
+    	 *
+    	 * @param write the new write
+    	 */
+    	public void setWrite (String write)
 	    {
 	        this.write = write;
 	    }
 
-	    public String getRead ()
+	    /**
+    	 * Gets the read.
+    	 *
+    	 * @return the read
+    	 */
+    	public String getRead ()
 	    {
 	        return read;
 	    }
 
-	    public void setRead (String read)
+	    /**
+    	 * Sets the read.
+    	 *
+    	 * @param read the new read
+    	 */
+    	public void setRead (String read)
 	    {
 	        this.read = read;
 	    }
 
-	    @Override
+	    /* (non-Javadoc)
+    	 * @see java.lang.Object#toString()
+    	 */
+    	@Override
 	    public String toString()
 	    {
 	        return "ClassPojo [modelType = "+modelType+", idModel = "+idModel+", write = "+write+", read = "+read+"]";

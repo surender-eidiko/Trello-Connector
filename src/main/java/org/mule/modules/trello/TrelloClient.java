@@ -1342,18 +1342,18 @@ public class TrelloClient {
 	public String updatecheckItemNameOnCards(String cardIdOrShortlink,String idChecklist, String idCheckItem,
 			CardsCheckListNamePutRequest udatecheckItemNamePostRequest) {
 		WebResource webResource = getApiResource().path("cards").path(cardIdOrShortlink).path("checklist").path(idChecklist).path("checkItem").path(idCheckItem).path("name");
-	    return (String) putData(udatecheckItemNamePostRequest, webResource,CardsCheckListNamePutResponse.class);
+	    return (String) putData(udatecheckItemNamePostRequest, webResource,String.class);
 	} 
 	public String updatecheckItePositionOnCards(String cardIdOrShortlink,
 			String idChecklist, String idCheckItem,
 			CardsCheckListPositionPutRequest udatecheckItemPosPostRequest) {
 		WebResource webResource = getApiResource().path("cards").path(cardIdOrShortlink).path("checklist").path(idChecklist).path("checkItem").path(idCheckItem).path("pos");
-	    return (String) putData(udatecheckItemPosPostRequest, webResource,CardsCheckListPositionPutResponse.class);
+	    return (String) putData(udatecheckItemPosPostRequest, webResource,String.class);
 	}
 	public String updatecheckIteStateOnCards(String cardIdOrShortlink,
 			String idChecklist, String idCheckItem,	CardsCheckListStatePutRequest udatecheckItemPosPostRequest) {
 		WebResource webResource = getApiResource().path("cards").path(cardIdOrShortlink).path("checklist").path(idChecklist).path("checkItem").path(idCheckItem).path("state");
-	    return (String) putData(udatecheckItemPosPostRequest, webResource,CardsCheckListStatePutResponse.class);
+	    return (String) putData(udatecheckItemPosPostRequest, webResource,String.class);
 	}
 	public String updateCurrentcheckListOnCards(
 			String cardIdOrShortlink,

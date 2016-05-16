@@ -1,127 +1,245 @@
 package org.mule.modules.trello.bean;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LabelNames.
+ */
 public class LabelNames {
-	 private String orange;
+	 
+ 	/** The orange. */
+ 	private String orange;
 
-	    private String sky;
+	    /** The sky. */
+    	private String sky;
 
-	    private String red;
+	    /** The red. */
+    	private String red;
 
-	    private String purple;
+	    /** The purple. */
+    	private String purple;
 
-	    private String blue;
+	    /** The blue. */
+    	private String blue;
 
-	    private String green;
+	    /** The green. */
+    	private String green;
 
-	    private String pink;
+	    /** The pink. */
+    	private String pink;
 
-	    private String lime;
+	    /** The lime. */
+    	private String lime;
 
-	    private String yellow;
+	    /** The yellow. */
+    	private String yellow;
 
-	    private String black;
+	    /** The black. */
+    	private String black;
 
-	    public String getOrange ()
+	    /**
+    	 * Gets the orange.
+    	 *
+    	 * @return the orange
+    	 */
+    	public String getOrange ()
 	    {
 	        return orange;
 	    }
 
-	    public void setOrange (String orange)
+	    /**
+    	 * Sets the orange.
+    	 *
+    	 * @param orange the new orange
+    	 */
+    	public void setOrange (String orange)
 	    {
 	        this.orange = orange;
 	    }
 
-	    public String getSky ()
+	    /**
+    	 * Gets the sky.
+    	 *
+    	 * @return the sky
+    	 */
+    	public String getSky ()
 	    {
 	        return sky;
 	    }
 
-	    public void setSky (String sky)
+	    /**
+    	 * Sets the sky.
+    	 *
+    	 * @param sky the new sky
+    	 */
+    	public void setSky (String sky)
 	    {
 	        this.sky = sky;
 	    }
 
-	    public String getRed ()
+	    /**
+    	 * Gets the red.
+    	 *
+    	 * @return the red
+    	 */
+    	public String getRed ()
 	    {
 	        return red;
 	    }
 
-	    public void setRed (String red)
+	    /**
+    	 * Sets the red.
+    	 *
+    	 * @param red the new red
+    	 */
+    	public void setRed (String red)
 	    {
 	        this.red = red;
 	    }
 
-	    public String getPurple ()
+	    /**
+    	 * Gets the purple.
+    	 *
+    	 * @return the purple
+    	 */
+    	public String getPurple ()
 	    {
 	        return purple;
 	    }
 
-	    public void setPurple (String purple)
+	    /**
+    	 * Sets the purple.
+    	 *
+    	 * @param purple the new purple
+    	 */
+    	public void setPurple (String purple)
 	    {
 	        this.purple = purple;
 	    }
 
-	    public String getBlue ()
+	    /**
+    	 * Gets the blue.
+    	 *
+    	 * @return the blue
+    	 */
+    	public String getBlue ()
 	    {
 	        return blue;
 	    }
 
-	    public void setBlue (String blue)
+	    /**
+    	 * Sets the blue.
+    	 *
+    	 * @param blue the new blue
+    	 */
+    	public void setBlue (String blue)
 	    {
 	        this.blue = blue;
 	    }
 
-	    public String getGreen ()
+	    /**
+    	 * Gets the green.
+    	 *
+    	 * @return the green
+    	 */
+    	public String getGreen ()
 	    {
 	        return green;
 	    }
 
-	    public void setGreen (String green)
+	    /**
+    	 * Sets the green.
+    	 *
+    	 * @param green the new green
+    	 */
+    	public void setGreen (String green)
 	    {
 	        this.green = green;
 	    }
 
-	    public String getPink ()
+	    /**
+    	 * Gets the pink.
+    	 *
+    	 * @return the pink
+    	 */
+    	public String getPink ()
 	    {
 	        return pink;
 	    }
 
-	    public void setPink (String pink)
+	    /**
+    	 * Sets the pink.
+    	 *
+    	 * @param pink the new pink
+    	 */
+    	public void setPink (String pink)
 	    {
 	        this.pink = pink;
 	    }
 
-	    public String getLime ()
+	    /**
+    	 * Gets the lime.
+    	 *
+    	 * @return the lime
+    	 */
+    	public String getLime ()
 	    {
 	        return lime;
 	    }
 
-	    public void setLime (String lime)
+	    /**
+    	 * Sets the lime.
+    	 *
+    	 * @param lime the new lime
+    	 */
+    	public void setLime (String lime)
 	    {
 	        this.lime = lime;
 	    }
 
-	    public String getYellow ()
+	    /**
+    	 * Gets the yellow.
+    	 *
+    	 * @return the yellow
+    	 */
+    	public String getYellow ()
 	    {
 	        return yellow;
 	    }
 
-	    public void setYellow (String yellow)
+	    /**
+    	 * Sets the yellow.
+    	 *
+    	 * @param yellow the new yellow
+    	 */
+    	public void setYellow (String yellow)
 	    {
 	        this.yellow = yellow;
 	    }
 
-	    public String getBlack ()
+	    /**
+    	 * Gets the black.
+    	 *
+    	 * @return the black
+    	 */
+    	public String getBlack ()
 	    {
 	        return black;
 	    }
 
-	    public void setBlack (String black)
+	    /**
+    	 * Sets the black.
+    	 *
+    	 * @param black the new black
+    	 */
+    	public void setBlack (String black)
 	    {
 	        this.black = black;
 	    }
 
-	    @Override
+	    /* (non-Javadoc)
+    	 * @see java.lang.Object#toString()
+    	 */
+    	@Override
 	    public String toString()
 	    {
 	        return "ClassPojo [orange = "+orange+", sky = "+sky+", red = "+red+", purple = "+purple+", blue = "+blue+", green = "+green+", pink = "+pink+", lime = "+lime+", yellow = "+yellow+", black = "+black+"]";
