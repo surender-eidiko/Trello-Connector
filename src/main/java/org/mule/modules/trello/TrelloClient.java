@@ -258,11 +258,9 @@ public class TrelloClient {
 				String.class);
 	}
 
-	public String putReadActionsById(String actionId,
-			String text, ActionsByIdPutRequest actionIdPutRequest) {
+	public String putReadActionsById(String actionId, ActionsByIdPutRequest actionIdPutRequest) {
 		WebResource webResource = getApiResource().path("actions").path(actionId);
-		return (String) putData(actionIdPutRequest,
-				webResource, String.class);
+		return (String) putData(actionIdPutRequest,	webResource, String.class);
 	}
 
 	public String putWriteActionsById(String actionId,
@@ -1144,6 +1142,8 @@ public class TrelloClient {
 		if(fields!=null){
 			queryParams.add("fields", fields);
 		}
+		queryParams.add("api_key",getTrelloConnector().getConfig().getApiKey());
+		queryParams.add("api_Token",getTrelloConnector().getConfig().getApiToken());
 		webResource = webResource.queryParams(queryParams);
 		return (CardsByIdGetResponse) getData(webResource,
 				CardsByIdGetResponse.class);

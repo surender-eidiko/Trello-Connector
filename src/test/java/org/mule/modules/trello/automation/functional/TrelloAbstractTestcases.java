@@ -1,3 +1,6 @@
+/**
+ *
+ */
 package org.mule.modules.trello.automation.functional;
 
 import org.junit.Before;
@@ -58,7 +61,7 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	}
 	public ActionsByIdPutRequest getActionByIdPutRequest()
 	{
-		return null;
+		return new ActionsByIdPutRequest();
 	}
 	public ActionsTextByIdPutRequest getActionTextByIdPutRequest()
 	{
@@ -98,5 +101,8 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	public String getLabelId()
 	{
 		return null;
+	}
+	public String getCardIdOrShortlink(){
+		return "5739632a782c29f22a039c4f";
 	}
 }

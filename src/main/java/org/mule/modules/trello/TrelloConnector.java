@@ -121,8 +121,8 @@ public class TrelloConnector {
 	}
 	
 	@Processor
-	  public String putReadActionsById(String actionId,@Optional String text,ActionsByIdPutRequest actionIdPutRequest) {
-	    return getClient().putReadActionsById(actionId,text,actionIdPutRequest);
+	  public String putReadActionsById(String actionId,ActionsByIdPutRequest actionIdPutRequest) {
+	    return getClient().putReadActionsById(actionId,actionIdPutRequest);
 	  }
 	
 	@Processor

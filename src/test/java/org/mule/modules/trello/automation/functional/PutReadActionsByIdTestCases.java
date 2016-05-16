@@ -1,3 +1,6 @@
+/**
+ *
+ */
 package org.mule.modules.trello.automation.functional;
 
 import static org.junit.Assert.*;
@@ -19,9 +22,8 @@ public class PutReadActionsByIdTestCases extends TrelloAbstractTestcases {
 	public void testPutReadActionsById() {
 		String actionId=getActionId();
 		ActionsByIdPutRequest actionByIdPutRequest=getActionByIdPutRequest();
-		String putReadActionByIdResponse=getConnector().putReadActionsById(actionId, null, actionByIdPutRequest);
+		String putReadActionByIdResponse=getConnector().putReadActionsById(actionId,actionByIdPutRequest);
 		assertNotNull(putReadActionByIdResponse);
-		assertEquals("200", putReadActionByIdResponse);
 	}
 
 }

@@ -1,7 +1,6 @@
 /**
  *
  */
-
 package org.mule.modules.trello.bean;
 
 // TODO: Auto-generated Javadoc

@@ -1,4 +1,6 @@
-
+/**
+ *
+ */
 package org.mule.modules.trello.bean;
 
 import javax.annotation.Generated;
