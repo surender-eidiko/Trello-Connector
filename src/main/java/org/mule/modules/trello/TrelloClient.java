@@ -1,3 +1,6 @@
+/**
+ *
+ */
 package org.mule.modules.trello;
 
 import java.lang.reflect.Constructor;
@@ -71,6 +74,8 @@ public class TrelloClient {
 		if (memberCreator != null) {
 			queryParams.add("memberCreator", String.valueOf(memberCreator));
 		}
+		queryParams.add("api_key",getTrelloConnector().getConfig().getApiKey());
+		queryParams.add("api_Token",getTrelloConnector().getConfig().getApiToken());
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,
 				String.class);
@@ -3222,8 +3227,8 @@ public class TrelloClient {
 		WebResource.Builder builder = webResource
 				.accept(MediaType.APPLICATION_JSON);
 
-		builder.header("Authorization", trelloConnector.getConfig()
-				.getAuthorization());
+		/*builder.header("Authorization", trelloConnector.getConfig()
+				.getAuthorization());*/
 		return builder;
 	}
 	private Object buildDeleteResponseObject(ClientResponse clientResponse) {
