@@ -74,8 +74,8 @@ public class TrelloClient {
 		if (memberCreator != null) {
 			queryParams.add("memberCreator", String.valueOf(memberCreator));
 		}
-		queryParams.add("api_key",getTrelloConnector().getConfig().getApiKey());
-		queryParams.add("api_Token",getTrelloConnector().getConfig().getApiToken());
+		queryParams.add("key",getTrelloConnector().getConfig().getApiKey());
+		queryParams.add("token",getTrelloConnector().getConfig().getApiToken());
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,
 				String.class);
@@ -1138,8 +1138,8 @@ public class TrelloClient {
 		if(fields!=null){
 			queryParams.add("fields", fields);
 		}
-		queryParams.add("api_key",getTrelloConnector().getConfig().getApiKey());
-		queryParams.add("api_Token",getTrelloConnector().getConfig().getApiToken());
+		queryParams.add("key",getTrelloConnector().getConfig().getApiKey());
+		queryParams.add("token",getTrelloConnector().getConfig().getApiToken());
 		webResource = webResource.queryParams(queryParams);
 		return (CardsByIdGetResponse) getData(webResource,
 				CardsByIdGetResponse.class);
