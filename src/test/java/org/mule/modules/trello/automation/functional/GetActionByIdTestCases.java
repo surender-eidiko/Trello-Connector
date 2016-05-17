@@ -19,8 +19,5 @@ public class GetActionByIdTestCases extends TrelloAbstractTestcases{
 		String actionId=getActionId();
 		String actionResponse=getConnector().getActionsById(actionId, null, null, null, null, null, null, null);
 		 assertNotNull(actionResponse);
-		 assertEquals("200", actionResponse );
-		
 	}
-
 }

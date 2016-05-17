@@ -1043,9 +1043,9 @@ public class TrelloClient {
 			 webResource = webResource.queryParams(queryParams);
 		    return (String) postData(boardsByIdAndPoerUps, webResource,String.class);
 	}
-	public String deleteMemberUnderBoardById(String boardId,String memberId) {
+	public StatusResponse deleteMemberUnderBoardById(String boardId,String memberId) {
 		 WebResource webResource = getApiResource().path("boards").path(boardId).path("members").path(memberId);
-		    return (String) deleteData(webResource);
+		    return (StatusResponse) deleteData(webResource);
 	}
 	public StatusResponse deletePowerUpsUnderBoardById(String boardId,String powerUp) {
 		 WebResource webResource = getApiResource().path("boards").path(boardId).path("poweUps").path(powerUp);
@@ -1374,17 +1374,17 @@ public class TrelloClient {
 	    return (String) putData(updateCardsDueById, webResource,String.class);
 	}
 	public String updateCardsIdAttachmentById(String cardIdOrShortlink,
-			CardsCardsIdAttachmentPutRequest updateCardsidAttachmentById) {
+			CardsIdAttachmentPutRequest updateCardsidAttachmentById) {
 		WebResource webResource = getApiResource().path("cards").path(cardIdOrShortlink).path("idAttachmentCover");
 	    return (String) putData(updateCardsidAttachmentById, webResource,String.class);
 	}
 	public String updateCardsBoardIdById(String cardIdOrShortlink,
-			CardsCardsBoardIdPutRequest updateCardsBoardIdPutReq) {
+			CardsBoardIdPutRequest updateCardsBoardIdPutReq) {
 		WebResource webResource = getApiResource().path("cards").path(cardIdOrShortlink).path("idBoard");
 	    return (String) putData(updateCardsBoardIdPutReq, webResource,String.class);
 	}
 	public String updateCardsListIdById(String cardIdOrShortlink,
-			CardsCardsListPutRequest updateCardsListIdPutReq) {
+			CardsListPutRequest updateCardsListIdPutReq) {
 		WebResource webResource = getApiResource().path("cards").path(cardIdOrShortlink).path("idList");
 	    return (String) putData(updateCardsListIdPutReq, webResource,String.class);
 	}
@@ -1398,8 +1398,7 @@ public class TrelloClient {
 		WebResource webResource = getApiResource().path("cards").path(cardIdOrShortlink).path("name");
 	    return (String) putData(updateCardsNamePutReq, webResource,String.class);
 		}
-	public String updateCardPosById(String cardIdOrShortlink,
-			CardsNamePosRequest updateCardsPosPutReq) {
+	public String updateCardPosById(String cardIdOrShortlink,CardsNamePostRequest updateCardsPosPutReq) {
 		WebResource webResource = getApiResource().path("cards").path(cardIdOrShortlink).path("pos");
 	    return (String) putData(updateCardsPosPutReq, webResource,String.class);
 		}
@@ -1504,6 +1503,12 @@ public class TrelloClient {
 	}
 	public StatusResponse deleteCardsByIdMembersVoted(String cardIdOrShortLink,	String idMember) {
 		WebResource webResource = getApiResource().path("cards").path(cardIdOrShortLink).path("membersVoted").path(idMember);
+	    return (StatusResponse) deleteData(webResource);
+	}
+
+	public StatusResponse deleteCardsStickersById(String cardIdOrShortLink,
+			String idSticker) {
+		WebResource webResource = getApiResource().path("cards").path(cardIdOrShortLink).path("stickers").path(idSticker);
 	    return (StatusResponse) deleteData(webResource);
 	}
 	// Checklists GET methods
@@ -3275,4 +3280,5 @@ public class TrelloClient {
 	private WebResource getApiResource() {
 		return apiResource;
 	}
+
 }
