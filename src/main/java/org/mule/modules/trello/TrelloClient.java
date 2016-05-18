@@ -76,6 +76,7 @@ public class TrelloClient {
 		}
 		queryParams.add("key",getTrelloConnector().getConfig().getApiKey());
 		queryParams.add("token",getTrelloConnector().getConfig().getApiToken());
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,
 				String.class);
@@ -85,45 +86,25 @@ public class TrelloClient {
 			String field) {
 		WebResource webResource = getApiResource().path("actions")
 				.path(actionId).path(field);
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		if (actionId != null) {
-			queryParams.add("actionId", actionId);
-		}
-		queryParams.add("field", field);
-		webResource = webResource.queryParams(queryParams);
-		return (String) getData(webResource,String.class);
+				return (String) getData(webResource,String.class);
 	}
 
-	public String getActionsByIdAndBoard(String actionId,
-			@Optional String fields) {
-
-		WebResource webResource = getApiResource().path("actions")
-				.path(actionId).path("board");
+	public String getActionsByIdAndBoard(String actionId,@Optional String fields) {
+		WebResource webResource = getApiResource().path("actions").path(actionId).path("board");
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		if (actionId != null) {
-			queryParams.add("actionId", actionId);
-		}
 		if (fields != null) {
 			queryParams.add("fields", fields);
-
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
-		return (String) getData(webResource,
-				String.class);
+		return (String) getData(webResource,String.class);
 	}
 
 	public String getActionsByIdAndBoardWithField(
 			String actionId, String field) {
 		WebResource webResource = getApiResource().path("actions")
 				.path(actionId).path("board").path(field);
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		if (actionId != null) {
-			queryParams.add("actionId", actionId);
-		}
-		queryParams.add("field", field);
-		webResource = webResource.queryParams(queryParams);
-		return (String) getData(webResource,
-				String.class);
+		return (String) getData(webResource,String.class);
 	}
 
 	public String getActionsByIdAndCard(String actionId,
@@ -131,10 +112,10 @@ public class TrelloClient {
 		WebResource webResource = getApiResource().path("actions")
 				.path(actionId).path("board").path(fields);
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		queryParams.add("actionId", actionId);
 		if (fields != null) {
 			queryParams.add("field", fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,
 				String.class);
@@ -144,12 +125,6 @@ public class TrelloClient {
 			String actionId, String field) {
 		WebResource webResource = getApiResource().path("actions")
 				.path(actionId).path("board").path(field);
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		if (actionId != null) {
-			queryParams.add("actionId", actionId);
-		}
-		queryParams.add("field", field);
-		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,
 				String.class);
 	}
@@ -158,9 +133,6 @@ public class TrelloClient {
 			String actionId) {
 		WebResource webResource = getApiResource().path("actions")
 				.path(actionId).path("display");
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		queryParams.add("actionId", actionId);
-		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
 
@@ -168,9 +140,6 @@ public class TrelloClient {
 			String actionId) {
 		WebResource webResource = getApiResource().path("actions")
 				.path(actionId).path("entities");
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		queryParams.add("actionId", actionId);
-		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
 
@@ -179,10 +148,10 @@ public class TrelloClient {
 		WebResource webResource = getApiResource().path("actions")
 				.path(actionId).path("list").path(fields);
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		queryParams.add("actionId", actionId);
 		if (fields != null) {
 			queryParams.add("fields", fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -191,10 +160,7 @@ public class TrelloClient {
 			String actionId, String field) {
 		WebResource webResource = getApiResource().path("actions")
 				.path(actionId).path("list").path(field);
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		queryParams.add("actionId", actionId);
-		queryParams.add("field", field);
-		webResource = webResource.queryParams(queryParams);
+		
 		return (String) getData(webResource,
 				String.class);
 	}
@@ -207,6 +173,7 @@ public class TrelloClient {
 		if (fields != null) {
 			queryParams.add("fields", fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,
 				String.class);
@@ -225,6 +192,7 @@ public class TrelloClient {
 		if (fields != null) {
 			queryParams.add("fields", fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -243,6 +211,7 @@ public class TrelloClient {
 		if (fields != null) {
 			queryParams.add("fields", fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,	String.class);
 	}
@@ -401,6 +370,7 @@ public class TrelloClient {
 		if (fields != null) {
 			queryParams.add("fields", fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (BoardsByIdGetResponse) getData(webResource,
 				BoardsByIdGetResponse.class);
@@ -454,6 +424,7 @@ public class TrelloClient {
 		if (memberCreator_fields != null) {
 			queryParams.add("memberCreator_fields", memberCreator_fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (BoardsByIdAndActionsGetResponse) getData(webResource,
 				BoardsByIdAndActionsGetResponse.class);
@@ -461,12 +432,12 @@ public class TrelloClient {
 
 	public String getBoardsByIdAndBoardStars(
 			String boardId, String filters) {
-		WebResource webResource = getApiResource().path("boards").path(boardId)
-				.path("boardStars");
+		WebResource webResource = getApiResource().path("boards").path(boardId).path("boardStars");
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		if (filters != null) {
 			queryParams.add("filters", filters);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -479,6 +450,7 @@ public class TrelloClient {
 		if (filters != null) {
 			queryParams.add("filters", filters);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (BoardsByIdAndCardsGetResponse) getData(webResource,
 				BoardsByIdAndCardsGetResponse.class);
@@ -487,8 +459,7 @@ public class TrelloClient {
 	public String getBoardsByIdAndField(String boardId,
 			String field) {
 		WebResource webResource = getApiResource().path("boards").path(boardId).path(field);
-		return (String) getData(webResource,
-				String.class);
+		return (String) getData(webResource,String.class);
 	}
 	public BoardsByIdAndCardsGetResponse getBoardsByIdAndCards(String boardId,
 			String actions, String attachments, String attachment_fields,
@@ -528,6 +499,7 @@ public class TrelloClient {
 		if (fields != null) {
 			queryParams.add("fields", fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (BoardsByIdAndCardsGetResponse) getData(webResource,
 				BoardsByIdAndCardsGetResponse.class);
@@ -541,6 +513,7 @@ public class TrelloClient {
 		if(filter!=null){
 			queryParams.add("filter", filter);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -610,6 +583,7 @@ public class TrelloClient {
 		if (fields != null) {
 			queryParams.add("fields", fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,
 				String.class);
@@ -640,6 +614,7 @@ public class TrelloClient {
 		if (checkItem_fields != null) {
 			queryParams.add("fields", fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (BoardsByIdAndCheckListsGetResponse) getData(webResource,
 				BoardsByIdAndCheckListsGetResponse.class);
@@ -650,8 +625,9 @@ public class TrelloClient {
 
 		WebResource webResource = getApiResource().path("boards").path(boardId).path("deltas");
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		queryParams.add("tags", tags);
-		queryParams.add("ixLastUpdate", ixLastUpdate);
+		if(tags!=null) queryParams.add("tags", tags);
+		if(ixLastUpdate!=null) queryParams.add("ixLastUpdate", ixLastUpdate);
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -666,6 +642,7 @@ public class TrelloClient {
 		if(limit!=null){
 			queryParams.add("limit", limit);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -677,6 +654,7 @@ public class TrelloClient {
 		if(fields!=null){
 			queryParams.add("fields", fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -696,7 +674,7 @@ public class TrelloClient {
 		if(fields!=null){
 			queryParams.add("fields", fields);
 		}
-		
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (BoardsByIdAndListsGetResponse) getData(webResource,
 				BoardsByIdAndListsGetResponse.class);
@@ -704,8 +682,6 @@ public class TrelloClient {
 	public String getBoardsByIdAndListsWithFilter(
 			String boardId, String filter) {
 		WebResource webResource = getApiResource().path("boards").path(boardId).path("lists").path(filter);
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
 	public String getBoardMembersByBoardId(String boardId, String filter,String fields,Boolean activity) {
@@ -720,6 +696,7 @@ public class TrelloClient {
 		if(activity!=null){
 			queryParams.add("activity", String.valueOf(activity));
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,
 				String.class);
@@ -727,8 +704,6 @@ public class TrelloClient {
 	public String getBoardMembersByBoardIdWithFilter(
 			String boardId, String filter) {
 		WebResource webResource = getApiResource().path("boards").path(boardId).path("members").path(filter);
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
 	public String getBoardsByIdAndMembersByIdWithCards(
@@ -1138,8 +1113,7 @@ public class TrelloClient {
 		if(fields!=null){
 			queryParams.add("fields", fields);
 		}
-		queryParams.add("key",getTrelloConnector().getConfig().getApiKey());
-		queryParams.add("token",getTrelloConnector().getConfig().getApiToken());
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (CardsByIdGetResponse) getData(webResource,
 				CardsByIdGetResponse.class);
@@ -1197,6 +1171,7 @@ public class TrelloClient {
 		if(memberCreator_fields!=null){
 			queryParams.add("memberCreator_fields", memberCreator_fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -1206,6 +1181,7 @@ public class TrelloClient {
 		if(fields!=null){
 			queryParams.add("entities", String.valueOf(fields));
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -1216,6 +1192,7 @@ public class TrelloClient {
 		if(fields!=null){
 			queryParams.add("entities", fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -1226,6 +1203,7 @@ public class TrelloClient {
 		if(fields!=null){
 			queryParams.add("entities", fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -1241,6 +1219,7 @@ public class TrelloClient {
 		if(fields!=null){
 			queryParams.add("entities", fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -1267,6 +1246,7 @@ public class TrelloClient {
 		if(fields!=null){
 			queryParams.add("entities", fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -1277,6 +1257,7 @@ public class TrelloClient {
 		if(fields!=null){
 			queryParams.add("fields", fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -1292,6 +1273,7 @@ public class TrelloClient {
 		if(fields!=null){
 			queryParams.add("fields",fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -1302,6 +1284,7 @@ public class TrelloClient {
 		if(fields!=null){
 			queryParams.add("fields",fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -1312,6 +1295,7 @@ public class TrelloClient {
 		if(fields!=null){
 			queryParams.add("fields",fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -1321,6 +1305,7 @@ public class TrelloClient {
 		if(fields!=null){
 			queryParams.add("fields",fields);
 		}
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -1530,6 +1515,7 @@ public class TrelloClient {
 	    if (fields != null) {
 		      queryParams.add("fields", fields);
 		    }
+			addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (CheckListsGetResponse) getData(webResource,CheckListsGetResponse.class);
 	}
@@ -1543,6 +1529,7 @@ public class TrelloClient {
 	    if (fields != null) {
 	      queryParams.add("fields", fields);
 	    }
+		addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -1596,6 +1583,7 @@ public class TrelloClient {
 	    if (fields != null) {
 		      queryParams.add("fields", fields);
 		    }
+			addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (String) getData(webResource,String.class);
 	}
@@ -1612,6 +1600,7 @@ public class TrelloClient {
 	    if (fields != null) {
 	      queryParams.add("fields", fields);
 	    }
+		addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (CheckItems) getData(webResource,CheckItems.class);
 	}
@@ -1622,6 +1611,7 @@ public class TrelloClient {
 	    if (fields != null) {
 	      queryParams.add("fields", fields);
 	    }
+		addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (CheckItems) getData(webResource,CheckItems.class);
 	}
@@ -1665,6 +1655,7 @@ public class TrelloClient {
 	    if (fields != null) {
 	      queryParams.add("fields", fields);
 	    }
+		addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (String) getData(webResource, String.class);
 	}
@@ -1674,6 +1665,7 @@ public class TrelloClient {
 	    if (fields != null) {
 	      queryParams.add("fields", fields);
 	    }
+		addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (String) getData(webResource, String.class);
 	}
@@ -1727,6 +1719,7 @@ public class TrelloClient {
 	    if (fields != null) {
 		      queryParams.add("fields", fields);
 		    }
+			addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (ListsByIdGetResponse) getData(webResource,ListsByIdGetResponse.class);
 	}
@@ -1778,6 +1771,7 @@ public class TrelloClient {
 	    if (memberCreator_fields != null) {
 		      queryParams.add("memberCreator_fields",memberCreator_fields);
 		    }
+			addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (ListsActionsByIdGetResponse) getData(webResource,ListsActionsByIdGetResponse.class);
 	}
@@ -1787,6 +1781,7 @@ public class TrelloClient {
 	   	    if (fields != null) {
 		      queryParams.add("fields", fields);
 		    }
+			addKeyAndTokenToQueryParams(queryParams);
 	   	 webResource = webResource.queryParams(queryParams);
 		    return (String) getData(webResource,String.class);
 	}
@@ -1840,6 +1835,7 @@ public class TrelloClient {
 	    if (fields != null) {
 		      queryParams.add("fields", fields);
 		    }
+			addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (ListCardsGetResponse) getData(webResource,ListCardsGetResponse.class);
 	}
@@ -1944,6 +1940,7 @@ public class TrelloClient {
 	    if (member_fields != null) {
 		      queryParams.add("member_fields", member_fields);
 		    }
+			addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (String) getData(webResource,String.class);
 	}
@@ -1957,6 +1954,7 @@ public class TrelloClient {
 		    if (fields != null) {
 		      queryParams.add("fields", fields);
 		    } 
+			addKeyAndTokenToQueryParams(queryParams);
 		    webResource = webResource.queryParams(queryParams);
 		    return (String) getData(webResource,String.class);
 	}
@@ -1970,6 +1968,7 @@ public class TrelloClient {
 		    if (fields != null) {
 		      queryParams.add("fields", fields);
 		    } 
+			addKeyAndTokenToQueryParams(queryParams);
 		    webResource = webResource.queryParams(queryParams);
 		    return (String) getData(webResource,String.class);
 	}
@@ -1991,6 +1990,7 @@ public class TrelloClient {
 	    if (fields != null) {
 	      queryParams.add("fields", fields);
 	    }
+		addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (String) getData(webResource,String.class);
 	}
@@ -2005,6 +2005,7 @@ public class TrelloClient {
 	    if (fields != null) {
 	      queryParams.add("fields", fields);
 	    }
+		addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (String) getData(webResource,String.class);
 	}
@@ -2020,6 +2021,7 @@ public class TrelloClient {
 	    if (fields != null) {
 	      queryParams.add("fields", fields);
 	    }
+		addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (String) getData(webResource,String.class);
 	}
@@ -2035,6 +2037,7 @@ public class TrelloClient {
 	    if (fields != null) {
 	      queryParams.add("fields", fields);
 	    }
+		addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (String) getData(webResource,String.class);
 	}
@@ -2126,6 +2129,7 @@ public class TrelloClient {
 	    if(partial!=null){
 	    	  queryParams.add("partial", String.valueOf(partial));
 	    }
+		addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (String) getData(webResource,String.class);
 	}
@@ -2148,6 +2152,7 @@ public class TrelloClient {
 	    if (onlyOrgMembers != null) {
 		      queryParams.add("onlyOrgMembers",String.valueOf(onlyOrgMembers));
 		    }
+			addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (String) getData(webResource,String.class);
 	}
@@ -2181,6 +2186,7 @@ public class TrelloClient {
 		    if (webhooks != null) {
 		      queryParams.add("webhooks", String.valueOf(webhooks));
 		    }
+			addKeyAndTokenToQueryParams(queryParams);
 		    webResource = webResource.queryParams(queryParams);
 		    return (TokensGetResponse) getData(webResource,TokensGetResponse.class);
 	}
@@ -2194,6 +2200,7 @@ public class TrelloClient {
 		    if (fields != null) {
 		      queryParams.add("fields", fields);
 		    }
+			addKeyAndTokenToQueryParams(queryParams);
 		    webResource = webResource.queryParams(queryParams);
 		    return (String) getData(webResource,String.class);
 	}
@@ -2372,6 +2379,7 @@ public class TrelloClient {
 	    if (fields != null) {
 		      queryParams.add("fields",fields);
 		    }
+			addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (OrganizationGetResponse) getData(webResource,OrganizationGetResponse.class);
 	}
@@ -2439,6 +2447,7 @@ public class TrelloClient {
 	    if (page != null) {
 		      queryParams.add("page",page);
 		    }
+			addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (OrganizationActionGetResponse) getData(webResource,OrganizationActionGetResponse.class);
 	}
@@ -2487,6 +2496,7 @@ public class TrelloClient {
 	    if (lists != null) {
 		      queryParams.add("lists",lists);
 		    }
+			addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 	    return (OrganizationBoardsGetResponse) getData(webResource,OrganizationBoardsGetResponse.class);
 	}
@@ -2508,6 +2518,7 @@ public class TrelloClient {
 	    if (filters != null)  queryParams.add("filters",filters);
 	    if (fields != null)  queryParams.add("fields",fields);
 	    if (activity != null)  queryParams.add("activity",String.valueOf(activity));
+		addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 		return (OrganizationMemberResponse) getData(webResource,OrganizationMemberResponse.class);
 	}
@@ -2535,6 +2546,7 @@ public class TrelloClient {
 	    if (list != null)  queryParams.add("list",list);
 	    if (fields != null)  queryParams.add("fields",fields);
 	    if (filter != null)  queryParams.add("filter",filter);
+		addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -2543,6 +2555,7 @@ public class TrelloClient {
 		WebResource webResource = getApiResource().path("organizations").path(organizationId).path("membersInvited");
 	    MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 	    if (fields != null)  queryParams.add("fields",fields);
+		addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -2558,6 +2571,7 @@ public class TrelloClient {
 		if (filter != null)  queryParams.add("filter",filter);
 		if (member != null)  queryParams.add("member",String.valueOf(member));
 		if (member_fields != null)  queryParams.add("member_fields",member_fields);
+		addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -2568,6 +2582,7 @@ public class TrelloClient {
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		if (member != null)  queryParams.add("member",String.valueOf(member));
 		if (member_fields != null)  queryParams.add("member_fields",member_fields);
+		addKeyAndTokenToQueryParams(queryParams);
 	    webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource,String.class);
 	}
@@ -2765,8 +2780,7 @@ public class TrelloClient {
 		if(customStickers != null)		queryParams.add("customStickers", customStickers);
 		if(customEmoji != null)		queryParams.add("customEmoji",customEmoji);
 		if(fields != null)		queryParams.add("fields",fields);
-
-
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (MemberIdGetResponse) getData(webResource, MemberIdGetResponse.class);
 		
@@ -2776,7 +2790,7 @@ public class TrelloClient {
 		WebResource webResource = getApiResource().path("members").path(id).path(field);
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		queryParams.add("field",field);
-		
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource, String.class);
 	}
@@ -2801,7 +2815,7 @@ public class TrelloClient {
 		if(member_fields != null) queryParams.add("member_fields",member_fields);
 		if(memberCreator != null) queryParams.add("memberCreator",String.valueOf(memberCreator));
 		if(memberCreator_fields != null) queryParams.add("memberCreator_fields",memberCreator_fields);
-		
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (MemberActionsByIdOrUsernameGetResponse) getData(webResource, MemberActionsByIdOrUsernameGetResponse.class);
 	}
@@ -2811,7 +2825,7 @@ public class TrelloClient {
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		if(filter != null)
 			queryParams.add("filter",filter);
-		
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource, String.class);
 	}
@@ -2821,8 +2835,8 @@ public class TrelloClient {
 		WebResource webResource = getApiResource().path("members").path(id).path("boardBackgrounds").path(idBoardBackground);
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		queryParams.add("idBoardBackground", idBoardBackground);
-		if(filter != null)
-			queryParams.add("filter",filter);
+		if(filter != null) queryParams.add("filter",filter);
+			addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource, String.class);
 	}
@@ -2856,6 +2870,7 @@ public class TrelloClient {
 		if(organization != null)	queryParams.add("organization", String.valueOf(organization));
 		if(organization_fields != null)	queryParams.add("organization_fields", organization_fields);
 		if(lists != null)	queryParams.add("lists", lists);
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);		
 		return (MembersBoardsGetResponse) getData(webResource, MembersBoardsGetResponse.class);
 	}
@@ -2864,7 +2879,7 @@ public class TrelloClient {
 		WebResource webResource = getApiResource().path("members").path(id).path("boards").path(filter);
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		queryParams.add("idBoardBackground", filter);
-		
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource, String.class);
 	}
@@ -2872,8 +2887,8 @@ public class TrelloClient {
 	public String getBoardsInvited(String id, String fields){
 		WebResource webResource = getApiResource().path("members").path(id).path("boardsInvited");
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		if(fields != null)
-			queryParams.add("filter",fields);
+		if(fields != null) 			queryParams.add("filter",fields);
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource, String.class);
 	}
@@ -2881,8 +2896,8 @@ public class TrelloClient {
 	public String getBoardsInvitedByField(String id, String field){
 		WebResource webResource = getApiResource().path("members").path(id).path("boardsInvited").path(field);
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		
-			queryParams.add("filter",field);
+		if(field!=null)	queryParams.add("filter",field);
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource, String.class);
 	}
@@ -2904,6 +2919,7 @@ public class TrelloClient {
 		if(before != null)			queryParams.add("before",before);
 		if(filter != null)			queryParams.add("filter",filter);
 		if(fields != null)			queryParams.add("fields",fields);
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource, String.class);
 	}
@@ -2917,6 +2933,7 @@ public class TrelloClient {
 		WebResource webResource = getApiResource().path("members").path(id).path("customBoardBackgrounds");
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		if(filter  != null)			queryParams.add("filter",filter );
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource, String.class);
 	}
@@ -2925,6 +2942,7 @@ public class TrelloClient {
 		WebResource webResource = getApiResource().path("members").path(memberId).path("customBoardBackgrounds").path(boardBackgroundId);
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		if(fields  != null)			queryParams.add("fields",fields);
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource, String.class);
 	}
@@ -2938,6 +2956,7 @@ public class TrelloClient {
 		WebResource webResource = getApiResource().path("members").path(memberId).path("customEmoji").path(idCustomEmoji);
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		if(fields  != null)			queryParams.add("fields",fields);
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource, String.class);
 	}
@@ -2946,6 +2965,7 @@ public class TrelloClient {
 		WebResource webResource = getApiResource().path("members").path(memberId).path("customStickers");
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		if(filter  != null)			queryParams.add("filter",filter);
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource, String.class);
 	}
@@ -2954,6 +2974,7 @@ public class TrelloClient {
 		WebResource webResource = getApiResource().path("members").path(memberId).path("customEmoji").path(idCustomSticker);
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		if(fields  != null)			queryParams.add("fields",fields);
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource, String.class);
 	}
@@ -2963,6 +2984,7 @@ public class TrelloClient {
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		queryParams.add("tags",tags);
 		queryParams.add("ixLastUpdate",ixLastUpdate);
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource, String.class);
 	}
@@ -2981,6 +3003,7 @@ public class TrelloClient {
 		if(since  != null)			queryParams.add("since",since);
 		if(memberCreator  != null)			queryParams.add("memberCreator",String.valueOf(memberCreator));
 		if(memberCreator_fields  != null)			queryParams.add("memberCreator_fields",memberCreator_fields);
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource, String.class);
 	}
@@ -2996,6 +3019,7 @@ public class TrelloClient {
 		if(filter  != null)			queryParams.add("filter",filter);
 		if(fields  != null)			queryParams.add("fields",fields);
 		if(paid_account  != null)			queryParams.add("paid_account",String.valueOf(paid_account));
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (OrganizationsGetResponse) getData(webResource, OrganizationsGetResponse.class);
 	}
@@ -3009,6 +3033,7 @@ public class TrelloClient {
 		WebResource webResource = getApiResource().path("members").path(memberId).path("organizationsInvited");
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		if(fields != null) 		queryParams.add("fields",fields);
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource, String.class);
 	}
@@ -3033,6 +3058,7 @@ public class TrelloClient {
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		if(filter != null) 		queryParams.add("filter", filter);
 		if(webhooks != null) 		queryParams.add("webhooks", String.valueOf(webhooks));
+		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource, String.class);
 	}
@@ -3264,7 +3290,6 @@ public class TrelloClient {
 		return statusResponse;
 
 	}
-
 	private String convertObjectToString(Object request, ObjectMapper mapper) {
 		String input = "";
 
@@ -3280,5 +3305,10 @@ public class TrelloClient {
 	private WebResource getApiResource() {
 		return apiResource;
 	}
-
+	private void addKeyAndTokenToQueryParams(MultivaluedMap<String, String> queryParams){
+		String key = getTrelloConnector().getConfig().getApiKey();
+		String token = getTrelloConnector().getConfig().getApiToken();
+		queryParams.add("key",key);
+		queryParams.add("token", token);
+	}
 }

@@ -2104,7 +2104,7 @@ public class TrelloConnector {
 	 * @return the labels boards field by id
 	 */
 	@Processor
-	  public String getLabelsBoardsFieldById(String idLabel,@Optional String field) {
+	  public String getLabelsBoardsFieldById(String idLabel,String field) {
 	    return getClient().getLabelsBoardsFieldById(idLabel,field);
 	  }
 	

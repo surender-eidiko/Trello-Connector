@@ -60,8 +60,21 @@ import org.mule.modules.trello.bean.CardsPostRequest;
 import org.mule.modules.trello.bean.CardsStickerPutRequest;
 import org.mule.modules.trello.bean.CardsStickersPostRequest;
 import org.mule.modules.trello.bean.CardsSubscribedPutRequest;
+import org.mule.modules.trello.bean.CheckItemsPostRequest;
 import org.mule.modules.trello.bean.CheckListsToCardByIdPostRequest;
 import org.mule.modules.trello.bean.CheckListsUpdatePostRequest;
+import org.mule.modules.trello.bean.ChecklistsByIdPutRequest;
+import org.mule.modules.trello.bean.ChecklistsNameByIdPutRequest;
+import org.mule.modules.trello.bean.ChecklistsPosByIdPutRequest;
+import org.mule.modules.trello.bean.ChecklistsPostRequest;
+import org.mule.modules.trello.bean.LabelByIdPutRequest;
+import org.mule.modules.trello.bean.LabelColorByIdPutRequest;
+import org.mule.modules.trello.bean.LabelNameByIdPutRequest;
+import org.mule.modules.trello.bean.LabelsPostRequest;
+import org.mule.modules.trello.bean.ListsBoardsByIdPutRequest;
+import org.mule.modules.trello.bean.ListsByIdGetResponse;
+import org.mule.modules.trello.bean.ListsByIdPutRequest;
+import org.mule.modules.trello.bean.ListsClosedByIdPutRequest;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 import org.mule.tools.devkit.ctf.mockup.ConnectorDispatcher;
 import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
@@ -107,6 +120,7 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	{
 		return null;
 	}
+
 	public ActionsByIdPutRequest getActionByIdPutRequest()
 	{
 		return  null;
@@ -188,6 +202,9 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 		return null;
 	}
 	public String getIdCheckItems(){
+		return null;
+	}
+	public String getListId(){
 		return null;
 	}
 	public BoardsByIdPutRequest getBoardsByIdPutRequest(){
@@ -359,6 +376,42 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 		return null;
 	}
 	public CardsStickersPostRequest getCardsStickersPostRequest(){
+		return null;
+	}
+	public ChecklistsByIdPutRequest getChecklistsByIdPutRequest(){
+		return null;
+	}
+	public ChecklistsNameByIdPutRequest getChecklistsNameByIdPutRequest(){
+		return null;
+	}
+	public ChecklistsPosByIdPutRequest getChecklistsPosByIdPutRequest(){
+		return null;
+	}
+	public ChecklistsPostRequest getChecklistsPostRequest(){
+		return null;
+	}
+	public CheckItemsPostRequest getCheckItemsPostRequest(){
+		return null;
+	}
+	public LabelByIdPutRequest getLabelByIdPutRequest(){
+		return null;
+	}
+	public LabelColorByIdPutRequest getLabelColorByIdPutRequest(){
+		return null;
+	}
+	public LabelNameByIdPutRequest getLabelNameByIdPutRequest(){
+		return null;
+	}
+	public LabelsPostRequest getLabelsPostRequest(){
+		return null;
+	}
+	public ListsByIdPutRequest getListsByIdPutRequest(){
+		return null;
+	}
+	public ListsClosedByIdPutRequest getListsClosedByIdPutRequest(){
+		return null;
+	}
+	public ListsBoardsByIdPutRequest getListsBoardsByIdPutRequest(){
 		return null;
 	}
 	
