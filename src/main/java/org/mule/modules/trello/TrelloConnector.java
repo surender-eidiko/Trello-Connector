@@ -2531,7 +2531,7 @@ public class TrelloConnector {
   	 * @return the member notifications by id
   	 */
   	@Processor
-	  public String getMemberNotificationsById(String notificationId,@Default("all") @Optional String fields) {
+	  public String getMemberNotificationsById(String notificationId,@Default("all") String fields) {
 		    return getClient().getMemberNotificationsById(notificationId,fields);
 		  }
 	  
@@ -2555,7 +2555,7 @@ public class TrelloConnector {
   	 * @return the member creator notifications by id
   	 */
   	@Processor
-	  public String getMemberCreatorNotificationsById(String notificationId,@Default("all") @Optional String fields) {
+	  public String getMemberCreatorNotificationsById(String notificationId,@Default("all")  String fields) {
 		    return getClient().getMemberCreatorNotificationsById(notificationId,fields);
 		  }
 	  
@@ -2579,7 +2579,7 @@ public class TrelloConnector {
   	 * @return the organizations notifications by id
   	 */
   	@Processor
-	  public String getOrganizationsNotificationsById(String notificationId,@Default("all") @Optional String fields) {
+	  public String getOrganizationsNotificationsById(String notificationId,@Default("all")  String fields) {
 		    return getClient().getOrganizationsNotificationsById(notificationId,fields);
 		  }
 	  
@@ -2858,7 +2858,7 @@ public class TrelloConnector {
   	//Get Types
 	  @Processor
 	  public TypesGetResponse getTypeById(String typeId) {
-	    return getClient().TypesGetResponse(typeId);
+	    return getClient().getTypeById(typeId);
 	  }
 	  
   	/**

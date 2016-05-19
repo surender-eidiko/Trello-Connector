@@ -2237,7 +2237,7 @@ public class TrelloClient {
 		return (StatusResponse) deleteData(webResource);
 	}
 	//Types
-	public TypesGetResponse TypesGetResponse(String typeId) {
+	public TypesGetResponse getTypeById(String typeId) {
 		WebResource webResource = getApiResource().path("types").path(typeId);
 		return (TypesGetResponse) getData(webResource,TypesGetResponse.class);
 	}
