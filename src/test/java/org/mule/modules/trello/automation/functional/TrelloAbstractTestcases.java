@@ -72,9 +72,23 @@ import org.mule.modules.trello.bean.LabelColorByIdPutRequest;
 import org.mule.modules.trello.bean.LabelNameByIdPutRequest;
 import org.mule.modules.trello.bean.LabelsPostRequest;
 import org.mule.modules.trello.bean.ListsBoardsByIdPutRequest;
-import org.mule.modules.trello.bean.ListsByIdGetResponse;
 import org.mule.modules.trello.bean.ListsByIdPutRequest;
+import org.mule.modules.trello.bean.ListsCardsPostRequest;
 import org.mule.modules.trello.bean.ListsClosedByIdPutRequest;
+import org.mule.modules.trello.bean.ListsMovedCardsPostRequest;
+import org.mule.modules.trello.bean.ListsPostRequest;
+import org.mule.modules.trello.bean.NotificationsByIdPutRequest;
+import org.mule.modules.trello.bean.NotificationsPostRequest;
+import org.mule.modules.trello.bean.NotificationsUnreadByIdPutRequest;
+import org.mule.modules.trello.bean.SessionByIdPutRequest;
+import org.mule.modules.trello.bean.SessionStatusByIdPutRequest;
+import org.mule.modules.trello.bean.SessionsPostRequest;
+import org.mule.modules.trello.bean.TokensPutRequest;
+import org.mule.modules.trello.bean.WebhooksActivePutRequest;
+import org.mule.modules.trello.bean.WebhooksByIdPutRequest;
+import org.mule.modules.trello.bean.WebhooksCallBackURLPutRequest;
+import org.mule.modules.trello.bean.WebhooksDescPutRequest;
+import org.mule.modules.trello.bean.WebhooksPutRequest;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 import org.mule.tools.devkit.ctf.mockup.ConnectorDispatcher;
 import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
@@ -205,6 +219,27 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 		return null;
 	}
 	public String getListId(){
+		return null;
+	}
+	public String getNotificationId(){
+		return null;
+	}
+	public String getQuery(){
+		return null;
+	}
+	public String getSessionId(){
+		return null;
+	}
+	public String getToken(){
+		return null;
+	}
+	public String getWebhookId(){
+		return null;
+	}
+	public String getTypeId(){
+		return null;
+	}
+	public String getOrganizationId(){
 		return null;
 	}
 	public BoardsByIdPutRequest getBoardsByIdPutRequest(){
@@ -412,6 +447,52 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 		return null;
 	}
 	public ListsBoardsByIdPutRequest getListsBoardsByIdPutRequest(){
+		return null;
+	}
+	public ListsPostRequest getListsPostRequest(){
+		return null;
+	}
+	public  ListsCardsPostRequest getListsCardsPostRequest(){
+		return null;
+	}
+	public ListsMovedCardsPostRequest getListsMovedCardsPostRequest(){
+		return null;
+	}
+	public NotificationsByIdPutRequest getNotificationsByIdPutRequest(){
+		return null;
+	}
+	public NotificationsUnreadByIdPutRequest getNotificationsUnreadByIdPutRequest(){
+		return null;
+	}
+	public NotificationsPostRequest getNotificationsPostRequest(){
+		return null;
+	}
+	public SessionByIdPutRequest getSessionByIdPutRequest(){
+		return null;
+	}
+	public SessionStatusByIdPutRequest getSessionStatusByIdPutRequest(){
+		return null;
+	}
+	public SessionsPostRequest getSessionsPostRequest(){
+		return null;
+	}
+	public TokensPutRequest getTokensPutRequest(){
+		return null;
+	}
+	public WebhooksByIdPutRequest getWebhooksByIdPutRequest(){
+		return null;
+	}
+	public WebhooksPutRequest getWebhooksPutRequest(){
+		return null;
+
+	}
+	public WebhooksActivePutRequest getWebhooksActivePutRequest(){
+		return null;
+	}
+	public WebhooksCallBackURLPutRequest getWebhooksCallBackURLPutRequest(){
+		return null;
+	}
+	public WebhooksDescPutRequest getWebhooksDescPutRequest(){
 		return null;
 	}
 	
