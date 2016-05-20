@@ -3215,8 +3215,8 @@ public class TrelloConnector {
   	 */
   	//organization put methods
 	  @Processor
-	  public String updateOrganizationsByIdOrName(String OrganizationId,OrganizationPutRequest organizationPutReq) {
-	    return getClient().updateOrganizationsById(OrganizationId,organizationPutReq);
+	  public String updateOrganizationsByIdOrName(String organizationId,OrganizationPutRequest organizationPutReq) {
+	    return getClient().updateOrganizationsById(organizationId,organizationPutReq);
 	  }
 	  
   	/**
@@ -3568,8 +3568,8 @@ public class TrelloConnector {
   	 */
   	//Members API 
 	  @Processor
-		public MemberIdGetResponse getMemberByIdOrUsername(String id, @Optional String actions, @Optional @Default("false") Boolean actions_entities,
-				@Optional @Default("false") Boolean actions_display, @Optional @Default("50") String actions_limit, @Optional @Default("all") String action_fields, @Optional String action_since, @Optional String action_before, @Optional @Default("none") String cards, @Optional @Default("all") String card_fields, @Optional @Default("false") Boolean card_members, @Optional String card_member_fields, @Optional @Default("false") String card_attachments, @Optional String card_attachment_fields, @Optional @Default("false") Boolean card_stickers, @Optional String boards, @Optional String board_fields, @Optional String board_actions, @Optional @Default("false") Boolean board_actions_entities, @Default("false") Boolean board_actions_display, @Default("list") String board_actions_format, @Optional String board_actions_since, @Default("50") String board_actions_limit, @Default("all") String board_action_fields, @Default("none") String  board_lists, @Default("none") String board_memberships, @Default("false") Boolean board_organization, @Optional String board_organization_fields, @Optional String boardsInvited, @Optional String boardsInvited_fields, @Default("false") Boolean boardStars, @Default("false") Boolean savedSearches, @Default("none") String organizations, @Default("all") String organization_fields, @Default("false") Boolean organization_paid_account, @Default("none") String organizationsInvited, @Default("all") String organizationsInvited_fields, @Optional String notifications, @Default("false") Boolean notifications_entities, @Default("false") Boolean notifications_display, @Default("50") String notifications_limit, @Default("all") String notification_fields, @Default("true") Boolean notification_memberCreator, @Optional String notification_memberCreator_fields, @Optional String notification_before, @Optional String notification_since, @Default("none") String tokens, @Default("false") Boolean paid_account, @Default("none") String boardBackgrounds, @Default("none") String customBoardBackgrounds, @Default("none") String customStickers, @Default("none") String customEmoji, @Default("all") String fields){
+		public MemberIdGetResponse getMemberByIdOrUsername(String id, @Optional String actions,  @Default("false") Boolean actions_entities,
+				 @Default("false") Boolean actions_display,  @Default("50") String actions_limit,  @Default("all") String action_fields, @Optional String action_since, @Optional String action_before,  @Default("none") String cards,  @Default("all") String card_fields,  @Default("false") Boolean card_members, @Optional String card_member_fields,  @Default("false") String card_attachments, @Optional String card_attachment_fields,  @Default("false") Boolean card_stickers, @Optional String boards, @Optional String board_fields, @Optional String board_actions,  @Default("false") Boolean board_actions_entities, @Default("false") Boolean board_actions_display, @Default("list") String board_actions_format, @Optional String board_actions_since, @Default("50") String board_actions_limit, @Default("all") String board_action_fields, @Default("none") String  board_lists, @Default("none") String board_memberships, @Default("false") Boolean board_organization, @Optional String board_organization_fields, @Optional String boardsInvited, @Optional String boardsInvited_fields, @Default("false") Boolean boardStars, @Default("false") Boolean savedSearches, @Default("none") String organizations, @Default("all") String organization_fields, @Default("false") Boolean organization_paid_account, @Default("none") String organizationsInvited, @Default("all") String organizationsInvited_fields, @Optional String notifications, @Default("false") Boolean notifications_entities, @Default("false") Boolean notifications_display, @Default("50") String notifications_limit, @Default("all") String notification_fields, @Default("true") Boolean notification_memberCreator, @Optional String notification_memberCreator_fields, @Optional String notification_before, @Optional String notification_since, @Default("none") String tokens, @Default("false") Boolean paid_account, @Default("none") String boardBackgrounds, @Default("none") String customBoardBackgrounds, @Default("none") String customStickers, @Default("none") String customEmoji, @Default("all") String fields){
 			return getClient().getMemberByIdOrUsername(id,actions,    actions_entities,
 					   actions_display,    actions_limit,    action_fields,   action_since,
 					   action_before,    cards,    card_fields,    card_members,   card_member_fields,
@@ -3714,7 +3714,7 @@ public class TrelloConnector {
 		 * @return the boards invited
 		 */
 		@Processor
-		public String getBoardsInvited(String id, String fields){
+		public String getBoardsInvited(String id,@Optional String fields){
 			return getClient().getBoardsInvited(id, fields);
 		}
 		
@@ -3957,8 +3957,8 @@ public class TrelloConnector {
 		 * @return the saved searches by saved search id
 		 */
 		@Processor
-		public String getSavedSearchesBySavedSearchId(String memberId, String savedSearchId){
-			return getClient().getSavedSearchesBySavedSearchId(memberId, savedSearchId);
+		public String getSavedSearchesBySavedSearchId(String memberId, String savedSearchId,String value){
+			return getClient().getSavedSearchesBySavedSearchId(memberId, savedSearchId,value);
 		}
 		
 		/**

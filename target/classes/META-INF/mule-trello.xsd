@@ -6772,7 +6772,7 @@
             <xs:documentation>the id label</xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute type="xs:string" use="optional" name="field">
+        <xs:attribute type="xs:string" use="required" name="field">
           <xs:annotation>
             <xs:documentation>the field</xs:documentation>
           </xs:annotation>
@@ -10253,9 +10253,9 @@
             <xs:documentation>Specify which configuration to use for this invocation.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute type="xs:string" use="required" name="OrganizationId">
+        <xs:attribute type="xs:string" use="required" name="organizationId">
           <xs:annotation>
-            <xs:documentation>the organization id</xs:documentation>
+            <xs:documentation></xs:documentation>
           </xs:annotation>
         </xs:attribute>
       </xs:extension>
@@ -11855,7 +11855,7 @@
             <xs:documentation>the id</xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute type="xs:string" use="required" name="fields">
+        <xs:attribute type="xs:string" use="optional" name="fields">
           <xs:annotation>
             <xs:documentation>the fields</xs:documentation>
           </xs:annotation>
@@ -12461,6 +12461,11 @@
         <xs:attribute type="xs:string" use="required" name="savedSearchId">
           <xs:annotation>
             <xs:documentation>the saved search id</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="value">
+          <xs:annotation>
+            <xs:documentation></xs:documentation>
           </xs:annotation>
         </xs:attribute>
       </xs:extension>

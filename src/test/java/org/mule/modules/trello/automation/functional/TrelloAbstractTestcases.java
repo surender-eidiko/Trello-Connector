@@ -5,93 +5,11 @@ package org.mule.modules.trello.automation.functional;
 
 import org.junit.Before;
 import org.mule.modules.trello.TrelloConnector;
-import org.mule.modules.trello.bean.ActionsByIdPutRequest;
-import org.mule.modules.trello.bean.ActionsTextByIdPutRequest;
-import org.mule.modules.trello.bean.BoardsBackgroundPrefPutRequest;
-import org.mule.modules.trello.bean.BoardsByIdLabelPostRequest;
-import org.mule.modules.trello.bean.BoardsByIdListPostRequest;
-import org.mule.modules.trello.bean.BoardsByIdPutRequest;
-import org.mule.modules.trello.bean.BoardsCalendekeyGeneratePostRequest;
-import org.mule.modules.trello.bean.BoardsCalenderFeedEnabledPutRequest;
-import org.mule.modules.trello.bean.BoardsCardCoversPutRequest;
-import org.mule.modules.trello.bean.BoardsCardsPutRequest;
-import org.mule.modules.trello.bean.BoardsChecklistPostRequest;
-import org.mule.modules.trello.bean.BoardsClosedByIdPutRequest;
-import org.mule.modules.trello.bean.BoardsCommentsPutRequest;
-import org.mule.modules.trello.bean.BoardsDescriptionByIdPutRequest;
-import org.mule.modules.trello.bean.BoardsEmailListPrefPutRequest;
-import org.mule.modules.trello.bean.BoardsEmailPosPrefPutRequest;
-import org.mule.modules.trello.bean.BoardsInvitationPutRequest;
-import org.mule.modules.trello.bean.BoardsLabelNameByColorPutRequest;
-import org.mule.modules.trello.bean.BoardsListGuidePutRequest;
-import org.mule.modules.trello.bean.BoardsMembersByMemberIdPutRequest;
-import org.mule.modules.trello.bean.BoardsMembersPutRequest;
-import org.mule.modules.trello.bean.BoardsMembershipsPutRequest;
-import org.mule.modules.trello.bean.BoardsNamePutRequest;
-import org.mule.modules.trello.bean.BoardsOrganizationByIdPutRequest;
-import org.mule.modules.trello.bean.BoardsPermissionLevelPutRequest;
-import org.mule.modules.trello.bean.BoardsPostRequest;
-import org.mule.modules.trello.bean.BoardsPoweUpsPostRequest;
-import org.mule.modules.trello.bean.BoardsSubscriberPutRequest;
-import org.mule.modules.trello.bean.BoardsVotingPutRequest;
-import org.mule.modules.trello.bean.CardsAcionCommentsByIdPostRequest;
-import org.mule.modules.trello.bean.CardsAttachmentsByIdPostRequest;
-import org.mule.modules.trello.bean.CardsBoardIdPutRequest;
-import org.mule.modules.trello.bean.CardsByIdPutRequest;
-import org.mule.modules.trello.bean.CardsCheckListNamePutRequest;
-import org.mule.modules.trello.bean.CardsCheckListPositionPutRequest;
-import org.mule.modules.trello.bean.CardsCheckListStatePutRequest;
-import org.mule.modules.trello.bean.CardsCheckListsByIdPostRequest;
-import org.mule.modules.trello.bean.CardsClosedPutRequest;
-import org.mule.modules.trello.bean.CardsCommentsByIdPutRequest;
-import org.mule.modules.trello.bean.CardsCurrentCheckListPutRequest;
-import org.mule.modules.trello.bean.CardsDescriptionPutRequest;
-import org.mule.modules.trello.bean.CardsDuePutRequest;
-import org.mule.modules.trello.bean.CardsIdAttachmentPutRequest;
-import org.mule.modules.trello.bean.CardsIdLabelByIdPostRequest;
-import org.mule.modules.trello.bean.CardsIdMembersPostRequest;
-import org.mule.modules.trello.bean.CardsLabelsPostRequest;
-import org.mule.modules.trello.bean.CardsListPutRequest;
-import org.mule.modules.trello.bean.CardsMemberPutRequest;
-import org.mule.modules.trello.bean.CardsMembersVotedPostRequest;
-import org.mule.modules.trello.bean.CardsNamePostRequest;
-import org.mule.modules.trello.bean.CardsNamePutRequest;
-import org.mule.modules.trello.bean.CardsPostRequest;
-import org.mule.modules.trello.bean.CardsStickerPutRequest;
-import org.mule.modules.trello.bean.CardsStickersPostRequest;
-import org.mule.modules.trello.bean.CardsSubscribedPutRequest;
-import org.mule.modules.trello.bean.CheckItemsPostRequest;
-import org.mule.modules.trello.bean.CheckListsToCardByIdPostRequest;
-import org.mule.modules.trello.bean.CheckListsUpdatePostRequest;
-import org.mule.modules.trello.bean.ChecklistsByIdPutRequest;
-import org.mule.modules.trello.bean.ChecklistsNameByIdPutRequest;
-import org.mule.modules.trello.bean.ChecklistsPosByIdPutRequest;
-import org.mule.modules.trello.bean.ChecklistsPostRequest;
-import org.mule.modules.trello.bean.LabelByIdPutRequest;
-import org.mule.modules.trello.bean.LabelColorByIdPutRequest;
-import org.mule.modules.trello.bean.LabelNameByIdPutRequest;
-import org.mule.modules.trello.bean.LabelsPostRequest;
-import org.mule.modules.trello.bean.ListsBoardsByIdPutRequest;
-import org.mule.modules.trello.bean.ListsByIdPutRequest;
-import org.mule.modules.trello.bean.ListsCardsPostRequest;
-import org.mule.modules.trello.bean.ListsClosedByIdPutRequest;
-import org.mule.modules.trello.bean.ListsMovedCardsPostRequest;
-import org.mule.modules.trello.bean.ListsPostRequest;
-import org.mule.modules.trello.bean.NotificationsByIdPutRequest;
-import org.mule.modules.trello.bean.NotificationsPostRequest;
-import org.mule.modules.trello.bean.NotificationsUnreadByIdPutRequest;
-import org.mule.modules.trello.bean.SessionByIdPutRequest;
-import org.mule.modules.trello.bean.SessionStatusByIdPutRequest;
-import org.mule.modules.trello.bean.SessionsPostRequest;
-import org.mule.modules.trello.bean.TokensPutRequest;
-import org.mule.modules.trello.bean.WebhooksActivePutRequest;
-import org.mule.modules.trello.bean.WebhooksByIdPutRequest;
-import org.mule.modules.trello.bean.WebhooksCallBackURLPutRequest;
-import org.mule.modules.trello.bean.WebhooksDescPutRequest;
-import org.mule.modules.trello.bean.WebhooksPutRequest;
+import org.mule.modules.trello.bean.*;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 import org.mule.tools.devkit.ctf.mockup.ConnectorDispatcher;
 import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
+
 
 public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 
@@ -145,6 +63,9 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	}
 	public String getValue()
 	{
+		return null;
+	}
+	public Boolean getVal(){
 		return null;
 	}
 	public String getMembershipId()
@@ -242,6 +163,21 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	public String getOrganizationId(){
 		return null;
 	}
+	public String getMemberIdOrName(){
+		return null;
+	}
+	public String getBardBackgroundId(){
+		return null;
+	}
+	String getBoardStarId(){
+		return null;
+	}
+	String getCustomEmojiId(){
+		return null;
+	}
+	String getidCustomSticker(){
+		return null;
+	}
 	public BoardsByIdPutRequest getBoardsByIdPutRequest(){
 		return null;
 	}
@@ -306,7 +242,9 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 		return null;
 	}
 	public BoardsPostRequest getBoardsPostRequest(){
-		return null;
+		BoardsPostRequest req = new BoardsPostRequest();
+		req.setName("my first Name");
+		return req;
 	}
 	public BoardsCalendekeyGeneratePostRequest getBoardsCalendekeyGeneratePostRequest(){
 		return null;
@@ -495,5 +433,106 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	public WebhooksDescPutRequest getWebhooksDescPutRequest(){
 		return null;
 	}
-	
+	public OrganizationPutRequest getOrganizationPutRequest(){
+		return null;
+	}
+	public OrganizationDescPutRequest getOrganizationDescPutRequest(){
+		return null;
+	}
+	public OrganizationDisplayNamePutRequest getOrganizationDisplayNamePutRequest(){
+		return null;
+	}
+	public  OrganizationMembersPutRequest getOrganizationMembersPutRequest(){
+		return null;
+	}
+	public OrganizationMemberIdPutRequest getOrganizationMemberIdPutRequest(){
+		return null;
+	}
+	public OrganizationMemberDeactivatedPutRequest getOrganizationMemberDeactivatedPutRequest(){
+		return null;
+	}
+	public OrganizationMembershipPutRequest getOrganizationMembershipPutRequest(){
+		return null;
+	}
+	public OrganizationAssociatedDomainPutRequest getOrganizationAssociatedDomainPutRequest(){
+		return null;
+	}
+	public OrganizationBoardVisibilityRestrictPutRequest getOrganizationBoardVisibilityRestrictPutRequest(){
+		return null;
+	}
+	public OrganizationExternalMembersDisabledPutRequest getOrganizationExternalMembersDisabledPutRequest(){
+		return null;
+	}
+	public OrganizationGoogleAppVersionPutRequest getOrganizationGoogleAppVersionPutRequest(){
+		return null;
+	}
+	public OrganizationInviteRestrictPutRequest getOrganizationInviteRestrictPutRequest(){
+		return null;
+	}
+	public OrganizationPermissionLevelPutRequest getOrganizationPermissionLevelPutRequest(){
+		return null;
+	}
+	public OrganizationPostRequest getOrganizationPostRequest(){
+		return null;
+	}
+	public OrganizationLogoPostRequest getOrganizationLogoPostRequest(){
+		return null;
+	}
+	public UpdateMemberPutRequest getUpdateMemberPutRequest(){
+		return null;
+	}
+	public UpdateAvatarSourcePutRequest getUpdateAvatarSourcePutRequest(){
+		return null;
+	}
+	public UpdateBoardBackgroundByIdPutRequest getUpdateBoardBackgroundByIdPutRequest(){
+		return null;
+	}
+	public UpdateBoardStarsByIdPutRequest getUpdateBoardStarsByIdPutRequest(){
+		return null;
+	}
+	public UpdateBoardStarByBoardIdPutRequest getUpdateBoardStarByBoardIdPutRequest(){
+		return null;
+	}
+	public UpdateBoardStarByBoardPosPutRequest getUpdateBoardStarByBoardPosPutRequest(){
+		return null;
+	}
+	public UpdateCustomBoardBackgroundById getUpdateCustomBoardBackgroundById(){
+		return null;
+	}
+	public UpdateMemberSavedSearchesByIdPutRequest getUpdateMemberSavedSearchesByIdPutRequest(){
+		return null;
+	}
+	public UpdateSavedSearchNamePutRequest getUpdateSavedSearchNamePutRequest(){
+		return null;
+	}
+	public UpdateSavedSearchPosPutRequest getUpdateSavedSearchPosPutRequest(){
+		return null;
+	}
+	public UpdateSavedSearchQueryPutRequest getUpdateSavedSearchQueryPutRequest(){
+		return null;
+	}
+	public CreateMemberAvatarPostRequest getCreateMemberAvatarPostRequest(){
+		return null;
+	}
+	public CreateMemberBoardBackgroundsPostRequest getCreateMemberBoardBackgroundsPostRequest(){
+		return null;
+	}
+	public CreateMemberBoardStarsPostRequest getCreateMemberBoardStarsPostRequest(){
+		return null;
+	}
+	public CreateCustomBoardBackgroundsPostRequest getCreateCustomBoardBackgroundsPostRequest(){
+		return null;
+	}
+	public CreateCustomEmojiPostRequest getCreateCustomEmojiPostRequest(){
+		return null;
+	}
+	public CreateCustomStickerPostRequest getCreateCustomStickerPostRequest(){
+		return null;
+	}
+	public CreateOneTimeMessagesDismissedPostRequest getCreateOneTimeMessagesDismissedPostRequest(){
+		return null;
+	}
+	public CreateSavedSearchesPostRequest getCreateSavedSearchesPostRequest(){
+		return null;
+	}
 }

@@ -37,14 +37,14 @@ import org.mule.security.oauth.callback.ProcessCallback;
  * 
  */
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.7.2", date = "2016-05-18T04:08:12+05:30", comments = "Build 3.7.x.2633.51164b9")
+@Generated(value = "Mule DevKit Version 3.7.2", date = "2016-05-20T07:24:31+05:30", comments = "Build 3.7.x.2633.51164b9")
 public class UpdateOrganizationsByIdOrNameMessageProcessor
     extends DevkitBasedMessageProcessor
     implements MessageProcessor, OperationMetaDataEnabled
 {
 
-    protected Object OrganizationId;
-    protected String _OrganizationIdType;
+    protected Object organizationId;
+    protected String _organizationIdType;
     protected Object organizationPutReq;
     protected OrganizationPutRequest _organizationPutReqType;
 
@@ -91,12 +91,12 @@ public class UpdateOrganizationsByIdOrNameMessageProcessor
     }
 
     /**
-     * Sets OrganizationId
+     * Sets organizationId
      * 
      * @param value Value to set
      */
     public void setOrganizationId(Object value) {
-        this.OrganizationId = value;
+        this.organizationId = value;
     }
 
     /**
@@ -111,7 +111,7 @@ public class UpdateOrganizationsByIdOrNameMessageProcessor
         Object moduleObject = null;
         try {
             moduleObject = findOrCreate(null, false, event);
-            final String _transformedOrganizationId = ((String) evaluateAndTransform(getMuleContext(), event, UpdateOrganizationsByIdOrNameMessageProcessor.class.getDeclaredField("_OrganizationIdType").getGenericType(), null, OrganizationId));
+            final String _transformedOrganizationId = ((String) evaluateAndTransform(getMuleContext(), event, UpdateOrganizationsByIdOrNameMessageProcessor.class.getDeclaredField("_organizationIdType").getGenericType(), null, organizationId));
             final OrganizationPutRequest _transformedOrganizationPutReq = ((OrganizationPutRequest) evaluateAndTransform(getMuleContext(), event, UpdateOrganizationsByIdOrNameMessageProcessor.class.getDeclaredField("_organizationPutReqType").getGenericType(), null, organizationPutReq));
             Object resultPayload;
             final ProcessTemplate<Object, Object> processTemplate = ((ProcessAdapter<Object> ) moduleObject).getProcessTemplate();

@@ -32,11 +32,11 @@ import org.mule.security.oauth.callback.ProcessCallback;
 
 
 /**
- * GetSavedSearchesBySavedSearchIdMessageProcessor invokes the {@link org.mule.modules.trello.TrelloConnector#getSavedSearchesBySavedSearchId(java.lang.String, java.lang.String)} method in {@link TrelloConnector }. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
+ * GetSavedSearchesBySavedSearchIdMessageProcessor invokes the {@link org.mule.modules.trello.TrelloConnector#getSavedSearchesBySavedSearchId(java.lang.String, java.lang.String, java.lang.String)} method in {@link TrelloConnector }. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  * 
  */
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.7.2", date = "2016-05-18T04:08:12+05:30", comments = "Build 3.7.x.2633.51164b9")
+@Generated(value = "Mule DevKit Version 3.7.2", date = "2016-05-20T07:24:31+05:30", comments = "Build 3.7.x.2633.51164b9")
 public class GetSavedSearchesBySavedSearchIdMessageProcessor
     extends DevkitBasedMessageProcessor
     implements MessageProcessor, OperationMetaDataEnabled
@@ -46,6 +46,8 @@ public class GetSavedSearchesBySavedSearchIdMessageProcessor
     protected String _memberIdType;
     protected Object savedSearchId;
     protected String _savedSearchIdType;
+    protected Object value;
+    protected String _valueType;
 
     public GetSavedSearchesBySavedSearchIdMessageProcessor(String operationName) {
         super(operationName);
@@ -81,6 +83,15 @@ public class GetSavedSearchesBySavedSearchIdMessageProcessor
     }
 
     /**
+     * Sets value
+     * 
+     * @param value Value to set
+     */
+    public void setValue(Object value) {
+        this.value = value;
+    }
+
+    /**
      * Sets memberId
      * 
      * @param value Value to set
@@ -112,6 +123,7 @@ public class GetSavedSearchesBySavedSearchIdMessageProcessor
             moduleObject = findOrCreate(null, false, event);
             final String _transformedMemberId = ((String) evaluateAndTransform(getMuleContext(), event, GetSavedSearchesBySavedSearchIdMessageProcessor.class.getDeclaredField("_memberIdType").getGenericType(), null, memberId));
             final String _transformedSavedSearchId = ((String) evaluateAndTransform(getMuleContext(), event, GetSavedSearchesBySavedSearchIdMessageProcessor.class.getDeclaredField("_savedSearchIdType").getGenericType(), null, savedSearchId));
+            final String _transformedValue = ((String) evaluateAndTransform(getMuleContext(), event, GetSavedSearchesBySavedSearchIdMessageProcessor.class.getDeclaredField("_valueType").getGenericType(), null, value));
             Object resultPayload;
             final ProcessTemplate<Object, Object> processTemplate = ((ProcessAdapter<Object> ) moduleObject).getProcessTemplate();
             resultPayload = processTemplate.execute(new ProcessCallback<Object,Object>() {
@@ -128,7 +140,7 @@ public class GetSavedSearchesBySavedSearchIdMessageProcessor
                 public Object process(Object object)
                     throws Exception
                 {
-                    return ((TrelloConnector) object).getSavedSearchesBySavedSearchId(_transformedMemberId, _transformedSavedSearchId);
+                    return ((TrelloConnector) object).getSavedSearchesBySavedSearchId(_transformedMemberId, _transformedSavedSearchId, _transformedValue);
                 }
 
             }

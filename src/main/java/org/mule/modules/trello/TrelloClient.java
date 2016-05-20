@@ -3048,8 +3048,12 @@ public class TrelloClient {
 		return (String) getData(webResource, String.class);
 	}
 	
-	public String getSavedSearchesBySavedSearchId(String memberId, String savedSearchId){
+	public String getSavedSearchesBySavedSearchId(String memberId, String savedSearchId,String value){
 		WebResource webResource = getApiResource().path("members").path(memberId).path("savedSearches").path(savedSearchId);
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		if(value != null) 		queryParams.add("value", value);
+		addKeyAndTokenToQueryParams(queryParams);
+		webResource = webResource.queryParams(queryParams);
 		return (String) getData(webResource, String.class);
 	}
 	

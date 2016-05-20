@@ -1149,7 +1149,7 @@
   <cloud-connector returnType="java.lang.String" categories="DataSenseResolver" caption="Get Boards Invited" icon="icons/small/trello-connector-24x16.png" localId="get-boards-invited" image="icons/large/trello-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/trello/abstractTrelloConnectorGeneric" metaData="static">
     <attribute-category caption="General" description="General.">
       <group id="general" caption="General">
-        <string name="fields" caption="Fields" description="The fields." required="true" javaType="java.lang.String"></string>
+        <string name="fields" caption="Fields" description="The fields." required="false" javaType="java.lang.String"></string>
         <string name="id" caption="Id" description="The id." required="true" javaType="java.lang.String"></string>
       </group>
     </attribute-category>
@@ -1520,7 +1520,7 @@
   <cloud-connector returnType="java.lang.String" categories="DataSenseResolver" caption="Get Labels Boards Field By Id" icon="icons/small/trello-connector-24x16.png" localId="get-labels-boards-field-by-id" image="icons/large/trello-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/trello/abstractTrelloConnectorGeneric" metaData="static">
     <attribute-category caption="General" description="General.">
       <group id="general" caption="General">
-        <string name="field" caption="Field" description="The field." required="false" javaType="java.lang.String"></string>
+        <string name="field" caption="Field" description="The field." required="true" javaType="java.lang.String"></string>
         <string name="idLabel" caption="Id Label" description="The id label." required="true" javaType="java.lang.String"></string>
       </group>
     </attribute-category>
@@ -2105,6 +2105,7 @@
       <group id="general" caption="General">
         <string name="memberId" caption="Member Id" description="The member id." required="true" javaType="java.lang.String"></string>
         <string name="savedSearchId" caption="Saved Search Id" description="The saved search id." required="true" javaType="java.lang.String"></string>
+        <string name="value" caption="Value" description="" required="true" javaType="java.lang.String"></string>
       </group>
     </attribute-category>
   </cloud-connector>
@@ -3116,7 +3117,7 @@
   <cloud-connector returnType="java.lang.String" categories="DataSenseResolver" caption="Update Organizations By Id Or Name" icon="icons/small/trello-connector-24x16.png" localId="update-organizations-by-id-or-name" image="icons/large/trello-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/trello/abstractTrelloConnectorGeneric" metaData="static">
     <attribute-category caption="General" description="General.">
       <group id="general" caption="General">
-        <string name="OrganizationId" caption="Organization Id" description="The organization id." required="true" javaType="java.lang.String"></string>
+        <string name="organizationId" caption="Organization Id" description="" required="true" javaType="java.lang.String"></string>
         <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/trello/organization-put-req" caption="Organization Put Req Reference" required="true" javaType="org.mule.modules.trello.bean.OrganizationPutRequest"></childElement>
       </group>
     </attribute-category>
@@ -3422,7 +3423,7 @@
     <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
     <string name="ref" caption="Boards Closed By Id Put Req Reference" description="" controlled="useReference"></string>
     <radioBoolean name="complex" caption="Define attributes" description="Define this element's attributes" fillLine="true"></radioBoolean>
-    <boolean name="value" caption="Value" description="The value." supportsExpressions="true" required="false" controlled="complex" javaType="java.lang.Boolean"></boolean>
+    <string name="value" caption="Value" description="The value." required="false" controlled="complex" javaType="java.lang.String"></string>
   </nested>
   <nested xmlname="boards-comments-put-req" caption="" description="" localId="boards-comments-put-req" abstract="false">
     <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
@@ -3718,16 +3719,8 @@
     <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
     <string name="ref" caption="Memberships Id Put Request Reference" description="" controlled="useReference"></string>
     <radioBoolean name="complex" caption="Define attributes" description="Define this element's attributes" fillLine="true"></radioBoolean>
-    <string name="name" caption="Name" description="The name." required="false" controlled="complex" javaType="java.lang.String"></string>
-    <string name="desc" caption="Desc" description="The desc." required="false" controlled="complex" javaType="java.lang.String"></string>
-    <boolean name="closed" caption="Closed" description="The closed." supportsExpressions="true" required="false" controlled="complex" javaType="java.lang.Boolean"></boolean>
-    <string name="idMembers" caption="Id Members" description="The id members." required="false" controlled="complex" javaType="java.lang.String"></string>
-    <string name="idAttachmentCover" caption="Id Attachment Cover" description="The id attachment cover." required="false" controlled="complex" javaType="java.lang.String"></string>
-    <string name="idList" caption="Id List" description="The id list." required="false" controlled="complex" javaType="java.lang.String"></string>
-    <string name="idBoard" caption="Id Board" description="The id board." required="false" controlled="complex" javaType="java.lang.String"></string>
-    <string name="pos" caption="Pos" description="The pos." required="false" controlled="complex" javaType="java.lang.String"></string>
-    <string name="due" caption="Due" description="The due." required="false" controlled="complex" javaType="java.lang.String"></string>
-    <boolean name="subscribed" caption="Subscribed" description="The subscribed." supportsExpressions="true" required="false" controlled="complex" javaType="java.lang.Boolean"></boolean>
+    <string name="idAction" caption="Id Action" description="The id action." required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="text" caption="Text" description="The text." required="false" controlled="complex" javaType="java.lang.String"></string>
   </nested>
   <nested xmlname="notifications-post-req" caption="" description="" localId="notifications-post-req" abstract="false">
     <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
@@ -3849,7 +3842,8 @@
     <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
     <string name="ref" caption="Post Cards Id Member Post Req Reference" description="" controlled="useReference"></string>
     <radioBoolean name="complex" caption="Define attributes" description="Define this element's attributes" fillLine="true"></radioBoolean>
-    <string name="value" caption="Value" description="The value." required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="color" caption="Color" description="The color." required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="name" caption="Name" description="The name." required="false" controlled="complex" javaType="java.lang.String"></string>
   </nested>
   <nested xmlname="post-cards-membedrs-voted-post-req" caption="" description="" localId="post-cards-membedrs-voted-post-req" abstract="false">
     <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
@@ -3871,9 +3865,12 @@
     <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
     <string name="ref" caption="Pref Reference" description="" controlled="useReference"></string>
     <radioBoolean name="complex" caption="Define attributes" description="Define this element's attributes" fillLine="true"></radioBoolean>
-    <boolean name="colorBlind" caption="Color Blind" description="The color blind." supportsExpressions="true" required="false" controlled="complex" javaType="java.lang.Boolean"></boolean>
-    <boolean name="locale" caption="Locale" description="The locale." supportsExpressions="true" required="false" controlled="complex" javaType="java.lang.Boolean"></boolean>
-    <string name="minutesBetweenSummaries" caption="Minutes Between Summaries" description="The minutes between summaries." required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="orgInviteRestrict" caption="Org Invite Restrict" description="The org invite restrict." required="false" controlled="complex" javaType="java.lang.String"></string>
+    <boolean name="externalMembersDisabled" caption="External Members Disabled" description="The external members disabled." supportsExpressions="true" required="false" controlled="complex" javaType="java.lang.Boolean"></boolean>
+    <string name="associatedDomain" caption="Associated Domain" description="The associated domain." required="false" controlled="complex" javaType="java.lang.String"></string>
+    <integer min="0" step="1" name="googleAppsVersion" caption="Google Apps Version" description="The google apps version." required="false" controlled="complex" javaType="java.lang.Integer"></integer>
+    <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/trello/board-visibility-restrict" caption="Board Visibility Restrict Reference" required="false" controlled="complex" javaType="org.mule.modules.trello.bean.BoardVisibilityRestrict"></childElement>
+    <string name="permissionLevel" caption="Permission Level" description="The permission level." required="false" controlled="complex" javaType="java.lang.String"></string>
   </nested>
   <nested xmlname="prefs" caption="" description="" localId="prefs" abstract="false">
     <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
@@ -3899,12 +3896,7 @@
     <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
     <string name="ref" caption="Request Reference" description="" controlled="useReference"></string>
     <radioBoolean name="complex" caption="Define attributes" description="Define this element's attributes" fillLine="true"></radioBoolean>
-    <string name="fullName" caption="Full Name" description="The full name." required="false" controlled="complex" javaType="java.lang.String"></string>
-    <string name="initials" caption="Initials" description="The initials." required="false" controlled="complex" javaType="java.lang.String"></string>
-    <string name="username" caption="Username" description="The username." required="false" controlled="complex" javaType="java.lang.String"></string>
-    <string name="bio" caption="Bio" description="The bio." required="false" controlled="complex" javaType="java.lang.String"></string>
-    <string name="avatarSource" caption="Avatar Source" description="The avatar source." required="false" controlled="complex" javaType="java.lang.String"></string>
-    <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/trello/pref" caption="Pref Reference" required="false" controlled="complex" javaType="org.mule.modules.trello.bean.PrefsPutRequest"></childElement>
+    <string name="file" caption="File" description="The file." required="false" controlled="complex" javaType="java.lang.String"></string>
   </nested>
   <nested xmlname="session-by-id-put-req" caption="" description="" localId="session-by-id-put-req" abstract="false">
     <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>

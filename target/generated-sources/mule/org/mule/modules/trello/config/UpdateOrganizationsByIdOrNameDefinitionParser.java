@@ -20,7 +20,7 @@ import org.springframework.util.xml.DomUtils;
 import org.w3c.dom.Element;
 
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.7.2", date = "2016-05-18T04:08:12+05:30", comments = "Build 3.7.x.2633.51164b9")
+@Generated(value = "Mule DevKit Version 3.7.2", date = "2016-05-20T07:24:31+05:30", comments = "Build 3.7.x.2633.51164b9")
 public class UpdateOrganizationsByIdOrNameDefinitionParser
     extends AbstractDevkitBasedDefinitionParser
 {
@@ -50,7 +50,7 @@ public class UpdateOrganizationsByIdOrNameDefinitionParser
             throw new BeanDefinitionParsingException(new Problem("It seems that the config-ref for @Processor [update-organizations-by-id-or-name] within the connector [trello] is null or missing. Please, fill the value with the correct global element.", new Location(parserContext.getReaderContext().getResource()), null));
         }
         parseConfigRef(element, builder);
-        parseProperty(builder, element, "OrganizationId", "OrganizationId");
+        parseProperty(builder, element, "organizationId", "organizationId");
         if (!parseObjectRef(element, builder, "organization-put-req", "organizationPutReq")) {
             BeanDefinitionBuilder organizationPutReqBuilder = BeanDefinitionBuilder.rootBeanDefinition(OrganizationPutRequestExpressionHolder.class.getName());
             Element organizationPutReqChildElement = DomUtils.getChildElementByTagName(element, "organization-put-req");
