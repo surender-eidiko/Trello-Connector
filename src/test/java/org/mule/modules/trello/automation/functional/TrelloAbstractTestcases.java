@@ -85,7 +85,7 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 		return null;
 	}
 	String getBoardId(){
-	return null;
+	return "574419eac880f5374ba0886e";
 	}
 	String getIdChecklist(){
 		return null;
@@ -243,7 +243,7 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	}
 	public BoardsPostRequest getBoardsPostRequest(){
 		BoardsPostRequest req = new BoardsPostRequest();
-		req.setName("my first Name");
+		req.setName("My First Board_Name");
 		return req;
 	}
 	public BoardsCalendekeyGeneratePostRequest getBoardsCalendekeyGeneratePostRequest(){
@@ -262,7 +262,7 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 		return null;
 	}
 	public String getCardIdOrShortlink(){
-		return "5739632a782c29f22a039c4f";
+		return "57441a089ae9c02bd7a14ea1";
 	}
 	public CardsByIdPutRequest getCardsByIdPutRequest(){
 		return null;

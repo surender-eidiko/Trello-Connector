@@ -240,7 +240,7 @@ public class TrelloClient {
 		return (StatusResponse) deleteData(webResource);
 	}
 
-	public BoardsByIdGetResponse getBoardsById(String boardId, String actions,
+	public String getBoardsById(String boardId, String actions,
 			Boolean actions_entities, Boolean actions_display,
 			String actions_format, String actions_since, Integer actions_limit,
 			String action_fields, Boolean action_member,
@@ -372,8 +372,7 @@ public class TrelloClient {
 		}
 		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
-		return (BoardsByIdGetResponse) getData(webResource,
-				BoardsByIdGetResponse.class);
+		return  getResponseAsString(webResource,String.class);
 	}
 
 	public BoardsByIdAndActionsGetResponse getBoardsByIdAndActions(
@@ -439,7 +438,7 @@ public class TrelloClient {
 		}
 		addKeyAndTokenToQueryParams(queryParams);
 		webResource = webResource.queryParams(queryParams);
-		return (String) getData(webResource,String.class);
+		return  getResponseAsString(webResource, String.class);
 	}
 
 	public BoardsByIdAndCardsGetResponse getBoardsByIdAndCards(String boardId,
@@ -3226,16 +3225,19 @@ public class TrelloClient {
 		ClientResponse clientResponse = builder.get(ClientResponse.class);
 		return buildResponseObject(returnClass, clientResponse);
 	}
-	private Object postData(Object request, WebResource webResource,
-			Class<?> returnClass) {
+	private String getResponseAsString(WebResource webResource, Class<String> class1) {
+	      WebResource.Builder builder = addHeader(webResource);  
+	      ClientResponse clientResponse = builder.get(ClientResponse.class);
+	      String strResponse = clientResponse.getEntity(String.class);
+	      System.out.println("String Response from getEntity: "+strResponse);
+	      return clientResponse.toString();
+	 }
+	private Object postData(Object request, WebResource webResource,Class<?> returnClass) {
 		WebResource.Builder builder = addHeader(webResource);
 		builder.type(MediaType.APPLICATION_JSON);
 		ObjectMapper mapper = new ObjectMapper();
 		String input = convertObjectToString(request, mapper);
-
-		ClientResponse clientResponse = builder.post(ClientResponse.class,
-				input);
-
+		ClientResponse clientResponse = builder.post(ClientResponse.class,input);
 		return buildResponseObject(returnClass, clientResponse);
 	}
 	private Object putData(Object request, WebResource webResource,
@@ -3274,8 +3276,7 @@ public class TrelloClient {
 
 		StatusResponse statusResponse = null;
 		if (clientResponse.getStatus() == 200) {
-			statusResponse = (StatusResponse) clientResponse
-					.getEntity(returnClass);
+			statusResponse = (StatusResponse) clientResponse.getEntity(returnClass);
 			statusResponse.setStatusCode("200");
 		} else {
 
@@ -3283,28 +3284,29 @@ public class TrelloClient {
 			try {
 				Constructor<?> ctor = returnClass.getConstructor();
 				statusResponse = (StatusResponse) ctor.newInstance();
-				statusResponse.setStatusCode(String.valueOf(clientResponse
-						.getStatus()));
+				statusResponse.setStatusCode(String.valueOf(clientResponse.getStatus()));
 				statusResponse.setStatusMessage(strResponse);
 			} catch (Exception ex) {
 				log.log(Level.SEVERE, "Error", ex);
 			}
 		}
-
+		ObjectMapper mapper = new ObjectMapper();
+		System.out.println("Response: "+convertObjectToString(statusResponse, mapper));
+		
 		return statusResponse;
 
 	}
 	private String convertObjectToString(Object request, ObjectMapper mapper) {
-		String input = "";
+		String output = "";
 
 		try {
-			input = mapper.writeValueAsString(request);
+			output = mapper.writeValueAsString(request);
 
 		} catch (Exception ex) {
 			log.log(Level.SEVERE, "Error", ex);
 		}
-		log.info("Input String = " + input);
-		return input;
+		log.info("Output String = " + output);
+		return output;
 	}
 	private WebResource getApiResource() {
 		return apiResource;

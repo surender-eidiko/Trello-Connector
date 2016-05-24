@@ -16,6 +16,7 @@ import org.mule.api.annotations.param.MetaDataKeyParam;
 import org.mule.api.annotations.param.Optional;
 import org.mule.modules.trello.bean.*;
 import org.mule.modules.trello.config.ConnectorConfig;
+import org.opensaml.saml2.core.StatusResponseType;
 
 
 // TODO: Auto-generated Javadoc
@@ -317,7 +318,7 @@ public class TrelloConnector {
 	 */
 	//Boards GET Methods
 	@Processor
-	public BoardsByIdGetResponse getBoardsById(String boardId,@Optional String actions,
+	public String getBoardsById(String boardId,@Optional String actions,
 			@Optional Boolean actions_entities,	@Optional Boolean actions_display, @Optional String actions_format,
 			@Optional String actions_since,@Optional Integer actions_limit,@Optional String action_fields,@Optional Boolean action_member,@Optional String action_member_fields,@Optional Boolean action_memberCreator,@Optional String action_memberCreator_fields,@Optional String cards,@Optional String card_fields,@Optional String card_attachments,@Optional String card_attachment_fields,@Optional String card_checklists,@Optional Boolean card_stickers,@Optional String boardStars,@Optional String labels,@Optional String label_fields,@Optional Integer labels_limit,
 			@Optional String lists,@Optional String list_fields,@Optional String memberships,@Optional Boolean memberships_member,@Optional String memberships_member_fields,@Optional String members,@Optional String member_fields,@Optional String membersInvited,@Optional String membersInvited_fields,@Optional String checklists,@Optional String checklist_fields,@Optional Boolean organization,@Optional String organization_fields,@Optional String organization_memberships,@Optional Boolean myPrefs,@Optional Boolean tags ,@Optional String fields) {
@@ -2659,7 +2660,7 @@ public class TrelloConnector {
   	 */
   	//Get Method requests for Search
 	  @Processor
-	  public String getSearchQuery(String query,@Optional String idBoards,@Optional String idOrganizations,@Optional String idCards,@Default("all") @Optional String modelTypes,@Optional String board_fields,@Optional String card_fields,@Optional Integer boards_limit,@Optional Integer cards_limit,@Optional Integer cards_page,@Default("false") @Optional Boolean card_board,@Default("false") @Optional String  card_list,@Default("false") @Optional Boolean card_members,@Default("false")@Optional Boolean card_stickers, @Default("false")@Optional String card_attachments,@Optional String organization_fields,@Default("10")@Optional Integer organizations_limit,@Optional String member_fields,@Default("10")@Optional Integer members_limit,@Default("false")@Optional Boolean partial) {
+	  public String getSearchQuery(String query,@Optional String idBoards,@Optional String idOrganizations,@Optional String idCards,@Default("all")  String modelTypes,@Optional String board_fields,@Optional String card_fields,@Optional Integer boards_limit,@Optional Integer cards_limit,@Optional Integer cards_page,@Default("false")  Boolean card_board,@Default("false")  String  card_list,@Default("false")  Boolean card_members,@Default("false") Boolean card_stickers, @Default("false") String card_attachments,@Optional String organization_fields,@Default("10") Integer organizations_limit,@Optional String member_fields,@Default("10") Integer members_limit,@Default("false") Boolean partial) {
 	    return getClient().getSearchQuery(query,idBoards,  idOrganizations,  idCards,  modelTypes,  board_fields,  card_fields,   boards_limit,  cards_limit,  cards_page,  card_board,   card_list,  card_members,  card_stickers,card_attachments,organization_fields,organizations_limit,member_fields,members_limit,partial);
 	  }
 	  
@@ -2674,7 +2675,7 @@ public class TrelloConnector {
   	 * @return the search members
   	 */
   	@Processor
-	  public String getSearchMembers(String query,@Optional String limit,@Optional String idBoard,@Optional String idOrganization,@Default("false") @Optional Boolean onlyOrgMembers) {
+	  public String getSearchMembers(String query,@Optional String limit,@Optional String idBoard,@Optional String idOrganization,@Default("false")  Boolean onlyOrgMembers) {
 		    return getClient().getSearchMembers(query,limit,  idBoard,  idOrganization,  onlyOrgMembers);
 	  }
 	
