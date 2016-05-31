@@ -2852,8 +2852,8 @@ public class TrelloClient {
 		return (String) getData(webResource, String.class);
 	}
 	
-	public MembersBoardsGetResponse getBoards(String id, String filter, String fields,  String actions, Boolean actions_entities, String actions_limit, 
-			String actions_format,  String actions_since, String action_fields,  String memberships, Boolean organization,  String organization_fields,  String lists){
+	public String/*MembersBoardsGetResponse*/ getBoards(String id, String filter, String fields,  String actions, Boolean actions_entities, String actions_limit, 
+			String actions_format,  String actions_since, String action_fields,  String memberships, Boolean organization,  String organization_fields,  String lists, String token){
 		WebResource webResource = getApiResource().path("members").path(id).path("boards");
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		
@@ -2869,9 +2869,11 @@ public class TrelloClient {
 		if(organization != null)	queryParams.add("organization", String.valueOf(organization));
 		if(organization_fields != null)	queryParams.add("organization_fields", organization_fields);
 		if(lists != null)	queryParams.add("lists", lists);
-		addKeyAndTokenToQueryParams(queryParams);
+		
+		addKeyAndTokenToQueryParams(queryParams, token);
 		webResource = webResource.queryParams(queryParams);		
-		return (MembersBoardsGetResponse) getData(webResource, MembersBoardsGetResponse.class);
+		System.out.println("Hitting URL :"+webResource.toString());
+		return (String) getResponseAsString(webResource, String.class);
 	}
 	
 	public String getBoardsByFilter(String id, String filter){
@@ -3229,7 +3231,8 @@ public class TrelloClient {
 	      WebResource.Builder builder = addHeader(webResource);  
 	      ClientResponse clientResponse = builder.get(ClientResponse.class);
 	      String strResponse = clientResponse.getEntity(String.class);
-	      System.out.println("String Response from getEntity: "+strResponse);
+	      System.out.println("Response: "+strResponse);
+	      System.out.println("Client Response: "+clientResponse.toString());
 	      return clientResponse.toString();
 	 }
 	private Object postData(Object request, WebResource webResource,Class<?> returnClass) {
@@ -3258,12 +3261,21 @@ public class TrelloClient {
 	}
 	private WebResource.Builder addHeader(WebResource webResource) {
 		WebResource.Builder builder = webResource
-				.accept(MediaType.APPLICATION_JSON);
+				.accept(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_OCTET_STREAM);
 
 		/*builder.header("Authorization", trelloConnector.getConfig()
 				.getAuthorization());*/
 		return builder;
 	}
+	
+	/*private WebResource.Builder addHeader(WebResource webResource, String token){
+		WebResource.Builder builder = webResource
+				.accept(MediaType.APPLICATION_JSON);
+		//builder.header("Authorization", token);
+		
+		return builder;
+	}*/
+	
 	private Object buildDeleteResponseObject(ClientResponse clientResponse) {
 		StatusResponse statusResponse = new StatusResponse();
 		statusResponse
@@ -3314,6 +3326,14 @@ public class TrelloClient {
 	private void addKeyAndTokenToQueryParams(MultivaluedMap<String, String> queryParams){
 		String key = getTrelloConnector().getConfig().getApiKey();
 		String token = getTrelloConnector().getConfig().getApiToken();
+		queryParams.add("key",key);
+		queryParams.add("token", token);
+	}
+	private void addKeyAndTokenToQueryParams(MultivaluedMap<String, String> queryParams, String token){
+		String key = getTrelloConnector().getConfig().getApiKey();
+		if(token==null)
+			token = getTrelloConnector().getConfig().getApiToken();
+		
 		queryParams.add("key",key);
 		queryParams.add("token", token);
 	}

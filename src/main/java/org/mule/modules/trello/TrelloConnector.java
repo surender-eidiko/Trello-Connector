@@ -3691,8 +3691,8 @@ public class TrelloConnector {
 		 * @return the boards
 		 */
 		@Processor
-		public MembersBoardsGetResponse getBoards(String id, @Default("all") String filter, @Default("all") String fields, @Optional String actions, @Default("false") Boolean actions_entities, @Default("50") String actions_limit, @Default("list") String actions_format, @Optional String actions_since, @Default("all") String action_fields, @Default("none") String memberships, @Default("false") Boolean organization, @Optional String organization_fields, @Default("none") String lists){
-			return getClient().getBoards(id, filter, fields, actions, actions_entities, actions_limit, actions_format, actions_since, action_fields, memberships, organization, organization_fields, lists);
+		public String /*String*/ getBoards(String id, @Default("all") String filter, @Default("all") String fields, @Optional String actions, @Default("false") Boolean actions_entities, @Default("50") String actions_limit, @Default("list") String actions_format, @Optional String actions_since, @Default("all") String action_fields, @Default("none") String memberships, @Default("false") Boolean organization, @Optional String organization_fields, @Default("none") String lists, @Optional String token){
+			return getClient().getBoards(id, filter, fields, actions, actions_entities, actions_limit, actions_format, actions_since, action_fields, memberships, organization, organization_fields, lists, token);
 		}
 		
 		/**
