@@ -2966,8 +2966,8 @@ public class TrelloConnector {
   	 */
   	//POST Webhooks
 	  @Processor
-	  public String postWebhook(WebhooksPutRequest webhooksPostReq) {
-	    return getClient().postWebhook(webhooksPostReq);
+	  public String postWebhook(WebhooksPutRequest webhooksPostReq, @Optional String token) {
+	    return getClient().postWebhook(webhooksPostReq, token);
 	  }
 	  
   	/**

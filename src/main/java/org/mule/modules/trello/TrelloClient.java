@@ -2279,9 +2279,12 @@ public class TrelloClient {
 		return (String) putData(webhooksDescPutReq, webResource, String.class);
 	}
 	//POST webhooks
-	public String postWebhook(WebhooksPutRequest webhooksPostReq) {
+	public String postWebhook(WebhooksPutRequest webhooksPostReq, String token) {
 		WebResource webResource = getApiResource().path("webhooks");
-		return (String) postData(webhooksPostReq, webResource, String.class);
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
+		System.out.println("Hitting.."+webResource.toString());
+		return (String) buildPostResponseAsString(webhooksPostReq, webResource, String.class);
 	}
 	//DELETE Webhooks 
 	public StatusResponse deleteWebhookById(String idWebhook) {
@@ -2870,7 +2873,7 @@ public class TrelloClient {
 		if(organization_fields != null)	queryParams.add("organization_fields", organization_fields);
 		if(lists != null)	queryParams.add("lists", lists);
 		
-		addKeyAndTokenToQueryParams(queryParams, token);
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
 		webResource = webResource.queryParams(queryParams);		
 		System.out.println("Hitting URL :"+webResource.toString());
 		return (String) getResponseAsString(webResource, String.class);
@@ -3239,10 +3242,21 @@ public class TrelloClient {
 		WebResource.Builder builder = addHeader(webResource);
 		builder.type(MediaType.APPLICATION_JSON);
 		ObjectMapper mapper = new ObjectMapper();
+		
 		String input = convertObjectToString(request, mapper);
 		ClientResponse clientResponse = builder.post(ClientResponse.class,input);
 		return buildResponseObject(returnClass, clientResponse);
 	}
+	private String buildPostResponseAsString(Object request, WebResource webResource,Class<?> returnClass) {
+		WebResource.Builder builder = addHeader(webResource);
+		builder.type(MediaType.APPLICATION_JSON);
+		ObjectMapper mapper = new ObjectMapper();
+		
+		String input = convertObjectToString(request, mapper);
+		ClientResponse clientResponse = builder.post(ClientResponse.class,input);
+		return clientResponse.toString();
+	}
+	
 	private Object putData(Object request, WebResource webResource,
 			Class<?> returnClass) {
 		WebResource.Builder builder = addHeader(webResource);
@@ -3293,6 +3307,8 @@ public class TrelloClient {
 		} else {
 
 			String strResponse = clientResponse.getEntity(String.class);
+			System.out.println("Status: "+clientResponse.getStatus());
+			System.out.println("response as string... "+strResponse);
 			try {
 				Constructor<?> ctor = returnClass.getConstructor();
 				statusResponse = (StatusResponse) ctor.newInstance();
@@ -3329,12 +3345,15 @@ public class TrelloClient {
 		queryParams.add("key",key);
 		queryParams.add("token", token);
 	}
-	private void addKeyAndTokenToQueryParams(MultivaluedMap<String, String> queryParams, String token){
+	private WebResource addKeyAndTokenToQueryParams(WebResource webResource, String token){
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		String key = getTrelloConnector().getConfig().getApiKey();
 		if(token==null)
 			token = getTrelloConnector().getConfig().getApiToken();
 		
 		queryParams.add("key",key);
 		queryParams.add("token", token);
+		webResource = webResource.queryParams(queryParams);
+		return webResource;
 	}
 }
