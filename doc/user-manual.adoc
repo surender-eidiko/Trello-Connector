@@ -4,7 +4,7 @@
 
 The Trello Connector facilitates connections between Anypoint Studio and Trello Application. Trello Application brings Whether it's managing a team, writing an epic screenplay, or just making a grocery list, Trello is your sidekick for getting things done and staying organized.
 
-*Release Notes:* link:/release-notes/SparkReleaseNotes.adoc[Link to Release Notes]
+*Release Notes:* link:/release-notes.adoc[Link to Release Notes]
 
 ////
 Note: existing MuleSoft documentation should be copied from right-hand column of link:https://github.com/mulesoft/mulesoft-docs/blob/master/links.csv. Links should always follow "link:"
@@ -20,15 +20,15 @@ Note: existing MuleSoft documentation should be copied from right-hand column of
 == Introduction
 
 The Trello Connector facilitates connections between Anypoint Studio and Trello Application. Trello Application brings Whether it's managing a team, writing an epic screenplay, or just making a grocery list, Trello is your sidekick for getting things done and staying organized.
-� Create boards to organize anything you're working on.
-� Use them solo or invite coworkers, friends and family to collaborate.
-� Customize workflows for different projects
-� Add checklists of "To-Dos" on cards
-� Assign tasks to yourself and coworkers
-� Comment on items with your friends
-� Attach files from Google Drive and Dropbox
-� Upload photos and videos
-� Reply to comments and create cards from Android Wear
+• Create boards to organize anything you're working on.
+• Use them solo or invite coworkers, friends and family to collaborate.
+• Customize workflows for different projects
+• Add checklists of "To-Dos" on cards
+• Assign tasks to yourself and coworkers
+• Comment on items with your friends
+• Attach files from Google Drive and Dropbox
+• Upload photos and videos
+• Reply to comments and create cards from Android Wear
 
 Trello Connector Operations +
 
@@ -82,17 +82,17 @@ This operation is used to  shows the details of all the boards of a member passi
 === Prerequisites
 
  This document assumes that you are familiar with Mule,Anypoint connectors and the Anypoint Studio Interface. To increase your familiarity with Studio, consider completing one or more Anypoint Studio Tutorials. Further, this page assumes that you have a basic understanding of Mule flows and Mule Global Elements.
-This document describes implementation examples within the context of Anypoint Studio, Mule ESB’s graphical user interface, and, also includes configuration details for doing the same in the XML Editor.
+This document describes implementation examples within the context of Anypoint Studio, Mule ESBâ€™s graphical user interface, and, also includes configuration details for doing the same in the XML Editor.
 
 === Requirements
 
-•	Windows 7 64-bit +
-•	Mule Soft Software - +
+â€¢	Windows 7 64-bit +
+â€¢	Mule Soft Software - +
           Anypoint Studio - Tooling for Mule ESB. +
           Version: 5.3.2. +
           Build Id: 201510191606. +
 
-•	Install JDK 7 for DevKit 3.6 or 3.7. +
+â€¢	Install JDK 7 for DevKit 3.6 or 3.7. +
 
 
 === Compatibility Matrix
@@ -115,8 +115,8 @@ image::palette.jpg[]
 
 === Configuring
 To use the Trello Connector in your Mule application, you must configure:
-•	A global Trello element to be used by all the Trello connectors in the application (read more about global elements in Mule).
-•	Parameters of each Trello Connector instance in the flow.
+â€¢	A global Trello element to be used by all the Trello connectors in the application (read more about global elements in Mule).
+â€¢	Parameters of each Trello Connector instance in the flow.
 
 Follow these steps to create a global Trello configuration in a Mule application:
     
@@ -149,7 +149,7 @@ image::configuration.jpg[]
 Follow these steps to configure the parameters of a Trello Connector in the flow:   
 
 1.	Drag the Trello Connector onto the canvas, then select it to open the properties editor. +
-2.	Configure the connector’s parameters according to the table below. +
+2.	Configure the connectorâ€™s parameters according to the table below. +
 |===
 |Field	|Description
 |Display Name	|Enter a unique label for the connector in your application.
@@ -179,7 +179,7 @@ Explain how to create this case with  Anypoint Studio  visual editor and XML edi
 ....
 [tab content goes here]
 Create a new project by clicking New > Mule Project >Project Name: trelloroomcreateapplication.
-1. Drag an HTTP connector into trelloboardcreateapplication flow. Open the connector’s properties editor.
+1. Drag an HTTP connector into trelloboardcreateapplication flow. Open the connectorâ€™s properties editor.
 2. Click on the + icon shown in the image below.
 image::httpProperties.jpg[]
 3. The Global Element Properties window of HTTP Listener Configuration opens. Enter 8081 for Port as shown below and click on 'Ok'.
