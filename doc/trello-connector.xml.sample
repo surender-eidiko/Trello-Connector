@@ -1,6 +1,109 @@
-<!-- BEGIN_INCLUDE(trello:greet) -->
-    <trello:greet config-ref="" friend="#[map-payload:friend]" />
-<!-- END_INCLUDE(trello:greet) -->
-<!-- BEGIN_INCLUDE(trello:add-entity) -->
-    <trello:add-entity config-ref="" key="id1"/>
-<!-- END_INCLUDE(trello:add-entity) -->
+<!-- BEGIN_INCLUDE(Trello:create-list) -->
+<Trello:create-list config-ref="Trello__Configuration" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd" doc:name="Trello">
+   <Trello:lists-post-req name="Trello List" idBoard="577f6d24e17d99258c5a41ba"/>
+</Trello:create-list>
+<!-- END_INCLUDE(Trello:create-list) -->
+ 
+
+<!-- BEGIN_INCLUDE(Trello:delete-card-by-id) -->
+<Trello:delete-card-by-id config-ref="Trello__Configuration" doc:name="Trello" cardIdOrShortLink="573aa4743816a0d9b6db2be1" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd"/>
+<!-- END_INCLUDE(Trello:delete-card-by-id) -->
+
+<!-- BEGIN_INCLUDE(Trello:delete-member-under-board-by-id) -->
+<Trello:delete-member-under-board-by-id config-ref="Trello__Configuration" doc:name="Trello" boardId="573aa4743816a0d9b6db2be1" memberId="573aa44d31e7e4845190b84e" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd"/>
+<!-- END_INCLUDE(Trello:delete-member-under-board-by-id) -->
+
+<!-- BEGIN_INCLUDE(Trello:delete-webhook-by-id) -->
+<Trello:delete-webhook-by-id config-ref="Trello__Configuration" doc:name="Trello" idWebhook="57767edd18e38155a20ed18a" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd"/>
+<!-- END_INCLUDE(Trello:delete-webhook-by-id) -->
+
+<!-- BEGIN_INCLUDE(Trello:get-all-boards) -->
+<Trello:get-all-boards config-ref="Trello__Configuration" doc:name="Trello" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd"/>
+<!-- END_INCLUDE(Trello:get-all-boards) -->
+ 
+<!-- BEGIN_INCLUDE(Trello:get-all-lists-under-board) -->
+<Trello:get-all-lists-under-board config-ref="Trello__Configuration" doc:name="Trello" boardId="573aa4743816a0d9b6db2be1"/>
+<!-- END_INCLUDE(Trello:get-all-lists-under-board) -->
+  
+<!-- BEGIN_INCLUDE(Trello:get-boards) -->
+<Trello:get-boards config-ref="Trello__Configuration" doc:name="Trello" memberId="573aa4743816a0d9b6db2be1" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd"/>
+<!-- END_INCLUDE(Trello:get-boards) -->
+ 
+<!-- BEGIN_INCLUDE(Trello:get-boards-by-id) -->
+<Trello:get-board-by-id config-ref="Trello__Configuration" doc:name="Trello" boardId="573aa4743816a0d9b6db2be1" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd"/>
+<!-- END_INCLUDE(Trello:get-boards-by-id) -->
+  
+<!-- BEGIN_INCLUDE(Trello:get-boards-with-checklist-id) -->
+<Trello:get-boards-with-checklist-id config-ref="Trello__Configuration" doc:name="Trello" checklistId="576b8db31019f509a85351dc" fields="all" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd"/>
+<!-- END_INCLUDE(Trello:get-boards-with-checklist-id) -->
+  
+<!-- BEGIN_INCLUDE(Trello:get-card-by-id) -->
+<Trello:get-card-by-id config-ref="Trello__Configuration" doc:name="Trello"  fields="all" cardIdOrShortlink="5763881daa68f7b3b1fb512a" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd"/>
+<!-- END_INCLUDE(Trello:get-card-by-id) -->
+  
+<!-- BEGIN_INCLUDE(Trello:get-checklists-by-id) -->
+<Trello:get-checklists-by-id config-ref="Trello__Configuration" doc:name="Trello"  fields="all" checklistId="576b8db31019f509a85351dc" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd"/>
+<!-- END_INCLUDE(Trello:get-checklists-by-id) -->
+ 
+<!-- BEGIN_INCLUDE(Trello:get-list-by-id) -->
+<Trello:get-list-by-id config-ref="Trello__Configuration" doc:name="Trello"  fields="all" listId="5776016c36abb96c439a98ac" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd"/>
+<!-- END_INCLUDE(Trello:get-list-by-id) -->
+ 
+<!-- BEGIN_INCLUDE(Trello:get-member-by-id-or-username) -->
+<Trello:get-member-by-id-or-username config-ref="Trello__Configuration" doc:name="Trello" idOrUserName="573aa44d31e7e4845190b84e" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd"/>
+<!-- END_INCLUDE(Trello:get-member-by-id-or-username) -->
+ 
+<!-- BEGIN_INCLUDE(Trello:get-webhooks-by-id) -->
+<Trello:get-webhooks-by-id config-ref="Trello__Configuration" doc:name="Trello" idWebhook="57767edd18e38155a20ed18a" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd"/>
+<!-- END_INCLUDE(Trello:get-webhooks-by-id) -->
+ 
+<!-- BEGIN_INCLUDE(Trello:post-board) -->
+<Trello:post-board config-ref="Trello__Configuration" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd" doc:name="Trello">
+<Trello:boards-post-request name="New Board"/>
+</Trello:post-board>
+<!-- END_INCLUDE(Trello:post-board) -->
+   	 
+<!-- BEGIN_INCLUDE(Trello:create-card) -->
+<Trello:create-card config-ref="Trello__Configuration" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd" doc:name="Trello">
+<Trello:cards-post-req name="New Card" due="2016-06-12" idList="575e92ddf212d265218983b6"/>
+</Trello:create-card>
+<!-- END_INCLUDE(Trello:create-card) -->
+
+
+<!-- BEGIN_INCLUDE(Trello:post-webhook) -->
+<Trello:post-webhook config-ref="Trello__Configuration" doc:name="Trello" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd">
+    <Trello:webhooks-post-req description="This webhook for testing purpose" callbackURL="www.eidiko.com" idModel="573aa44d31e7e4845190b84e"/>
+</Trello:post-webhook>
+<!-- END_INCLUDE(Trello:post-webhook) -->
+
+<!-- BEGIN_INCLUDE(Trello:put-board-by-id) -->
+<Trello:put-board-by-id config-ref="Trello__Configuration" boardId="573aa4743816a0d9b6db2be1" doc:name="Trello" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd">
+    <Trello:board-by-id-put-req name="Mule-Testing" desc="Mule"/>
+</Trello:put-board-by-id> 
+<!-- END_INCLUDE(Trello:put-boards-by-id) -->
+
+<!-- BEGIN_INCLUDE(Trello:update-card-by-id) -->
+<Trello:update-cards-by-id config-ref="Trello__Configuration" cardIdOrShortlink="zINUTbiF" doc:name="Trello" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd">
+    <Trello:memberships-id-put-request name="Trello-Mule" desc="Testing Purpose"/>
+</Trello:update-cards-by-id> 
+<!-- END_INCLUDE(Trello:put-cards-by-id) -->
+
+<!-- BEGIN_INCLUDE(Trello:update-list-by-id) -->
+<Trello:update-list-by-id config-ref="Trello__Configuration" listId="575e92ddf212d265218983b6" doc:name="Trello" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd">
+    <Trello:lists-put-req name="Trello-teseting" idBoard="574419eac880f5374ba0886e"/>
+</Trello:update-list-by-id>  
+<!-- END_INCLUDE(Trello:update-list-by-id) --> 
+
+<!-- BEGIN_INCLUDE(Trello:update-webhook) -->
+<Trello:update-webhook config-ref="Trello__Configuration" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd" doc:name="Trello" >
+    <Trello:webhook-put-req description="Update Webhook " callbackURL="www.yahoo.in" idModel="573aa44d31e7e4845190b84f"/>
+</Trello:update-webhook>
+<!-- END_INCLUDE(Trello:update-webhook) -->
+
+<!-- BEGIN_INCLUDE(Trello:update-webhook-by-id) -->
+<Trello:update-webhook-by-id config-ref="Trello__Configuration" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd" doc:name="Trello" idWebhook="577f72391fd5098dec8f8100">
+  <Trello:webhooks-by-id-put-req description="Updated Webhook By Id" callbackURL="www.cisco.com"/>
+</Trello:update-webhook-by-id>
+<!-- END_INCLUDE(Trello:update-webhook-by-id) -->
+  
+

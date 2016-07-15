@@ -1,25 +1,26 @@
 package org.mule.modules.trello.automation.functional;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.trello.TrelloConnector;
 import org.mule.modules.trello.automation.runner.FunctionalTestSuite;
-import org.mule.modules.trello.bean.WebhooksPostResponse;
+import org.mule.modules.trello.bean.ListPostResponse;
+import org.mule.modules.trello.bean.ListsPostRequest;
 
-public class GetWebhooksByIdTestCase extends TrelloAbstractTestcases {
+public class CreateListsTestCase extends TrelloAbstractTestcases {
 
-	public GetWebhooksByIdTestCase() {
+	public CreateListsTestCase() {
 		super(TrelloConnector.class);
 	}
 	@Test
 	@Category({FunctionalTestSuite.class})
-	public void testGetWebhooksById(){
-		String idWebhook = getWebhookId();
-		WebhooksPostResponse response = getConnector().getWebhooksById(idWebhook,null);
+	public void testCreatingList(){
+		ListsPostRequest req = getListsPostRequest();
+		ListPostResponse response = getConnector().createList(req,null);
 		assertNotNull(response);
 		assertEquals("200",response.getStatusCode());
 	}
+
 }

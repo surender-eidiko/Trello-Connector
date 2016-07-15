@@ -44,495 +44,101 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	  }	
 	
 	
-	public String getActionId()
-	{
-		return null;
-	}
-	public String getField()
-	{
-		return null;
-	}
-
-	public ActionsByIdPutRequest getActionByIdPutRequest()
-	{
-		return  null;
-	}
-	public ActionsTextByIdPutRequest getActionTextByIdPutRequest()
-	{
-		return null;
-	}
-	public String getValue()
-	{
-		return null;
-	}
-	public Boolean getVal(){
-		return null;
-	}
-	public String getMembershipId()
-	{
-		return null;
-	}
+	
+	
 	public String getMemberId(){
-		return null;
+		return "573aa44d31e7e4845190b84e";
 	}
-	String getIdAttachment(){
-		return null;
-	}
-	String getIdSticker(){
-		return null;
-	}
-	String getPowerUp(){
-		return null;
-	}
+	
 	String getBoardId(){
-	return "574419eac880f5374ba0886e";
+	return "573aa4743816a0d9b6db2be1";
 	}
-	String getIdChecklist(){
-		return null;
-	}
-	String getIdCheckItem()
-	{
-		return null;
-	}
-	public String getFilter()
-	{
-		return null;
-	}
-	public String getIdCard()
-	{
-		return null;
-	}
-	String getIdChecklistCurrent(){
-		return null;
-	}
-	public String getCards()
-	{
-		return null;
-	}
-	public String getTags()
-	{
-		return null;
-	}
-	public String getIxLastUpdate()
-	{
-		return null;
-	}
-	public String getLabelId()
-	{
-		return null;
-	}
+	
 	public String getIdMember(){
-		return null;
+		return "573aa4743816a0d9b6db2be1";
 	}
-	public String getIdMembership(){
-		return null;
-	}
-	public String getIdAction(){
-		return null;
-	}
-	public String getChecklistId(){
-		return null;
-	}
-	public String getSavedSearchId(){
-		return null;
-	}
-	public String getIdCheckItems(){
-		return null;
-	}
+	
 	public String getListId(){
-		return null;
+		return "5776016c36abb96c439a98ac";
 	}
-	public String getNotificationId(){
-		return null;
-	}
-	public String getQuery(){
-		return null;
-	}
-	public String getSessionId(){
-		return null;
-	}
-	public String getToken(){
-		return null;
-	}
+	
+	
 	public String getWebhookId(){
-		return null;
+		return "57767edd18e38155a20ed18a";
 	}
-	public String getTypeId(){
-		return null;
-	}
-	public String getOrganizationId(){
-		return null;
-	}
+	
 	public String getMemberIdOrName(){
-		return null;
+		return "me";
 	}
-	public String getBardBackgroundId(){
-		return null;
-	}
-	String getBoardStarId(){
-		return null;
-	}
-	String getCustomEmojiId(){
-		return null;
-	}
-	String getidCustomSticker(){
-		return null;
-	}
+	
 	public BoardsByIdPutRequest getBoardsByIdPutRequest(){
-		return null;
-	}
-	public BoardsClosedByIdPutRequest getBoardsClosedByIdPutRequest(){
-		return null;
-	}
-	public BoardsDescriptionByIdPutRequest getBoardsDescriptionByIdPutRequest(){
-		return null;
-	}
-	public BoardsOrganizationByIdPutRequest getBoardsOrganizationByIdPutRequest(){
-		return  null;
-	}
-	public BoardsLabelNameByColorPutRequest getBoardsLabelNameByColorPutRequest(){
-		return null;
-	}
-	public BoardsMembersPutRequest getBoardsMembersPutRequest(){
-		return null;
-	}
-	public BoardsMembersByMemberIdPutRequest getBoardsMembersByMemberIdPutRequest(){
-		return null;
-	}
-	public BoardsMembershipsPutRequest getBoardsMembershipsPutRequest(){
-		return null;
-	}
-	public BoardsEmailPosPrefPutRequest getBoardsEmailPosPrefPutRequest(){
-		return null;
-	}
-	public BoardsEmailListPrefPutRequest getBoardsEmailListPrefPutRequest(){
-		return null;
-	}
-	public BoardsListGuidePutRequest getBoardsListGuidePutRequest(){
-		return null;
-	}
-	public BoardsNamePutRequest getBoardsNamePutRequest(){
-		return null;
-	}
-	public BoardsBackgroundPrefPutRequest getBoardsBackgroundPrefPutRequest(){
-		return null;
-	}
-	public BoardsCalenderFeedEnabledPutRequest getBoardsCalenderFeedEnabledPutRequest(){
-		return null;
-	}
-	public BoardsCardsPutRequest getBoardsCardsPutRequest(){
-		return null;
-	}
-	public BoardsCardCoversPutRequest getBoardsCardCoversPutRequest(){
-		return null;
-	}
-	public BoardsCommentsPutRequest getBoardsCommentsPutRequest(){
-		return null;
-	}
-	public BoardsInvitationPutRequest getBoardsInvitationPutRequest(){
-		return null;
-	}
-	public BoardsPermissionLevelPutRequest getBoardsPermissionLevelPutRequest(){
-		return null;
-	}
-	public BoardsVotingPutRequest getBoardsVotingPutRequest(){
-		return null;
-	}
-	public BoardsSubscriberPutRequest getBoardsSubscriberPutRequest(){
-		return null;
-	}
-	public BoardsPostRequest getBoardsPostRequest(){
-		BoardsPostRequest req = new BoardsPostRequest();
-		req.setName("My First Board_Name");
+		BoardsByIdPutRequest req = new BoardsByIdPutRequest();
+		req.setName("Name Me First");
+		req.setClosed(true);
 		return req;
 	}
-	public BoardsCalendekeyGeneratePostRequest getBoardsCalendekeyGeneratePostRequest(){
-		return null;
-	}
-	public BoardsChecklistPostRequest getBoardsChecklistPostRequest(){
-		return null;
-	}
-	public BoardsByIdLabelPostRequest getBoardsByIdLabelPostRequest(){
-		return null;
-	}
-	public BoardsByIdListPostRequest getBoardsByIdListPostRequest(){
-		return null;
-	}
-	public BoardsPoweUpsPostRequest getBoardsPoweUpsPostRequest(){
-		return null;
+	
+	public BoardsPostRequest getBoardsPostRequest(){
+		BoardsPostRequest req = new BoardsPostRequest();
+		req.setName("Post Me");
+		return req;
 	}
 	public String getCardIdOrShortlink(){
-		return "57441a089ae9c02bd7a14ea1";
+		return "5763881daa68f7b3b1fb512a";
 	}
 	public CardsByIdPutRequest getCardsByIdPutRequest(){
-		return null;
+		CardsByIdPutRequest req = new CardsByIdPutRequest();
+		req.setName("Card card card");
+		req.setDesc("card updated");
+		req.setClosed(false);
+		req.setPos("top");
+		return req;
 	}
-	public CardsCommentsByIdPutRequest getCardsCommentsByIdPutRequest(){
-		return null;
-	}
-	public CardsCheckListNamePutRequest getCardsCheckListNamePutRequest(){
-		return null;
-	}
-	public CardsCheckListPositionPutRequest getCardsCheckListPositionPutRequest(){
-		return null;
-	}
-	public CardsCheckListStatePutRequest getCardsCheckListStatePutRequest(){
-		return null;
-	}
-	public CardsCurrentCheckListPutRequest getCardsCurrentCheckListPutRequest(){
-		return null;
-	}
-	public CardsClosedPutRequest getCardsClosedPutRequest(){
-		return null;
-	}
-	public CardsDescriptionPutRequest getCardsDescriptionPutRequest(){
-		return null;
-	}
-	public CardsDuePutRequest getCardsDuePutRequest(){
-		return null;
-	}
-	public CardsIdAttachmentPutRequest getCardsCardsIdAttachmentPutRequest(){
-		return null;
-	}
-	public CardsBoardIdPutRequest getCardsBoardIdPutRequest(){
-		return null;
-	}
-	public String getIdLabel(){
-		return null;
-	}
-	public CardsListPutRequest getCardsListPutRequest(){
-		return null;
-	}
-	public CardsMemberPutRequest getCardsMemberPutRequest(){
-		return null;
-	}
-	public CardsNamePutRequest getCardsNamePutRequest(){
-		return null;
-	}
-	public CardsNamePostRequest  getCardsNamePostRequest(){
-		return null;
-	}
-	public CardsStickerPutRequest getCardsStickerPutRequest(){
-		return null;
-	}
-	public CardsSubscribedPutRequest getCardsSubscribedPutRequest(){
-		return null;
-	}
+	
+	
 	public CardsPostRequest getCardsPostRequest(){
-		return null;
+		CardsPostRequest req= new CardsPostRequest();
+		req.setName("Test67");
+		req.setDue("2016-06-23");
+		req.setIdList(getIdList());
+		return req;
 	}
-	public CardsAcionCommentsByIdPostRequest getCardsAcionCommentsByIdPostRequest(){
-		return null;
+	public String getIdList(){
+		return "575e92ddf212d265218983b6";
 	}
-	public CardsAttachmentsByIdPostRequest getCardsAttachmentsByIdPostRequest(){
-		return null;
-	}
-	public CardsCheckListsByIdPostRequest getCardsCheckListsByIdPostRequest(){
-		return null;
-	}
-	public CheckListsToCardByIdPostRequest getCheckListsToCardByIdPostRequest(){
-		return null;
-	}
-	public CheckListsUpdatePostRequest getCheckListsUpdatePostRequest(){
-		return null;
-	}
-	public CardsIdLabelByIdPostRequest getCardsIdLabelByIdPostRequest(){
-		return null;
-	}
-	public CardsIdMembersPostRequest getCardsIdMembersPostRequest(){
-		return null;
-	}
-	public CardsLabelsPostRequest getCardsLabelsPostRequest(){
-		return null;
-	}
-	public CardsMembersVotedPostRequest getCardsMembersVotedPostRequest(){
-		return null;
-	}
-	public CardsStickersPostRequest getCardsStickersPostRequest(){
-		return null;
-	}
-	public ChecklistsByIdPutRequest getChecklistsByIdPutRequest(){
-		return null;
-	}
-	public ChecklistsNameByIdPutRequest getChecklistsNameByIdPutRequest(){
-		return null;
-	}
-	public ChecklistsPosByIdPutRequest getChecklistsPosByIdPutRequest(){
-		return null;
-	}
-	public ChecklistsPostRequest getChecklistsPostRequest(){
-		return null;
-	}
-	public CheckItemsPostRequest getCheckItemsPostRequest(){
-		return null;
-	}
-	public LabelByIdPutRequest getLabelByIdPutRequest(){
-		return null;
-	}
-	public LabelColorByIdPutRequest getLabelColorByIdPutRequest(){
-		return null;
-	}
-	public LabelNameByIdPutRequest getLabelNameByIdPutRequest(){
-		return null;
-	}
-	public LabelsPostRequest getLabelsPostRequest(){
-		return null;
-	}
+	
 	public ListsByIdPutRequest getListsByIdPutRequest(){
-		return null;
+		ListsByIdPutRequest req = new ListsByIdPutRequest();
+		req.setName("updated list");
+		return req;
 	}
-	public ListsClosedByIdPutRequest getListsClosedByIdPutRequest(){
-		return null;
-	}
-	public ListsBoardsByIdPutRequest getListsBoardsByIdPutRequest(){
-		return null;
-	}
+	
 	public ListsPostRequest getListsPostRequest(){
-		return null;
+		ListsPostRequest req = new ListsPostRequest();
+		req.setIdBoard(getBoardId());
+		req.setName("list455");
+		return req;
 	}
-	public  ListsCardsPostRequest getListsCardsPostRequest(){
-		return null;
-	}
-	public ListsMovedCardsPostRequest getListsMovedCardsPostRequest(){
-		return null;
-	}
-	public NotificationsByIdPutRequest getNotificationsByIdPutRequest(){
-		return null;
-	}
-	public NotificationsUnreadByIdPutRequest getNotificationsUnreadByIdPutRequest(){
-		return null;
-	}
-	public NotificationsPostRequest getNotificationsPostRequest(){
-		return null;
-	}
-	public SessionByIdPutRequest getSessionByIdPutRequest(){
-		return null;
-	}
-	public SessionStatusByIdPutRequest getSessionStatusByIdPutRequest(){
-		return null;
-	}
-	public SessionsPostRequest getSessionsPostRequest(){
-		return null;
-	}
-	public TokensPutRequest getTokensPutRequest(){
-		return null;
-	}
-	public WebhooksByIdPutRequest getWebhooksByIdPutRequest(){
-		return null;
+	
+	
+	
+	public WebhooksByIdPutRequest getWebhookByIdPutRequest(){
+		WebhooksByIdPutRequest req = new WebhooksByIdPutRequest();
+		req.setActive(false);
+		req.setCallbackURL("http://www.eidiko.com");
+		req.setIdModel(getIdMember());
+		req.setDescription("This is hook  for eidiko");
+		return req;
 	}
 	public WebhooksPutRequest getWebhooksPutRequest(){
-		return null;
-
+		WebhooksPutRequest req = new WebhooksPutRequest();
+		req.setIdModel(getIdMember());
+		req.setCallbackURL("http://trello.com");
+		return req;
 	}
-	public WebhooksActivePutRequest getWebhooksActivePutRequest(){
-		return null;
+	
+	public String getChecklistId(){
+		return "576b8db31019f509a85351dc";
 	}
-	public WebhooksCallBackURLPutRequest getWebhooksCallBackURLPutRequest(){
-		return null;
-	}
-	public WebhooksDescPutRequest getWebhooksDescPutRequest(){
-		return null;
-	}
-	public OrganizationPutRequest getOrganizationPutRequest(){
-		return null;
-	}
-	public OrganizationDescPutRequest getOrganizationDescPutRequest(){
-		return null;
-	}
-	public OrganizationDisplayNamePutRequest getOrganizationDisplayNamePutRequest(){
-		return null;
-	}
-	public  OrganizationMembersPutRequest getOrganizationMembersPutRequest(){
-		return null;
-	}
-	public OrganizationMemberIdPutRequest getOrganizationMemberIdPutRequest(){
-		return null;
-	}
-	public OrganizationMemberDeactivatedPutRequest getOrganizationMemberDeactivatedPutRequest(){
-		return null;
-	}
-	public OrganizationMembershipPutRequest getOrganizationMembershipPutRequest(){
-		return null;
-	}
-	public OrganizationAssociatedDomainPutRequest getOrganizationAssociatedDomainPutRequest(){
-		return null;
-	}
-	public OrganizationBoardVisibilityRestrictPutRequest getOrganizationBoardVisibilityRestrictPutRequest(){
-		return null;
-	}
-	public OrganizationExternalMembersDisabledPutRequest getOrganizationExternalMembersDisabledPutRequest(){
-		return null;
-	}
-	public OrganizationGoogleAppVersionPutRequest getOrganizationGoogleAppVersionPutRequest(){
-		return null;
-	}
-	public OrganizationInviteRestrictPutRequest getOrganizationInviteRestrictPutRequest(){
-		return null;
-	}
-	public OrganizationPermissionLevelPutRequest getOrganizationPermissionLevelPutRequest(){
-		return null;
-	}
-	public OrganizationPostRequest getOrganizationPostRequest(){
-		return null;
-	}
-	public OrganizationLogoPostRequest getOrganizationLogoPostRequest(){
-		return null;
-	}
-	public UpdateMemberPutRequest getUpdateMemberPutRequest(){
-		return null;
-	}
-	public UpdateAvatarSourcePutRequest getUpdateAvatarSourcePutRequest(){
-		return null;
-	}
-	public UpdateBoardBackgroundByIdPutRequest getUpdateBoardBackgroundByIdPutRequest(){
-		return null;
-	}
-	public UpdateBoardStarsByIdPutRequest getUpdateBoardStarsByIdPutRequest(){
-		return null;
-	}
-	public UpdateBoardStarByBoardIdPutRequest getUpdateBoardStarByBoardIdPutRequest(){
-		return null;
-	}
-	public UpdateBoardStarByBoardPosPutRequest getUpdateBoardStarByBoardPosPutRequest(){
-		return null;
-	}
-	public UpdateCustomBoardBackgroundById getUpdateCustomBoardBackgroundById(){
-		return null;
-	}
-	public UpdateMemberSavedSearchesByIdPutRequest getUpdateMemberSavedSearchesByIdPutRequest(){
-		return null;
-	}
-	public UpdateSavedSearchNamePutRequest getUpdateSavedSearchNamePutRequest(){
-		return null;
-	}
-	public UpdateSavedSearchPosPutRequest getUpdateSavedSearchPosPutRequest(){
-		return null;
-	}
-	public UpdateSavedSearchQueryPutRequest getUpdateSavedSearchQueryPutRequest(){
-		return null;
-	}
-	public CreateMemberAvatarPostRequest getCreateMemberAvatarPostRequest(){
-		return null;
-	}
-	public CreateMemberBoardBackgroundsPostRequest getCreateMemberBoardBackgroundsPostRequest(){
-		return null;
-	}
-	public CreateMemberBoardStarsPostRequest getCreateMemberBoardStarsPostRequest(){
-		return null;
-	}
-	public CreateCustomBoardBackgroundsPostRequest getCreateCustomBoardBackgroundsPostRequest(){
-		return null;
-	}
-	public CreateCustomEmojiPostRequest getCreateCustomEmojiPostRequest(){
-		return null;
-	}
-	public CreateCustomStickerPostRequest getCreateCustomStickerPostRequest(){
-		return null;
-	}
-	public CreateOneTimeMessagesDismissedPostRequest getCreateOneTimeMessagesDismissedPostRequest(){
-		return null;
-	}
-	public CreateSavedSearchesPostRequest getCreateSavedSearchesPostRequest(){
-		return null;
-	}
+	
 }

@@ -54,5 +54,19 @@
 			<url>http://repository.mulesoft.org/releases/</url>
 			<layout>default</layout>
 		</repository>
-	</repositories>
+		</repositories>
+		<distributionManagement>
+		<repository>
+			<id>mule-ee-releases</id>
+			<name>MuleEE Releases Repository</name>
+			<url>https://repository-master.mulesoft.org/nexus/content/repositories/releases-ee/</url>
+		</repository>
+		<snapshotRepository>
+			<id>mule-ee-snapshots</id>
+			<name>MuleEE Snapshots Repository</name>
+			<url>https://repository-master.mulesoft.org/nexus/content/repositories/ci-snapshots/</url>
+			<uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
+	</distributionManagement>
+		
 </project>

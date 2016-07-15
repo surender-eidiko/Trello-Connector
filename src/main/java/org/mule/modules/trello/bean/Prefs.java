@@ -3,64 +3,88 @@
  */
 package org.mule.modules.trello.bean;
 
+import java.util.List;
+
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class Prefs.
  */
 public class Prefs {
 	 
- 	/** The invitations. */
- 	private String invitations;
+	/** The invitations. */
+	private String invitations;
 
-	    /** The background color. */
-    	private String backgroundColor;
+    /** The card aging. */
+    private String cardAging;
 
-	    /** The can invite. */
-    	private String canInvite;
+    /** The background color. */
+    private String backgroundColor;
 
-	    /** The calendar feed enabled. */
-    	private String calendarFeedEnabled;
+    /** The can invite. */
+    private Boolean canInvite;
 
-	    /** The background image. */
-    	private String backgroundImage;
+    /** The calendar feed enabled. */
+    private Boolean calendarFeedEnabled;
 
-	    /** The card covers. */
-    	private String cardCovers;
+    /** The background image. */
+    private String backgroundImage;
 
-	    /** The can be public. */
-    	private String canBePublic;
+    /** The card covers. */
+    private Boolean cardCovers;
 
-	    /** The can be org. */
-    	private String canBeOrg;
+    /** The can be public. */
+    private Boolean canBePublic;
 
-	    /** The permission level. */
-    	private String permissionLevel;
+    /** The can be org. */
+    private Boolean canBeOrg;
 
-	    /** The self join. */
-    	private String selfJoin;
+    /** The permission level. */
+    private String permissionLevel;
 
-	    /** The background brightness. */
-    	private String backgroundBrightness;
+    /** The self join. */
+    private Boolean selfJoin;
 
-	    /** The background. */
-    	private String background;
+    /** The background brightness. */
+    private String backgroundBrightness;
 
-	    /** The background image scaled. */
-    	private String backgroundImageScaled;
+    /** The background. */
+    private String background;
 
-	    /** The voting. */
-    	private String voting;
+    /** The background image scaled. */
+    private List<BackgroundImageScaled> backgroundImageScaled;
 
-	    /** The can be private. */
-    	private String canBePrivate;
+    /** The voting. */
+    private String voting;
 
-	    /** The comments. */
-    	private String comments;
+    /** The can be private. */
+    private Boolean canBePrivate;
 
-	    /** The background tile. */
-    	private String backgroundTile;
+    /** The comments. */
+    private String comments;
+
+    /** The background tile. */
+    private Boolean backgroundTile;
 
 	    /**
+    	 * Gets the card aging.
+    	 *
+    	 * @return the card aging
+    	 */
+    	public String getCardAging() {
+			return cardAging;
+		}
+
+		/**
+		 * Sets the card aging.
+		 *
+		 * @param cardAging the new card aging
+		 */
+		public void setCardAging(String cardAging) {
+			this.cardAging = cardAging;
+		}
+
+		/**
     	 * Gets the invitations.
     	 *
     	 * @return the invitations
@@ -105,7 +129,7 @@ public class Prefs {
     	 *
     	 * @return the can invite
     	 */
-    	public String getCanInvite ()
+    	public Boolean getCanInvite ()
 	    {
 	        return canInvite;
 	    }
@@ -115,7 +139,7 @@ public class Prefs {
     	 *
     	 * @param canInvite the new can invite
     	 */
-    	public void setCanInvite (String canInvite)
+    	public void setCanInvite (Boolean canInvite)
 	    {
 	        this.canInvite = canInvite;
 	    }
@@ -125,7 +149,7 @@ public class Prefs {
     	 *
     	 * @return the calendar feed enabled
     	 */
-    	public String getCalendarFeedEnabled ()
+    	public Boolean getCalendarFeedEnabled ()
 	    {
 	        return calendarFeedEnabled;
 	    }
@@ -135,7 +159,7 @@ public class Prefs {
     	 *
     	 * @param calendarFeedEnabled the new calendar feed enabled
     	 */
-    	public void setCalendarFeedEnabled (String calendarFeedEnabled)
+    	public void setCalendarFeedEnabled (Boolean calendarFeedEnabled)
 	    {
 	        this.calendarFeedEnabled = calendarFeedEnabled;
 	    }
@@ -165,7 +189,7 @@ public class Prefs {
     	 *
     	 * @return the card covers
     	 */
-    	public String getCardCovers ()
+    	public Boolean getCardCovers ()
 	    {
 	        return cardCovers;
 	    }
@@ -175,7 +199,7 @@ public class Prefs {
     	 *
     	 * @param cardCovers the new card covers
     	 */
-    	public void setCardCovers (String cardCovers)
+    	public void setCardCovers (Boolean cardCovers)
 	    {
 	        this.cardCovers = cardCovers;
 	    }
@@ -185,7 +209,7 @@ public class Prefs {
     	 *
     	 * @return the can be public
     	 */
-    	public String getCanBePublic ()
+    	public Boolean getCanBePublic ()
 	    {
 	        return canBePublic;
 	    }
@@ -195,7 +219,7 @@ public class Prefs {
     	 *
     	 * @param canBePublic the new can be public
     	 */
-    	public void setCanBePublic (String canBePublic)
+    	public void setCanBePublic (Boolean canBePublic)
 	    {
 	        this.canBePublic = canBePublic;
 	    }
@@ -205,7 +229,7 @@ public class Prefs {
     	 *
     	 * @return the can be org
     	 */
-    	public String getCanBeOrg ()
+    	public Boolean getCanBeOrg ()
 	    {
 	        return canBeOrg;
 	    }
@@ -215,7 +239,7 @@ public class Prefs {
     	 *
     	 * @param canBeOrg the new can be org
     	 */
-    	public void setCanBeOrg (String canBeOrg)
+    	public void setCanBeOrg (Boolean canBeOrg)
 	    {
 	        this.canBeOrg = canBeOrg;
 	    }
@@ -245,7 +269,7 @@ public class Prefs {
     	 *
     	 * @return the self join
     	 */
-    	public String getSelfJoin ()
+    	public Boolean getSelfJoin ()
 	    {
 	        return selfJoin;
 	    }
@@ -255,7 +279,7 @@ public class Prefs {
     	 *
     	 * @param selfJoin the new self join
     	 */
-    	public void setSelfJoin (String selfJoin)
+    	public void setSelfJoin (Boolean selfJoin)
 	    {
 	        this.selfJoin = selfJoin;
 	    }
@@ -305,7 +329,7 @@ public class Prefs {
     	 *
     	 * @return the background image scaled
     	 */
-    	public String getBackgroundImageScaled ()
+    	public List<BackgroundImageScaled> getBackgroundImageScaled ()
 	    {
 	        return backgroundImageScaled;
 	    }
@@ -315,7 +339,7 @@ public class Prefs {
     	 *
     	 * @param backgroundImageScaled the new background image scaled
     	 */
-    	public void setBackgroundImageScaled (String backgroundImageScaled)
+    	public void setBackgroundImageScaled (List<BackgroundImageScaled> backgroundImageScaled)
 	    {
 	        this.backgroundImageScaled = backgroundImageScaled;
 	    }
@@ -345,7 +369,7 @@ public class Prefs {
     	 *
     	 * @return the can be private
     	 */
-    	public String getCanBePrivate ()
+    	public Boolean getCanBePrivate ()
 	    {
 	        return canBePrivate;
 	    }
@@ -355,7 +379,7 @@ public class Prefs {
     	 *
     	 * @param canBePrivate the new can be private
     	 */
-    	public void setCanBePrivate (String canBePrivate)
+    	public void setCanBePrivate (Boolean canBePrivate)
 	    {
 	        this.canBePrivate = canBePrivate;
 	    }
@@ -385,7 +409,7 @@ public class Prefs {
     	 *
     	 * @return the background tile
     	 */
-    	public String getBackgroundTile ()
+    	public Boolean getBackgroundTile ()
 	    {
 	        return backgroundTile;
 	    }
@@ -395,7 +419,7 @@ public class Prefs {
     	 *
     	 * @param backgroundTile the new background tile
     	 */
-    	public void setBackgroundTile (String backgroundTile)
+    	public void setBackgroundTile (Boolean backgroundTile)
 	    {
 	        this.backgroundTile = backgroundTile;
 	    }

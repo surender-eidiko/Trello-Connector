@@ -7,6 +7,7 @@ import org.mule.api.annotations.components.Configuration;
 import org.mule.api.annotations.Configurable;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
+import org.mule.api.annotations.rest.RestHeaderParam;
 
 @Configuration(friendlyName = "Configuration")
 public class ConnectorConfig {
@@ -19,17 +20,17 @@ public class ConnectorConfig {
 	/*@Configurable
 	@Optional
 	@RestHeaderParam("Authorization")
-	private String authorization = "Bearer NmM0Y2FjMTUtYTJmYy00MThjLWFhYzYtYzA0YmYxOTQwNjk5YjA2MDllMjItMTg1";
+	private String authorization = "Token token=718d02b66df73ad7a6537296ea9ba96adc18873a3a00ada8796dc1685cf29e1a";
 */
 	@Configurable
 	@Optional
-	@Default("ab7870583126b41b7c4b83710f5d5878")
-	private String apiKey = "ab7870583126b41b7c4b83710f5d5878";
+	@Default("d241182640252f708e19d236f3f72b26")
+	private String apiKey = "d241182640252f708e19d236f3f72b26";
 	
 	@Configurable
 	@Optional
-	@Default("fe55b93d55318ea435c5ca6f597da1e52285d56ef7a837119adc41057dda3254")
-	private String apiToken = "fe55b93d55318ea435c5ca6f597da1e52285d56ef7a837119adc41057dda3254";
+	@Default("a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd")
+	private String apiToken = "a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd";
 	
 	
 	public String getUrl() {

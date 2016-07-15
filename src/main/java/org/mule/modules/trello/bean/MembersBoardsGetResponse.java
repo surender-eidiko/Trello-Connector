@@ -3,41 +3,65 @@
  */
 package org.mule.modules.trello.bean;
 
+import java.util.List;
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class MembersBoardsGetResponse.
  */
 public class MembersBoardsGetResponse extends StatusResponse {
 	
-	/** The date last activity. */
-	private String dateLastActivity;
+	/** The invitations. */
+	private String invitations;
+	
+	
+    /**
+     * Gets the invitations.
+     *
+     * @return the invitations
+     */
+    public String getInvitations() {
+		return invitations;
+	}
 
-    /** The invitations. */
-    private String[] invitations;
+	/**
+	 * Sets the invitations.
+	 *
+	 * @param invitations the new invitations
+	 */
+	public void setInvitations(String invitations) {
+		this.invitations = invitations;
+	}
+
+	/** The date last activity. */
+    private String dateLastActivity;
+
+    /** The id tags. */
+    private String[] idTags;
 
     /** The desc. */
     private String desc;
+    
+    /** The desc data. */
+    private DescData descData;
 
     /** The short link. */
     private String shortLink;
-
-    /** The desc data. */
-    private String descData;
 
     /** The date last view. */
     private String dateLastView;
 
     /** The subscribed. */
-    private String subscribed;
+    private Boolean subscribed;
 
     /** The url. */
     private String url;
+    
+    /** The label names. */
+    private LabelNames labelNames;
 
     /** The id. */
     private String id;
-
-    /** The label names. */
-    private LabelNames labelNames;
 
     /** The prefs. */
     private Prefs prefs;
@@ -51,14 +75,14 @@ public class MembersBoardsGetResponse extends StatusResponse {
     /** The pinned. */
     private String pinned;
 
-    /** The power ups. */
-    private String[] powerUps;
-
     /** The name. */
     private String name;
-
+    
+    /** The power ups. */
+    private String[] powerUps;
+    
     /** The memberships. */
-    private Memberships[] memberships;
+    private List<Memberships> memberships;
 
     /** The short url. */
     private String shortUrl;
@@ -68,7 +92,6 @@ public class MembersBoardsGetResponse extends StatusResponse {
 
     /** The invited. */
     private String invited;
-
     /**
      * Gets the date last activity.
      *
@@ -90,23 +113,23 @@ public class MembersBoardsGetResponse extends StatusResponse {
     }
 
     /**
-     * Gets the invitations.
+     * Gets the id tags.
      *
-     * @return the invitations
+     * @return the id tags
      */
-    public String[] getInvitations ()
+    public String[] getIdTags ()
     {
-        return invitations;
+        return idTags;
     }
 
     /**
-     * Sets the invitations.
+     * Sets the id tags.
      *
-     * @param invitations the new invitations
+     * @param idTags the new id tags
      */
-    public void setInvitations (String[] invitations)
+    public void setIdTags (String[] idTags)
     {
-        this.invitations = invitations;
+        this.idTags = idTags;
     }
 
     /**
@@ -130,6 +153,26 @@ public class MembersBoardsGetResponse extends StatusResponse {
     }
 
     /**
+     * Gets the desc data.
+     *
+     * @return the desc data
+     */
+    public DescData getDescData ()
+    {
+        return descData;
+    }
+
+    /**
+     * Sets the desc data.
+     *
+     * @param descData the new desc data
+     */
+    public void setDescData (DescData descData)
+    {
+        this.descData = descData;
+    }
+
+    /**
      * Gets the short link.
      *
      * @return the short link
@@ -147,26 +190,6 @@ public class MembersBoardsGetResponse extends StatusResponse {
     public void setShortLink (String shortLink)
     {
         this.shortLink = shortLink;
-    }
-
-    /**
-     * Gets the desc data.
-     *
-     * @return the desc data
-     */
-    public String getDescData ()
-    {
-        return descData;
-    }
-
-    /**
-     * Sets the desc data.
-     *
-     * @param descData the new desc data
-     */
-    public void setDescData (String descData)
-    {
-        this.descData = descData;
     }
 
     /**
@@ -194,7 +217,7 @@ public class MembersBoardsGetResponse extends StatusResponse {
      *
      * @return the subscribed
      */
-    public String getSubscribed ()
+    public Boolean getSubscribed ()
     {
         return subscribed;
     }
@@ -204,7 +227,7 @@ public class MembersBoardsGetResponse extends StatusResponse {
      *
      * @param subscribed the new subscribed
      */
-    public void setSubscribed (String subscribed)
+    public void setSubscribed (Boolean subscribed)
     {
         this.subscribed = subscribed;
     }
@@ -228,6 +251,26 @@ public class MembersBoardsGetResponse extends StatusResponse {
     {
         this.url = url;
     }
+   
+    /**
+     * Gets the label names.
+     *
+     * @return the label names
+     */
+    public LabelNames getLabelNames ()
+    {
+        return labelNames;
+    }
+
+    /**
+     * Sets the label names.
+     *
+     * @param labelNames the new label names
+     */
+    public void setLabelNames (LabelNames labelNames)
+    {
+        this.labelNames = labelNames;
+    }
 
     /**
      * Gets the id.
@@ -247,26 +290,6 @@ public class MembersBoardsGetResponse extends StatusResponse {
     public void setId (String id)
     {
         this.id = id;
-    }
-
-    /**
-     * Gets the label names.
-     *
-     * @return the label names
-     */
-    public LabelNames getLabelNames ()
-    {
-        return labelNames;
-    }
-
-    /**
-     * Sets the label names.
-     *
-     * @param labelNames the new label names
-     */
-    public void setLabelNames (LabelNames labelNames)
-    {
-        this.labelNames = labelNames;
     }
 
     /**
@@ -350,26 +373,6 @@ public class MembersBoardsGetResponse extends StatusResponse {
     }
 
     /**
-     * Gets the power ups.
-     *
-     * @return the power ups
-     */
-    public String[] getPowerUps ()
-    {
-        return powerUps;
-    }
-
-    /**
-     * Sets the power ups.
-     *
-     * @param powerUps the new power ups
-     */
-    public void setPowerUps (String[] powerUps)
-    {
-        this.powerUps = powerUps;
-    }
-
-    /**
      * Gets the name.
      *
      * @return the name
@@ -390,11 +393,31 @@ public class MembersBoardsGetResponse extends StatusResponse {
     }
 
     /**
+     * Gets the power ups.
+     *
+     * @return the power ups
+     */
+    public String[] getPowerUps ()
+    {
+        return powerUps;
+    }
+
+    /**
+     * Sets the power ups.
+     *
+     * @param powerUps the new power ups
+     */
+    public void setPowerUps (String[] powerUps)
+    {
+        this.powerUps = powerUps;
+    }
+
+    /**
      * Gets the memberships.
      *
      * @return the memberships
      */
-    public Memberships[] getMemberships ()
+    public List<Memberships> getMemberships ()
     {
         return memberships;
     }
@@ -404,7 +427,7 @@ public class MembersBoardsGetResponse extends StatusResponse {
      *
      * @param memberships the new memberships
      */
-    public void setMemberships (Memberships[] memberships)
+    public void setMemberships (List<Memberships> memberships)
     {
         this.memberships = memberships;
     }
@@ -475,7 +498,8 @@ public class MembersBoardsGetResponse extends StatusResponse {
     @Override
     public String toString()
     {
-        return "ClassPojo [dateLastActivity = "+dateLastActivity+", invitations = "+invitations+", desc = "+desc+", shortLink = "+shortLink+", descData = "+descData+", dateLastView = "+dateLastView+", subscribed = "+subscribed+", url = "+url+", id = "+id+", labelNames = "+labelNames+", prefs = "+prefs+", idOrganization = "+idOrganization+", starred = "+starred+", pinned = "+pinned+", powerUps = "+powerUps+", name = "+name+", memberships = "+memberships+", shortUrl = "+shortUrl+", closed = "+closed+", invited = "+invited+"]";
+        return "ClassPojo [ dateLastActivity = "+dateLastActivity+", idTags = "+idTags+", desc = "+desc+", descData = "+descData+", shortLink = "+shortLink+", dateLastView = "+dateLastView+", subscribed = "+subscribed+", url = "+url+", labelNames = "+labelNames+", id = "+id+", prefs = "+prefs+", idOrganization = "+idOrganization+", starred = "+starred+", pinned = "+pinned+", name = "+name+", powerUps = "+powerUps+", memberships = "+memberships+", shortUrl = "+shortUrl+", closed = "+closed+", invited = "+invited+"]";
     }
+		
 
 }

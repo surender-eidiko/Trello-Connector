@@ -12,8 +12,8 @@
             <attributes>
                 <attribute name="name" use="required" caption="Name" group="Basic Settings" type="name" javaType="java.lang.String" category="General"></attribute>
                 <attribute name="url" use="optional" caption="Url" group="General" type="string" javaType="java.lang.String" default="https://api.trello.com/1" category="General"></attribute>
-                <attribute name="apiKey" use="optional" caption="Api Key" group="General" type="string" javaType="java.lang.String" default="ab7870583126b41b7c4b83710f5d5878" category="General"></attribute>
-                <attribute name="apiToken" use="optional" caption="Api Token" group="General" type="string" javaType="java.lang.String" default="fe55b93d55318ea435c5ca6f597da1e52285d56ef7a837119adc41057dda3254" category="General"></attribute>
+                <attribute name="apiKey" use="optional" caption="Api Key" group="General" type="string" javaType="java.lang.String" default="d241182640252f708e19d236f3f72b26" category="General"></attribute>
+                <attribute name="apiToken" use="optional" caption="Api Token" group="General" type="string" javaType="java.lang.String" default="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd" category="General"></attribute>
             </attributes>
         </config>
     </global-config>
@@ -6713,6 +6713,93 @@
                 <attribute name="key" use="optional" caption="Key" group="General" type="type-chooser" javaType="java.lang.String" category="General"></attribute>
                 <attribute name="key" use="required" caption="Key" group="General" type="type-chooser" javaType="java.lang.String" category="General"></attribute>
                 <attribute name="entity" use="optional" caption="Entity" group="General" type="element-controller-map" javaType="java.util.Map&lt;java.lang.String,java.lang.Object&gt;" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getAllBoards" xmlName="get-all-boards" caption="Get all boards">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="token" use="optional" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getListsById" xmlName="get-lists-by-id" caption="Get lists by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="listId" use="required" caption="List Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="cards" use="optional" caption="Cards" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="card_fields" use="optional" caption="Card_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="board" use="optional" caption="Board" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="board_fields" use="optional" caption="Board_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="fields" use="optional" caption="Fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="token" use="optional" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="createLists" xmlName="create-lists" caption="Create lists">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="token" use="optional" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="listss-post-req" use="required" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="idBoard" use="optional" caption="Id Board" type="string" javaType="java.lang.String" base="listss-post-req" category="General"></attribute>
+<attribute name="idListSource" use="optional" caption="Id List Source" type="string" javaType="java.lang.String" base="listss-post-req" category="General"></attribute>
+<attribute name="pos" use="optional" caption="Pos" type="string" javaType="java.lang.String" base="listss-post-req" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Listss Post Req Reference" type="string" javaType="java.lang.String" base="listss-post-req" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Listss Post Req Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="getAllListsUnderBoard" xmlName="get-all-lists-under-board" caption="Get all lists under board">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="boardId" use="required" caption="Board Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="cards" use="optional" caption="Cards" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="card_fields" use="optional" caption="Card_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="filter" use="optional" caption="Filter" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="fields" use="optional" caption="Fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="token" use="optional" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getBoardsWithChecklistId" xmlName="get-boards-with-checklist-id" caption="Get boards with checklist id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="checklistId" use="required" caption="Checklist Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="fields" use="optional" caption="Fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
             </attributes>
             <childElements/>
         </processor>

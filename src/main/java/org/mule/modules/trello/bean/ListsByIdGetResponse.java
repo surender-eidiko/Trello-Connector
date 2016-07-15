@@ -17,8 +17,71 @@ public class ListsByIdGetResponse extends StatusResponse {
 
 	    /** The cards. */
     	private Cards[] cards;
+    	
+	    /** The closed. */
+	    private String closed;
 
+        /** The pos. */
+        private String pos;
+
+        /** The id board. */
+        private String idBoard;
+        
 	    /**
+    	 * Gets the closed.
+    	 *
+    	 * @return the closed
+    	 */
+    	public String getClosed() {
+			return closed;
+		}
+
+		/**
+		 * Sets the closed.
+		 *
+		 * @param closed the new closed
+		 */
+		public void setClosed(String closed) {
+			this.closed = closed;
+		}
+
+		/**
+		 * Gets the pos.
+		 *
+		 * @return the pos
+		 */
+		public String getPos() {
+			return pos;
+		}
+
+		/**
+		 * Sets the pos.
+		 *
+		 * @param pos the new pos
+		 */
+		public void setPos(String pos) {
+			this.pos = pos;
+		}
+
+		/**
+		 * Gets the id board.
+		 *
+		 * @return the id board
+		 */
+		public String getIdBoard() {
+			return idBoard;
+		}
+
+		/**
+		 * Sets the id board.
+		 *
+		 * @param idBoard the new id board
+		 */
+		public void setIdBoard(String idBoard) {
+			this.idBoard = idBoard;
+		}
+
+		/**
     	 * Gets the id.
     	 *
     	 * @return the id

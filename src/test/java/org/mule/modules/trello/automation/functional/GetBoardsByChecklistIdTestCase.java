@@ -7,18 +7,18 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.trello.TrelloConnector;
 import org.mule.modules.trello.automation.runner.FunctionalTestSuite;
-import org.mule.modules.trello.bean.WebhooksPostResponse;
+import org.mule.modules.trello.bean.BoardsByChecklistsIdGetResponse;
 
-public class GetWebhooksByIdTestCase extends TrelloAbstractTestcases {
+public class GetBoardsByChecklistIdTestCase extends TrelloAbstractTestcases {
 
-	public GetWebhooksByIdTestCase() {
+	public GetBoardsByChecklistIdTestCase() {
 		super(TrelloConnector.class);
 	}
 	@Test
 	@Category({FunctionalTestSuite.class})
-	public void testGetWebhooksById(){
-		String idWebhook = getWebhookId();
-		WebhooksPostResponse response = getConnector().getWebhooksById(idWebhook,null);
+	public void testGetBoardByChecklistId(){
+		String checklistId=getChecklistId();
+		BoardsByChecklistsIdGetResponse  response = getConnector().getBoardWithChecklistId(checklistId, null,null);
 		assertNotNull(response);
 		assertEquals("200",response.getStatusCode());
 	}

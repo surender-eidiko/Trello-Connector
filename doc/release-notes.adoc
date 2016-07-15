@@ -1,0 +1,89 @@
+
+= Trello Release Notes
+////
+[<System_Name>: Trello]
+////
+:keywords: Trello
+
+
+The Trello Connector facilitates connections between Mule integration and CiscoSpark applications. The Trello Connector  provides to create boards, cards, lists, create Webhooks, etc.
+
+*Guide:* <Connector_Guide_Link>
+////
+Points to the docs.mulesoft pages for documentation on the functional aspects of the connector. e.g.: link:/mule-user-guide/v/3.7/microsoft-sharepoint-2013-connector[Microsoft SharePoint 2013 Connector]
+////
+
+== Version 1.0 - 1 January 2016 
+////
+<Connector_Version> : Describes the connector version, such as “V2013�?, “V4.0�?, “V4.0.1-HF2�? or whatever used for release]
+<Release_date> : The date on which the connector is released (not when the notes are written, mind you)
+////
+=== Contents
+
+- Compatibility
+- Features
+- Fixed in this Release
+- Known Issues
+- Support Resources
+
+=== Compatibility
+
+[width="100%", cols=",", options="header"]
+|===
+|Software |Version
+|Mule Runtime |3.7.0
+|Trello  |1.0
+|===
+
+
+
+
+
+=== Features
+
+. Version 1.0 Supported Operations
+The Trello Connector 1.0 allows you to perform the following operations:
+
+Trello Operations +
+
+1. Create Board +
+2. Get Boards By Id +
+3. Get All Lists Under Board +
+4. Update Board By Id +
+5. Create Board +
+6. Delete Member Under Board By Id +
+7. Get Card By Id +
+8. Update Card By Id +
+9. Create Card +
+10. Delete Card By Id +
+11. Get List By Id +
+12. Update List By Id +
+13. Create List +
+14. Get Checklists By Id  +
+15. Get Board With Checklist Id +
+16. Get Webhooks By Id +
+17. Update Webhook By Id +
+18. Update Webhook +
+19. Post Webhook +
+20. Delete Webhook By Id +
+21. Get Member By Id Or Username +
+22. Get All Boards +
+23. Get Boards +
+
+
+=== Fixed in this Release
+Version 1.0 Fixed in this Release
+There are no bug fixes in this release.
+
+
+=== Known Issues
+
+Version 1.0 Known Issues
+There are no reported issues that are unresolved in this release.
+
+=== Support Resources
+
+- Learn how to link:/mule-user-guide/v/3.7/installing-connectors[Install Anypoint Connectors] using Anypoint Exchange.
+- Access MuleSoft’s MuleForge link:http://forum.mulesoft.org/mulesoft[Forum] to pose questions and get help from Mule’s broad community of users.
+- To access MuleSoft’s expert support team, link:http://www.mulesoft.com/mule-esb-subscription[subscribe] to Mule ESB Enterprise and log in to MuleSoft’s link:http://www.mulesoft.com/support-login[Customer Portal].
+

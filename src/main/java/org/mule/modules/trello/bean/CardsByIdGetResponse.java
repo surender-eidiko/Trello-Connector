@@ -3,11 +3,14 @@
  */
 package org.mule.modules.trello.bean;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class CardsByIdGetResponse.
  */
+@JsonSerialize
 public class CardsByIdGetResponse extends StatusResponse {
 	
 	/** The id. */
@@ -29,7 +32,7 @@ public class CardsByIdGetResponse extends StatusResponse {
 	private String desc;
 	
 	/** The desc data. */
-	private String descData;
+	private DescData descData;
 	
 	/** The due. */
 	private String due;
@@ -75,7 +78,16 @@ public class CardsByIdGetResponse extends StatusResponse {
 	
 	/** The url. */
 	private String url;
+	private String[] stickers;
 	
+	public String[] getStickers() {
+		return stickers;
+	}
+
+	public void setStickers(String[] stickers) {
+		this.stickers = stickers;
+	}
+
 	/**
 	 * Gets the id.
 	 *
@@ -189,7 +201,7 @@ public class CardsByIdGetResponse extends StatusResponse {
 	 *
 	 * @return the desc data
 	 */
-	public String getDescData() {
+	public DescData getDescData() {
 		return descData;
 	}
 	
@@ -198,7 +210,7 @@ public class CardsByIdGetResponse extends StatusResponse {
 	 *
 	 * @param descData the new desc data
 	 */
-	public void setDescData(String descData) {
+	public void setDescData(DescData descData) {
 		this.descData = descData;
 	}
 	

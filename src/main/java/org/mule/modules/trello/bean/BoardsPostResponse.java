@@ -15,126 +15,93 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BoardsPostResponse extends StatusResponse {
 	
-	/** The board id. */
-	private String boardId;
-	
-	/** The name. */
-	private String name;
-	
-	/** The default lists. */
-	private Boolean defaultLists;
-	
-	/** The desc. */
-	private String desc;
-	
-	/** The id organization. */
-	private String idOrganization;
-	
-	/** The id board source. */
-	private String idBoardSource;
-	
-	/** The keep from source. */
-	private String keepFromSource ;
-	
-	/** The power ups. */
-	private String powerUps ;
-	
-	/** The prefs_permission level. */
-	private String prefs_permissionLevel;
-	
-	/** The prefs_voting. */
-	private String prefs_voting;
-	
-	/** The prefs_comments. */
-	private String prefs_comments;
-	
-	/** The prefs_invitations. */
-	private String prefs_invitations;
-	
-	/** The prefs_self join. */
-	private Boolean prefs_selfJoin;
-	
-	/** The prefs_card covers. */
-	private Boolean prefs_cardCovers;
-	
-	/** The prefs_background. */
-	private String prefs_background;
-	
-	/** The prefs_card aging. */
-	private String prefs_cardAging;
-	
+	/** The label names. */
+	private LabelNames labelNames;
+
+    /** The id. */
+    private String id;
+
+    /** The prefs. */
+    private Prefs prefs;
+
+    /** The id organization. */
+    private String idOrganization;
+
+    /** The desc. */
+    private String desc;
+
+    /** The desc data. */
+    private String descData;
+
+    /** The pinned. */
+    private String pinned;
+
+    /** The name. */
+    private String name;
+
+    /** The short url. */
+    private String shortUrl;
+
+    /** The closed. */
+    private String closed;
+
+    /** The url. */
+    private String url;
+
 	/**
-	 * Gets the board id.
+	 * Gets the label names.
 	 *
-	 * @return the board id
+	 * @return the label names
 	 */
-	public String getBoardId() {
-		return boardId;
+	public LabelNames getLabelNames() {
+		return labelNames;
 	}
-	
+
 	/**
-	 * Sets the board id.
+	 * Sets the label names.
 	 *
-	 * @param boardId the new board id
+	 * @param labelNames the new label names
 	 */
-	public void setBoardId(String boardId) {
-		this.boardId = boardId;
+	public void setLabelNames(LabelNames labelNames) {
+		this.labelNames = labelNames;
 	}
-	
+
 	/**
-	 * Gets the name.
+	 * Gets the id.
 	 *
-	 * @return the name
+	 * @return the id
 	 */
-	public String getName() {
-		return name;
+	public String getId() {
+		return id;
 	}
-	
+
 	/**
-	 * Sets the name.
+	 * Sets the id.
 	 *
-	 * @param name the new name
+	 * @param id the new id
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setId(String id) {
+		this.id = id;
 	}
-	
+
 	/**
-	 * Gets the default lists.
+	 * Gets the prefs.
 	 *
-	 * @return the default lists
+	 * @return the prefs
 	 */
-	public Boolean getDefaultLists() {
-		return defaultLists;
+	public Prefs getPrefs() {
+		return prefs;
 	}
-	
+
 	/**
-	 * Sets the default lists.
+	 * Sets the prefs.
 	 *
-	 * @param defaultLists the new default lists
+	 * @param prefs the new prefs
 	 */
-	public void setDefaultLists(Boolean defaultLists) {
-		this.defaultLists = defaultLists;
+	public void setPrefs(Prefs prefs) {
+		this.prefs = prefs;
 	}
-	
-	/**
-	 * Gets the desc.
-	 *
-	 * @return the desc
-	 */
-	public String getDesc() {
-		return desc;
-	}
-	
-	/**
-	 * Sets the desc.
-	 *
-	 * @param desc the new desc
-	 */
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
-	
+
 	/**
 	 * Gets the id organization.
 	 *
@@ -143,7 +110,7 @@ public class BoardsPostResponse extends StatusResponse {
 	public String getIdOrganization() {
 		return idOrganization;
 	}
-	
+
 	/**
 	 * Sets the id organization.
 	 *
@@ -152,204 +119,132 @@ public class BoardsPostResponse extends StatusResponse {
 	public void setIdOrganization(String idOrganization) {
 		this.idOrganization = idOrganization;
 	}
-	
+
 	/**
-	 * Gets the id board source.
+	 * Gets the desc.
 	 *
-	 * @return the id board source
+	 * @return the desc
 	 */
-	public String getIdBoardSource() {
-		return idBoardSource;
+	public String getDesc() {
+		return desc;
 	}
-	
+
 	/**
-	 * Sets the id board source.
+	 * Sets the desc.
 	 *
-	 * @param idBoardSource the new id board source
+	 * @param desc the new desc
 	 */
-	public void setIdBoardSource(String idBoardSource) {
-		this.idBoardSource = idBoardSource;
+	public void setDesc(String desc) {
+		this.desc = desc;
 	}
-	
+
 	/**
-	 * Gets the keep from source.
+	 * Gets the desc data.
 	 *
-	 * @return the keep from source
+	 * @return the desc data
 	 */
-	public String getKeepFromSource() {
-		return keepFromSource;
+	public String getDescData() {
+		return descData;
 	}
-	
+
 	/**
-	 * Sets the keep from source.
+	 * Sets the desc data.
 	 *
-	 * @param keepFromSource the new keep from source
+	 * @param descData the new desc data
 	 */
-	public void setKeepFromSource(String keepFromSource) {
-		this.keepFromSource = keepFromSource;
+	public void setDescData(String descData) {
+		this.descData = descData;
 	}
-	
+
 	/**
-	 * Gets the power ups.
+	 * Gets the pinned.
 	 *
-	 * @return the power ups
+	 * @return the pinned
 	 */
-	public String getPowerUps() {
-		return powerUps;
+	public String getPinned() {
+		return pinned;
 	}
-	
+
 	/**
-	 * Sets the power ups.
+	 * Sets the pinned.
 	 *
-	 * @param powerUps the new power ups
+	 * @param pinned the new pinned
 	 */
-	public void setPowerUps(String powerUps) {
-		this.powerUps = powerUps;
+	public void setPinned(String pinned) {
+		this.pinned = pinned;
 	}
-	
+
 	/**
-	 * Gets the prefs_permission level.
+	 * Gets the name.
 	 *
-	 * @return the prefs_permission level
+	 * @return the name
 	 */
-	public String getPrefs_permissionLevel() {
-		return prefs_permissionLevel;
+	public String getName() {
+		return name;
 	}
-	
+
 	/**
-	 * Sets the prefs_permission level.
+	 * Sets the name.
 	 *
-	 * @param prefs_permissionLevel the new prefs_permission level
+	 * @param name the new name
 	 */
-	public void setPrefs_permissionLevel(String prefs_permissionLevel) {
-		this.prefs_permissionLevel = prefs_permissionLevel;
+	public void setName(String name) {
+		this.name = name;
 	}
-	
+
 	/**
-	 * Gets the prefs_voting.
+	 * Gets the short url.
 	 *
-	 * @return the prefs_voting
+	 * @return the short url
 	 */
-	public String getPrefs_voting() {
-		return prefs_voting;
+	public String getShortUrl() {
+		return shortUrl;
 	}
-	
+
 	/**
-	 * Sets the prefs_voting.
+	 * Sets the short url.
 	 *
-	 * @param prefs_voting the new prefs_voting
+	 * @param shortUrl the new short url
 	 */
-	public void setPrefs_voting(String prefs_voting) {
-		this.prefs_voting = prefs_voting;
+	public void setShortUrl(String shortUrl) {
+		this.shortUrl = shortUrl;
 	}
-	
+
 	/**
-	 * Gets the prefs_comments.
+	 * Gets the closed.
 	 *
-	 * @return the prefs_comments
+	 * @return the closed
 	 */
-	public String getPrefs_comments() {
-		return prefs_comments;
+	public String getClosed() {
+		return closed;
 	}
-	
+
 	/**
-	 * Sets the prefs_comments.
+	 * Sets the closed.
 	 *
-	 * @param prefs_comments the new prefs_comments
+	 * @param closed the new closed
 	 */
-	public void setPrefs_comments(String prefs_comments) {
-		this.prefs_comments = prefs_comments;
+	public void setClosed(String closed) {
+		this.closed = closed;
 	}
-	
+
 	/**
-	 * Gets the prefs_invitations.
+	 * Gets the url.
 	 *
-	 * @return the prefs_invitations
+	 * @return the url
 	 */
-	public String getPrefs_invitations() {
-		return prefs_invitations;
+	public String getUrl() {
+		return url;
 	}
-	
+
 	/**
-	 * Sets the prefs_invitations.
+	 * Sets the url.
 	 *
-	 * @param prefs_invitations the new prefs_invitations
+	 * @param url the new url
 	 */
-	public void setPrefs_invitations(String prefs_invitations) {
-		this.prefs_invitations = prefs_invitations;
+	public void setUrl(String url) {
+		this.url = url;
 	}
-	
-	/**
-	 * Gets the prefs_self join.
-	 *
-	 * @return the prefs_self join
-	 */
-	public Boolean getPrefs_selfJoin() {
-		return prefs_selfJoin;
-	}
-	
-	/**
-	 * Sets the prefs_self join.
-	 *
-	 * @param prefs_selfJoin the new prefs_self join
-	 */
-	public void setPrefs_selfJoin(Boolean prefs_selfJoin) {
-		this.prefs_selfJoin = prefs_selfJoin;
-	}
-	
-	/**
-	 * Gets the prefs_card covers.
-	 *
-	 * @return the prefs_card covers
-	 */
-	public Boolean getPrefs_cardCovers() {
-		return prefs_cardCovers;
-	}
-	
-	/**
-	 * Sets the prefs_card covers.
-	 *
-	 * @param prefs_cardCovers the new prefs_card covers
-	 */
-	public void setPrefs_cardCovers(Boolean prefs_cardCovers) {
-		this.prefs_cardCovers = prefs_cardCovers;
-	}
-	
-	/**
-	 * Gets the prefs_background.
-	 *
-	 * @return the prefs_background
-	 */
-	public String getPrefs_background() {
-		return prefs_background;
-	}
-	
-	/**
-	 * Sets the prefs_background.
-	 *
-	 * @param prefs_background the new prefs_background
-	 */
-	public void setPrefs_background(String prefs_background) {
-		this.prefs_background = prefs_background;
-	}
-	
-	/**
-	 * Gets the prefs_card aging.
-	 *
-	 * @return the prefs_card aging
-	 */
-	public String getPrefs_cardAging() {
-		return prefs_cardAging;
-	}
-	
-	/**
-	 * Sets the prefs_card aging.
-	 *
-	 * @param prefs_cardAging the new prefs_card aging
-	 */
-	public void setPrefs_cardAging(String prefs_cardAging) {
-		this.prefs_cardAging = prefs_cardAging;
-	}
-	
+
 	
 }

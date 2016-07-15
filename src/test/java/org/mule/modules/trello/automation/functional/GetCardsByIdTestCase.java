@@ -21,7 +21,7 @@ public class GetCardsByIdTestCase  extends TrelloAbstractTestcases{
 	@Category({FunctionalTestSuite.class})
 	public void testGetCardsById(){
 		String cardId =getCardIdOrShortlink(); 
-		CardsByIdGetResponse response =getConnector().getCardsById(cardId, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+		CardsByIdGetResponse response =getConnector().getCardById(cardId, null,null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 		assertNotNull(response);
 		System.out.println(response.getStatusCode());
 		assertEquals("200", response.getStatusCode());

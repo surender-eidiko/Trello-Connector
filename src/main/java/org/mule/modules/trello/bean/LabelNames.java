@@ -9,7 +9,7 @@ package org.mule.modules.trello.bean;
  */
 public class LabelNames {
 	 
- 	/** The orange. */
+	 /** The orange. */
  	private String orange;
 
 	    /** The sky. */
@@ -38,6 +38,7 @@ public class LabelNames {
 
 	    /** The black. */
     	private String black;
+
 
 	    /**
     	 * Gets the orange.

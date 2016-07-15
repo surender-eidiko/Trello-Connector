@@ -11,17 +11,59 @@ public class Memberships {
 	
 	/** The id. */
 	private String id;
+	
+	/** The org member type. */
+	private String orgMemberType;
+	
+    /**
+     * Gets the org member type.
+     *
+     * @return the org member type
+     */
+    public String getOrgMemberType() {
+		return orgMemberType;
+	}
 
-    /** The id member. */
+	/**
+	 * Sets the org member type.
+	 *
+	 * @param orgMemberType the new org member type
+	 */
+	public void setOrgMemberType(String orgMemberType) {
+		this.orgMemberType = orgMemberType;
+	}
+
+	/** The id member. */
     private String idMember;
 
     /** The member type. */
     private String memberType;
 
     /** The unconfirmed. */
-    private String unconfirmed;
+    private Boolean unconfirmed;
+    
+    /** The deactivated. */
+    private Boolean deactivated;
 
     /**
+     * Gets the deactivated.
+     *
+     * @return the deactivated
+     */
+    public Boolean getDeactivated() {
+		return deactivated;
+	}
+
+	/**
+	 * Sets the deactivated.
+	 *
+	 * @param deactivated the new deactivated
+	 */
+	public void setDeactivated(Boolean deactivated) {
+		this.deactivated = deactivated;
+	}
+
+	/**
      * Gets the id.
      *
      * @return the id
@@ -86,7 +128,7 @@ public class Memberships {
      *
      * @return the unconfirmed
      */
-    public String getUnconfirmed ()
+    public Boolean getUnconfirmed ()
     {
         return unconfirmed;
     }
@@ -96,7 +138,7 @@ public class Memberships {
      *
      * @param unconfirmed the new unconfirmed
      */
-    public void setUnconfirmed (String unconfirmed)
+    public void setUnconfirmed (Boolean unconfirmed)
     {
         this.unconfirmed = unconfirmed;
     }

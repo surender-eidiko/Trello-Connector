@@ -11,15 +11,15 @@ import org.mule.modules.trello.bean.StatusResponse;
 
 public class DeleteCardsByIdTestCase extends TrelloAbstractTestcases {
 
-	public DeleteCardsByIdTestCase(Class<TrelloConnector> connector) {
-		super(connector);
-		// TODO Auto-generated constructor stub
+	public DeleteCardsByIdTestCase() {
+		super(TrelloConnector.class);
 	}
 	@Test
 	@Category({FunctionalTestSuite.class})
 	public void testDeleteCardsById(){
 		String cardIdOrShortlink=getCardIdOrShortlink();
-		StatusResponse response = getConnector().deleteCardsById(cardIdOrShortlink);
+		StatusResponse response = getConnector().deleteCardById(cardIdOrShortlink,null);
+		System.out.println("Code :"+response.getStatusCode()+"message :"+response.getStatusMessage());
 		assertNotNull(response);
 		assertEquals("200",response.getStatusCode());
 	}

@@ -1,0 +1,274 @@
+
+= Trello Connector
+:keywords: Trello
+
+The Trello Connector facilitates connections between Anypoint Studio and Trello Application. Trello Application brings Whether it's managing a team, writing an epic screenplay, or just making a grocery list, Trello is your sidekick for getting things done and staying organized.
+
+*Release Notes:* link:/release-notes/SparkReleaseNotes.adoc[Link to Release Notes]
+
+////
+Note: existing MuleSoft documentation should be copied from right-hand column of link:https://github.com/mulesoft/mulesoft-docs/blob/master/links.csv. Links should always follow "link:"
+////
+
+---
+
+== Contents:
+
+:toc:
+---
+
+== Introduction
+
+The Trello Connector facilitates connections between Anypoint Studio and Trello Application. Trello Application brings Whether it's managing a team, writing an epic screenplay, or just making a grocery list, Trello is your sidekick for getting things done and staying organized.
+• Create boards to organize anything you're working on.
+• Use them solo or invite coworkers, friends and family to collaborate.
+• Customize workflows for different projects
+• Add checklists of "To-Dos" on cards
+• Assign tasks to yourself and coworkers
+• Comment on items with your friends
+• Attach files from Google Drive and Dropbox
+• Upload photos and videos
+• Reply to comments and create cards from Android Wear
+
+Trello Connector Operations +
+
+1. Create Board +
+This operation is used to create board at Trello Application. +
+2. Get Board By Id +
+This operation is used to shows the board by passsing board id. +
+3. Get All Lists Under Board +
+This operation is used to get all the lists present in the board by passind board id. +
+4. Update Board By Id +
+This operation is used to update board by id. +
+5. Create Board +
+This operation is used to create a new board at Trello Application. +
+6. Delete Member Under Board By Id +
+This operation is used to delete member of a particular board by passing member id and board id . +
+7. Get Card By Id +
+This operation is used to shows the card by card id. + 
+8. Put Cards By Id +
+This operation is used to update the card by card id. +
+9. Create Card  +
+This operation is used to create card at Trello Application. +
+10. Delete Card By Id +
+This operation is used to delete the card by card id. +
+11. Get List By Id +
+This operation is used to shows the list by list id. +
+12. Update List By Id +
+This operation is used to update the list by list id. +
+13. Create List +
+This operation is used to creates a list at Trello Application. +
+14. Get Checklists By Id  +
+This operation is used to show the checklists by checklist id. +
+15. Get Board With Checklist Id + 
+This operation is used to get the board details by passing checklist id. +
+16. Get Webhooks By Id +
+This operation is used to shows webhook details by webhook is. +
+17. Update Webhook By Id +
+This operation is used to update the webhook by webhook id. +
+18. Update Webhook +
+This operation is used to update the webhook by passing the payload object.
+19. Post Webhook +
+This operation is used to create a new webhook. +
+20. Delete Webhook By Id +
+This operation is used to delete the webhook by webhook id. +
+21. Get Member By Id Or Username +
+This operation is used to shows the member details by passing member id. +
+22. Get All Boards +
+This operation is used to shows the details of all the boards of a member. +
+23. Get Boards  +
+This operation is used to  shows the details of all the boards of a member passing member id. +
+
+=== Prerequisites
+
+ This document assumes that you are familiar with Mule,Anypoint connectors and the Anypoint Studio Interface. To increase your familiarity with Studio, consider completing one or more Anypoint Studio Tutorials. Further, this page assumes that you have a basic understanding of Mule flows and Mule Global Elements.
+This document describes implementation examples within the context of Anypoint Studio, Mule ESBâ€™s graphical user interface, and, also includes configuration details for doing the same in the XML Editor.
+
+=== Requirements
+
+â€¢	Windows 7 64-bit +
+â€¢	Mule Soft Software - +
+          Anypoint Studio - Tooling for Mule ESB. +
+          Version: 5.3.2. +
+          Build Id: 201510191606. +
+
+â€¢	Install JDK 7 for DevKit 3.6 or 3.7. +
+
+
+=== Compatibility Matrix
+The Cisco Spark Connector is compatible with:
+
+Application/Service	     Version
+Mule Run-time	3.7.0 or later
+
+
+
+---
+
+== Installing and Configuring
+
+=== Installing
+
+You can install a connector in Anypoint Studio using the instructions in Installing a Connector from Anypoint Exchange
+As we can see in the image below the Cisco Tropo Connector is available in connectors palette.
+image::palette.jpg[]
+
+=== Configuring
+To use the Trello Connector in your Mule application, you must configure:
+â€¢	A global Trello element to be used by all the Trello connectors in the application (read more about global elements in Mule).
+â€¢	Parameters of each Trello Connector instance in the flow.
+
+Follow these steps to create a global Trello configuration in a Mule application:
+    
+1.	 Click the Global Elements tab at the base of the canvas, then click Create
+2.	 In the Choose Global Type wizard, use the filter to locate and select,
+      Trello configuration then click OK.
+3.	Configure the parameters according to the instructions shown in the below image.
+image::configuration.jpg[]
+|===
+|Field	|Description
+
+|Name	|Enter a name for the configuration so it can be referenced later 
+
+|Authorization       	|Authorization Token for connecting and loggin into Trello
+
+
+|URL		|https://api.Trello.com/1
+|===
+
+
+4.Click OK to save the global connector configurations. +
+5.Return to the Message Flow tab in Studio. +
+
+---
+
+
+
+== Using This Connector
+
+Follow these steps to configure the parameters of a Trello Connector in the flow:   
+
+1.	Drag the Trello Connector onto the canvas, then select it to open the properties editor. +
+2.	Configure the connectorâ€™s parameters according to the table below. +
+|===
+|Field	|Description
+|Display Name	|Enter a unique label for the connector in your application.
+|Connector Configuration	|Connect to a global element linked to this connector. Global elements encapsulate reusable data about the connection to the target resource or service. Select the global Trello connector element that you created in the previous steps.
+|Operation	|Select the action this component must perform:
+Create Boards,Get Boards By Id,Get All Lists Under Board ,Put Boards By Id,Post Boards,Delete Member Under Board By Id,Get Cards By Id ,Put Cards By Id,Post Cards,Delete Cards By Id,Get Lists By Id,Update Lists By Id,Create List,Get Checklists By Id ,Get Board With Checklist Id,Get Webhooks By Id,Update Webhook By Id,Update Webhook,Post Webhook ,Delete Webhook By Id ,Get Member By Id Or Username ,Get All Boards , Get Boards 
+|General	|Reference or expression: Select this option to define the parameters based on expression.
+Define Attributes: Select this option to define the values manually.
+|===
+
+3.	Click the blank space on the canvas to save your configurations. +
+  
+
+
+
+
+---
+
+== Example Use Case
+In this example flow, We are creating New Boards where team collaborations,using lists and cards etc.
+===  Anypoint Studio Visual Editor | XML Editor
+
+Explain how to create this case with  Anypoint Studio  visual editor and XML editor +
+
+
+[tab,title="Studio Visual Editor"]
+....
+[tab content goes here]
+Create a new project by clicking New > Mule Project >Project Name: trelloroomcreateapplication.
+1. Drag an HTTP connector into trelloboardcreateapplication flow. Open the connectorâ€™s properties editor.
+2. Click on the + icon shown in the image below.
+image::httpProperties.jpg[]
+3. The Global Element Properties window of HTTP Listener Configuration opens. Enter 8081 for Port as shown below and click on 'Ok'.
+image::httpGlobalProperties.jpg[]
+4. The new flow is now reachable through the path http://localhost:8081 from the local system.
+5. Drag Trello connector into sparkroomcreateapplication flow.
+6. Configure the Trello connector according to the table below.
+
+|===
+|Field	|Description
+|Display Name	|Trello.
+|Connector Configuration	|select the global configuration created earlier.
+|Operation	|Create Board
+ |General	|Select Define Attributes:
+|			|Name|Mule Board
+|===
+
+7. Drag a Object to Json transformer to the flow.
+8. Save it.
+
+
+[tab,title="XML Editor"]
+....
+1. Add a Trello:config global element to your project, then configure its attributes according to the table below (see code below for a complete sample).+
+ <Trello:post-boards config-ref="Trello__Configuration" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd" doc:name="Trello">
+<Trello:boards-post-request name="Mule Board"  />
+</Trello:post-boards>
+
+|===
+|Attribute|Value
+|name|Trello__Configuration
+|token|<Auth Token>
+|===
+2. Add a http:listener-config global element to you project +
+
+3. Create a Mule flow with an HTTP endpoint, configuring the endpoint according to the table below (see code below for a complete sample). +
+    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
+	
+|===
+|Attribute|Value
+|name|HTTP_Listener_Configuration
+|host|0.0.0.0
+|port|8081
+|===
+
+4. Add a TrelloConnector to your muleflow after the http endpoint according to the table below
+		<Trello:post-boards config-ref="Trello__Configuration" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd" doc:name="Trello">
+			<Trello:boards-post-request name="New Board"/>
+		</Trello:post-boards>
+|===
+|Attribute|Value
+|config-ref|Trello__Configuration
+|operation|post-boards
+|title|Mule Board
+|===
+
+5. Add a Object to Json transformer to your muleflow after the CiscoSparkConnector
+ <json:object-to-json-transformer doc:name="Object to JSON"/>
+....
+
+
+=== Code Example=====
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:Trello="http://www.mulesoft.org/schema/mule/Trello" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/Trello http://www.mulesoft.org/schema/mule/Trello/current/mule-Trello.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="9090" doc:name="HTTP Listener Configuration"/>
+    <Trello:config name="Trello__Configuration" doc:name="Trello: Configuration"/>
+    <flow name="trello-testFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/" doc:name="HTTP"/>
+        <Trello:post-boards config-ref="Trello__Configuration" token="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd" doc:name="Trello" >
+        </Trello:post-boards>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+    </flow>
+</mule>
+
+
+
+---
+
+=== See Also
+
+* Access the link:/release_notes.adoc
+

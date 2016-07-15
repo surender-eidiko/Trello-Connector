@@ -11,16 +11,15 @@ import org.mule.modules.trello.bean.StatusResponse;
 
 public class DeleteMemberUnderBoardByIdTestCase extends TrelloAbstractTestcases {
 
-	public DeleteMemberUnderBoardByIdTestCase(Class<TrelloConnector> connector) {
-		super(connector);
-		// TODO Auto-generated constructor stub
+	public DeleteMemberUnderBoardByIdTestCase() {
+		super(TrelloConnector.class);
 	}
 	@Test
 	@Category({FunctionalTestSuite.class})
 	public void testDeleteMemberUnderBoardById(){
 		String boardId=getBoardId();
 		String memberId = getMemberId();
-		StatusResponse response = getConnector().deleteMemberUnderBoardById(boardId, memberId);
+		StatusResponse response = getConnector().deleteMemberUnderBoardById(boardId, memberId,null);
 		assertNotNull(response);
 		assertEquals("200",response.getStatusCode());
 	}

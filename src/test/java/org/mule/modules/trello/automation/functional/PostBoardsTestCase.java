@@ -11,14 +11,14 @@ import org.mule.modules.trello.bean.BoardsPostRequest;
 import org.mule.modules.trello.bean.BoardsPostResponse;
 
 public class PostBoardsTestCase extends TrelloAbstractTestcases {
-	public PostBoardsTestCase(Class<TrelloConnector> connector) {
-		super(connector);
+	public PostBoardsTestCase() {
+		super(TrelloConnector.class);
 	}
 	@Test
 	@Category({FunctionalTestSuite.class})
-	public void testBoardsCalenderFeedEnabled(){
+	public void testPostBoardsTestCase(){
 		BoardsPostRequest request = getBoardsPostRequest();
-		BoardsPostResponse response = getConnector().postBoards(request);
+		BoardsPostResponse response = getConnector().postBoard(request,null);
 		assertNotNull(response);
 		assertEquals("200",response.getStatusCode());
 	}

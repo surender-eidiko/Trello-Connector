@@ -6,18 +6,19 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.trello.TrelloConnector;
 import org.mule.modules.trello.automation.runner.FunctionalTestSuite;
+import org.mule.modules.trello.bean.WebhooksPostResponse;
 import org.mule.modules.trello.bean.WebhooksPutRequest;
 
 public class PostWebhookTestCase extends TrelloAbstractTestcases {
 
-	public PostWebhookTestCase(Class<TrelloConnector> connector) {
-		super(connector);
+	public PostWebhookTestCase() {
+		super(TrelloConnector.class);
 	}
 	@Test
 	@Category({FunctionalTestSuite.class})
 	public void testPostWebhook(){
 		WebhooksPutRequest req = getWebhooksPutRequest();
-		String response = getConnector().postWebhook(req);
+		WebhooksPostResponse response = getConnector().postWebhook(req,null);
 		assertNotNull(response);
 	}
 }
