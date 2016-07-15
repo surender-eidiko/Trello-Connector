@@ -4,7 +4,7 @@
 
 The Trello Connector facilitates connections between Anypoint Studio and Trello Application. Trello Application brings Whether it's managing a team, writing an epic screenplay, or just making a grocery list, Trello is your sidekick for getting things done and staying organized.
 
-*Release Notes:* link:/release-notes.adoc[Link to Release Notes]
+*Release Notes:* link:/doc/release-notes.adoc[Link to Release Notes]
 
 ////
 Note: existing MuleSoft documentation should be copied from right-hand column of link:https://github.com/mulesoft/mulesoft-docs/blob/master/links.csv. Links should always follow "link:"
