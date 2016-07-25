@@ -494,21 +494,8 @@ public class TrelloConnector {
   	 */
   	
 	  @Processor
-		public MemberByIdGetresponse getMemberByIdOrUsername(String idOrUserName, @Optional String actions,  @Default("false") Boolean actions_entities,
-				 @Default("false") Boolean actions_display,  @Default("50") String actions_limit,  @Default("all") String action_fields, @Optional String action_since, @Optional String action_before,  @Default("none") String cards,  @Default("all") String card_fields,  @Default("false") Boolean card_members, @Optional String card_member_fields,  @Default("false") String card_attachments, @Optional String card_attachment_fields,  @Default("false") Boolean card_stickers, @Optional String boards, @Optional String board_fields, @Optional String board_actions,  @Default("false") Boolean board_actions_entities, @Default("false") Boolean board_actions_display, @Default("list") String board_actions_format, @Optional String board_actions_since, @Default("50") String board_actions_limit, @Default("all") String board_action_fields, @Default("none") String  board_lists, @Default("none") String board_memberships, @Default("false") Boolean board_organization, @Optional String board_organization_fields, @Optional String boardsInvited, @Optional String boardsInvited_fields, @Default("false") Boolean boardStars, @Default("false") Boolean savedSearches, @Default("none") String organizations, @Default("all") String organization_fields, @Default("false") Boolean organization_paid_account, @Default("none") String organizationsInvited, @Default("all") String organizationsInvited_fields, @Optional String notifications, @Default("false") Boolean notifications_entities, @Default("false") Boolean notifications_display, @Default("50") String notifications_limit, @Default("all") String notification_fields, @Default("true") Boolean notification_memberCreator, @Optional String notification_memberCreator_fields, @Optional String notification_before, @Optional String notification_since, @Default("none") String tokens, @Default("false") Boolean paid_account, @Default("none") String boardBackgrounds, @Default("none") String customBoardBackgrounds, @Default("none") String customStickers, @Default("none") String customEmoji, @Default("all") String fields,String token){
-			return getClient().getMemberByIdOrUsername(idOrUserName,actions,    actions_entities,
-					   actions_display,    actions_limit,    action_fields,   action_since,
-					   action_before,    cards,    card_fields,    card_members,   card_member_fields,
-					   card_attachments,   card_attachment_fields,    card_stickers,   boards,   
-					   board_fields,   board_actions,    board_actions_entities,   board_actions_display,   
-					   board_actions_format,   board_actions_since,   board_actions_limit,   board_action_fields,    
-					   board_lists,   board_memberships,   board_organization,   board_organization_fields,   boardsInvited,   
-					   boardsInvited_fields,   boardStars,   savedSearches,   organizations,   organization_fields,   
-					   organization_paid_account,   organizationsInvited,   organizationsInvited_fields,   notifications,   
-					   notifications_entities,   notifications_display,  notifications_limit,   notification_fields,   
-					   notification_memberCreator,   notification_memberCreator_fields,   notification_before,   
-					   notification_since,   tokens,   paid_account,   boardBackgrounds,   
-					   customBoardBackgrounds,   customStickers,   customEmoji,  fields,token);
+		public MemberByIdGetresponse getMemberByIdOrUsername(String idOrUserName,String token){
+			return getClient().getMemberByIdOrUsername(idOrUserName,token);
 		}
 	  
 	  /**

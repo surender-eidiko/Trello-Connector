@@ -469,17 +469,8 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 	}
 
 	//members API
-	public MemberByIdGetresponse getMemberByIdOrUsername(String id, String actions,Boolean actions_entities,Boolean actions_display, String actions_limit, String action_fields, String action_since, 
-			String action_before, String cards, String card_fields, Boolean card_members, String card_member_fields,String card_attachments, String card_attachment_fields,
-			Boolean card_stickers, String boards, String board_fields, String board_actions, Boolean board_actions_entities, Boolean board_actions_display,
-			String board_actions_format, String board_actions_since, String board_actions_limit, String board_action_fields, String  board_lists, String board_memberships,
-			Boolean board_organization, String board_organization_fields, String boardsInvited, String boardsInvited_fields, Boolean boardStars, Boolean savedSearches,
-			String organizations, String organization_fields, Boolean organization_paid_account,
-			String organizationsInvited, String organizationsInvited_fields, String notifications, Boolean notifications_entities, Boolean notifications_display,			
-			String notifications_limit, String notification_fields, Boolean notification_memberCreator, String notification_memberCreator_fields, String notification_before, 
-			String notification_since,  String tokens, Boolean paid_account, String boardBackgrounds, String customBoardBackgrounds, String customStickers, String customEmoji,
-			String fields ,String token){
-		WebResource webResource ;
+	public MemberByIdGetresponse getMemberByIdOrUsername(String id,String token){
+		WebResource webResource =null;
 		if(id.equals("me")){
 			 webResource = getApiResource().path("members").path("me");
 		}else{
@@ -487,62 +478,7 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 		}
 		
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		if(actions != null) 			queryParams.add("actions",actions);
-		if(actions_entities != null)	queryParams.add("actions_entities", String.valueOf(actions_entities));
-		if(actions_display != null)		queryParams.add("actions_display", String.valueOf(actions_display));
-		if(action_fields != null)		queryParams.add("action_fields",action_fields);
-		if(actions_limit != null)		queryParams.add("actions_limit", actions_limit);	
-		if(action_since != null)		queryParams.add("action_since", action_since);
-		if(action_before != null)		queryParams.add("action_before",action_before);		
-		if(cards != null)				queryParams.add("cards", cards);
-		if(card_fields != null)			queryParams.add("card_fields", card_fields);		
-		if(card_members != null)		queryParams.add("card_members",String.valueOf(card_members));
-		if(card_member_fields != null)	queryParams.add("card_member_fields", card_member_fields);		
-		if(card_attachments != null)	queryParams.add("card_attachments", card_attachments);
-		if(card_attachment_fields != null) 			queryParams.add("card_attachment_fields",card_attachment_fields);		
-		if(card_stickers != null)					queryParams.add("card_stickers", String.valueOf(card_stickers));
-		if(boards != null)							queryParams.add("boards", boards);		
-		if(board_fields != null)					queryParams.add("board_fields",board_fields);
-		if(board_actions != null)					queryParams.add("board_actions", board_actions);		
-		if(board_actions_entities != null)			queryParams.add("board_actions_entities", String.valueOf(board_actions_entities));
-		if(board_actions_display != null)			queryParams.add("board_actions_display",String.valueOf(board_actions_display));
-		if(board_actions_format != null)			queryParams.add("board_actions_format", board_actions_format);
-		if(board_actions_since != null)				queryParams.add("board_actions_since", board_actions_since);
-		if(board_actions_limit != null)				queryParams.add("board_actions_limit",board_actions_limit);
-		if(board_action_fields != null)				queryParams.add("board_action_fields", board_action_fields);
-		if(board_lists != null)					queryParams.add("board_lists", board_lists);
-		if(board_memberships != null)			queryParams.add("board_memberships", board_memberships);	
-		if(board_organization != null)			queryParams.add("board_organization",String.valueOf(board_organization));
-		if(board_organization_fields != null)			queryParams.add("board_organization_fields", board_organization_fields);
-		if(boardsInvited != null)				queryParams.add("boardsInvited", boardsInvited);
-		if(boardsInvited_fields != null)				queryParams.add("boardsInvited_fields",boardsInvited_fields);
-		if(boardStars != null)				queryParams.add("boardStars", String.valueOf(boardStars));
-		if(savedSearches != null)					queryParams.add("savedSearches", String.valueOf(savedSearches));
-		if(organizations != null) 			queryParams.add("organizations",organizations);
-		if(organization_fields != null)	queryParams.add("organization_fields", organization_fields);
-		if(organization_paid_account != null)		queryParams.add("organization_paid_account", String.valueOf(organization_paid_account));
-		if(organizationsInvited != null)		queryParams.add("organizationsInvited",organizationsInvited);
-		if(organizationsInvited_fields != null) 			queryParams.add("organizationsInvited_fields",organizationsInvited_fields);
-		if(notifications != null)	queryParams.add("notifications", notifications);
-		if(notifications_entities != null)		queryParams.add("notifications_entities", String.valueOf(notifications_entities));	
-		if(notifications_display != null)		queryParams.add("notifications_display", String.valueOf(notifications_display));	
-		if(notifications_limit != null) 			queryParams.add("notifications_limit",notifications_limit);	
-		if(notification_fields != null)	queryParams.add("notification_fields", notification_fields);	
-		if(notification_memberCreator != null)		queryParams.add("notification_memberCreator", String.valueOf(notification_memberCreator));
-		if(notification_memberCreator_fields != null)		queryParams.add("notification_memberCreator_fields",notification_memberCreator_fields);
-		if(notifications_limit != null) 			queryParams.add("notifications_limit",notifications_limit);
-		if(notification_fields != null)	queryParams.add("notification_fields", notification_fields);
-		if(notification_memberCreator != null)		queryParams.add("notification_memberCreator", String.valueOf(notification_memberCreator));
-		if(notification_memberCreator_fields != null)		queryParams.add("notification_memberCreator_fields",notification_memberCreator_fields);
-		if(notification_before != null) 			queryParams.add("notification_before",notification_before);
-		if(notification_since != null)	queryParams.add("notification_since", notification_since);
-		if(tokens != null)		queryParams.add("tokens", tokens);
-		if(paid_account != null)		queryParams.add("paid_account",String.valueOf(paid_account));
-		if(boardBackgrounds != null) 			queryParams.add("boardBackgrounds",boardBackgrounds);
-		if(customBoardBackgrounds != null)	queryParams.add("customBoardBackgrounds", customBoardBackgrounds);
-		if(customStickers != null)		queryParams.add("customStickers", customStickers);
-		if(customEmoji != null)		queryParams.add("customEmoji",customEmoji);
-		if(fields != null)		queryParams.add("fields",fields);
+		
 		webResource = addKeyAndTokenToQueryParams(webResource,token);
 		webResource = webResource.queryParams(queryParams);
 		return (MemberByIdGetresponse) getData(webResource, MemberByIdGetresponse.class);
@@ -847,17 +783,13 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 	private WebResource getApiResource() {
 		return apiResource;
 	}
-	private void addKeyAndTokenToQueryParams(MultivaluedMap<String, String> queryParams){
-		String key = getTrelloConnector().getConfig().getApiKey();
-		String token = getTrelloConnector().getConfig().getApiToken();
-		queryParams.add("key",key);
-		queryParams.add("token", token);
-	}
+	
 	private WebResource addKeyAndTokenToQueryParams(WebResource webResource, String token){
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		String key = getTrelloConnector().getConfig().getApiKey();
-		if(token==null)
+		if(token==null){
 		token = getTrelloConnector().getConfig().getApiToken();
+		}
 		queryParams.add("key",key);
 		queryParams.add("token", token);
 		webResource = webResource.queryParams(queryParams);

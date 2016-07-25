@@ -16,6 +16,7 @@ public class ConnectorConfig {
 	@Optional
 	@Default("https://api.trello.com/1")
 	private String url = "https://api.trello.com/1";
+	//private String url = "http://localhost:8090/1";
 
 	/*@Configurable
 	@Optional
@@ -24,13 +25,13 @@ public class ConnectorConfig {
 */
 	@Configurable
 	@Optional
-	@Default("9338edc094283fd8e41a086bad98aaf9")
-	private String apiKey = "9338edc094283fd8e41a086bad98aaf9";
+	@Default("d241182640252f708e19d236f3f72b26")
+	private String apiKey = "d241182640252f708e19d236f3f72b26";
 	
 	@Configurable
 	@Optional
-	@Default("0e02fc680f9b4d81a5795773e9e5dfda97d44d1886718a9c9bdbd60691a22a0a")
-	private String apiToken = "0e02fc680f9b4d81a5795773e9e5dfda97d44d1886718a9c9bdbd60691a22a0a";
+	@Default("32b320d36043e42db2e849ed232a6373ddf8ff3d4fd870594e7f04126db47511")
+	private String apiToken = "32b320d36043e42db2e849ed232a6373ddf8ff3d4fd870594e7f04126db47511";
 	
 	
 	public String getUrl() {

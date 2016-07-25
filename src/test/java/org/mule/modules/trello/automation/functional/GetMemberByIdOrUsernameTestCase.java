@@ -18,7 +18,7 @@ public class GetMemberByIdOrUsernameTestCase extends TrelloAbstractTestcases {
 	@Category({FunctionalTestSuite.class})
 	public void testGetMemberByIdOrUsername(){
 		String memId = getMemberIdOrName(); 
-		MemberByIdGetresponse response = getConnector().getMemberByIdOrUsername(memId, null, null,null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,null);
+		MemberByIdGetresponse response = getConnector().getMemberByIdOrUsername(memId,null);
 		assertNotNull(response);
 		assertEquals("200",response.getStatusCode());
 	}

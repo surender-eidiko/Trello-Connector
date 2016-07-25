@@ -51,7 +51,7 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	}
 	
 	String getBoardId(){
-	return "573aa4743816a0d9b6db2be1";
+	return "576293cd397b285f62207dcc";
 	}
 	
 	public String getIdMember(){
@@ -68,7 +68,7 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	}
 	
 	public String getMemberIdOrName(){
-		return "573aa44d31e7e4845190b84e";
+		return "me";
 	}
 	
 	public BoardsByIdPutRequest getBoardsByIdPutRequest(){
@@ -80,7 +80,7 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	
 	public BoardsPostRequest getBoardsPostRequest(){
 		BoardsPostRequest req = new BoardsPostRequest();
-		req.setName("Post Me");
+		req.setName("Eidiko");
 		return req;
 	}
 	public String getCardIdOrShortlink(){
@@ -116,7 +116,7 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	public ListsPostRequest getListsPostRequest(){
 		ListsPostRequest req = new ListsPostRequest();
 		req.setIdBoard(getBoardId());
-		req.setName("list455");
+		req.setName("My List");
 		return req;
 	}
 	
