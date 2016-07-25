@@ -6803,5 +6803,370 @@
             </attributes>
             <childElements/>
         </processor>
+        <processor name="getBoardById" xmlName="get-board-by-id" caption="Get board by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="boardId" use="required" caption="Board Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="actions" use="optional" caption="Actions" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="actions_entities" use="optional" caption="Actions_entities" group="General" type="boolean" javaType="java.lang.Boolean" category="General"></attribute>
+                <attribute name="actions_display" use="optional" caption="Actions_display" group="General" type="boolean" javaType="java.lang.Boolean" category="General"></attribute>
+                <attribute name="actions_format" use="optional" caption="Actions_format" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="actions_since" use="optional" caption="Actions_since" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="actions_limit" use="optional" caption="Actions_limit" group="General" type="integer" javaType="java.lang.Integer" category="General"></attribute>
+                <attribute name="action_fields" use="optional" caption="Action_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="action_member" use="optional" caption="Action_member" group="General" type="boolean" javaType="java.lang.Boolean" category="General"></attribute>
+                <attribute name="action_member_fields" use="optional" caption="Action_member_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="action_memberCreator" use="optional" caption="Action_member Creator" group="General" type="boolean" javaType="java.lang.Boolean" category="General"></attribute>
+                <attribute name="action_memberCreator_fields" use="optional" caption="Action_member Creator_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="cards" use="optional" caption="Cards" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="card_fields" use="optional" caption="Card_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="card_attachments" use="optional" caption="Card_attachments" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="card_attachment_fields" use="optional" caption="Card_attachment_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="card_checklists" use="optional" caption="Card_checklists" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="card_stickers" use="optional" caption="Card_stickers" group="General" type="boolean" javaType="java.lang.Boolean" category="General"></attribute>
+                <attribute name="boardStars" use="optional" caption="Board Stars" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="labels" use="optional" caption="Labels" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="label_fields" use="optional" caption="Label_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="labels_limit" use="optional" caption="Labels_limit" group="General" type="integer" javaType="java.lang.Integer" category="General"></attribute>
+                <attribute name="lists" use="optional" caption="Lists" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="list_fields" use="optional" caption="List_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="memberships" use="optional" caption="Memberships" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="memberships_member" use="optional" caption="Memberships_member" group="General" type="boolean" javaType="java.lang.Boolean" category="General"></attribute>
+                <attribute name="memberships_member_fields" use="optional" caption="Memberships_member_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="members" use="optional" caption="Members" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="member_fields" use="optional" caption="Member_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="membersInvited" use="optional" caption="Members Invited" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="membersInvited_fields" use="optional" caption="Members Invited_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="checklists" use="optional" caption="Checklists" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="checklist_fields" use="optional" caption="Checklist_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="organization" use="optional" caption="Organization" group="General" type="boolean" javaType="java.lang.Boolean" category="General"></attribute>
+                <attribute name="organization_fields" use="optional" caption="Organization_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="organization_memberships" use="optional" caption="Organization_memberships" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="myPrefs" use="optional" caption="My Prefs" group="General" type="boolean" javaType="java.lang.Boolean" category="General"></attribute>
+                <attribute name="tags" use="optional" caption="Tags" group="General" type="boolean" javaType="java.lang.Boolean" category="General"></attribute>
+                <attribute name="fields" use="optional" caption="Fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="token" use="optional" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </processor>
+        <processor name="putBoardById" xmlName="put-board-by-id" caption="Put board by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="boardId" use="required" caption="Board Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="token" use="optional" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="boards-by-id-put-req" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="desc" use="optional" caption="Desc" type="string" javaType="java.lang.String" base="boards-by-id-put-req" category="General"></attribute>
+<attribute name="closed" use="optional" caption="Closed" type="boolean" javaType="java.lang.Boolean" base="boards-by-id-put-req" category="General"></attribute>
+<attribute name="subscribed" use="optional" caption="Subscribed" type="boolean" javaType="java.lang.Boolean" base="boards-by-id-put-req" category="General"></attribute>
+<attribute name="idOrganization" use="optional" caption="Id Organization" type="string" javaType="java.lang.String" base="boards-by-id-put-req" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Boards By Id Put Req Reference" type="string" javaType="java.lang.String" base="boards-by-id-put-req" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Boards By Id Put Req Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements>
+                        <childElement name="prefs" use="optional" category="General">
+                            <attributes>
+<controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="permissionLevel" use="optional" caption="Permission Level" type="string" javaType="java.lang.String" base="prefs" category="General"></attribute>
+        <attribute name="selfJoin" use="optional" caption="Self Join" type="boolean" javaType="java.lang.Boolean" base="prefs" category="General"></attribute>
+        <attribute name="cardCovers" use="optional" caption="Card Covers" type="boolean" javaType="java.lang.Boolean" base="prefs" category="General"></attribute>
+        <attribute name="invitations" use="optional" caption="Invitations" type="string" javaType="java.lang.String" base="prefs" category="General"></attribute>
+        <attribute name="voting" use="optional" caption="Voting" type="string" javaType="java.lang.String" base="prefs" category="General"></attribute>
+        <attribute name="comments" use="optional" caption="Comments" type="string" javaType="java.lang.String" base="prefs" category="General"></attribute>
+        <attribute name="background" use="optional" caption="Background" type="string" javaType="java.lang.String" base="prefs" category="General"></attribute>
+        <attribute name="cardAging" use="optional" caption="Card Aging" type="string" javaType="java.lang.String" base="prefs" category="General"></attribute>
+        <attribute name="calendarFeedEnabled" use="optional" caption="Calendar Feed Enabled" type="boolean" javaType="java.lang.Boolean" base="prefs" category="General"></attribute>
+        <attribute name="ref" use="optional" caption="Boards By Id Put Req Reference" type="string" javaType="java.lang.String" base="boards-by-id-put-req" category="General"></attribute>
+    </attributes>
+</controller>
+<controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Boards By Id Put Req Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+                            </attributes>
+                            <childElements/>
+                        </childElement>
+                        <childElement name="label-names" use="optional" category="General">
+                            <attributes>
+<controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="orange" use="optional" caption="Orange" type="string" javaType="java.lang.String" base="label-names" category="General"></attribute>
+        <attribute name="sky" use="optional" caption="Sky" type="string" javaType="java.lang.String" base="label-names" category="General"></attribute>
+        <attribute name="red" use="optional" caption="Red" type="string" javaType="java.lang.String" base="label-names" category="General"></attribute>
+        <attribute name="purple" use="optional" caption="Purple" type="string" javaType="java.lang.String" base="label-names" category="General"></attribute>
+        <attribute name="blue" use="optional" caption="Blue" type="string" javaType="java.lang.String" base="label-names" category="General"></attribute>
+        <attribute name="green" use="optional" caption="Green" type="string" javaType="java.lang.String" base="label-names" category="General"></attribute>
+        <attribute name="pink" use="optional" caption="Pink" type="string" javaType="java.lang.String" base="label-names" category="General"></attribute>
+        <attribute name="lime" use="optional" caption="Lime" type="string" javaType="java.lang.String" base="label-names" category="General"></attribute>
+        <attribute name="yellow" use="optional" caption="Yellow" type="string" javaType="java.lang.String" base="label-names" category="General"></attribute>
+        <attribute name="black" use="optional" caption="Black" type="string" javaType="java.lang.String" base="label-names" category="General"></attribute>
+        <attribute name="ref" use="optional" caption="Boards By Id Put Req Reference" type="string" javaType="java.lang.String" base="boards-by-id-put-req" category="General"></attribute>
+    </attributes>
+</controller>
+<controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Boards By Id Put Req Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+                            </attributes>
+                            <childElements/>
+                        </childElement>
+                    </childElements>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="postBoard" xmlName="post-board" caption="Post board">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="boards-post-request" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="defaultLists" use="optional" caption="Default Lists" type="boolean" javaType="java.lang.Boolean" base="boards-post-request" category="General"></attribute>
+<attribute name="desc" use="optional" caption="Desc" type="string" javaType="java.lang.String" base="boards-post-request" category="General"></attribute>
+<attribute name="idOrganization" use="optional" caption="Id Organization" type="string" javaType="java.lang.String" base="boards-post-request" category="General"></attribute>
+<attribute name="idBoardSource" use="optional" caption="Id Board Source" type="string" javaType="java.lang.String" base="boards-post-request" category="General"></attribute>
+<attribute name="keepFromSource" use="optional" caption="Keep From Source" type="string" javaType="java.lang.String" base="boards-post-request" category="General"></attribute>
+<attribute name="powerUps" use="optional" caption="Power Ups" type="string" javaType="java.lang.String" base="boards-post-request" category="General"></attribute>
+<attribute name="prefs_permissionLevel" use="optional" caption="Prefs_permission Level" type="string" javaType="java.lang.String" base="boards-post-request" category="General"></attribute>
+<attribute name="prefs_voting" use="optional" caption="Prefs_voting" type="string" javaType="java.lang.String" base="boards-post-request" category="General"></attribute>
+<attribute name="prefs_comments" use="optional" caption="Prefs_comments" type="string" javaType="java.lang.String" base="boards-post-request" category="General"></attribute>
+<attribute name="prefs_invitations" use="optional" caption="Prefs_invitations" type="string" javaType="java.lang.String" base="boards-post-request" category="General"></attribute>
+<attribute name="prefs_selfJoin" use="optional" caption="Prefs_self Join" type="boolean" javaType="java.lang.Boolean" base="boards-post-request" category="General"></attribute>
+<attribute name="prefs_cardCovers" use="optional" caption="Prefs_card Covers" type="boolean" javaType="java.lang.Boolean" base="boards-post-request" category="General"></attribute>
+<attribute name="prefs_background" use="optional" caption="Prefs_background" type="string" javaType="java.lang.String" base="boards-post-request" category="General"></attribute>
+<attribute name="prefs_cardAging" use="optional" caption="Prefs_card Aging" type="string" javaType="java.lang.String" base="boards-post-request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Boards Post Request Reference" type="string" javaType="java.lang.String" base="boards-post-request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Boards Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="getCardById" xmlName="get-card-by-id" caption="Get card by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="cardIdOrShortlink" use="required" caption="Card Id Or Shortlink" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="actions" use="optional" caption="Actions" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="actions_entities" use="optional" caption="Actions_entities" group="General" type="boolean" javaType="java.lang.Boolean" category="General"></attribute>
+                <attribute name="actions_display" use="optional" caption="Actions_display" group="General" type="boolean" javaType="java.lang.Boolean" category="General"></attribute>
+                <attribute name="actions_limit" use="optional" caption="Actions_limit" group="General" type="integer" javaType="java.lang.Integer" category="General"></attribute>
+                <attribute name="action_fields" use="optional" caption="Action_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="action_memberCreator_fields" use="optional" caption="Action_member Creator_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="attachments" use="optional" caption="Attachments" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="attachment_fields" use="optional" caption="Attachment_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="members" use="optional" caption="Members" group="General" type="boolean" javaType="java.lang.Boolean" category="General"></attribute>
+                <attribute name="member_fields" use="optional" caption="Member_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="membersVoted" use="optional" caption="Members Voted" group="General" type="boolean" javaType="java.lang.Boolean" category="General"></attribute>
+                <attribute name="memberVoted_fields" use="optional" caption="Member Voted_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="checkItemStates" use="optional" caption="Check Item States" group="General" type="boolean" javaType="java.lang.Boolean" category="General"></attribute>
+                <attribute name="checkItemState_fields" use="optional" caption="Check Item State_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="checklists" use="optional" caption="Checklists" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="checklist_fields" use="optional" caption="Checklist_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="board" use="optional" caption="Board" group="General" type="boolean" javaType="java.lang.Boolean" category="General"></attribute>
+                <attribute name="board_fields" use="optional" caption="Board_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="list" use="optional" caption="List" group="General" type="boolean" javaType="java.lang.Boolean" category="General"></attribute>
+                <attribute name="list_fields" use="optional" caption="List_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="stickers" use="optional" caption="Stickers" group="General" type="boolean" javaType="java.lang.Boolean" category="General"></attribute>
+                <attribute name="sticker_fields" use="optional" caption="Sticker_fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="fields" use="optional" caption="Fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </processor>
+        <processor name="updateCardById" xmlName="update-card-by-id" caption="Update card by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="cardIdOrShortlink" use="required" caption="Card Id Or Shortlink" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="memberships-id-put-request" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="desc" use="optional" caption="Desc" type="string" javaType="java.lang.String" base="memberships-id-put-request" category="General"></attribute>
+<attribute name="closed" use="optional" caption="Closed" type="boolean" javaType="java.lang.Boolean" base="memberships-id-put-request" category="General"></attribute>
+<attribute name="idMembers" use="optional" caption="Id Members" type="string" javaType="java.lang.String" base="memberships-id-put-request" category="General"></attribute>
+<attribute name="idAttachmentCover" use="optional" caption="Id Attachment Cover" type="string" javaType="java.lang.String" base="memberships-id-put-request" category="General"></attribute>
+<attribute name="idList" use="optional" caption="Id List" type="string" javaType="java.lang.String" base="memberships-id-put-request" category="General"></attribute>
+<attribute name="idBoard" use="optional" caption="Id Board" type="string" javaType="java.lang.String" base="memberships-id-put-request" category="General"></attribute>
+<attribute name="pos" use="optional" caption="Pos" type="string" javaType="java.lang.String" base="memberships-id-put-request" category="General"></attribute>
+<attribute name="due" use="optional" caption="Due" type="string" javaType="java.lang.String" base="memberships-id-put-request" category="General"></attribute>
+<attribute name="subscribed" use="optional" caption="Subscribed" type="boolean" javaType="java.lang.Boolean" base="memberships-id-put-request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Memberships Id Put Request Reference" type="string" javaType="java.lang.String" base="memberships-id-put-request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Memberships Id Put Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="createCard" xmlName="create-card" caption="Create card">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="cards-posr-req" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="desc" use="optional" caption="Desc" type="string" javaType="java.lang.String" base="cards-posr-req" category="General"></attribute>
+<attribute name="pos" use="optional" caption="Pos" type="string" javaType="java.lang.String" base="cards-posr-req" category="General"></attribute>
+<attribute name="due" use="optional" caption="Due" type="string" javaType="java.lang.String" base="cards-posr-req" category="General"></attribute>
+<attribute name="idList" use="optional" caption="Id List" type="string" javaType="java.lang.String" base="cards-posr-req" category="General"></attribute>
+<attribute name="idMembers" use="optional" caption="Id Members" type="string" javaType="java.lang.String" base="cards-posr-req" category="General"></attribute>
+<attribute name="idLabels" use="optional" caption="Id Labels" type="string" javaType="java.lang.String" base="cards-posr-req" category="General"></attribute>
+<attribute name="urlSource" use="optional" caption="Url Source" type="string" javaType="java.lang.String" base="cards-posr-req" category="General"></attribute>
+<attribute name="fileSource" use="optional" caption="File Source" type="string" javaType="java.lang.String" base="cards-posr-req" category="General"></attribute>
+<attribute name="idCardSource" use="optional" caption="Id Card Source" type="string" javaType="java.lang.String" base="cards-posr-req" category="General"></attribute>
+<attribute name="keepFromSource" use="optional" caption="Keep From Source" type="string" javaType="java.lang.String" base="cards-posr-req" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Cards Posr Req Reference" type="string" javaType="java.lang.String" base="cards-posr-req" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Cards Posr Req Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="deleteCardById" xmlName="delete-card-by-id" caption="Delete card by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="cardIdOrShortLink" use="required" caption="Card Id Or Short Link" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </processor>
+        <processor name="updateListById" xmlName="update-list-by-id" caption="Update list by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="listId" use="required" caption="List Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="lists-put-req" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="idBoard" use="optional" caption="Id Board" type="string" javaType="java.lang.String" base="lists-put-req" category="General"></attribute>
+<attribute name="closed" use="optional" caption="Closed" type="boolean" javaType="java.lang.Boolean" base="lists-put-req" category="General"></attribute>
+<attribute name="pos" use="optional" caption="Pos" type="string" javaType="java.lang.String" base="lists-put-req" category="General"></attribute>
+<attribute name="subscribed" use="optional" caption="Subscribed" type="string" javaType="java.lang.String" base="lists-put-req" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Lists Put Req Reference" type="string" javaType="java.lang.String" base="lists-put-req" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Lists Put Req Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="createList" xmlName="create-list" caption="Create list">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="lists-post-req" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="idBoard" use="optional" caption="Id Board" type="string" javaType="java.lang.String" base="lists-post-req" category="General"></attribute>
+<attribute name="idListSource" use="optional" caption="Id List Source" type="string" javaType="java.lang.String" base="lists-post-req" category="General"></attribute>
+<attribute name="pos" use="optional" caption="Pos" type="string" javaType="java.lang.String" base="lists-post-req" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Lists Post Req Reference" type="string" javaType="java.lang.String" base="lists-post-req" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Lists Post Req Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="getBoardWithChecklistId" xmlName="get-board-with-checklist-id" caption="Get board with checklist id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="checklistId" use="required" caption="Checklist Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="fields" use="optional" caption="Fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </processor>
     </message-processors>
 </connector>

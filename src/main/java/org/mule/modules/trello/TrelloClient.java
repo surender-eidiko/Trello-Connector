@@ -479,7 +479,13 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 			String notifications_limit, String notification_fields, Boolean notification_memberCreator, String notification_memberCreator_fields, String notification_before, 
 			String notification_since,  String tokens, Boolean paid_account, String boardBackgrounds, String customBoardBackgrounds, String customStickers, String customEmoji,
 			String fields ,String token){
-		WebResource webResource = getApiResource().path("members").path(id);
+		WebResource webResource ;
+		if(id.equals("me")){
+			 webResource = getApiResource().path("members").path("me");
+		}else{
+			 webResource = getApiResource().path("members").path(id);
+		}
+		
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		if(actions != null) 			queryParams.add("actions",actions);
 		if(actions_entities != null)	queryParams.add("actions_entities", String.valueOf(actions_entities));

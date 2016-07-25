@@ -12,8 +12,8 @@ import org.mule.modules.trello.bean.WebhooksPutRequest;
 
 public class UpdateWebhookTestCase extends TrelloAbstractTestcases {
 
-	public UpdateWebhookTestCase(Class<TrelloConnector> connector) {
-		super(connector);
+	public UpdateWebhookTestCase() {
+		super(TrelloConnector.class);
 	}
 	@Test
 	@Category({FunctionalTestSuite.class})

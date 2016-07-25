@@ -68,7 +68,7 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	}
 	
 	public String getMemberIdOrName(){
-		return "me";
+		return "573aa44d31e7e4845190b84e";
 	}
 	
 	public BoardsByIdPutRequest getBoardsByIdPutRequest(){
