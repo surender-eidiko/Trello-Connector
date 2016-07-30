@@ -178,14 +178,14 @@ Explain how to create this case with  Anypoint Studio  visual editor and XML edi
 [tab,title="Studio Visual Editor"]
 ....
 [tab content goes here]
-Create a new project by clicking New > Mule Project >Project Name: trelloroomcreateapplication.
+Create a new project by clicking New > Mule Project >Project Name: trelloboardcreateapplication.
 1. Drag an HTTP connector into trelloboardcreateapplication flow. Open the connectorâ€™s properties editor.
 2. Click on the + icon shown in the image below.
 image::httpProperties.jpg[]
 3. The Global Element Properties window of HTTP Listener Configuration opens. Enter 8081 for Port as shown below and click on 'Ok'.
 image::httpGlobalProperties.jpg[]
 4. The new flow is now reachable through the path http://localhost:8081 from the local system.
-5. Drag Trello connector into sparkroomcreateapplication flow.
+5. Drag Trello connector into trelloboardcreateapplication flow.
 6. Configure the Trello connector according to the table below.
 
 |===
