@@ -19,7 +19,7 @@ public class ListsByIdTestCase extends TrelloAbstractTestcases {
 	@Category({FunctionalTestSuite.class})
 	public void testListsById(){
 		String listId=getListId();
-		ListsByIdGetResponse response = getConnector().getListById(listId,null, null, null, null, null, null);
+		ListsByIdGetResponse response = getConnector().getListById(listId,null, null);
 		assertNotNull(response);
 		assertEquals("200",response.getStatusCode());
 	}

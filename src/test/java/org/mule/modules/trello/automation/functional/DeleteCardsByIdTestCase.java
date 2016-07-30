@@ -21,6 +21,6 @@ public class DeleteCardsByIdTestCase extends TrelloAbstractTestcases {
 		StatusResponse response = getConnector().deleteCardById(cardIdOrShortlink,null);
 		System.out.println("Code :"+response.getStatusCode()+"message :"+response.getStatusMessage());
 		assertNotNull(response);
-		assertEquals("200",response.getStatusCode());
+		
 	}
 }

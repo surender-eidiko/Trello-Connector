@@ -75,158 +75,19 @@ public class TrelloClient {
 	}
 
 	
-	public BoardsByIdGetResponse getBoardById(String boardId, String actions,
-			Boolean actions_entities, Boolean actions_display,
-			String actions_format, String actions_since, Integer actions_limit,
-			String action_fields, Boolean action_member,
-			String action_member_fields, Boolean action_memberCreator,
-			String action_memberCreator_fields, String cards,
-			String card_fields, String card_attachments,
-			String card_attachment_fields, String card_checklists,
-			Boolean card_stickers, String boardStars, String labels,
-			String label_fields, Integer labels_limit, String lists,
-			String list_fields, String memberships, Boolean memberships_member,
-			String memberships_member_fields, String members,
-			String member_fields, String membersInvited,
-			String membersInvited_fields, String checklists,
-			String checklist_fields, Boolean organization,
-			String organization_fields, String organization_memberships,
-			Boolean myPrefs, Boolean tags, String fields,String token) {
+	public BoardsByIdGetResponse getBoardById(String boardId,String token) {
 
 		WebResource webResource = getApiResource().path("boards").path(boardId);
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		if (actions != null) {
-			queryParams.add("actions", actions);
-		}
-		if (actions_since != null) {
-			queryParams.add("actions_since", actions_since);
-		}
-		if (actions_limit != null) {
-			queryParams.add("actions_limit", String.valueOf(actions_limit));
-		}
-		if (action_fields != null) {
-			queryParams.add("action_fields", action_fields);
-		}
-		if (action_member != null) {
-			queryParams.add("action_member", String.valueOf(action_member));
-		}
-		if (action_member_fields != null) {
-			queryParams.add("action_member_fields", action_member_fields);
-		}
-		if (action_memberCreator != null) {
-			queryParams.add("action_memberCreator",
-					String.valueOf(action_memberCreator));
-		}
-		if (action_memberCreator_fields != null) {
-			queryParams.add("action_memberCreator_fields",
-					action_memberCreator_fields);
-		}
-		if (cards != null) {
-			queryParams.add("cards", cards);
-		}
-		if (card_fields != null) {
-			queryParams.add("card_fields", card_fields);
-		}
-		if (card_attachments != null) {
-			queryParams.add("card_attachments", card_attachments);
-		}
-		if (card_attachment_fields != null) {
-			queryParams.add("card_attachment_fields", card_attachment_fields);
-		}
-		if (card_checklists != null) {
-			queryParams.add("card_checklists", card_checklists);
-		}
-		if (card_stickers != null) {
-			queryParams.add("card_stickers", String.valueOf(card_stickers));
-		}
-		if (boardStars != null) {
-			queryParams.add("boardStars", boardStars);
-		}
-		if (labels != null) {
-			queryParams.add("labels", labels);
-		}
-		if (label_fields != null) {
-			queryParams.add("label_fields", label_fields);
-		}
-		if (labels_limit != null) {
-			queryParams.add("labels_limit", String.valueOf(labels_limit));
-		}
-		if (lists != null) {
-			queryParams.add("lists", lists);
-		}
-		if (list_fields != null) {
-			queryParams.add("list_fields", list_fields);
-		}
-		if (memberships != null) {
-			queryParams.add("memberships", memberships);
-		}
-		if (memberships_member != null) {
-			queryParams.add("memberships_member",
-					String.valueOf(memberships_member));
-		}
-		if (memberships_member_fields != null) {
-			queryParams.add("memberships_member_fields",
-					memberships_member_fields);
-		}
-		if (members != null) {
-			queryParams.add("members", members);
-		}
-		if (member_fields != null) {
-			queryParams.add("member_fields", member_fields);
-		}
-		if (membersInvited != null) {
-			queryParams.add("membersInvited", membersInvited);
-		}
-		if (membersInvited_fields != null) {
-			queryParams.add("membersInvited_fields", membersInvited_fields);
-		}
-		if (checklists != null) {
-			queryParams.add("checklists", checklists);
-		}
-		if (checklist_fields != null) {
-			queryParams.add("checklist_fields", checklist_fields);
-		}
-		if (organization != null) {
-			queryParams.add("organization", String.valueOf(organization));
-		}
-		if (organization_fields != null) {
-			queryParams.add("organization_fields", organization_fields);
-		}
-		if (organization_memberships != null) {
-			queryParams.add("organization_memberships",
-					organization_memberships);
-		}
-		if (myPrefs != null) {
-			queryParams.add("myPrefs", String.valueOf(myPrefs));
-		}
-		if (tags != null) {
-			queryParams.add("tags", String.valueOf(tags));
-		}
-		if (fields != null) {
-			queryParams.add("fields", fields);
-		}
-		
 		webResource = addKeyAndTokenToQueryParams(webResource,token);
 		webResource = webResource.queryParams(queryParams);
 		return (BoardsByIdGetResponse) getData(webResource,BoardsByIdGetResponse.class);
 	}
 	
-	public List<ListsUnderBoardsGetResponse> getAllListsUnderBoard(String boardId,
-			String cards, String card_fields, String filter, String fields,String token) {
+	public List<ListsUnderBoardsGetResponse> getAllListsUnderBoard(String boardId,String token) {
 		WebResource webResource = getApiResource().path("boards").path(boardId).path("lists");
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		if(cards!=null){
-			queryParams.add("cards", cards);
-		}
-		if(card_fields!=null){
-			queryParams.add("card_fields", card_fields);
-		}
-		if(filter!=null){
-			queryParams.add("filter", filter);
-		}
-		if(fields!=null){
-			queryParams.add("fields", fields);
-		}
+		
 		webResource = addKeyAndTokenToQueryParams(webResource,token);
 		webResource = webResource.queryParams(queryParams);
 		List<ListsUnderBoardsGetResponse>  list = new ArrayList<ListsUnderBoardsGetResponse>();
@@ -363,22 +224,14 @@ public class TrelloClient {
 			    return (StatusResponse) deleteData(webResource);
 	}
 //GET Lists
-	public ListsByIdGetResponse getListById(String listId, String cards, String card_fields,
-			String board, String board_fields, String fields, String token) {
+	public ListsByIdGetResponse getListById(String listId, String board, String token) {
 		WebResource webResource = getApiResource().path("lists").path(listId);
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		if(cards!=null){
-			queryParams.add("cards", cards);
-		}
-		if(card_fields!=null){
-			queryParams.add("card_fields",card_fields);
-		}
+		
 		if(board!=null){
 			queryParams.add("board", board);
 		}
-		if(board_fields!=null){
-			queryParams.add("board_fields",board_fields);
-		}
+		
 		webResource =  addKeyAndTokenToQueryParams(webResource,token);
 		webResource = webResource.queryParams(queryParams);
 		return (ListsByIdGetResponse) getData(webResource, ListsByIdGetResponse.class);
@@ -421,16 +274,7 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 	    return (CheckListsByIdGetResponse) getData(webResource,CheckListsByIdGetResponse.class);
 	}
 	
-	public BoardsByChecklistsIdGetResponse getBoardsWithChecklistId(String checklistId, String fields,String token) {
-		WebResource webResource = getApiResource().path("checklists").path(checklistId).path("board");
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-	    if (fields != null) {
-	      queryParams.add("fields", fields);
-	    }
-	    webResource =addKeyAndTokenToQueryParams(webResource,token);
-	    webResource = webResource.queryParams(queryParams);
-		return (BoardsByChecklistsIdGetResponse) getData(webResource,BoardsByChecklistsIdGetResponse.class);
-	}
+	
 	
 	//GET Webhooks
 	public WebhooksPostResponse getWebhooksById(String idWebhook,String token) {
@@ -560,16 +404,7 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 		return buildPostCardResponseObject(returnClass, clientResponse);
 	}*/
 
-	private String buildPostResponseAsString(Object request, WebResource webResource,Class<?> returnClass) {
-		WebResource.Builder builder = addHeader(webResource);
-		builder.type(MediaType.APPLICATION_JSON);
-		ObjectMapper mapper = new ObjectMapper();
-		
-		String input = convertObjectToString(request, mapper);
-		ClientResponse clientResponse = builder.post(ClientResponse.class,input);
-		return clientResponse.toString();
-	}
-	
+
 	
 	private Object putData(Object request, WebResource webResource,
 			Class<?> returnClass) {
@@ -582,14 +417,7 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 				.put(ClientResponse.class, input);
 		return buildResponseObject(returnClass, clientResponse);
 	}
-	private String buildPutResponseAsString(Object request,WebResource webResource,	Class<?> returnClass){
-		WebResource.Builder builder = addHeader(webResource);
-		builder.type(MediaType.APPLICATION_JSON);
-		ObjectMapper mapper = new ObjectMapper();
-		String input = convertObjectToString(request, mapper);
-		ClientResponse clientResponse = builder.put(ClientResponse.class, input);
-		return clientResponse.toString();
-	}
+
 	private Object deleteData(WebResource webResource) {
 		WebResource.Builder builder = addHeader(webResource);
 		ClientResponse clientResponse = builder.delete(ClientResponse.class);

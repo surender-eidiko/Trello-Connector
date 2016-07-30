@@ -23,7 +23,7 @@ public class GetBoardListsByIdTestCase extends TrelloAbstractTestcases {
 	public void testGetBoardsByIdAndLists() {
 	
 		String boardId=getBoardId();
-		List<ListsUnderBoardsGetResponse> boardsByIdAndListsGetResponse= getConnector().getAllListsUnderBoard(boardId,  null, null, null, null,null);
+		List<ListsUnderBoardsGetResponse> boardsByIdAndListsGetResponse= getConnector().getAllListsUnderBoard(boardId,null);
 		assertNotNull(boardsByIdAndListsGetResponse);
 		//assertEquals("200", boardsByIdAndListsGetResponse.getStatusCode());
 	}

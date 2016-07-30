@@ -20,7 +20,7 @@ public class GetBoardsByIdTestCase extends TrelloAbstractTestcases{
 	@Category({FunctionalTestSuite.class})
 	public void testGetBoardsById() {
 		String boardId=getBoardId();
-		BoardsByIdGetResponse boardsByIdGetResponse=getConnector().getBoardById(boardId, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,null);
+		BoardsByIdGetResponse boardsByIdGetResponse=getConnector().getBoardById(boardId,null);
 		assertNotNull(boardsByIdGetResponse);
 	}
 

@@ -96,7 +96,7 @@ This document describes implementation examples within the context of Anypoint S
 
 
 === Compatibility Matrix
-The Cisco Spark Connector is compatible with:
+The Trello Spark Connector is compatible with:
 
 Application/Service	     Version
 Mule Run-time	3.7.0 or later
@@ -110,7 +110,7 @@ Mule Run-time	3.7.0 or later
 === Installing
 
 You can install a connector in Anypoint Studio using the instructions in Installing a Connector from Anypoint Exchange
-As we can see in the image below the Cisco Tropo Connector is available in connectors palette.
+As we can see in the image below the Trello Connector is available in connectors palette.
 image::palette.jpg[]
 
 === Configuring
@@ -236,7 +236,7 @@ image::httpGlobalProperties.jpg[]
 |title|Mule Board
 |===
 
-5. Add a Object to Json transformer to your muleflow after the CiscoSparkConnector
+5. Add a Object to Json transformer to your muleflow after the Trello connector.
  <json:object-to-json-transformer doc:name="Object to JSON"/>
 ....
 

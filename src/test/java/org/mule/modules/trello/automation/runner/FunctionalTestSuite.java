@@ -20,7 +20,6 @@ import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
 	DeleteWebhookByIdTestCase.class,
 	GetAllBoardsTestCase.class,
 	GetBoardListsByIdTestCase.class,
-	GetBoardsByChecklistIdTestCase.class,
 	GetBoardsByIdTestCase.class,
 	GetCardsByIdTestCase.class,
 	GetChecklistsByIdTestCase.class,
@@ -36,6 +35,9 @@ import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
 	TrelloAbstractTestcases.class,
 	UpdateListsByIdTestCase.class,
 	UpdateWebhooksByIdTestCase.class,
+	FetchMetaDataTestCases.class,
+	FetchMetaDataKeyTestCases.class,
+	
 	UpdateWebhookTestCase.class })
 public class FunctionalTestSuite {
 	@BeforeClass

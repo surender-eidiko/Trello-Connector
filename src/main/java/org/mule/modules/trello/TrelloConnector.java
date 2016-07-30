@@ -119,14 +119,8 @@ public class TrelloConnector {
 	 */
 	//Boards GET Methods
 	@Processor
-	public BoardsByIdGetResponse getBoardById(String boardId,@Optional String actions,
-			@Optional Boolean actions_entities,	@Optional Boolean actions_display, @Optional String actions_format,
-			@Optional String actions_since,@Optional Integer actions_limit,@Optional String action_fields,@Optional Boolean action_member,@Optional String action_member_fields,@Optional Boolean action_memberCreator,@Optional String action_memberCreator_fields,@Optional String cards,@Optional String card_fields,@Optional String card_attachments,@Optional String card_attachment_fields,@Optional String card_checklists,@Optional Boolean card_stickers,@Optional String boardStars,@Optional String labels,@Optional String label_fields,@Optional Integer labels_limit,
-			@Optional String lists,@Optional String list_fields,@Optional String memberships,@Optional Boolean memberships_member,@Optional String memberships_member_fields,@Optional String members,@Optional String member_fields,@Optional String membersInvited,@Optional String membersInvited_fields,@Optional String checklists,@Optional String checklist_fields,@Optional Boolean organization,@Optional String organization_fields,@Optional String organization_memberships,@Optional Boolean myPrefs,@Optional Boolean tags ,@Optional String fields,@Optional
-			   String token) {
-		return getClient().getBoardById(boardId,actions, actions_entities, actions_display, actions_format,actions_since, actions_limit, action_fields,
-				action_member,action_member_fields,action_memberCreator,action_memberCreator_fields,cards,card_fields,card_attachments,card_attachment_fields,card_checklists,
-				card_stickers,boardStars,labels,label_fields,labels_limit,lists,list_fields,memberships,memberships_member,memberships_member_fields,members,member_fields,membersInvited,membersInvited_fields,checklists,checklist_fields,organization,organization_fields,organization_memberships,myPrefs,tags,fields,token);
+	public BoardsByIdGetResponse getBoardById(String boardId,String token) {
+		return getClient().getBoardById(boardId,token);
 	}
 	
 	/**
@@ -143,8 +137,8 @@ public class TrelloConnector {
 	 * @return the all lists under board
 	 */
 	@Processor
-	public List<ListsUnderBoardsGetResponse> getAllListsUnderBoard(String boardId,@Optional String cards,@Optional String card_fields,@Optional String filter,@Optional String fields,String token){
-		return getClient().getAllListsUnderBoard(boardId,cards,card_fields,filter,fields,token);
+	public List<ListsUnderBoardsGetResponse> getAllListsUnderBoard(String boardId,String token){
+		return getClient().getAllListsUnderBoard(boardId,token);
 	}
 
 	// Board PUT Methods
@@ -295,8 +289,8 @@ public class TrelloConnector {
 	 */
 
 	@Processor
-	public ListsByIdGetResponse getListById(String listId,@Optional String cards,@Optional String card_fields,@Optional String board,@Optional String board_fields,@Optional String fields,String token) {
-		return getClient().getListById( listId,  cards,  card_fields,  board,  board_fields,  fields,  token);
+	public ListsByIdGetResponse getListById(String listId,@Optional String board,String token) {
+		return getClient().getListById( listId, board,  token);
 	}
 	
 	
@@ -349,19 +343,7 @@ public class TrelloConnector {
 		  return getClient().getChecklistsById(checklistId,cards,card_fields,checkItems,checkItem_fields,fields,token);
 		}
 
-		/**
-		 * Gets the board with checklist id.
-		 * {@sample.xml ../../../doc/trello-connector.xml.sample Trello:get-boards-with-checklist-id}
-		 *
-		 * @param checklistId the checklist id
-		 * @param fields the fields
-		 * @param token the token
-		 * @return the boards with checklist id
-		 */
-		@Processor
-		  public BoardsByChecklistsIdGetResponse getBoardWithChecklistId(String checklistId,@Optional String fields,String token) {
-		    return getClient().getBoardsWithChecklistId(checklistId,fields,token);
-		 }
+
 		
     //WebHooks GET Methods
   	/**

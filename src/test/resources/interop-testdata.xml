@@ -13,7 +13,7 @@
                 <attribute name="name" use="required" caption="Name" group="Basic Settings" type="name" javaType="java.lang.String" category="General"></attribute>
                 <attribute name="url" use="optional" caption="Url" group="General" type="string" javaType="java.lang.String" default="https://api.trello.com/1" category="General"></attribute>
                 <attribute name="apiKey" use="optional" caption="Api Key" group="General" type="string" javaType="java.lang.String" default="d241182640252f708e19d236f3f72b26" category="General"></attribute>
-                <attribute name="apiToken" use="optional" caption="Api Token" group="General" type="string" javaType="java.lang.String" default="a1e6efaacbd06b770a8fa76e1be5706f2f117e921070b33eca308f3bfca7fefd" category="General"></attribute>
+                <attribute name="apiToken" use="optional" caption="Api Token" group="General" type="string" javaType="java.lang.String" default="32b320d36043e42db2e849ed232a6373ddf8ff3d4fd870594e7f04126db47511" category="General"></attribute>
             </attributes>
         </config>
     </global-config>
@@ -6851,6 +6851,7 @@
                 <attribute name="fields" use="optional" caption="Fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
                 <attribute name="token" use="optional" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
             </attributes>
+            <childElements/>
         </processor>
         <processor name="putBoardById" xmlName="put-board-by-id" caption="Put board by id">
             <properties>
@@ -7008,6 +7009,7 @@
                 <attribute name="fields" use="optional" caption="Fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
                 <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
             </attributes>
+            <childElements/>
         </processor>
         <processor name="updateCardById" xmlName="update-card-by-id" caption="Update card by id">
             <properties>
@@ -7093,6 +7095,7 @@
                 <attribute name="cardIdOrShortLink" use="required" caption="Card Id Or Short Link" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
                 <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
             </attributes>
+            <childElements/>
         </processor>
         <processor name="updateListById" xmlName="update-list-by-id" caption="Update list by id">
             <properties>
@@ -7167,6 +7170,7 @@
                 <attribute name="fields" use="optional" caption="Fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
                 <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
             </attributes>
+            <childElements/>
         </processor>
     </message-processors>
 </connector>

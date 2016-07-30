@@ -6317,6 +6317,7 @@
             <attributes>
                 <attribute name="boardId" use="required" caption="Board Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
             </attributes>
+            <childElements/>
         </processor>
         <processor name="putBoardById" xmlName="put-board-by-id" caption="Put board by id">
             <properties>
@@ -6327,6 +6328,7 @@
             <attributes>
                 <attribute name="boardId" use="required" caption="Board Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
             </attributes>
+            <childElements/>
         </processor>
         <processor name="postBoard" xmlName="post-board" caption="Post board">
             <properties>
@@ -6337,6 +6339,7 @@
             <attributes>
                 <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
             </attributes>
+            <childElements/>
         </processor>
         <processor name="getCardById" xmlName="get-card-by-id" caption="Get card by id">
             <properties>
@@ -6348,6 +6351,7 @@
                 <attribute name="cardIdOrShortlink" use="required" caption="Card Id Or Shortlink" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
                 <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
             </attributes>
+            <childElements/>
         </processor>
         <processor name="updateCardById" xmlName="update-card-by-id" caption="Update card by id">
             <properties>
@@ -6359,6 +6363,7 @@
                 <attribute name="cardIdOrShortlink" use="required" caption="Card Id Or Shortlink" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
                 <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
             </attributes>
+            <childElements/>
         </processor>
         <processor name="createCard" xmlName="create-card" caption="Create card">
             <properties>
@@ -6369,6 +6374,7 @@
             <attributes>
                 <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
             </attributes>
+            <childElements/>
         </processor>
         <processor name="deleteCardById" xmlName="delete-card-by-id" caption="Delete card by id">
             <properties>
@@ -6380,6 +6386,7 @@
                 <attribute name="cardIdOrShortLink" use="required" caption="Card Id Or Short Link" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
                 <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
             </attributes>
+            <childElements/>
         </processor>
         <processor name="updateListById" xmlName="update-list-by-id" caption="Update list by id">
             <properties>
@@ -6391,6 +6398,7 @@
                 <attribute name="listId" use="required" caption="List Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
                 <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
             </attributes>
+            <childElements/>
         </processor>
         <processor name="createList" xmlName="create-list" caption="Create list">
             <properties>
@@ -6401,6 +6409,7 @@
             <attributes>
                 <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
             </attributes>
+            <childElements/>
         </processor>
         <processor name="getBoardWithChecklistId" xmlName="get-board-with-checklist-id" caption="Get board with checklist id">
             <properties>
@@ -6412,6 +6421,7 @@
                 <attribute name="checklistId" use="required" caption="Checklist Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
                 <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
             </attributes>
+            <childElements/>
         </processor>
     </message-processors>
 </connector>
