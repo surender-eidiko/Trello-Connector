@@ -434,7 +434,6 @@ public class TrelloConnector {
   	 * @param card_attachments the card_attachments
   	 * @param card_attachment_fields the card_attachment_fields
   	 * @param card_stickers the card_stickers
-  	 * @param boards the boards
   	 * @param board_fields the board_fields
   	 * @param board_actions the board_actions
   	 * @param board_actions_entities the board_actions_entities
@@ -451,8 +450,6 @@ public class TrelloConnector {
   	 * @param boardsInvited_fields the boards invited_fields
   	 * @param boardStars the board stars
   	 * @param savedSearches the saved searches
-  	 * @param organizations the organizations
-  	 * @param organization_fields the organization_fields
   	 * @param organization_paid_account the organization_paid_account
   	 * @param organizationsInvited the organizations invited
   	 * @param organizationsInvited_fields the organizations invited_fields
@@ -476,8 +473,8 @@ public class TrelloConnector {
   	 */
   	
 	  @Processor
-		public MemberByIdGetresponse getMemberByIdOrUsername(String idOrUserName,String token){
-			return getClient().getMemberByIdOrUsername(idOrUserName,token);
+		public MemberByIdGetresponse getMemberByIdOrUsername(String idOrUserName,@Optional String fields,@Default("all") String boards,@Default("all") String organizations,@Optional String organization_fields, String token){
+			return getClient().getMemberByIdOrUsername(idOrUserName,fields,boards,organizations,organization_fields,token); 
 		}
 	  
 	  /**

@@ -313,15 +313,19 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 	}
 
 	//members API
-	public MemberByIdGetresponse getMemberByIdOrUsername(String id,String token){
+	public MemberByIdGetresponse getMemberByIdOrUsername(String id,String fields, String boards, String organizations, String organization_fields, String token){
 		WebResource webResource =null;
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		if(id.equals("me")){
 			 webResource = getApiResource().path("members").path("me");
 		}else{
 			 webResource = getApiResource().path("members").path(id);
 		}
 		
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		 queryParams.add("fields", "username,fullName,url,email");
+		 queryParams.add("boards", boards);
+		 queryParams.add("organizations", organizations);
+		 queryParams.add("organization_fields", "displayName");
 		
 		webResource = addKeyAndTokenToQueryParams(webResource,token);
 		webResource = webResource.queryParams(queryParams);
