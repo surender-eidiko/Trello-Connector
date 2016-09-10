@@ -48,7 +48,6 @@ import org.mule.modules.trello.config.ConnectorConfig;
  */
 
 @Connector(name = "Trello", friendlyName = "Trello", minMuleVersion = "3.7.2")
-@RequiresEnterpriseLicense
 @MetaDataScope(DataSenseResolver.class)
 public class TrelloConnector {
 
@@ -415,64 +414,20 @@ public class TrelloConnector {
 	    return  getClient().deleteWebhookById(idWebhook,token);
 	  }
   //Members API 
-  	/**
-  	 * Gets the member by id or username.
-  	 * {@sample.xml ../../../doc/trello-connector.xml.sample Trello:get-member-by-id-username}
-  	 *
-  	 * @param idOrUserName the id
-  	 * @param actions the actions
-  	 * @param actions_entities the actions_entities
-  	 * @param actions_display the actions_display
-  	 * @param actions_limit the actions_limit
-  	 * @param action_fields the action_fields
-  	 * @param action_since the action_since
-  	 * @param action_before the action_before
-  	 * @param cards the cards
-  	 * @param card_fields the card_fields
-  	 * @param card_members the card_members
-  	 * @param card_member_fields the card_member_fields
-  	 * @param card_attachments the card_attachments
-  	 * @param card_attachment_fields the card_attachment_fields
-  	 * @param card_stickers the card_stickers
-  	 * @param board_fields the board_fields
-  	 * @param board_actions the board_actions
-  	 * @param board_actions_entities the board_actions_entities
-  	 * @param board_actions_display the board_actions_display
-  	 * @param board_actions_format the board_actions_format
-  	 * @param board_actions_since the board_actions_since
-  	 * @param board_actions_limit the board_actions_limit
-  	 * @param board_action_fields the board_action_fields
-  	 * @param board_lists the board_lists
-  	 * @param board_memberships the board_memberships
-  	 * @param board_organization the board_organization
-  	 * @param board_organization_fields the board_organization_fields
-  	 * @param boardsInvited the boards invited
-  	 * @param boardsInvited_fields the boards invited_fields
-  	 * @param boardStars the board stars
-  	 * @param savedSearches the saved searches
-  	 * @param organization_paid_account the organization_paid_account
-  	 * @param organizationsInvited the organizations invited
-  	 * @param organizationsInvited_fields the organizations invited_fields
-  	 * @param notifications the notifications
-  	 * @param notifications_entities the notifications_entities
-  	 * @param notifications_display the notifications_display
-  	 * @param notifications_limit the notifications_limit
-  	 * @param notification_fields the notification_fields
-  	 * @param notification_memberCreator the notification_member creator
-  	 * @param notification_memberCreator_fields the notification_member creator_fields
-  	 * @param notification_before the notification_before
-  	 * @param notification_since the notification_since
-  	 * @param tokens the tokens
-  	 * @param paid_account the paid_account
-  	 * @param boardBackgrounds the board backgrounds
-  	 * @param customBoardBackgrounds the custom board backgrounds
-  	 * @param customStickers the custom stickers
-  	 * @param customEmoji the custom emoji
-  	 * @param fields the fields
-  	 * @return the member by id or username
-  	 */
   	
-	  @Processor
+  	
+	  /**
+   * Gets the member by id or username.
+   *
+   * @param idOrUserName the id or user name
+   * @param fields the fields
+   * @param boards the boards
+   * @param organizations the organizations
+   * @param organization_fields the organization_fields
+   * @param token the token
+   * @return the member by id or username
+   */
+  @Processor
 		public MemberByIdGetresponse getMemberByIdOrUsername(String idOrUserName,@Optional String fields,@Default("all") String boards,@Default("all") String organizations,@Optional String organization_fields, String token){
 			return getClient().getMemberByIdOrUsername(idOrUserName,fields,boards,organizations,organization_fields,token); 
 		}
