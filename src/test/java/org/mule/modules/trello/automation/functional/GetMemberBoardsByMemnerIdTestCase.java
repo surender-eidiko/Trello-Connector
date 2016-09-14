@@ -22,7 +22,6 @@ public class GetMemberBoardsByMemnerIdTestCase extends TrelloAbstractTestcases  
 	public void testgetBoardMemberShipsById() {
 		String memberId =getMemberId();
 		List<MembersBoardsGetResponse> response =  getConnector().getBoards(memberId,null);
-		System.out.println(response.toString());
 		assertNotNull(response);
 		//assertEquals("200",response.getStatusCode());
 	}

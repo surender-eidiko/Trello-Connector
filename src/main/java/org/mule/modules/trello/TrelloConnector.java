@@ -4,15 +4,12 @@
 package org.mule.modules.trello;
 
 import java.util.List;
-import java.util.Map;
 
 import org.mule.api.annotations.Config;
 import org.mule.api.annotations.Connector;
-import org.mule.api.annotations.MetaDataScope;
 import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.lifecycle.Start;
 import org.mule.api.annotations.param.Default;
-import org.mule.api.annotations.param.MetaDataKeyParam;
 import org.mule.api.annotations.param.Optional;
 import org.mule.modules.trello.bean.BoardsByIdGetResponse;
 import org.mule.modules.trello.bean.BoardsByIdPutRequest;
@@ -42,7 +39,6 @@ import org.mule.modules.trello.config.ConnectorConfig;
  * 
  */
 @Connector(name = "Trello", friendlyName = "Trello", minMuleVersion = "3.7.2")
-@MetaDataScope(DataSenseResolver.class)
 public class TrelloConnector {
 
 	/** The config. */
@@ -420,9 +416,9 @@ public class TrelloConnector {
    * @return the member by id or username
    */
   @Processor
-		public MemberByIdGetresponse getMemberByIdOrUsername(String idOrUserName,@Default("all") String boards,@Default("all") String organizations, String token){
-			return getClient().getMemberByIdOrUsername(idOrUserName,boards,organizations,token); 
-		}
+	public MemberByIdGetresponse getMemberByIdOrUsername(@Default("all") String boards,@Default("all") String organizations, String token){
+		return getClient().getMemberByIdOrUsername(boards,organizations,token); 
+	}
 	  
 	  /**
 	  	 * Gets  all the boards of the member.
@@ -501,22 +497,5 @@ public class TrelloConnector {
 		return client;
 	}
 
-	
-	
-	/**
-	 * Adds the entity.
-	 *
-	 * @param key the key
-	 * @param entity the entity
-	 * @return the map
-	 */
-	@Processor
-	public Map<String, Object> addEntity(@MetaDataKeyParam String key,
-			@Default("#[payload]") Map<String, Object> entity) {
-		/*
-		 * USE THE KEY AND THE MAP TO DO SOMETHING
-		 */
-		return entity;
-	}
 
 }

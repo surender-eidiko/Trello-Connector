@@ -64,11 +64,6 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	public String getWebhookId(){
 		return "57d8d77f351d3414d9f054c2";
 	}
-	
-	public String getMemberIdOrName(){
-		return "me";
-	}
-	
 	public BoardsByIdPutRequest getBoardsByIdPutRequest(){
 		BoardsByIdPutRequest req = new BoardsByIdPutRequest();
 		req.setName("Name Me First");

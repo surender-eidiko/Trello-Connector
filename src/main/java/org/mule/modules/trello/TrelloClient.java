@@ -13,8 +13,6 @@ import java.util.logging.Logger;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -73,236 +71,274 @@ public class TrelloClient {
 				.getConfig().getUrl());
 	}
 
-	
-	public BoardsByIdGetResponse getBoardById(String boardId,String token) {
+	public BoardsByIdGetResponse getBoardById(String boardId, String token) {
 
 		WebResource webResource = getApiResource().path("boards").path(boardId);
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		webResource = addKeyAndTokenToQueryParams(webResource,token);
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
 		webResource = webResource.queryParams(queryParams);
-		return (BoardsByIdGetResponse) getData(webResource,BoardsByIdGetResponse.class);
-	}
-	
-	public List<ListsUnderBoardsGetResponse> getAllListsUnderBoard(String boardId,String token) {
-		WebResource webResource = getApiResource().path("boards").path(boardId).path("lists");
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		
-		webResource = addKeyAndTokenToQueryParams(webResource,token);
-		webResource = webResource.queryParams(queryParams);
-		List<ListsUnderBoardsGetResponse>  list = new ArrayList<ListsUnderBoardsGetResponse>();
-		return (List<ListsUnderBoardsGetResponse>) getListData(webResource,list.getClass());
-	}
-//Boards PUT method requests
-	public BoardsByIdPutResponse putBoardsById(String boardId,BoardsByIdPutRequest boardsByIdPutReq,String token) {
-		WebResource webResource = getApiResource().path("boards").path(boardId);
-		webResource = addKeyAndTokenToQueryParams(webResource,token);
-		return (BoardsByIdPutResponse) putData(boardsByIdPutReq,webResource, BoardsByIdPutResponse.class);
-	}
-	//Boards POST methods
-	public BoardsPostResponse postBoard(BoardsPostRequest boardssPostRequest,String token) {
-		 WebResource webResource = getApiResource().path("boards");
-		 webResource = addKeyAndTokenToQueryParams(webResource,token);
-		    return (BoardsPostResponse) postData(boardssPostRequest, webResource,
-		    		BoardsPostResponse.class);
-	}
-	//Delete boards
-	public StatusResponse deleteMemberUnderBoardById(String boardId,String memberId,String token) {
-		 WebResource webResource = getApiResource().path("boards").path(boardId).path("members").path(memberId);
-			webResource = addKeyAndTokenToQueryParams(webResource,token);
-		    return (StatusResponse) deleteData(webResource);
-	}
-	//Cards Client Methods
-	public CardsByIdGetResponse getCardById(String cardIdOrShortlink, String token) {
-		WebResource webResource = getApiResource().path("cards").path(cardIdOrShortlink);
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		webResource =  addKeyAndTokenToQueryParams(webResource,token);
-		webResource = webResource.queryParams(queryParams);
-		return (CardsByIdGetResponse) getData(webResource,
-				CardsByIdGetResponse.class);
-	}
-	//PUT Methods for Card
-	public CardsByIdGetResponse updateCardById(String cardIdOrShortlink,CardsByIdPutRequest membershipsIdPutRequest,String token) {
-		WebResource webResource = getApiResource().path("cards").path(cardIdOrShortlink);
-			webResource = addKeyAndTokenToQueryParams(webResource,token);
-	    return (CardsByIdGetResponse) putData(membershipsIdPutRequest, webResource,CardsByIdGetResponse.class);
-	}
-	
-	//Cards POST methods
-	public CardsByIdGetResponse createCard(CardsPostRequest cardsPostReq,String token) {
-		WebResource webResource = getApiResource().path("cards");
-		webResource = addKeyAndTokenToQueryParams(webResource,token);
-	    return (CardsByIdGetResponse) postData(cardsPostReq, webResource,CardsByIdGetResponse.class);
-	}
-	//delete cards
-	public StatusResponse deleteCardById(String cardIdOrShortLink,String token) {
-		 WebResource webResource = getApiResource().path("cards").path(cardIdOrShortLink);
-		 webResource = addKeyAndTokenToQueryParams(webResource,token);
-			    return (StatusResponse) deleteData(webResource);
-	}
-//GET Lists
-	public ListsByIdGetResponse getListById(String listId, String board, String token) {
-		WebResource webResource = getApiResource().path("lists").path(listId);
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		
-		if(board!=null){
-			queryParams.add("board", board);
-		}
-		
-		webResource =  addKeyAndTokenToQueryParams(webResource,token);
-		webResource = webResource.queryParams(queryParams);
-		return (ListsByIdGetResponse) getData(webResource, ListsByIdGetResponse.class);
-	}
-	
-	//PUT methods for Lists
-		public ListsByIdGetResponse updateListById(String listId,ListsByIdPutRequest listsPutReq,String token) {
-			WebResource webResource = getApiResource().path("lists").path(listId);
-			webResource=	addKeyAndTokenToQueryParams(webResource,token);
-		    return (ListsByIdGetResponse) putData(listsPutReq, webResource, ListsByIdGetResponse.class);
-		}
-	//POST Lists
-public ListPostResponse createList(ListsPostRequest listssPostReq, String token) {
-	WebResource webResource = getApiResource().path("lists");
-	webResource = addKeyAndTokenToQueryParams(webResource,token);
-	return (ListPostResponse) postData(listssPostReq, webResource, ListPostResponse.class);
+		return (BoardsByIdGetResponse) getData(webResource,
+				BoardsByIdGetResponse.class);
 	}
 
-//Checklists GET methods
-	public CheckListsByIdGetResponse getChecklistsById(String checklistId,String cards, String card_fields, String checkItems,String checkItem_fields, String fields,String token) {
-		WebResource webResource = getApiResource().path("checklists").path(checklistId);
-	    MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-	    if (cards != null) {
-	      queryParams.add("cards", cards);
-	    }
-	    if (card_fields != null) {
-	      queryParams.add("card_fields", card_fields);
-	    }
-	    if (checkItems != null) {
-		      queryParams.add("max", checkItems);
-		    }
-	    if (checkItem_fields != null) {
-		      queryParams.add("max", checkItem_fields);
-		    }
-	    if (fields != null) {
-		      queryParams.add("fields", fields);
-		    }
-	    webResource = addKeyAndTokenToQueryParams(webResource,token);
-	    webResource = webResource.queryParams(queryParams);
-	    return (CheckListsByIdGetResponse) getData(webResource,CheckListsByIdGetResponse.class);
-	}
-	
-	
-	
-	//GET Webhooks
-	public WebhooksPostResponse getWebhooksById(String idWebhook,String token) {
-		WebResource webResource = getApiResource().path("webhooks").path(idWebhook);
+	@SuppressWarnings("unchecked")
+	public List<ListsUnderBoardsGetResponse> getAllListsUnderBoard(
+			String boardId, String token) {
+		WebResource webResource = getApiResource().path("boards").path(boardId)
+				.path("lists");
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+
 		webResource = addKeyAndTokenToQueryParams(webResource, token);
-		return (WebhooksPostResponse) getData(webResource,WebhooksPostResponse.class);
+		webResource = webResource.queryParams(queryParams);
+		return (List<ListsUnderBoardsGetResponse>) getListData(webResource,ArrayList.class);
 	}
-	//PUT webhooks
-	public WebhooksPostResponse updateWebhookById(String idWebhook,WebhooksByIdPutRequest webhookPutReq,String token) {
-		WebResource webResource = getApiResource().path("webhooks").path(idWebhook);
+
+	// Boards PUT method requests
+	public BoardsByIdPutResponse putBoardsById(String boardId,
+			BoardsByIdPutRequest boardsByIdPutReq, String token) {
+		WebResource webResource = getApiResource().path("boards").path(boardId);
 		webResource = addKeyAndTokenToQueryParams(webResource, token);
-		return (WebhooksPostResponse) putData(webhookPutReq, webResource, WebhooksPostResponse.class);
+		return (BoardsByIdPutResponse) putData(boardsByIdPutReq, webResource,
+				BoardsByIdPutResponse.class);
 	}
-	public WebhooksPostResponse updateWebhook(WebhooksPutRequest webhookPutReq,String token) {
-		WebResource webResource = getApiResource().path("webhooks");
+
+	// Boards POST methods
+	public BoardsPostResponse postBoard(BoardsPostRequest boardssPostRequest,
+			String token) {
+		WebResource webResource = getApiResource().path("boards");
 		webResource = addKeyAndTokenToQueryParams(webResource, token);
-		return (WebhooksPostResponse) putData(webhookPutReq, webResource, WebhooksPostResponse.class);
+		return (BoardsPostResponse) postData(boardssPostRequest, webResource,
+				BoardsPostResponse.class);
 	}
-	//POST webhooks
-	public WebhooksPostResponse postWebhook(WebhooksPutRequest webhooksPostReq, String token) {
-		WebResource webResource = getApiResource().path("webhooks");
-		webResource = addKeyAndTokenToQueryParams(webResource, token);
-		return (WebhooksPostResponse) postData(webhooksPostReq, webResource, WebhooksPostResponse.class);
-	}
-	//DELETE Webhooks 
-	public StatusResponse deleteWebhookById(String idWebhook,String token) {
-		WebResource webResource = getApiResource().path("webhooks").path(idWebhook);
+
+	// Delete boards
+	public StatusResponse deleteMemberUnderBoardById(String boardId,
+			String memberId, String token) {
+		WebResource webResource = getApiResource().path("boards").path(boardId)
+				.path("members").path(memberId);
 		webResource = addKeyAndTokenToQueryParams(webResource, token);
 		return (StatusResponse) deleteData(webResource);
 	}
 
-	//members API
-	public MemberByIdGetresponse getMemberByIdOrUsername(String id,String boards, String organizations, String token){
-		WebResource webResource =null;
+	// Cards Client Methods
+	public CardsByIdGetResponse getCardById(String cardIdOrShortlink,
+			String token) {
+		WebResource webResource = getApiResource().path("cards").path(
+				cardIdOrShortlink);
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		if(id.equals("me")){
-			 webResource = getApiResource().path("members").path("me");
-		}else{
-			 webResource = getApiResource().path("members").path(id);
-		}
-		
-		 queryParams.add("fields", "username,fullName,url,email");
-		 queryParams.add("boards", boards);
-		 queryParams.add("organizations", organizations);
-		 queryParams.add("organization_fields", "displayName");
-		
-		webResource = addKeyAndTokenToQueryParams(webResource,token);
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
 		webResource = webResource.queryParams(queryParams);
-		return (MemberByIdGetresponse) getData(webResource, MemberByIdGetresponse.class);
-		
+		return (CardsByIdGetResponse) getData(webResource,
+				CardsByIdGetResponse.class);
 	}
-	
-	public List<MembersBoardsGetResponse>  getBoards(String id,String token){
-		WebResource webResource = getApiResource().path("members").path(id).path("boards");
+
+	// PUT Methods for Card
+	public CardsByIdGetResponse updateCardById(String cardIdOrShortlink,
+			CardsByIdPutRequest membershipsIdPutRequest, String token) {
+		WebResource webResource = getApiResource().path("cards").path(
+				cardIdOrShortlink);
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
+		return (CardsByIdGetResponse) putData(membershipsIdPutRequest,
+				webResource, CardsByIdGetResponse.class);
+	}
+
+	// Cards POST methods
+	public CardsByIdGetResponse createCard(CardsPostRequest cardsPostReq,
+			String token) {
+		WebResource webResource = getApiResource().path("cards");
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
+		return (CardsByIdGetResponse) postData(cardsPostReq, webResource,
+				CardsByIdGetResponse.class);
+	}
+
+	// delete cards
+	public StatusResponse deleteCardById(String cardIdOrShortLink, String token) {
+		WebResource webResource = getApiResource().path("cards").path(
+				cardIdOrShortLink);
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
+		return (StatusResponse) deleteData(webResource);
+	}
+
+	// GET Lists
+	public ListsByIdGetResponse getListById(String listId, String board,
+			String token) {
+		WebResource webResource = getApiResource().path("lists").path(listId);
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		webResource = addKeyAndTokenToQueryParams(webResource,token);
-		webResource = webResource.queryParams(queryParams);		
-		List<MembersBoardsGetResponse> list = new ArrayList<>();
-		return (List<MembersBoardsGetResponse>) getAllBoardsData(webResource, list.getClass());
+
+		if (board != null) {
+			queryParams.add("board", board);
+		}
+
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
+		webResource = webResource.queryParams(queryParams);
+		return (ListsByIdGetResponse) getData(webResource,
+				ListsByIdGetResponse.class);
 	}
-	
+
+	// PUT methods for Lists
+	public ListsByIdGetResponse updateListById(String listId,
+			ListsByIdPutRequest listsPutReq, String token) {
+		WebResource webResource = getApiResource().path("lists").path(listId);
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
+		return (ListsByIdGetResponse) putData(listsPutReq, webResource,
+				ListsByIdGetResponse.class);
+	}
+
+	// POST Lists
+	public ListPostResponse createList(ListsPostRequest listssPostReq,
+			String token) {
+		WebResource webResource = getApiResource().path("lists");
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
+		return (ListPostResponse) postData(listssPostReq, webResource,
+				ListPostResponse.class);
+	}
+
+	// Checklists GET methods
+	public CheckListsByIdGetResponse getChecklistsById(String checklistId,
+			String cards, String card_fields, String checkItems,
+			String checkItem_fields, String fields, String token) {
+		WebResource webResource = getApiResource().path("checklists").path(
+				checklistId);
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		if (cards != null) {
+			queryParams.add("cards", cards);
+		}
+		if (card_fields != null) {
+			queryParams.add("card_fields", card_fields);
+		}
+		if (checkItems != null) {
+			queryParams.add("max", checkItems);
+		}
+		if (checkItem_fields != null) {
+			queryParams.add("max", checkItem_fields);
+		}
+		if (fields != null) {
+			queryParams.add("fields", fields);
+		}
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
+		webResource = webResource.queryParams(queryParams);
+		return (CheckListsByIdGetResponse) getData(webResource,
+				CheckListsByIdGetResponse.class);
+	}
+
+	// GET Webhooks
+	public WebhooksPostResponse getWebhooksById(String idWebhook, String token) {
+		WebResource webResource = getApiResource().path("webhooks").path(
+				idWebhook);
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
+		return (WebhooksPostResponse) getData(webResource,
+				WebhooksPostResponse.class);
+	}
+
+	// PUT webhooks
+	public WebhooksPostResponse updateWebhookById(String idWebhook,
+			WebhooksByIdPutRequest webhookPutReq, String token) {
+		WebResource webResource = getApiResource().path("webhooks").path(
+				idWebhook);
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
+		return (WebhooksPostResponse) putData(webhookPutReq, webResource,
+				WebhooksPostResponse.class);
+	}
+
+	public WebhooksPostResponse updateWebhook(WebhooksPutRequest webhookPutReq,
+			String token) {
+		WebResource webResource = getApiResource().path("webhooks");
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
+		return (WebhooksPostResponse) putData(webhookPutReq, webResource,
+				WebhooksPostResponse.class);
+	}
+
+	/*
+	 * POST webhooks
+	 */
+	public WebhooksPostResponse postWebhook(WebhooksPutRequest webhooksPostReq,
+			String token) {
+		WebResource webResource = getApiResource().path("webhooks");
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
+		return (WebhooksPostResponse) postData(webhooksPostReq, webResource,WebhooksPostResponse.class);
+	}
+
+	/*
+	 * 
+	 * DELETE Webhooks
+	 */
+	public StatusResponse deleteWebhookById(String idWebhook, String token) {
+		WebResource webResource = getApiResource().path("webhooks").path(
+				idWebhook);
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
+		return (StatusResponse) deleteData(webResource);
+	}
+
+	/*
+	 * 
+	 * Members Api Calls
+	 */public MemberByIdGetresponse getMemberByIdOrUsername(String boards, String organizations, String token) {
+		WebResource webResource = getApiResource().path("members").path("me");
+		
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		
+		queryParams.add("fields", "username,fullName,url,email");
+		queryParams.add("boards", boards);
+		queryParams.add("organizations", organizations);
+		queryParams.add("organization_fields", "displayName");
+		webResource = webResource.queryParams(queryParams);
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
+		return (MemberByIdGetresponse) getData(webResource,
+				MemberByIdGetresponse.class);
+
+	}
+
 	@SuppressWarnings("unchecked")
-	public List<MembersBoardsGetResponse> getAllBoards(String token){
-		WebResource webResource = getApiResource().path("members").path("me").path("boards");
-		webResource = addKeyAndTokenToQueryParams(webResource,token);
-		List<MembersBoardsGetResponse> list = new ArrayList<>();
-		return  (List<MembersBoardsGetResponse>) getAllBoardsData(webResource, list.getClass());
+	public List<MembersBoardsGetResponse> getBoards(String id, String token) {
+		WebResource webResource = getApiResource().path("members").path(id)
+				.path("boards");
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
+		webResource = webResource.queryParams(queryParams);
+		return (List<MembersBoardsGetResponse>) getAllBoardsData(webResource,
+				ArrayList.class);
 	}
-	private Object getAllBoardsData(WebResource webResource, Class<?> returnClass) {
+
+	@SuppressWarnings("unchecked")
+	public List<MembersBoardsGetResponse> getAllBoards(String token) {
+		WebResource webResource = getApiResource().path("members").path("me")
+				.path("boards");
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
+		return (List<MembersBoardsGetResponse>) getAllBoardsData(webResource,
+				ArrayList.class);
+	}
+
+	private Object getAllBoardsData(WebResource webResource,
+			Class<?> returnClass) {
 		WebResource.Builder builder = addHeader(webResource);
 		ClientResponse clientResponse = builder.get(ClientResponse.class);
 		return buildAllBoardsResponseObject(returnClass, clientResponse);
 	}
-	
+
 	private Object getData(WebResource webResource, Class<?> returnClass) {
 		WebResource.Builder builder = addHeader(webResource);
 		ClientResponse clientResponse = builder.get(ClientResponse.class);
 		return buildResponseObject(returnClass, clientResponse);
 	}
+
 	private Object getListData(WebResource webResource, Class<?> returnClass) {
 		WebResource.Builder builder = addHeader(webResource);
 		ClientResponse clientResponse = builder.get(ClientResponse.class);
 		return buildListResponseObject(returnClass, clientResponse);
 	}
-	private String getResponseAsString(WebResource webResource, Class<String> class1) {
-	      WebResource.Builder builder = addHeader(webResource);  
-	      ClientResponse clientResponse = builder.get(ClientResponse.class);
-	      String strResponse = clientResponse.getEntity(String.class);
-	      //String obj = (String)buildResponseObject(class1, clientResponse).toString();
-	      return clientResponse.toString();
-	 }
-	private Object postData(Object request, WebResource webResource,Class<?> returnClass) {
+
+	private Object postData(Object request, WebResource webResource,
+			Class<?> returnClass) {
 		WebResource.Builder builder = addHeader(webResource);
 		builder.type(MediaType.APPLICATION_JSON);
 		ObjectMapper mapper = new ObjectMapper();
-		
+
 		String input = convertObjectToString(request, mapper);
-		ClientResponse clientResponse = builder.post(ClientResponse.class,input);
+		ClientResponse clientResponse = builder.post(ClientResponse.class,
+				input);
 		return buildResponseObject(returnClass, clientResponse);
 	}
-	/*private Object postCardData(Object request, WebResource webResource,Class<?> returnClass) {
-		WebResource.Builder builder = addHeader(webResource);
-		builder.type(MediaType.APPLICATION_JSON);
-		ObjectMapper mapper = new ObjectMapper();
-		
-		String input = convertObjectToString(request, mapper);
-		ClientResponse clientResponse = builder.post(ClientResponse.class,input);
-		return buildPostCardResponseObject(returnClass, clientResponse);
-	}*/
 
-
-	
 	private Object putData(Object request, WebResource webResource,
 			Class<?> returnClass) {
 		WebResource.Builder builder = addHeader(webResource);
@@ -320,123 +356,115 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 		ClientResponse clientResponse = builder.delete(ClientResponse.class);
 		return buildDeleteResponseObject(clientResponse);
 	}
+
 	private WebResource.Builder addHeader(WebResource webResource) {
-		WebResource.Builder builder = webResource.accept(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_OCTET_STREAM);
-		//builder.header("Authorization", trelloConnector.getConfig().getAuthorization());
+		WebResource.Builder builder = webResource.accept(
+				MediaType.APPLICATION_JSON).accept(
+				MediaType.APPLICATION_OCTET_STREAM);
 		return builder;
 	}
-	
-	/*private WebResource.Builder addHeader(WebResource webResource, String token){
-		WebResource.Builder builder = webResource.accept(MediaType.APPLICATION_JSON);
-		//builder.header("Authorization", token);
-		return builder;
-	}
-	*/
+
 	private Object buildDeleteResponseObject(ClientResponse clientResponse) {
 		StatusResponse statusResponse = new StatusResponse();
-		statusResponse.setStatusCode(String.valueOf(clientResponse.getStatus()));
+		statusResponse
+				.setStatusCode(String.valueOf(clientResponse.getStatus()));
 		return statusResponse;
 	}
+
 	private Object buildResponseObject(Class<?> returnClass,
 			ClientResponse clientResponse) {
 
 		StatusResponse statusResponse = null;
 		if (clientResponse.getStatus() == 200) {
-			statusResponse = (StatusResponse) clientResponse.getEntity(returnClass);
+			statusResponse = (StatusResponse) clientResponse
+					.getEntity(returnClass);
 			statusResponse.setStatusCode("200");
 		} else {
 			String strResponse = clientResponse.getEntity(String.class);
 			try {
 				Constructor<?> ctor = returnClass.getConstructor();
 				statusResponse = (StatusResponse) ctor.newInstance();
-				statusResponse.setStatusCode(String.valueOf(clientResponse.getStatus()));
+				statusResponse.setStatusCode(String.valueOf(clientResponse
+						.getStatus()));
 				statusResponse.setStatusMessage(strResponse);
 			} catch (Exception ex) {
 				log.log(Level.SEVERE, "Error", ex);
 			}
 		}
-		ObjectMapper mapper = new ObjectMapper();
 		return statusResponse;
 	}
-	
+
 	private Object buildListResponseObject(Class<?> returnClass,
 			ClientResponse clientResponse) {
 		StatusResponse statusResponse = null;
 		if (clientResponse.getStatus() == 200) {
 			String strResponse = clientResponse.getEntity(String.class);
 			JSONArray json = new JSONArray(strResponse);
-			List<ListsUnderBoardsGetResponse>  list = new ArrayList<ListsUnderBoardsGetResponse>();
-			for(int i=0;i<json.length();i++){                        
-			    JSONObject jsonObj = json.getJSONObject(i);
-         		
-         		try {
-         			ObjectMapper mapper = new ObjectMapper();
-         			ListsUnderBoardsGetResponse res = mapper.readValue(jsonObj.toString(), ListsUnderBoardsGetResponse.class);      
-         		    list.add(res);
-				} catch (JsonParseException e1) {
-					log.log(Level.SEVERE, "Error", e1);
-				} catch (JsonMappingException e1) {
-					log.log(Level.SEVERE, "Error", e1);
+			List<ListsUnderBoardsGetResponse> list = new ArrayList<>();
+			for (int i = 0; i < json.length(); i++) {
+				JSONObject jsonObj = json.getJSONObject(i);
+
+				try {
+					ObjectMapper mapper = new ObjectMapper();
+					ListsUnderBoardsGetResponse res = mapper.readValue(
+							jsonObj.toString(),
+							ListsUnderBoardsGetResponse.class);
+					list.add(res);
 				} catch (IOException e1) {
 					log.log(Level.SEVERE, "Error", e1);
 				}
 			}
-		
-			//statusResponse = (StatusResponse) clientResponse.getEntity(returnClass);
-			//statusResponse.setStatusCode("200");
 			return list;
 		} else {
 			String strResponse = clientResponse.getEntity(String.class);
 			try {
 				Constructor<?> ctor = returnClass.getConstructor();
 				statusResponse = (StatusResponse) ctor.newInstance();
-				statusResponse.setStatusCode(String.valueOf(clientResponse.getStatus()));
+				statusResponse.setStatusCode(String.valueOf(clientResponse
+						.getStatus()));
 				statusResponse.setStatusMessage(strResponse);
 			} catch (Exception ex) {
 				log.log(Level.SEVERE, "Error", ex);
 			}
 		}
-		ObjectMapper mapper = new ObjectMapper();
 		return statusResponse;
 	}
-	private Object buildAllBoardsResponseObject(Class<?> returnClass,ClientResponse clientResponse) {
+
+	private Object buildAllBoardsResponseObject(Class<?> returnClass,
+			ClientResponse clientResponse) {
 		StatusResponse statusResponse = null;
 		if (clientResponse.getStatus() == 200) {
 			String strResponse = clientResponse.getEntity(String.class);
 			JSONArray json = new JSONArray(strResponse);
-			List<MembersBoardsGetResponse>  list = new ArrayList<MembersBoardsGetResponse>();
-			for(int i=0;i<json.length();i++){                        
-			    JSONObject jsonObj = json.getJSONObject(i);
-         		try {
-         			ObjectMapper mapper = new ObjectMapper();
-         			MembersBoardsGetResponse res = mapper.readValue(jsonObj.toString(), MembersBoardsGetResponse.class);      
-         		    list.add(res);
-				} catch (JsonParseException e1) {
-					log.log(Level.SEVERE, "Error", e1);
-				} catch (JsonMappingException e1) {
-					log.log(Level.SEVERE, "Error", e1);
+			List<MembersBoardsGetResponse> list = new ArrayList<>();
+			for (int i = 0; i < json.length(); i++) {
+				JSONObject jsonObj = json.getJSONObject(i);
+				try {
+					ObjectMapper mapper = new ObjectMapper();
+					MembersBoardsGetResponse res = mapper.readValue(
+							jsonObj.toString(), MembersBoardsGetResponse.class);
+					list.add(res);
 				} catch (IOException e1) {
 					log.log(Level.SEVERE, "Error", e1);
-				}
+				} 
 			}
-		
-			//statusResponse = (StatusResponse) clientResponse.getEntity(returnClass);
-			//statusResponse.setStatusCode("200");
+
 			return list;
 		} else {
 			String strResponse = clientResponse.getEntity(String.class);
 			try {
 				Constructor<?> ctor = returnClass.getConstructor();
 				statusResponse = (StatusResponse) ctor.newInstance();
-				statusResponse.setStatusCode(String.valueOf(clientResponse.getStatus()));
+				statusResponse.setStatusCode(String.valueOf(clientResponse
+						.getStatus()));
 				statusResponse.setStatusMessage(strResponse);
 			} catch (Exception ex) {
 				log.log(Level.SEVERE, "Error", ex);
 			}
 		}
-		ObjectMapper mapper = new ObjectMapper();
 		return statusResponse;
 	}
+
 	private String convertObjectToString(Object request, ObjectMapper mapper) {
 		String output = "";
 
@@ -447,22 +475,24 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 		}
 		return output;
 	}
+
 	private WebResource getApiResource() {
 		return apiResource;
 	}
-	
-	private WebResource addKeyAndTokenToQueryParams(WebResource webResource, String token){
+
+	private WebResource addKeyAndTokenToQueryParams(WebResource webResource,
+			String token) {
+		String appToken = token;
+		WebResource resources = webResource;
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		String key = getTrelloConnector().getConfig().getApiKey();
-		if(token==null){
-		token = getTrelloConnector().getConfig().getApiToken();
+		if (token == null || "".equals(token)) {
+			appToken = getTrelloConnector().getConfig().getApiToken();
 		}
-		queryParams.add("key",key);
-		queryParams.add("token", token);
-		webResource = webResource.queryParams(queryParams);
-		return webResource;
+		queryParams.add("token", appToken);
+		queryParams.add("key", key);
+		resources = resources.queryParams(queryParams);
+		return resources;
 	}
-
-	
 
 }
