@@ -12,8 +12,8 @@
             <attributes>
                 <attribute name="name" use="required" caption="Name" group="Basic Settings" type="name" javaType="java.lang.String" category="General"></attribute>
                 <attribute name="url" use="optional" caption="Url" group="General" type="string" javaType="java.lang.String" default="https://api.trello.com/1" category="General"></attribute>
-                <attribute name="apiKey" use="optional" caption="Api Key" group="General" type="string" javaType="java.lang.String" default="9338edc094283fd8e41a086bad98aaf9" category="General"></attribute>
-                <attribute name="apiToken" use="optional" caption="Api Token" group="General" type="string" javaType="java.lang.String" default="0e02fc680f9b4d81a5795773e9e5dfda97d44d1886718a9c9bdbd60691a22a0a" category="General"></attribute>
+                <attribute name="apiKey" use="optional" caption="Api Key" group="General" type="string" javaType="java.lang.String" default="d241182640252f708e19d236f3f72b26" category="General"></attribute>
+                <attribute name="apiToken" use="optional" caption="Api Token" group="General" type="string" javaType="java.lang.String" default="32b320d36043e42db2e849ed232a6373ddf8ff3d4fd870594e7f04126db47511" category="General"></attribute>
             </attributes>
         </config>
     </global-config>

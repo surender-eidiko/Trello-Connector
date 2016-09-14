@@ -35,8 +35,7 @@ import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
 	TrelloAbstractTestcases.class,
 	UpdateListsByIdTestCase.class,
 	UpdateWebhooksByIdTestCase.class,
-	FetchMetaDataTestCases.class,
-	FetchMetaDataKeyTestCases.class,
+	
 	
 	UpdateWebhookTestCase.class })
 public class FunctionalTestSuite {

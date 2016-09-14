@@ -453,8 +453,8 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 			statusResponse.setStatusCode("200");
 		} else {
 			String strResponse = clientResponse.getEntity(String.class);
-			System.out.println("Status: "+clientResponse.getStatus());
-			System.out.println("response as string... "+strResponse);
+			//System.out.println("Status: "+clientResponse.getStatus());
+			//System.out.println("response as string... "+strResponse);
 			try {
 				Constructor<?> ctor = returnClass.getConstructor();
 				statusResponse = (StatusResponse) ctor.newInstance();
@@ -514,7 +514,7 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 		StatusResponse statusResponse = null;
 		if (clientResponse.getStatus() == 200) {
 			String strResponse = clientResponse.getEntity(String.class);
-			System.out.println("response as string... "+strResponse);
+			//System.out.println("response as string... "+strResponse);
 			JSONArray json = new JSONArray(strResponse);
 			List<ListsUnderBoardsGetResponse>  list = new ArrayList<ListsUnderBoardsGetResponse>();
 			for(int i=0;i<json.length();i++){                        
@@ -541,8 +541,8 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 			return list;
 		} else {
 			String strResponse = clientResponse.getEntity(String.class);
-			System.out.println("Status: "+clientResponse.getStatus());
-			System.out.println("response as string... "+strResponse);
+			//System.out.println("Status: "+clientResponse.getStatus());
+			//System.out.println("response as string... "+strResponse);
 			try {
 				Constructor<?> ctor = returnClass.getConstructor();
 				statusResponse = (StatusResponse) ctor.newInstance();
@@ -553,14 +553,14 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 			}
 		}
 		ObjectMapper mapper = new ObjectMapper();
-		System.out.println("Response: "+convertObjectToString(statusResponse, mapper));
+		//System.out.println("Response: "+convertObjectToString(statusResponse, mapper));
 		return statusResponse;
 	}
 	private Object buildAllBoardsResponseObject(Class<?> returnClass,ClientResponse clientResponse) {
 		StatusResponse statusResponse = null;
 		if (clientResponse.getStatus() == 200) {
 			String strResponse = clientResponse.getEntity(String.class);
-			System.out.println("response as string... "+strResponse);
+			//System.out.println("response as string... "+strResponse);
 			JSONArray json = new JSONArray(strResponse);
 			List<MembersBoardsGetResponse>  list = new ArrayList<MembersBoardsGetResponse>();
 			for(int i=0;i<json.length();i++){                        
@@ -586,8 +586,8 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 			return list;
 		} else {
 			String strResponse = clientResponse.getEntity(String.class);
-			System.out.println("Status: "+clientResponse.getStatus());
-			System.out.println("response as string... "+strResponse);
+			//System.out.println("Status: "+clientResponse.getStatus());
+			//System.out.println("response as string... "+strResponse);
 			try {
 				Constructor<?> ctor = returnClass.getConstructor();
 				statusResponse = (StatusResponse) ctor.newInstance();
@@ -598,7 +598,7 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 			}
 		}
 		ObjectMapper mapper = new ObjectMapper();
-		System.out.println("Response: "+convertObjectToString(statusResponse, mapper));
+		//System.out.println("Response: "+convertObjectToString(statusResponse, mapper));
 		return statusResponse;
 	}
 	private String convertObjectToString(Object request, ObjectMapper mapper) {

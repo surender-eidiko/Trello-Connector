@@ -42,29 +42,27 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	    connector = dispatcher.createMockup();
 
 	  }	
-	
-	
-	
+
 	
 	public String getMemberId(){
-		return "573aa44d31e7e4845190b84e";
+		return "5769e574ea65f1715aa74795";
 	}
 	
 	String getBoardId(){
-	return "576293cd397b285f62207dcc";
+	return "57763e76fa453a2e7a0fb68b";
 	}
 	
 	public String getIdMember(){
-		return "573aa4743816a0d9b6db2be1";
+		return "57763e76fa453a2e7a0fb68b";
 	}
 	
 	public String getListId(){
-		return "5776016c36abb96c439a98ac";
+		return "57d8deb072b1ac4f644d8c00";
 	}
 	
 	
 	public String getWebhookId(){
-		return "57767edd18e38155a20ed18a";
+		return "57d8d77f351d3414d9f054c2";
 	}
 	
 	public String getMemberIdOrName(){
@@ -80,11 +78,11 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	
 	public BoardsPostRequest getBoardsPostRequest(){
 		BoardsPostRequest req = new BoardsPostRequest();
-		req.setName("Eidiko");
+		req.setName("EidikoTest123");
 		return req;
 	}
 	public String getCardIdOrShortlink(){
-		return "5763881daa68f7b3b1fb512a";
+		return "57d8dfaee35596ab5967cda5";
 	}
 	public CardsByIdPutRequest getCardsByIdPutRequest(){
 		CardsByIdPutRequest req = new CardsByIdPutRequest();
@@ -98,13 +96,13 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	
 	public CardsPostRequest getCardsPostRequest(){
 		CardsPostRequest req= new CardsPostRequest();
-		req.setName("Test67");
-		req.setDue("2016-06-23");
+		req.setName("Testc67cc");
+		req.setDue("2016-12-23");
 		req.setIdList(getIdList());
 		return req;
 	}
 	public String getIdList(){
-		return "575e92ddf212d265218983b6";
+		return "57d8deb072b1ac4f644d8c00";
 	}
 	
 	public ListsByIdPutRequest getListsByIdPutRequest(){
@@ -116,7 +114,7 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	public ListsPostRequest getListsPostRequest(){
 		ListsPostRequest req = new ListsPostRequest();
 		req.setIdBoard(getBoardId());
-		req.setName("My List");
+		req.setName("New List");
 		return req;
 	}
 	
