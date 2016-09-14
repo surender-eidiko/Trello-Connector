@@ -11,7 +11,7 @@ import org.mule.tools.devkit.ctf.mockup.ConnectorDispatcher;
 import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
 
 
-public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
+public abstract class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 
 	private TrelloConnector connector;
 	  private ConnectorDispatcher<TrelloConnector> dispatcher;

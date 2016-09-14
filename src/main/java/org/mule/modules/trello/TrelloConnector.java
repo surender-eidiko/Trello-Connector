@@ -326,8 +326,8 @@ public class TrelloConnector {
 	 * @return the checklists by id
 	 */
 	@Processor
-		public CheckListsByIdGetResponse getChecklistsById(String checklistId,@Optional String cards,@Optional String card_fields, @Optional String checkItems,@Optional String checkItem_fields,@Optional String fields,String token) {
-		  return getClient().getChecklistsById(checklistId,cards,card_fields,checkItems,checkItem_fields,fields,token);
+		public CheckListsByIdGetResponse getChecklistsById(String checklistId,@Optional String cards,@Optional String cardFields, @Optional String checkItems,@Optional String checkItemFields,@Optional String fields,String token) {
+		  return getClient().getChecklistsById(checklistId,cards,cardFields,checkItems,checkItemFields,fields,token);
 		}
 
 

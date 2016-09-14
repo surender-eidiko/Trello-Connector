@@ -195,22 +195,22 @@ public class TrelloClient {
 
 	// Checklists GET methods
 	public CheckListsByIdGetResponse getChecklistsById(String checklistId,
-			String cards, String card_fields, String checkItems,
-			String checkItem_fields, String fields, String token) {
+			String cards, String cardFields, String checkItems,
+			String checkItemFields, String fields, String token) {
 		WebResource webResource = getApiResource().path("checklists").path(
 				checklistId);
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		if (cards != null) {
 			queryParams.add("cards", cards);
 		}
-		if (card_fields != null) {
-			queryParams.add("card_fields", card_fields);
+		if (cardFields != null) {
+			queryParams.add("card_fields", cardFields);
 		}
 		if (checkItems != null) {
 			queryParams.add("max", checkItems);
 		}
-		if (checkItem_fields != null) {
-			queryParams.add("max", checkItem_fields);
+		if (checkItemFields != null) {
+			queryParams.add("max", checkItemFields);
 		}
 		if (fields != null) {
 			queryParams.add("fields", fields);
@@ -358,10 +358,9 @@ public class TrelloClient {
 	}
 
 	private WebResource.Builder addHeader(WebResource webResource) {
-		WebResource.Builder builder = webResource.accept(
+	  return  webResource.accept(
 				MediaType.APPLICATION_JSON).accept(
 				MediaType.APPLICATION_OCTET_STREAM);
-		return builder;
 	}
 
 	private Object buildDeleteResponseObject(ClientResponse clientResponse) {

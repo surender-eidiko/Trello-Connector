@@ -32,7 +32,6 @@ import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
 	PostWebhookTestCase.class,
 	PutBoardsByIdTestCase.class,
 	PutCardsByIdTestCase.class,
-	TrelloAbstractTestcases.class,
 	UpdateListsByIdTestCase.class,
 	UpdateWebhooksByIdTestCase.class,
 	
