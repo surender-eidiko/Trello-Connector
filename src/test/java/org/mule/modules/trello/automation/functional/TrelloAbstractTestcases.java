@@ -131,7 +131,7 @@ public class TrelloAbstractTestcases extends AbstractTestCase<TrelloConnector>{
 	public WebhooksPutRequest getWebhooksPutRequest(){
 		WebhooksPutRequest req = new WebhooksPutRequest();
 		req.setIdModel(getIdMember());
-		req.setCallbackURL("http://trello.com");
+		req.setCallbackURL("http://google.com");
 		return req;
 	}
 	

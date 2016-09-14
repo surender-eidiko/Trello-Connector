@@ -1,3 +1,6 @@
+/**
+ *
+ */
 package org.mule.modules.trello.bean;
 
 import org.codehaus.jackson.annotate.JsonProperty;

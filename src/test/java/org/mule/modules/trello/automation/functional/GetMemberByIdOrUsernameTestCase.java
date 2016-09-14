@@ -1,3 +1,6 @@
+/**
+ *
+ */
 package org.mule.modules.trello.automation.functional;
 
 import static org.junit.Assert.assertEquals;
@@ -19,7 +22,7 @@ public class GetMemberByIdOrUsernameTestCase extends TrelloAbstractTestcases {
 	public void testGetMemberByIdOrUsername(){
 		String memId = getMemberIdOrName(); 
 		String fields = "username,fullName,url,email";
-		MemberByIdGetresponse response = getConnector().getMemberByIdOrUsername(memId,fields, "all", "all","displayName", null);
+		MemberByIdGetresponse response = getConnector().getMemberByIdOrUsername(memId,"all", "all", null);
 		assertNotNull(response);
 		assertEquals("200",response.getStatusCode());
 	}

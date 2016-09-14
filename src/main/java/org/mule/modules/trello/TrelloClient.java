@@ -18,7 +18,6 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.mule.modules.trello.bean.BoardsByChecklistsIdGetResponse;
 import org.mule.modules.trello.bean.BoardsByIdGetResponse;
 import org.mule.modules.trello.bean.BoardsByIdPutRequest;
 import org.mule.modules.trello.bean.BoardsByIdPutResponse;
@@ -91,8 +90,7 @@ public class TrelloClient {
 		webResource = addKeyAndTokenToQueryParams(webResource,token);
 		webResource = webResource.queryParams(queryParams);
 		List<ListsUnderBoardsGetResponse>  list = new ArrayList<ListsUnderBoardsGetResponse>();
-		return (List<ListsUnderBoardsGetResponse>) getListData(webResource,
-				list.getClass());
+		return (List<ListsUnderBoardsGetResponse>) getListData(webResource,list.getClass());
 	}
 //Boards PUT method requests
 	public BoardsByIdPutResponse putBoardsById(String boardId,BoardsByIdPutRequest boardsByIdPutReq,String token) {
@@ -114,91 +112,9 @@ public class TrelloClient {
 		    return (StatusResponse) deleteData(webResource);
 	}
 	//Cards Client Methods
-	public CardsByIdGetResponse getCardById(String cardIdOrShortlink, String actions,
-			Boolean actions_entities, Boolean actions_display,
-			Integer actions_limit, String action_fields,
-			String action_memberCreator_fields, String attachments,
-			String attachment_fields, Boolean members, String member_fields,
-			Boolean membersVoted, String memberVoted_fields,
-			Boolean checkItemStates, String checkItemState_fields,
-			String checklists, String checklist_fields, Boolean board,
-			String board_fields, Boolean list, String list_fields,
-			Boolean stickers, String sticker_fields, String fields,String token) {
+	public CardsByIdGetResponse getCardById(String cardIdOrShortlink, String token) {
 		WebResource webResource = getApiResource().path("cards").path(cardIdOrShortlink);
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		if(actions!=null){
-			queryParams.add("actions", actions);
-		}
-		if(actions_entities!=null){
-			queryParams.add("actions_entities", String.valueOf(actions_entities));
-		}
-		if(actions_display!=null){
-			queryParams.add("actions_display", String.valueOf(actions_display));
-		}
-		if(actions_limit!=null){
-			queryParams.add("actions_limit", String.valueOf(actions_limit));
-		}
-		if(action_fields!=null){
-			queryParams.add("action_fields", action_fields);
-		}
-		if(action_memberCreator_fields!=null){
-			queryParams.add("action_memberCreator_fields", action_memberCreator_fields);
-		}
-		if(attachments!=null){
-			queryParams.add("attachments", attachments);
-		}
-		if(attachment_fields!=null){
-			queryParams.add("attachment_fields", attachment_fields);
-		}
-		if(members!=null){
-			queryParams.add("members", String.valueOf(members));
-		}
-		if(member_fields!=null){
-			queryParams.add("member_fields", member_fields);
-		}
-		if(membersVoted!=null){
-			queryParams.add("membersVoted", String.valueOf(membersVoted));
-		}
-		
-		if(memberVoted_fields!=null){
-			queryParams.add("memberVoted_fields", memberVoted_fields);
-		}
-		if(checkItemStates!=null){
-			queryParams.add("checkItemStates", String.valueOf(checkItemStates));
-		}
-		if(checkItemState_fields!=null){
-			queryParams.add("checkItemState_fields", checkItemState_fields);
-		}
-		
-		if(checklists!=null){
-			queryParams.add("checklists", checklists);
-		}
-		if(checklist_fields!=null){
-			queryParams.add("checklist_fields", checklist_fields);
-		}
-		
-		if(board!=null){
-			queryParams.add("board", String.valueOf(board));
-		}
-		if(board_fields!=null){
-			queryParams.add("board_fields", board_fields);
-		}
-		if(list!=null){
-			queryParams.add("list", String.valueOf(list));
-		}
-		
-		if(list_fields!=null){
-			queryParams.add("list_fields", list_fields);
-		}
-		if(stickers!=null){
-			queryParams.add("stickers", String.valueOf(stickers));
-		}
-		if(sticker_fields!=null){
-			queryParams.add("sticker_fields", sticker_fields);
-		}
-		if(fields!=null){
-			queryParams.add("fields", fields);
-		}
 		webResource =  addKeyAndTokenToQueryParams(webResource,token);
 		webResource = webResource.queryParams(queryParams);
 		return (CardsByIdGetResponse) getData(webResource,
@@ -290,30 +206,24 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 	}
 	public WebhooksPostResponse updateWebhook(WebhooksPutRequest webhookPutReq,String token) {
 		WebResource webResource = getApiResource().path("webhooks");
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		webResource = addKeyAndTokenToQueryParams(webResource, token);
-		System.out.println("Hitting.."+webResource.toString());
 		return (WebhooksPostResponse) putData(webhookPutReq, webResource, WebhooksPostResponse.class);
 	}
 	//POST webhooks
 	public WebhooksPostResponse postWebhook(WebhooksPutRequest webhooksPostReq, String token) {
 		WebResource webResource = getApiResource().path("webhooks");
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		webResource = addKeyAndTokenToQueryParams(webResource, token);
-		System.out.println("Hitting.."+webResource.toString());
 		return (WebhooksPostResponse) postData(webhooksPostReq, webResource, WebhooksPostResponse.class);
 	}
 	//DELETE Webhooks 
 	public StatusResponse deleteWebhookById(String idWebhook,String token) {
 		WebResource webResource = getApiResource().path("webhooks").path(idWebhook);
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		webResource = addKeyAndTokenToQueryParams(webResource, token);
-		System.out.println("Hitting.."+webResource.toString());
 		return (StatusResponse) deleteData(webResource);
 	}
 
 	//members API
-	public MemberByIdGetresponse getMemberByIdOrUsername(String id,String fields, String boards, String organizations, String organization_fields, String token){
+	public MemberByIdGetresponse getMemberByIdOrUsername(String id,String boards, String organizations, String token){
 		WebResource webResource =null;
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 		if(id.equals("me")){
@@ -333,35 +243,20 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 		
 	}
 	
-	public List<MembersBoardsGetResponse>  getBoards(String id, String filter, String fields,  String actions, Boolean actions_entities, String actions_limit, 
-			String actions_format,  String actions_since, String action_fields,  String memberships, Boolean organization,  String organization_fields,  String lists,String token){
+	public List<MembersBoardsGetResponse>  getBoards(String id,String token){
 		WebResource webResource = getApiResource().path("members").path(id).path("boards");
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		
-		if(filter != null)	queryParams.add("filter", filter);
-		if(fields != null)	queryParams.add("fields", fields);
-		if(actions != null)	queryParams.add("actions", actions);
-		if(actions_entities != null)	queryParams.add("actions_entities", String.valueOf(actions_entities));
-		if(actions_limit != null)	queryParams.add("actions_limit", actions_limit);
-		if(actions_format != null)	queryParams.add("actions_format", actions_format);
-		if(actions_since != null)	queryParams.add("actions_since", actions_since);
-		if(action_fields != null)	queryParams.add("action_fields", action_fields);
-		if(memberships != null)	queryParams.add("memberships", memberships);
-		if(organization != null)	queryParams.add("organization", String.valueOf(organization));
-		if(organization_fields != null)	queryParams.add("organization_fields", organization_fields);
-		if(lists != null)	queryParams.add("lists", lists);
-		
 		webResource = addKeyAndTokenToQueryParams(webResource,token);
 		webResource = webResource.queryParams(queryParams);		
-		System.out.println("Hitting URL :"+webResource.toString());
-		List<MembersBoardsGetResponse> list = new ArrayList<MembersBoardsGetResponse>();
+		List<MembersBoardsGetResponse> list = new ArrayList<>();
 		return (List<MembersBoardsGetResponse>) getAllBoardsData(webResource, list.getClass());
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<MembersBoardsGetResponse> getAllBoards(String token){
 		WebResource webResource = getApiResource().path("members").path("me").path("boards");
 		webResource = addKeyAndTokenToQueryParams(webResource,token);
-		List<MembersBoardsGetResponse> list = new ArrayList<MembersBoardsGetResponse>();
+		List<MembersBoardsGetResponse> list = new ArrayList<>();
 		return  (List<MembersBoardsGetResponse>) getAllBoardsData(webResource, list.getClass());
 	}
 	private Object getAllBoardsData(WebResource webResource, Class<?> returnClass) {
@@ -384,8 +279,6 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 	      WebResource.Builder builder = addHeader(webResource);  
 	      ClientResponse clientResponse = builder.get(ClientResponse.class);
 	      String strResponse = clientResponse.getEntity(String.class);
-	      System.out.println("Response: "+strResponse);
-	      System.out.println("Client Response: "+clientResponse.toString());
 	      //String obj = (String)buildResponseObject(class1, clientResponse).toString();
 	      return clientResponse.toString();
 	 }
@@ -453,8 +346,6 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 			statusResponse.setStatusCode("200");
 		} else {
 			String strResponse = clientResponse.getEntity(String.class);
-			//System.out.println("Status: "+clientResponse.getStatus());
-			//System.out.println("response as string... "+strResponse);
 			try {
 				Constructor<?> ctor = returnClass.getConstructor();
 				statusResponse = (StatusResponse) ctor.newInstance();
@@ -465,56 +356,14 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 			}
 		}
 		ObjectMapper mapper = new ObjectMapper();
-		System.out.println("Response: "+convertObjectToString(statusResponse, mapper));
-		
 		return statusResponse;
-
 	}
-	/*private Object buildPostCardResponseObject(Class<?> returnClass,
-			ClientResponse clientResponse) {
-
-		StatusResponse statusResponse = null;
-		if (clientResponse.getStatus() == 200) {
-			//statusResponse = (StatusResponse) clientResponse.getEntity(returnClass);
-			String strResponse = clientResponse.getEntity(String.class);
-			//statusResponse.setStatusCode("200");
-			JSONObject obj = new JSONObject(strResponse);
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.configure(Feature.FAIL_ON_EMPTY_BEANS, true);
-			try {
-				CardsByIdGetResponse res = mapper.readValue(obj.toString(), CardsByIdGetResponse.class);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-		} else {
-
-			String strResponse = clientResponse.getEntity(String.class);
-			System.out.println("Status: "+clientResponse.getStatus());
-			System.out.println("response as string... "+strResponse);
-			try {
-				Constructor<?> ctor = returnClass.getConstructor();
-				statusResponse = (StatusResponse) ctor.newInstance();
-				statusResponse.setStatusCode(String.valueOf(clientResponse.getStatus()));
-				statusResponse.setStatusMessage(strResponse);
-			} catch (Exception ex) {
-				log.log(Level.SEVERE, "Error", ex);
-			}
-		}
-		ObjectMapper mapper = new ObjectMapper();
-		System.out.println("Response: "+convertObjectToString(statusResponse, mapper));
-		
-		return statusResponse;
-
-	}*/
-
+	
 	private Object buildListResponseObject(Class<?> returnClass,
 			ClientResponse clientResponse) {
 		StatusResponse statusResponse = null;
 		if (clientResponse.getStatus() == 200) {
 			String strResponse = clientResponse.getEntity(String.class);
-			//System.out.println("response as string... "+strResponse);
 			JSONArray json = new JSONArray(strResponse);
 			List<ListsUnderBoardsGetResponse>  list = new ArrayList<ListsUnderBoardsGetResponse>();
 			for(int i=0;i<json.length();i++){                        
@@ -525,14 +374,11 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
          			ListsUnderBoardsGetResponse res = mapper.readValue(jsonObj.toString(), ListsUnderBoardsGetResponse.class);      
          		    list.add(res);
 				} catch (JsonParseException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					log.log(Level.SEVERE, "Error", e1);
 				} catch (JsonMappingException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					log.log(Level.SEVERE, "Error", e1);
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					log.log(Level.SEVERE, "Error", e1);
 				}
 			}
 		
@@ -541,8 +387,6 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 			return list;
 		} else {
 			String strResponse = clientResponse.getEntity(String.class);
-			//System.out.println("Status: "+clientResponse.getStatus());
-			//System.out.println("response as string... "+strResponse);
 			try {
 				Constructor<?> ctor = returnClass.getConstructor();
 				statusResponse = (StatusResponse) ctor.newInstance();
@@ -553,14 +397,12 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 			}
 		}
 		ObjectMapper mapper = new ObjectMapper();
-		//System.out.println("Response: "+convertObjectToString(statusResponse, mapper));
 		return statusResponse;
 	}
 	private Object buildAllBoardsResponseObject(Class<?> returnClass,ClientResponse clientResponse) {
 		StatusResponse statusResponse = null;
 		if (clientResponse.getStatus() == 200) {
 			String strResponse = clientResponse.getEntity(String.class);
-			//System.out.println("response as string... "+strResponse);
 			JSONArray json = new JSONArray(strResponse);
 			List<MembersBoardsGetResponse>  list = new ArrayList<MembersBoardsGetResponse>();
 			for(int i=0;i<json.length();i++){                        
@@ -570,14 +412,11 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
          			MembersBoardsGetResponse res = mapper.readValue(jsonObj.toString(), MembersBoardsGetResponse.class);      
          		    list.add(res);
 				} catch (JsonParseException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					log.log(Level.SEVERE, "Error", e1);
 				} catch (JsonMappingException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					log.log(Level.SEVERE, "Error", e1);
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					log.log(Level.SEVERE, "Error", e1);
 				}
 			}
 		
@@ -586,8 +425,6 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 			return list;
 		} else {
 			String strResponse = clientResponse.getEntity(String.class);
-			//System.out.println("Status: "+clientResponse.getStatus());
-			//System.out.println("response as string... "+strResponse);
 			try {
 				Constructor<?> ctor = returnClass.getConstructor();
 				statusResponse = (StatusResponse) ctor.newInstance();
@@ -598,7 +435,6 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 			}
 		}
 		ObjectMapper mapper = new ObjectMapper();
-		//System.out.println("Response: "+convertObjectToString(statusResponse, mapper));
 		return statusResponse;
 	}
 	private String convertObjectToString(Object request, ObjectMapper mapper) {
@@ -609,7 +445,6 @@ public ListPostResponse createList(ListsPostRequest listssPostReq, String token)
 		} catch (Exception ex) {
 			log.log(Level.SEVERE, "Error", ex);
 		}
-		log.info("Output String = " + output);
 		return output;
 	}
 	private WebResource getApiResource() {

@@ -21,7 +21,7 @@ public class GetMemberBoardsByMemnerIdTestCase extends TrelloAbstractTestcases  
 	@Category({FunctionalTestSuite.class})
 	public void testgetBoardMemberShipsById() {
 		String memberId =getMemberId();
-		List<MembersBoardsGetResponse> response =  getConnector().getBoards(memberId, null, null, null, null, null, null, null, null, null, null, null, null,null);
+		List<MembersBoardsGetResponse> response =  getConnector().getBoards(memberId,null);
 		System.out.println(response.toString());
 		assertNotNull(response);
 		//assertEquals("200",response.getStatusCode());

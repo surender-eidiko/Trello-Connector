@@ -10,12 +10,10 @@ import org.mule.api.annotations.Config;
 import org.mule.api.annotations.Connector;
 import org.mule.api.annotations.MetaDataScope;
 import org.mule.api.annotations.Processor;
-import org.mule.api.annotations.licensing.RequiresEnterpriseLicense;
 import org.mule.api.annotations.lifecycle.Start;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.MetaDataKeyParam;
 import org.mule.api.annotations.param.Optional;
-import org.mule.modules.trello.bean.BoardsByChecklistsIdGetResponse;
 import org.mule.modules.trello.bean.BoardsByIdGetResponse;
 import org.mule.modules.trello.bean.BoardsByIdPutRequest;
 import org.mule.modules.trello.bean.BoardsByIdPutResponse;
@@ -37,16 +35,12 @@ import org.mule.modules.trello.bean.WebhooksByIdPutRequest;
 import org.mule.modules.trello.bean.WebhooksPostResponse;
 import org.mule.modules.trello.bean.WebhooksPutRequest;
 import org.mule.modules.trello.config.ConnectorConfig;
-
-
-// TODO: Auto-generated Javadoc
 /**
  * This is Cisco Spark Connector Class
  * @author Surender
  *
  * 
  */
-
 @Connector(name = "Trello", friendlyName = "Trello", minMuleVersion = "3.7.2")
 @MetaDataScope(DataSenseResolver.class)
 public class TrelloConnector {
@@ -222,10 +216,8 @@ public class TrelloConnector {
 	 */
 	//Cards GET Methods
 	@Processor
-	public CardsByIdGetResponse getCardById(String cardIdOrShortlink,@Optional String actions,@Optional Boolean actions_entities,@Optional Boolean actions_display,@Optional Integer actions_limit,@Optional String action_fields,@Optional String action_memberCreator_fields,@Optional String attachments,@Optional String attachment_fields,@Optional Boolean members,@Optional String member_fields,@Optional Boolean membersVoted,@Optional String memberVoted_fields,
-			@Optional Boolean checkItemStates,@Optional String checkItemState_fields,@Optional String checklists,@Optional String checklist_fields,@Optional Boolean board,@Optional String board_fields,@Optional Boolean list,@Optional String list_fields,@Optional Boolean stickers,@Optional String sticker_fields,@Optional String fields,String token){
-		return getClient().getCardById(cardIdOrShortlink,actions,  actions_entities,  actions_display,actions_limit,action_fields,action_memberCreator_fields,attachments,attachment_fields,  members,member_fields,  membersVoted,memberVoted_fields,
-				  checkItemStates,checkItemState_fields,checklists,checklist_fields,  board,board_fields,  list,list_fields,  stickers,sticker_fields,fields,token);
+	public CardsByIdGetResponse getCardById(String cardIdOrShortlink,String token){
+		return getClient().getCardById(cardIdOrShortlink,token);
 	}
 	
 	
@@ -428,8 +420,8 @@ public class TrelloConnector {
    * @return the member by id or username
    */
   @Processor
-		public MemberByIdGetresponse getMemberByIdOrUsername(String idOrUserName,@Optional String fields,@Default("all") String boards,@Default("all") String organizations,@Optional String organization_fields, String token){
-			return getClient().getMemberByIdOrUsername(idOrUserName,fields,boards,organizations,organization_fields,token); 
+		public MemberByIdGetresponse getMemberByIdOrUsername(String idOrUserName,@Default("all") String boards,@Default("all") String organizations, String token){
+			return getClient().getMemberByIdOrUsername(idOrUserName,boards,organizations,token); 
 		}
 	  
 	  /**
@@ -466,8 +458,8 @@ public class TrelloConnector {
   	 * @return the boards
   	 */
   	@Processor
-		public List<MembersBoardsGetResponse>  getBoards(String memberId, @Default("all") String filter, @Default("all") String fields, @Optional String actions, @Default("false") Boolean actions_entities, @Default("50") String actions_limit, @Default("list") String actions_format, @Optional String actions_since, @Default("all") String action_fields, @Default("none") String memberships, @Default("false") Boolean organization, @Optional String organization_fields, @Default("none") String lists,String token){
-			return  getClient().getBoards(memberId, filter, fields, actions, actions_entities, actions_limit, actions_format, actions_since, action_fields, memberships, organization, organization_fields, lists,token);
+		public List<MembersBoardsGetResponse>  getBoards(String memberId,String token){
+			return  getClient().getBoards(memberId,token);
 		}
 		
 	
