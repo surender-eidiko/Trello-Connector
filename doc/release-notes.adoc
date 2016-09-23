@@ -6,9 +6,9 @@
 :keywords: Trello
 
 
-The Trello Connector facilitates connections between Mule integration and CiscoSpark applications. The Trello Connector  provides to create boards, cards, lists, create Webhooks, etc.
+The Trello Connector facilitates connections between Mule integration and Trello applications. The Trello Connector  provides to create boards, cards, lists, create Webhooks, etc.
 
-*Guide:* <Connector_Guide_Link>
+*Guide:* link:/Trello-Connector/doc/user-manual.adoc[Link to User Manual]
 ////
 Points to the docs.mulesoft pages for documentation on the functional aspects of the connector. e.g.: link:/mule-user-guide/v/3.7/microsoft-sharepoint-2013-connector[Microsoft SharePoint 2013 Connector]
 ////

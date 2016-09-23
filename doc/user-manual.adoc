@@ -4,7 +4,7 @@
 
 The Trello Connector facilitates connections between Anypoint Studio and Trello Application. Trello Application brings Whether it's managing a team, writing an epic screenplay, or just making a grocery list, Trello is your sidekick for getting things done and staying organized.
 
-*Release Notes:* link:/doc/release-notes.adoc[Link to Release Notes]
+*Release Notes:* link:/Trello-Connector/doc/release-notes.adoc[Link to Release Notes]
 
 ////
 Note: existing MuleSoft documentation should be copied from right-hand column of link:https://github.com/mulesoft/mulesoft-docs/blob/master/links.csv. Links should always follow "link:"
@@ -58,25 +58,23 @@ This operation is used to shows the list by list id. +
 This operation is used to update the list by list id. +
 13. Create List +
 This operation is used to creates a list at Trello Application. +
-14. Get Checklists By Id  +
-This operation is used to show the checklists by checklist id. +
-15. Get Board With Checklist Id + 
+14. Get Board With Checklist Id + 
 This operation is used to get the board details by passing checklist id. +
-16. Get Webhooks By Id +
+15. Get Webhooks By Id +
 This operation is used to shows webhook details by webhook is. +
-17. Update Webhook By Id +
+16. Update Webhook By Id +
 This operation is used to update the webhook by webhook id. +
-18. Update Webhook +
+17. Update Webhook +
 This operation is used to update the webhook by passing the payload object.
-19. Post Webhook +
+18. Post Webhook +
 This operation is used to create a new webhook. +
-20. Delete Webhook By Id +
+19. Delete Webhook By Id +
 This operation is used to delete the webhook by webhook id. +
-21. Get Member By Id Or Username +
+20. Get Member By Id Or Username +
 This operation is used to shows the member details by passing member id. +
-22. Get All Boards +
+21. Get All Boards +
 This operation is used to shows the details of all the boards of a member. +
-23. Get Boards  +
+22. Get Boards  +
 This operation is used to  shows the details of all the boards of a member passing member id. +
 
 === Prerequisites
@@ -96,7 +94,7 @@ This document describes implementation examples within the context of Anypoint S
 
 
 === Compatibility Matrix
-The Trello Spark Connector is compatible with:
+The Trello  Connector is compatible with:
 
 Application/Service	     Version
 Mule Run-time	3.7.0 or later
