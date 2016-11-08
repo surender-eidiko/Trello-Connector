@@ -21,6 +21,7 @@ import org.mule.modules.trello.bean.BoardsByIdPutRequest;
 import org.mule.modules.trello.bean.BoardsByIdPutResponse;
 import org.mule.modules.trello.bean.BoardsPostRequest;
 import org.mule.modules.trello.bean.BoardsPostResponse;
+import org.mule.modules.trello.bean.CardListGetResponse;
 import org.mule.modules.trello.bean.CardsByIdGetResponse;
 import org.mule.modules.trello.bean.CardsByIdPutRequest;
 import org.mule.modules.trello.bean.CardsPostRequest;
@@ -131,6 +132,17 @@ public class TrelloClient {
 		return (CardsByIdGetResponse) getData(webResource,
 				CardsByIdGetResponse.class);
 	}
+	public CardListGetResponse getCardListByCardId(String cardIdOrShortlink,String token,String fields) {
+		WebResource webResource = getApiResource().path("cards").path(cardIdOrShortlink).path("list");
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		if (fields != null) {
+			queryParams.add("fields", fields);
+		}
+		webResource = addKeyAndTokenToQueryParams(webResource, token);
+		webResource = webResource.queryParams(queryParams);
+		return (CardListGetResponse) getData(webResource,CardListGetResponse.class);
+	}
+
 
 	// PUT Methods for Card
 	public CardsByIdGetResponse updateCardById(String cardIdOrShortlink,
@@ -389,7 +401,7 @@ public class TrelloClient {
 			} catch (Exception ex) {
 				log.log(Level.SEVERE, "Error", ex);
 			}
-		}
+		}		
 		return statusResponse;
 	}
 
@@ -494,4 +506,5 @@ public class TrelloClient {
 		return resources;
 	}
 
+	
 }

@@ -22,6 +22,7 @@ import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
 	GetBoardListsByIdTestCase.class,
 	GetBoardsByIdTestCase.class,
 	GetCardsByIdTestCase.class,
+	GetCardListTestCase.class,
 	GetChecklistsByIdTestCase.class,
 	GetMemberBoardsByMemnerIdTestCase.class,
 	GetMemberByIdOrUsernameTestCase.class,

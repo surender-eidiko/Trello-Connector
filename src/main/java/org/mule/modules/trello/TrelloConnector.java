@@ -16,6 +16,7 @@ import org.mule.modules.trello.bean.BoardsByIdPutRequest;
 import org.mule.modules.trello.bean.BoardsByIdPutResponse;
 import org.mule.modules.trello.bean.BoardsPostRequest;
 import org.mule.modules.trello.bean.BoardsPostResponse;
+import org.mule.modules.trello.bean.CardListGetResponse;
 import org.mule.modules.trello.bean.CardsByIdGetResponse;
 import org.mule.modules.trello.bean.CardsByIdPutRequest;
 import org.mule.modules.trello.bean.CardsPostRequest;
@@ -216,6 +217,10 @@ public class TrelloConnector {
 		return getClient().getCardById(cardIdOrShortlink,token);
 	}
 	
+	@Processor
+	public CardListGetResponse getCardListByCardId(String cardIdOrShortlink,String token, @Optional String fields){
+		return getClient().getCardListByCardId(cardIdOrShortlink,token,fields);
+	}
 	
 	/**
 	 * Update cards by id.
