@@ -384,7 +384,6 @@ public class TrelloClient {
 
 	private Object buildResponseObject(Class<?> returnClass,
 			ClientResponse clientResponse) {
-
 		StatusResponse statusResponse = null;
 		if (clientResponse.getStatus() == 200) {
 			statusResponse = (StatusResponse) clientResponse
@@ -401,8 +400,7 @@ public class TrelloClient {
 			} catch (Exception ex) {
 				log.log(Level.SEVERE, "Error", ex);
 			}
-		}		
-		return statusResponse;
+		}		return statusResponse;
 	}
 
 	private Object buildListResponseObject(Class<?> returnClass,

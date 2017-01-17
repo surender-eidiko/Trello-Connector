@@ -6423,5 +6423,17 @@
             </attributes>
             <childElements/>
         </processor>
+        <processor name="getCardListByCardId" xmlName="get-card-list-by-card-id" caption="Get card list by card id">
+            <properties>
+                <datamapper input="CardListGetResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="cardIdOrShortlink" use="required" caption="Card Id Or Shortlink" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="token" use="required" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
     </message-processors>
 </connector>

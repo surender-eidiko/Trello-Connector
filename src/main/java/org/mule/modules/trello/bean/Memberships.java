@@ -10,7 +10,7 @@ package org.mule.modules.trello.bean;
 public class Memberships {
 	
 	/** The id. */
-	private String id;
+	private String _id;
 	
 	/** The org member type. */
 	private String orgMemberType;
@@ -27,10 +27,18 @@ public class Memberships {
 	/**
 	 * Sets the org member type.
 	 *
-	 * @param orgMemberType the new org member type
+	 * @param orgMemberType th Se new org member type
 	 */
 	public void setOrgMemberType(String orgMemberType) {
 		this.orgMemberType = orgMemberType;
+	}
+
+	public String get_id() {
+		return _id;
+	}
+
+	public void set_id(String _id) {
+		this._id = _id;
 	}
 
 	/** The id member. */
@@ -63,25 +71,6 @@ public class Memberships {
 		this.deactivated = deactivated;
 	}
 
-	/**
-     * Gets the id.
-     *
-     * @return the id
-     */
-    public String getId ()
-    {
-        return id;
-    }
-
-    /**
-     * Sets the id.
-     *
-     * @param id the new id
-     */
-    public void setId (String id)
-    {
-        this.id = id;
-    }
 
     /**
      * Gets the id member.
@@ -149,7 +138,7 @@ public class Memberships {
     @Override
     public String toString()
     {
-        return "ClassPojo [id = "+id+", idMember = "+idMember+", memberType = "+memberType+", unconfirmed = "+unconfirmed+"]";
+        return "ClassPojo [id = "+_id+", idMember = "+idMember+", memberType = "+memberType+", unconfirmed = "+unconfirmed+"]";
     }
 
 }
