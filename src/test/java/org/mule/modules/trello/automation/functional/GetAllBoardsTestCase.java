@@ -22,7 +22,7 @@ public class GetAllBoardsTestCase extends TrelloAbstractTestcases {
 	@Category({FunctionalTestSuite.class})
 	public void testGetAllBoards() {
 		List<MembersBoardsGetResponse> response =  getConnector().getAllBoards(null);
-		System.out.println(response.toString());
+		System.out.println("Response :"+response.toString());
 		assertNotNull(response);
 	}
 }

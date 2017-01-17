@@ -19,13 +19,13 @@ public class ConnectorConfig {
 	
 	@Configurable
 	@Optional
-	@Default("d241182640252f708e19d236f3f72b26")
-	private String apiKey = "d241182640252f708e19d236f3f72b26";
+	@Default("9338edc094283fd8e41a086bad98aaf9")
+	private String apiKey = "9338edc094283fd8e41a086bad98aaf9";
 	
 	@Configurable
 	@Optional
-	@Default("32b320d36043e42db2e849ed232a6373ddf8ff3d4fd870594e7f04126db47511")
-	private String apiToken = "32b320d36043e42db2e849ed232a6373ddf8ff3d4fd870594e7f04126db47511";
+	@Default("0258c4b0087dab8e1197198e58890090eda3b85be5a3baa1038de4bff114037a")
+	private String apiToken = "0258c4b0087dab8e1197198e58890090eda3b85be5a3baa1038de4bff114037a";
 	
 	public String getUrl() {
 		return url;

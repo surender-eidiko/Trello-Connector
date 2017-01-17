@@ -427,8 +427,9 @@ public class TrelloClient {
 		} else {
 			String strResponse = clientResponse.getEntity(String.class);
 			try {
-				Constructor<?> ctor = returnClass.getConstructor();
-				statusResponse = (StatusResponse) ctor.newInstance();
+				//Constructor<?> ctor = returnClass.getConstructor();
+				//statusResponse = (StatusResponse) ctor.newInstance();
+				statusResponse = new StatusResponse();
 				statusResponse.setStatusCode(String.valueOf(clientResponse
 						.getStatus()));
 				statusResponse.setStatusMessage(strResponse);
@@ -458,13 +459,13 @@ public class TrelloClient {
 					log.log(Level.SEVERE, "Error", e1);
 				} 
 			}
-			
 			return list;
 		} else {
 			String strResponse = clientResponse.getEntity(String.class);
 			try {
-				Constructor<?> ctor = returnClass.getConstructor();
-				statusResponse = (StatusResponse) ctor.newInstance();
+				//Constructor<?> ctor = returnClass.getConstructor();
+				//statusResponse = (StatusResponse) ctor.newInstance();
+				statusResponse = new StatusResponse();
 				statusResponse.setStatusCode(String.valueOf(clientResponse
 						.getStatus()));
 				statusResponse.setStatusMessage(strResponse);
