@@ -442,6 +442,7 @@ public class TrelloClient {
 	private Object buildAllBoardsResponseObject(Class<?> returnClass,
 			ClientResponse clientResponse) {
 		StatusResponse statusResponse = null;
+		System.out.println("Status Code :"+clientResponse.getStatus());
 		if (clientResponse.getStatus() == 200) {
 			String strResponse = clientResponse.getEntity(String.class);
 			JSONArray json = new JSONArray(strResponse);
@@ -457,7 +458,7 @@ public class TrelloClient {
 					log.log(Level.SEVERE, "Error", e1);
 				} 
 			}
-
+			
 			return list;
 		} else {
 			String strResponse = clientResponse.getEntity(String.class);
